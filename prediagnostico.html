@@ -546,6 +546,109 @@ h4.sub-heading {
 .opp-table td { padding: 8px 12px; }
 .opp-table th { padding: 8px 12px; font-size: 10px; }
 .opp-table .badge-cell { white-space: nowrap; }
+
+/* === SECTION 15: Matriz Impacto-Esfuerzo === */
+.matrix-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 32px;
+}
+.matrix-quadrants {
+  position: absolute;
+  top: 50px;
+  left: 48px;
+  right: 16px;
+  bottom: 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+.matrix-q {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 6px;
+  opacity: 0.7;
+}
+.matrix-q.q1 { top: 0; left: 0; width: 45.45%; height: 50%; background: rgba(46,125,50,0.08); color: #2E7D32; }
+.matrix-q.q2 { top: 0; right: 0; width: 54.55%; height: 50%; background: rgba(21,101,192,0.08); color: #1565C0; }
+.matrix-q.q3 { bottom: 0; left: 0; width: 45.45%; height: 50%; background: rgba(245,127,23,0.08); color: #F57F17; }
+.matrix-q.q4 { bottom: 0; right: 0; width: 54.55%; height: 50%; background: rgba(150,150,150,0.08); color: #888; }
+
+/* Area cards grid */
+.area-section { margin: 48px 0; }
+.area-header {
+  padding: 14px 24px;
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.area-header .area-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+@media (max-width: 700px) {
+  .area-grid { grid-template-columns: 1fr; }
+}
+.opp-card-mini {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  background: white;
+  transition: box-shadow 0.3s;
+}
+.opp-card-mini:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.opp-card-mini .opp-id {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lcg-teal);
+}
+.opp-card-mini .opp-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--lcg-dark);
+  margin: 4px 0 8px;
+}
+.opp-card-mini .opp-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+.opp-card-mini .opp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Primer Proyecto table */
+.primer-proyecto-table td { font-size: 13px; }
+.primer-proyecto-table tr.highlighted { background: var(--green-light); }
 .page-logos {
   display: flex;
   justify-content: space-between;
@@ -3152,7 +3255,7 @@ h4.sub-heading {
   <div class="section-header">
     <div class="section-number">Seccion 15</div>
     <h2 class="section-title">Mapa de Oportunidades Consolidado</h2>
-    <div class="section-subtitle">50 oportunidades identificadas — 18 Procesos, 8 Digitalizacion, 20 Gestion, 4 Estrategicas</div>
+    <div class="section-subtitle">50 oportunidades identificadas &mdash; 18 Procesos, 8 Digitalizacion, 20 Gestion, 4 Estrategicas</div>
   </div>
 
   <div class="kpi-banner">
@@ -3182,74 +3285,431 @@ h4.sub-heading {
     </div>
   </div>
 
+  <!-- ===== PART 1: MATRIZ IMPACTO-ESFUERZO ===== -->
+  <h3 class="sub-heading">Matriz Impacto vs Esfuerzo</h3>
+
+  <div class="matrix-container">
+    <div class="matrix-quadrants">
+      <div class="matrix-q q1">Quick Wins</div>
+      <div class="matrix-q q2">Proyectos Estrategicos</div>
+      <div class="matrix-q q3">Mejoras Incrementales</div>
+      <div class="matrix-q q4">Evaluar Necesidad</div>
+    </div>
+    <div class="chart-container" style="max-height:520px; position:relative; z-index:1;">
+      <canvas id="chartMatrizImpacto"></canvas>
+    </div>
+  </div>
+
   <h3 class="sub-heading">Distribucion por Pilar</h3>
   <div class="chart-container" style="max-height:350px;">
     <canvas id="chartOppsPilar"></canvas>
   </div>
 
-  <h3 class="sub-heading">Inventario Completo de Oportunidades</h3>
-
-  <table class="opp-table">
-    <thead>
-      <tr><th>ID</th><th>Oportunidad</th><th>Pilar</th><th>Tipo</th><th>Imp.</th><th>Urg.</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>OPP-001</td><td>Control de avance fisico y financiero (curva S)</td><td>P7, P6</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-002</td><td>Dueno y proceso de presupuestacion formal</td><td>P3</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-003</td><td>Estructurar area de compras con proceso formal</td><td>P5</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-004</td><td>Modelo de gobierno con delegacion y visibilidad</td><td>TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-005</td><td>Controles de tesoreria: segregacion y validacion</td><td>S1</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-006</td><td>Protocolo de entrega y checklist de calidad</td><td>P8</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-007</td><td>Disenar funcion de property management</td><td>P9</td><td class="badge-cell"><span class="opp-badge str">STR</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-008</td><td>Documentar know-how de ingenieria de valor</td><td>P4</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-009</td><td>Catalogo de proveedores con evaluacion y precios</td><td>P5</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-010</td><td>Dashboard ejecutivo consolidado multi-proyecto</td><td>TX, P7</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-011</td><td>Definir roles y responsabilidades por puesto</td><td>P6, TX</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-012</td><td>Ejercicio asertividad presupuestal PIC vs real</td><td>P3, P7</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-013</td><td>Benchmarking de precios insumos clave</td><td>P5, P3</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-014</td><td>Plan de compras vinculado a cronograma</td><td>P5, P6</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-015</td><td>Redefinir capacidad TI o contratar partner</td><td>S3</td><td class="badge-cell"><span class="opp-badge str">STR</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-016</td><td>Modelo operativo target: dedicadas vs compartidas</td><td>TX</td><td class="badge-cell"><span class="opp-badge str">STR</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-017</td><td>Segregacion de funciones en ciclo de compra</td><td>P5, TX</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-018</td><td>Validacion de entregas de material contra OC</td><td>P5, S3</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-019</td><td>Regularizar expedientes de proveedores (REPSE)</td><td>P5</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-020</td><td>Formalizacion de contratos con proveedores</td><td>P5, P6</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-021</td><td>Eliminar doble captura Opus-Excel-Odoo</td><td>P3, S3</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-022</td><td>Implementar project manager con software PM</td><td>P3, P7</td><td class="badge-cell"><span class="opp-badge str">STR</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-023</td><td>Retomar reporte semanal profesional</td><td>P7</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-024</td><td>Bitacora de obra digital</td><td>P7, P6</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-025</td><td>Definir KPIs de ejecucion de obra</td><td>P7</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-026</td><td>Cobro inmediato de CAM charges</td><td>P9</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-027</td><td>Regularizar IMSS de todo el personal de obra</td><td>S2</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-028</td><td>Integrar RH en seleccion y contratacion Aura</td><td>S2</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-029</td><td>Descriptivos de puesto para Aura Desarrollos</td><td>S2, TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-030</td><td>Handoff formal Comercial a Operaciones</td><td>P2, TX</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-031</td><td>Gate de liberacion de ingenieria antes de obra</td><td>P4, P6</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-032</td><td>Generar planos As-Built durante construccion</td><td>P4</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-033</td><td>Protocolo de gestion de contratistas</td><td>P6</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-034</td><td>Alinear fechas contratistas vs cliente</td><td>TX, P6</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-035</td><td>Establecer SLAs entre soporte y Aura</td><td>TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-036</td><td>Rutinas de gestion (comites semanales)</td><td>TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-037</td><td>Matriz de autoridad por tipo y monto</td><td>TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-038</td><td>Activar modulo almacen Odoo para materiales</td><td>S3, P5</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-039</td><td>Dashboards en Looker Studio (quick win)</td><td>S3, P7</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-040</td><td>Contabilidad por proyecto</td><td>S1</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-041</td><td>Catalogo estandar conceptos/proveedores BTS</td><td>P5, P3</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>2</td></tr>
-      <tr><td>OPP-042</td><td>Activar modulo almacen Odoo con acceso</td><td>P5, S3</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>3</td></tr>
-      <tr><td>OPP-043</td><td>Regularizar esquema compensacion Subdirector Ops</td><td>S1, TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>2</td><td>3</td></tr>
-      <tr><td>OPP-044</td><td>Regularizar pago efectivo trabajadores campo</td><td>S2, S1</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-045</td><td>Reconciliacion volumetrica de concreto</td><td>P6, P7</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-046</td><td>Resolver elementos STD BY en Pantaleon</td><td>P4, P8</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>3</td></tr>
-      <tr><td>OPP-047</td><td>Vincular combustible a metricas productividad</td><td>P7, P6</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>1</td></tr>
-      <tr><td>OPP-048</td><td>Forecast de ventas y analisis win/loss</td><td>P2, TX</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-049</td><td>Activar Matriz Estrategica como herramienta</td><td>TX</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td><td>2</td><td>2</td></tr>
-      <tr><td>OPP-050</td><td>Estandarizar contrato subcontratacion (modelo XMA)</td><td>P6, P5</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td><td>3</td><td>2</td></tr>
-    </tbody>
-  </table>
-
   <div class="page-footer">
     <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
     <span>Abril 2026 | Pagina 15</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 15b: OPORTUNIDADES POR AREA (cards)
+     ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="assets/logo-lcg-dark.png" alt="London Consulting Group" class="logo-lcg">
+    <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Seccion 15 (cont.)</div>
+    <h2 class="section-title">Oportunidades por Area</h2>
+    <div class="section-subtitle">Agrupadas por pilar de la cadena de valor</div>
+  </div>
+
+  <!-- A. Planeacion y Presupuesto (P3) -->
+  <div class="area-section">
+    <div class="area-header" style="background: var(--lcg-dark);">
+      <span>A. Planeacion y Presupuesto (P3)</span>
+      <span class="area-count">4 oportunidades</span>
+    </div>
+    <div class="area-grid">
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-002</div><span class="opp-badge proc">Procesos</span></div>
+        <div class="opp-name">Dueno y proceso de presupuestacion formal</div>
+        <div class="opp-desc">Asignar un responsable unico del presupuesto con proceso integrado PIC-cronograma-compras para cerrar la brecha entre estimacion y ejecucion.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-012</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Asertividad presupuestal PIC vs real</div>
+        <div class="opp-desc">Medir sistematicamente la desviacion entre presupuesto aprobado y costo real por partida para generar benchmarks internos.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-021</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Integracion Opus-Odoo (eliminar doble captura)</div>
+        <div class="opp-desc">Conectar Opus con Odoo para eliminar la triple captura manual que genera errores y consume tiempo del equipo de planeacion.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-022</div><span class="opp-badge str">Estrategica</span></div>
+        <div class="opp-name">Implementar PM con software especializado</div>
+        <div class="opp-desc">Adoptar herramienta de gestion de proyectos que integre cronograma, presupuesto y avance en una sola plataforma.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B. Ingenieria y Diseno (P4) -->
+  <div class="area-section" style="background: var(--warm-bg); margin-left:-72px; margin-right:-72px; padding: 1px 72px 24px;">
+    <div style="margin-top:24px;">
+      <div class="area-header" style="background: #1565C0;">
+        <span>B. Ingenieria y Diseno (P4)</span>
+        <span class="area-count">4 oportunidades</span>
+      </div>
+      <div class="area-grid" style="background:white;">
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-008</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Documentar know-how de ingenieria de valor</div>
+          <div class="opp-desc">Sistematizar el conocimiento de optimizacion de diseno que hoy reside exclusivamente en Paco Lastra.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-031</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Gate de liberacion ingenieria antes de obra</div>
+          <div class="opp-desc">Establecer un punto de control formal donde se valide que la ingenieria esta 100% completa antes de iniciar construccion.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-032</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Generacion de planos As-Built</div>
+          <div class="opp-desc">Generar planos as-built durante la construccion, no al final, para asegurar la documentacion precisa de lo construido.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-046</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Resolver elementos STD BY en Pantaleon</div>
+          <div class="opp-desc">Definir protocolo para partidas en stand-by que generan incertidumbre presupuestal y retrasos en ejecucion.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C. Compras y Abastecimiento (P5) -->
+  <div class="area-section">
+    <div class="area-header" style="background: #E65100;">
+      <span>C. Compras y Abastecimiento (P5)</span>
+      <span class="area-count">6 oportunidades</span>
+    </div>
+    <div class="area-grid">
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-003</div><span class="opp-badge proc">Procesos</span></div>
+        <div class="opp-name">Estructurar area de compras con proceso formal</div>
+        <div class="opp-desc">Crear un area de compras profesional con perfil de procurement, procesos documentados y segregacion de funciones.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-009</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Catalogo de proveedores con evaluacion</div>
+        <div class="opp-desc">Base de datos de proveedores evaluados con precios historicos, calificaciones y tiempos de entrega.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-014</div><span class="opp-badge proc">Procesos</span></div>
+        <div class="opp-name">Plan de compras ligado a cronograma</div>
+        <div class="opp-desc">Vincular el plan de compras al cronograma de obra para anticipar necesidades y eliminar compras de urgencia.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-017</div><span class="opp-badge proc">Procesos</span></div>
+        <div class="opp-name">Segregacion de funciones en ciclo de compra</div>
+        <div class="opp-desc">Separar quien solicita, quien autoriza y quien compra para reducir riesgo de fraude y mejorar control.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-020</div><span class="opp-badge proc">Procesos</span></div>
+        <div class="opp-name">Formalizacion de contratos con proveedores</div>
+        <div class="opp-desc">Establecer contratos marco con proveedores clave que incluyan precios, volumenes y penalizaciones.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-042</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Activar modulo almacen Odoo con acceso</div>
+        <div class="opp-desc">Dar acceso al almacenista al modulo de inventario de Odoo para registrar entradas/salidas en tiempo real.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D. Ejecucion de Obra (P6) -->
+  <div class="area-section" style="background: var(--warm-bg); margin-left:-72px; margin-right:-72px; padding: 1px 72px 24px;">
+    <div style="margin-top:24px;">
+      <div class="area-header" style="background: #c62828;">
+        <span>D. Ejecucion de Obra (P6)</span>
+        <span class="area-count">5 oportunidades</span>
+      </div>
+      <div class="area-grid" style="background:white;">
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-011</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Definir roles y responsabilidades por puesto</div>
+          <div class="opp-desc">Clarificar que hace cada rol en obra (residente, supervisor, jefe de obra) con RACI por proceso.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-033</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Protocolo de gestion de contratistas</div>
+          <div class="opp-desc">Proceso formal para evaluar, contratar, supervisar y liquidar subcontratistas con metricas de desempeno.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-034</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Alinear fechas contratista vs cliente</div>
+          <div class="opp-desc">Sincronizar plazos contractuales del cliente con compromisos de subcontratistas, incluyendo buffers de proteccion.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-045</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Reconciliacion volumetrica de concreto</div>
+          <div class="opp-desc">Comparar sistematicamente el concreto pedido vs colocado vs pagado para identificar desperdicios.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-050</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Contrato estandar subcontratacion (modelo XMA)</div>
+          <div class="opp-desc">Crear contrato tipo para subcontratistas basado en mejores practicas, con clausulas de desempeno y penalizaciones.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026 | Pagina 16</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 15c: OPORTUNIDADES POR AREA (cont.) + PRIMER PROYECTO
+     ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="assets/logo-lcg-dark.png" alt="London Consulting Group" class="logo-lcg">
+    <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura">
+  </div>
+
+  <!-- E. Control y Seguimiento (P7) -->
+  <div class="area-section">
+    <div class="area-header" style="background: #B71C1C;">
+      <span>E. Control y Seguimiento (P7)</span>
+      <span class="area-count">6 oportunidades</span>
+    </div>
+    <div class="area-grid">
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-001</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Control avance fisico y financiero (Curva S)</div>
+        <div class="opp-desc">Implementar curva S y earned value para controlar avance real vs planeado en cada proyecto.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-023</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Reporte semanal profesional</div>
+        <div class="opp-desc">Retomar y estandarizar el reporte semanal de avance con formato profesional para DG y cliente.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-024</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Bitacora de obra digital</div>
+        <div class="opp-desc">Migrar la bitacora de obra a formato digital con fotos geolocalizadas, firmas electronicas y trazabilidad.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-025</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">KPIs de ejecucion de obra (PPC, CNC, CPI/SPI)</div>
+        <div class="opp-desc">Definir y medir indicadores clave: Porcentaje de Plan Completado, Causas de No Cumplimiento, indices de costo y plazo.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-039</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Dashboard ejecutivo (Looker Studio)</div>
+        <div class="opp-desc">Crear dashboard automatizado en Looker Studio integrando datos de Odoo, Opus y obra para visibilidad ejecutiva.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-047</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Vincular combustible a productividad</div>
+        <div class="opp-desc">Cruzar 8,600 registros de combustible con metricas de avance de obra para medir eficiencia de maquinaria.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F. Entrega y Calidad + PM (P8+P9) -->
+  <div class="area-section" style="background: var(--warm-bg); margin-left:-72px; margin-right:-72px; padding: 1px 72px 24px;">
+    <div style="margin-top:24px;">
+      <div class="area-header" style="background: #00796B;">
+        <span>F. Entrega y Calidad + Property Management (P8+P9)</span>
+        <span class="area-count">4 oportunidades</span>
+      </div>
+      <div class="area-grid" style="background:white;">
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-006</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Protocolo de entrega y checklist de calidad</div>
+          <div class="opp-desc">Formalizar el proceso de entrega con checklist de 50+ items, recorrido con cliente y acta de cierre.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-007</div><span class="opp-badge str">Estrategica</span></div>
+          <div class="opp-name">Disenar funcion de property management</div>
+          <div class="opp-desc">Crear la funcion de PM con procesos de administracion, mantenimiento y atencion postventa para parques.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-026</div><span class="opp-badge gest">Gestion</span></div>
+          <div class="opp-name">Cobro inmediato de CAM charges</div>
+          <div class="opp-desc">Implementar cobro oportuno de cuotas de mantenimiento (CAM) a inquilinos para cubrir gastos operativos del parque.</div>
+        </div>
+        <div class="opp-card-mini">
+          <div class="opp-top"><div class="opp-id">OPP-046</div><span class="opp-badge proc">Procesos</span></div>
+          <div class="opp-name">Resolver elementos STD BY en Pantaleon</div>
+          <div class="opp-desc">Definir alcance y costo de partidas en stand-by antes de entrega para evitar sorpresas al cliente.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G. Gobernanza y Soporte (TX+S1+S2+S3) -->
+  <div class="area-section">
+    <div class="area-header" style="background: var(--aura-navy);">
+      <span>G. Gobernanza y Soporte (TX + S1 + S2 + S3)</span>
+      <span class="area-count">14 oportunidades</span>
+    </div>
+    <div class="area-grid">
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-004</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Modelo de gobierno con delegacion y visibilidad</div>
+        <div class="opp-desc">Disenar estructura de gobierno que permita al DG delegar con confianza y mantener visibilidad sin microgestionar.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-005</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Segregacion y validacion de tesoreria</div>
+        <div class="opp-desc">Implementar doble firma, segregacion de funciones y conciliaciones automaticas en tesoreria.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-010</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Dashboard ejecutivo consolidado multi-proyecto</div>
+        <div class="opp-desc">Panel unico para DG con vision consolidada de todos los proyectos: avance, costo, calidad, riesgos.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-015</div><span class="opp-badge str">Estrategica</span></div>
+        <div class="opp-name">Redefinir capacidad TI o contratar partner</div>
+        <div class="opp-desc">Evaluar si TI se fortalece internamente o se externaliza con un partner tecnologico especializado en construccion.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-016</div><span class="opp-badge str">Estrategica</span></div>
+        <div class="opp-name">Modelo operativo target: dedicadas vs compartidas</div>
+        <div class="opp-desc">Definir que funciones son dedicadas a Aura vs compartidas con Aura Inversiones para eliminar cuellos de botella.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-029</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Descriptivos de puesto para Aura Desarrollos</div>
+        <div class="opp-desc">Crear job descriptions formales con competencias, responsabilidades y metricas para cada puesto clave.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-035</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Establecer SLAs entre soporte y Aura</div>
+        <div class="opp-desc">Definir tiempos de respuesta y niveles de servicio de areas compartidas (Contabilidad, RH, TI) hacia Aura.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-036</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Rutinas de gestion (comites semanales)</div>
+        <div class="opp-desc">Instalar comites semanales de obra, compras, y direccion con agenda estandar y seguimiento de acuerdos.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-037</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Matriz de autoridad por tipo y monto</div>
+        <div class="opp-desc">Definir quien aprueba que y hasta que monto para agilizar decisiones sin perder control.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-040</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Contabilidad por proyecto</div>
+        <div class="opp-desc">Migrar de contabilidad por empresa a contabilidad por proyecto para medir rentabilidad real de cada obra.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-043</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Regularizar compensacion Subdirector Ops</div>
+        <div class="opp-desc">Resolver la situacion contractual y de compensacion del Subdirector de Operaciones para retener talento clave.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-044</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Regularizar pago efectivo trabajadores campo</div>
+        <div class="opp-desc">Migrar de pago en efectivo a transferencia bancaria con registro formal para cumplimiento laboral y fiscal.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-048</div><span class="opp-badge digi">Digitalizacion</span></div>
+        <div class="opp-name">Forecast de ventas y analisis win/loss</div>
+        <div class="opp-desc">Implementar pipeline probabilistico y post-mortem de cada deal para mejorar la conversion comercial.</div>
+      </div>
+      <div class="opp-card-mini">
+        <div class="opp-top"><div class="opp-id">OPP-049</div><span class="opp-badge gest">Gestion</span></div>
+        <div class="opp-name">Activar Matriz Estrategica como herramienta</div>
+        <div class="opp-desc">Utilizar la matriz estrategica existente como instrumento vivo para evaluar y priorizar nuevos proyectos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026 | Pagina 17</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SECTION 15d: OPORTUNIDADES PRIMER PROYECTO
+     ============================================================ -->
+<div class="content-page">
+  <div class="page-logos">
+    <img src="assets/logo-lcg-dark.png" alt="London Consulting Group" class="logo-lcg">
+    <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura">
+  </div>
+
+  <div class="section-header">
+    <div class="section-number">Seccion 15 (cierre)</div>
+    <h2 class="section-title">Oportunidades Priorizadas &mdash; Primer Proyecto</h2>
+    <div class="section-subtitle">Enfoque: Presupuesto, Ingenieria, Compras y Control de Obra</div>
+  </div>
+
+  <div class="callout callout-green">
+    <div class="callout-label">Alcance del Primer Proyecto (34 semanas)</div>
+    <p style="font-size:14px; line-height:1.7; margin-bottom:20px;">15 oportunidades core que impactan directamente los 4 pilares prioritarios: <strong>Presupuesto (P3)</strong>, <strong>Ingenieria (P4)</strong>, <strong>Compras (P5)</strong> y <strong>Control de Obra (P7)</strong>. Alineadas con la metodologia LCG de transformacion operativa aplicada exitosamente en empresas como Grupo Davisa.</p>
+
+    <table class="primer-proyecto-table">
+      <thead>
+        <tr><th>OPP</th><th>Area</th><th>Oportunidad</th><th>Tipo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>OPP-001</td><td>P7</td><td>Control avance fisico y financiero (Curva S, Digital Twin)</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td></tr>
+        <tr><td>OPP-002</td><td>P3</td><td>Dueno presupuestal con proceso integrado</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-003</td><td>P5</td><td>Estructura compras con perfil procurement</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-014</td><td>P5</td><td>Plan de compras ligado a cronograma</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-017</td><td>P5</td><td>Segregacion de funciones en compras</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-021</td><td>P3</td><td>Integracion Opus-Odoo (eliminar doble captura)</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td></tr>
+        <tr><td>OPP-023</td><td>P7</td><td>Reporte semanal profesional</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td></tr>
+        <tr><td>OPP-024</td><td>P7</td><td>Bitacora de obra digital</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td></tr>
+        <tr><td>OPP-025</td><td>P7</td><td>KPIs de obra (PPC, CNC, CPI/SPI)</td><td class="badge-cell"><span class="opp-badge gest">GEST</span></td></tr>
+        <tr><td>OPP-031</td><td>P4</td><td>Gate de liberacion ingenieria antes de obra</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-032</td><td>P4</td><td>Generacion de As-Built</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-033</td><td>P6</td><td>Protocolo gestion de contratistas</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-034</td><td>P6</td><td>Alineacion fechas contratista vs cliente</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+        <tr><td>OPP-039</td><td>P7</td><td>Dashboard ejecutivo (Looker Studio)</td><td class="badge-cell"><span class="opp-badge digi">DIGI</span></td></tr>
+        <tr><td>OPP-050</td><td>P6</td><td>Contrato estandar subcontratacion (modelo XMA)</td><td class="badge-cell"><span class="opp-badge proc">PROC</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:16px; margin-top:24px;">
+    <div style="background:var(--lcg-light); border-radius:10px; padding:20px; text-align:center;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; color:var(--lcg-teal); text-transform:uppercase; letter-spacing:1px;">P3</div>
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--lcg-dark);">3</div>
+      <div style="font-size:12px; color:var(--text-light);">Presupuesto</div>
+    </div>
+    <div style="background:var(--lcg-light); border-radius:10px; padding:20px; text-align:center;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; color:var(--lcg-teal); text-transform:uppercase; letter-spacing:1px;">P4</div>
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--lcg-dark);">2</div>
+      <div style="font-size:12px; color:var(--text-light);">Ingenieria</div>
+    </div>
+    <div style="background:var(--lcg-light); border-radius:10px; padding:20px; text-align:center;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; color:var(--lcg-teal); text-transform:uppercase; letter-spacing:1px;">P5</div>
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--lcg-dark);">3</div>
+      <div style="font-size:12px; color:var(--text-light);">Compras</div>
+    </div>
+    <div style="background:var(--lcg-light); border-radius:10px; padding:20px; text-align:center;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; color:var(--lcg-teal); text-transform:uppercase; letter-spacing:1px;">P7</div>
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--lcg-dark);">5</div>
+      <div style="font-size:12px; color:var(--text-light);">Control</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:8px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted);">+ 2 oportunidades de Ejecucion (P6) directamente vinculadas</span>
+  </div>
+
+  <div class="page-footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026 | Pagina 18</span>
   </div>
 </div>
 
@@ -3510,6 +3970,114 @@ document.addEventListener('DOMContentLoaded', function() {
           y: {
             beginAtZero: true,
             title: { display: true, text: 'Cantidad de registros' }
+          }
+        }
+      }
+    });
+  }
+
+  // --- MATRIZ IMPACTO VS ESFUERZO (Bubble Chart) ---
+  const ctxMatriz = document.getElementById('chartMatrizImpacto');
+  if (ctxMatriz) {
+    new Chart(ctxMatriz, {
+      type: 'bubble',
+      data: {
+        datasets: [
+          {
+            label: 'Quick Wins',
+            data: [
+              {x:1.5, y:4.5, r:12, label:'OPP-023', desc:'Reporte semanal'},
+              {x:1.5, y:4.0, r:11, label:'OPP-036', desc:'Rutinas gestion'},
+              {x:2.0, y:4.5, r:12, label:'OPP-005', desc:'Segregacion tesoreria'},
+              {x:2.0, y:4.0, r:11, label:'OPP-006', desc:'Protocolo entrega'},
+              {x:1.0, y:3.5, r:10, label:'OPP-026', desc:'Cobro CAM'},
+              {x:1.5, y:3.5, r:10, label:'OPP-034', desc:'Alineacion fechas'},
+              {x:2.0, y:3.5, r:10, label:'OPP-018', desc:'Validacion materiales'},
+              {x:1.5, y:3.0, r:9, label:'OPP-012', desc:'Asertividad presupuestal'},
+              {x:1.5, y:3.0, r:9, label:'OPP-013', desc:'Benchmarking precios'},
+              {x:2.0, y:3.0, r:9, label:'OPP-029', desc:'Job descriptions'}
+            ],
+            backgroundColor: 'rgba(46,125,50,0.5)',
+            borderColor: '#2E7D32',
+            borderWidth: 1.5
+          },
+          {
+            label: 'Proyectos Estrategicos',
+            data: [
+              {x:4.0, y:5.0, r:14, label:'OPP-001', desc:'Control avance fisico/financiero'},
+              {x:3.5, y:4.5, r:13, label:'OPP-002', desc:'Dueno presupuestal'},
+              {x:3.5, y:4.5, r:13, label:'OPP-003', desc:'Estructura compras'},
+              {x:4.5, y:5.0, r:14, label:'OPP-004', desc:'Modelo gobernanza'},
+              {x:3.0, y:4.5, r:12, label:'OPP-014', desc:'Plan compras-cronograma'},
+              {x:3.5, y:4.0, r:11, label:'OPP-033', desc:'Gestion contratistas'},
+              {x:3.0, y:4.0, r:11, label:'OPP-010', desc:'Dashboard ejecutivo'},
+              {x:3.5, y:3.5, r:10, label:'OPP-021', desc:'Integracion Opus-Odoo'},
+              {x:4.0, y:4.0, r:12, label:'OPP-022', desc:'PM Software'},
+              {x:4.0, y:3.5, r:10, label:'OPP-007', desc:'Property Management'}
+            ],
+            backgroundColor: 'rgba(21,101,192,0.5)',
+            borderColor: '#1565C0',
+            borderWidth: 1.5
+          },
+          {
+            label: 'Mejoras Incrementales',
+            data: [
+              {x:2.0, y:2.5, r:8, label:'OPP-009', desc:'Catalogo proveedores'},
+              {x:1.5, y:2.0, r:7, label:'OPP-045', desc:'Reconciliacion concreto'},
+              {x:1.5, y:2.0, r:7, label:'OPP-047', desc:'Combustible-productividad'},
+              {x:1.5, y:2.5, r:7, label:'OPP-049', desc:'Matriz estrategica'},
+              {x:1.0, y:2.0, r:7, label:'OPP-042', desc:'Acceso almacen Odoo'}
+            ],
+            backgroundColor: 'rgba(245,127,23,0.5)',
+            borderColor: '#F57F17',
+            borderWidth: 1.5
+          },
+          {
+            label: 'Evaluar Necesidad',
+            data: [
+              {x:4.0, y:2.0, r:8, label:'OPP-015', desc:'Redefinir TI'},
+              {x:5.0, y:2.5, r:9, label:'OPP-016', desc:'Modelo operativo target'}
+            ],
+            backgroundColor: 'rgba(150,150,150,0.5)',
+            borderColor: '#888',
+            borderWidth: 1.5
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Matriz Impacto vs Esfuerzo \u2014 27 oportunidades clave',
+            font: { size: 15, weight: '700' },
+            padding: { bottom: 16 }
+          },
+          legend: {
+            position: 'bottom',
+            labels: { usePointStyle: true, pointStyle: 'circle', padding: 20 }
+          },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.raw.label + ': ' + ctx.raw.desc + ' (Imp:' + ctx.raw.y + ' Esf:' + ctx.raw.x + ')';
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: 0, max: 5.5,
+            title: { display: true, text: 'ESFUERZO \u2192', font: { weight: '700', size: 13 } },
+            grid: { color: function(ctx) { return ctx.tick.value === 2.5 ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.06)'; }, lineWidth: function(ctx) { return ctx.tick.value === 2.5 ? 2 : 1; } },
+            ticks: { stepSize: 0.5 }
+          },
+          y: {
+            min: 0, max: 5.5,
+            title: { display: true, text: '\u2191 IMPACTO', font: { weight: '700', size: 13 } },
+            grid: { color: function(ctx) { return ctx.tick.value === 2.5 ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.06)'; }, lineWidth: function(ctx) { return ctx.tick.value === 2.5 ? 2 : 1; } },
+            ticks: { stepSize: 0.5 }
           }
         }
       }
