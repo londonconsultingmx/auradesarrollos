@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Desarrollos — London Consulting Group</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .landing-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .landing-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #0D1B2A 0%, #0F2027 40%, var(--lcg-green-dark) 100%);
+    }
+    .landing-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(0,179,136,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(27,48,87,0.15) 0%, transparent 50%);
+    }
+    .landing-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: var(--space-3xl) var(--space-xl);
+      max-width: 900px;
+    }
+    .landing-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2xl);
+      margin-bottom: var(--space-4xl);
+    }
+    .landing-logos img.logo-lcg {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .landing-logos img.logo-aura {
+      height: 52px;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .landing-logos .logo-divider {
+      width: 1px;
+      height: 44px;
+      background: rgba(255,255,255,0.2);
+    }
+    .landing-title {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .landing-title span {
+      background: linear-gradient(135deg, var(--lcg-green-light), var(--lcg-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .landing-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: var(--space-4xl);
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .landing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .landing-cards { grid-template-columns: 1fr; }
+      .landing-logos img.logo-lcg { height: 28px; }
+      .landing-logos img.logo-aura { height: 40px; }
+    }
+    .landing-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: var(--space-2xl) var(--space-xl);
+      text-align: left;
+      transition: var(--transition);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .landing-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--lcg-green);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .landing-card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-lg);
+    }
+    .landing-card-icon.diag {
+      background: linear-gradient(135deg, rgba(220,38,38,0.2), rgba(245,158,11,0.2));
+    }
+    .landing-card-icon.play {
+      background: linear-gradient(135deg, rgba(0,179,136,0.2), rgba(0,92,75,0.2));
+    }
+    .landing-card h3 {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      color: white;
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+    }
+    .landing-card p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.9rem;
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+    .landing-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--lcg-green-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: var(--transition-fast);
+    }
+    .landing-card:hover .landing-card-cta {
+      gap: 10px;
+    }
+    .landing-meta {
+      margin-top: var(--space-4xl);
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3xl);
+      flex-wrap: wrap;
+    }
+    .landing-meta-item {
+      text-align: center;
+    }
+    .landing-meta-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--lcg-green-light);
+    }
+    .landing-meta-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+    .landing-footer {
+      position: absolute;
+      bottom: var(--space-xl);
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 1;
+    }
+    .landing-footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+    }
+  </style>
+</head>
+<body>
+
+<div class="landing-hero">
+  <div class="landing-bg"></div>
+
+  <div class="landing-content">
+    <div class="landing-logos">
+      <img src="assets/logo-lcg.png" alt="London Consulting Group" class="logo-lcg">
+      <div class="logo-divider"></div>
+      <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura">
+    </div>
+
+    <h1 class="landing-title">
+      Transformando la <span>Cadena de Valor</span> de Aura Desarrollos
+    </h1>
+
+    <p class="landing-subtitle">
+      Diagnóstico operativo y propuesta de transformación para profesionalizar
+      los procesos de desarrollo inmobiliario industrial.
+    </p>
+
+    <div class="landing-cards">
+      <a href="prediagnostico.html" class="landing-card">
+        <div class="landing-card-icon diag">&#x1F50D;</div>
+        <h3>Prediagnóstico</h3>
+        <p>
+          Evaluación de madurez CMM de la cadena de valor completa.
+          13 pilares, 50 oportunidades, datos duros de 11 entrevistas
+          y documentos operativos.
+        </p>
+        <span class="landing-card-cta">
+          Ver diagnóstico &#x2192;
+        </span>
+      </a>
+
+      <a href="playbook.html" class="landing-card">
+        <div class="landing-card-icon play">&#x1F4CB;</div>
+        <h3>Playbook 34 Semanas</h3>
+        <p>
+          Plan de transformación operativa enfocado en 4 pilares críticos:
+          Presupuesto, Ingeniería, Compras y Control de Obra.
+        </p>
+        <span class="landing-card-cta">
+          Ver playbook &#x2192;
+        </span>
+      </a>
+    </div>
+
+    <div class="landing-meta">
+      <div class="landing-meta-item">
+        <div class="landing-meta-value">1.5</div>
+        <div class="landing-meta-label">CMM Promedio</div>
+      </div>
+      <div class="landing-meta-item">
+        <div class="landing-meta-value">50</div>
+        <div class="landing-meta-label">Oportunidades</div>
+      </div>
+      <div class="landing-meta-item">
+        <div class="landing-meta-value">34</div>
+        <div class="landing-meta-label">Semanas</div>
+      </div>
+      <div class="landing-meta-item">
+        <div class="landing-meta-value">4</div>
+        <div class="landing-meta-label">Pilares Core</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="landing-footer">
+    <p>Confidencial &mdash; Preparado por London Consulting Group para Aura Desarrollos &mdash; Abril 2026</p>
+  </div>
+</div>
+
+</body>
+</html>
