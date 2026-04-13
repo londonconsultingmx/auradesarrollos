@@ -7,12 +7,30 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     /* ============================================================
        PLAYBOOK-SPECIFIC STYLES
        ============================================================ */
+
+    /* Override shared layout to match prediagnostico format */
+    .container {
+      max-width: 1400px;
+    }
+
+    /* Font hierarchy: Playfair Display for headings, Inter for body, IBM Plex Mono for labels */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    .overline, .section-label, .phase-weeks, .team-weeks, .gantt-header span,
+    .gantt-label-ext small, .total-label, .total-sub, .diag-label,
+    .entregable, .gantt-legend-item {
+      font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+    }
 
     /* Pilar Cards */
     .pilar-card {
@@ -660,9 +678,9 @@
     <div class="hero-content">
 
       <div class="hero-logos fade-in">
-        <img src="assets/logo-lcg.png" alt="London Consulting Group" style="height:34px;">
+        <img src="assets/logo-lcg.png" alt="London Consulting Group" class="logo-lcg" style="height:28px;">
         <div class="divider"></div>
-        <img src="assets/logo-aura.png" alt="Aura Desarrollos" style="height:50px;">
+        <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura" style="height:68px;">
       </div>
 
       <h1 class="fade-in fade-in-delay-1">Playbook de <span>Transformaci&oacute;n Operativa</span></h1>
@@ -884,7 +902,7 @@
       <div class="section-header centered fade-in">
         <span class="overline">Metodolog&iacute;a</span>
         <h2>5 Fases de Implementaci&oacute;n</h2>
-        <p>Modelo probado de London Consulting Group: dise&ntilde;ar, probar, escalar, estabilizar y transferir.</p>
+        <p>Modelo probado de London Consulting Group: dise&ntilde;ar, probar, escalar, estabilizar y transferir. Metodolog&iacute;a validada en proyectos como Grupo Davisa (desarrollo inmobiliario industrial, Monterrey) con fases probadas: Discovery &rarr; An&aacute;lisis Exhaustivo &rarr; Dise&ntilde;o &rarr; Implementaci&oacute;n &rarr; Quick Wins &rarr; Capacitaci&oacute;n &rarr; Documentaci&oacute;n &rarr; Continuidad.</p>
       </div>
 
       <!-- Phase Connector Line -->
@@ -1106,7 +1124,7 @@
       <div class="section-header centered fade-in">
         <span class="overline">Equipo</span>
         <h2>Equipo LCG Asignado</h2>
-        <p>Un equipo multidisciplinario con experiencia en transformaci&oacute;n de operaciones de construcci&oacute;n industrial.</p>
+        <p>Equipo con experiencia directa en transformaci&oacute;n operativa de desarrolladoras industriales. Un equipo multidisciplinario con trayectoria comprobada en proyectos de construcci&oacute;n industrial.</p>
       </div>
 
       <div class="team-grid">
@@ -1186,7 +1204,19 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Consultor 1</strong><br><small style="color:var(--text-muted);">Presup/Ing/Compras</small></td>
+                  <td><strong>Director de Operaciones</strong><br><small style="color:var(--text-muted);">LCG</small></td>
+                  <td style="text-align:center;">10</td>
+                  <td style="text-align:right;">$6,000</td>
+                  <td style="text-align:right;font-weight:700;">$60,000</td>
+                </tr>
+                <tr>
+                  <td><strong>Gerente de Proyecto</strong><br><small style="color:var(--text-muted);">LCG</small></td>
+                  <td style="text-align:center;">34</td>
+                  <td style="text-align:right;">$6,000</td>
+                  <td style="text-align:right;font-weight:700;">$204,000</td>
+                </tr>
+                <tr>
+                  <td><strong>Consultor 1</strong><br><small style="color:var(--text-muted);">Presupuesto, Ingenier&iacute;a y Compras</small></td>
                   <td style="text-align:center;">34</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$204,000</td>
@@ -1198,22 +1228,10 @@
                   <td style="text-align:right;font-weight:700;">$204,000</td>
                 </tr>
                 <tr>
-                  <td><strong>Gerente de Proyecto</strong><br><small style="color:var(--text-muted);">LCG</small></td>
-                  <td style="text-align:center;">34</td>
-                  <td style="text-align:right;">$6,000</td>
-                  <td style="text-align:right;font-weight:700;">$204,000</td>
-                </tr>
-                <tr>
                   <td><strong>Change Management</strong></td>
                   <td style="text-align:center;">15</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$90,000</td>
-                </tr>
-                <tr>
-                  <td><strong>Director de Operaciones</strong><br><small style="color:var(--text-muted);">LCG</small></td>
-                  <td style="text-align:center;">10</td>
-                  <td style="text-align:right;">$6,000</td>
-                  <td style="text-align:right;font-weight:700;">$60,000</td>
                 </tr>
                 <tr>
                   <td><strong>Auditor&iacute;a</strong></td>
@@ -1239,16 +1257,8 @@
           </div>
         </div>
 
-        <!-- Chart + ROI -->
+        <!-- ROI Context -->
         <div class="fade-in fade-in-delay-2">
-          <div class="chart-container mb-xl">
-            <h4 class="text-center mb-lg">Distribuci&oacute;n de la Inversi&oacute;n</h4>
-            <div class="chart-canvas-wrapper" style="max-width: 320px; margin: 0 auto;">
-              <canvas id="investmentChart" height="320"></canvas>
-            </div>
-          </div>
-
-          <!-- ROI Context -->
           <div style="display:flex;flex-direction:column;gap:16px;">
             <div class="roi-card">
               <div class="roi-icon">&#128200;</div>
@@ -1516,68 +1526,6 @@
       });
     }
 
-    // ---- Chart.js: Investment Donut ----
-    var invCtx = document.getElementById('investmentChart');
-    if (invCtx) {
-      new Chart(invCtx.getContext('2d'), {
-        type: 'doughnut',
-        data: {
-          labels: [
-            'Consultor 1',
-            'Consultor 2',
-            'Gerente Proyecto',
-            'Change Mgmt',
-            'Dir. Operaciones',
-            'Auditoria'
-          ],
-          datasets: [{
-            data: [204000, 204000, 204000, 90000, 60000, 36000],
-            backgroundColor: [
-              '#3B82F6',
-              '#00B388',
-              '#1B3057',
-              '#9333EA',
-              '#4338CA',
-              '#DC2626'
-            ],
-            borderColor: '#FFFFFF',
-            borderWidth: 3,
-            hoverOffset: 8
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          cutout: '60%',
-          plugins: {
-            legend: {
-              position: 'bottom',
-              labels: {
-                padding: 12,
-                usePointStyle: true,
-                pointStyle: 'circle',
-                font: { family: 'Inter', size: 11, weight: '500' }
-              }
-            },
-            tooltip: {
-              backgroundColor: '#0D1B2A',
-              titleFont: { family: 'Inter', weight: '600' },
-              bodyFont: { family: 'Inter' },
-              cornerRadius: 8,
-              padding: 12,
-              callbacks: {
-                label: function(context) {
-                  var value = context.parsed;
-                  var total = context.dataset.data.reduce(function(a, b) { return a + b; }, 0);
-                  var pct = ((value / total) * 100).toFixed(0);
-                  return ' $' + value.toLocaleString('en-US') + ' (' + pct + '%)';
-                }
-              }
-            }
-          }
-        }
-      });
-    }
 
     // ---- Animated counters ----
     function animateCounters() {
