@@ -26,9 +26,9 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
-    .overline, .section-label, .phase-weeks, .team-weeks, .gantt-header span,
-    .gantt-label-ext small, .total-label, .total-sub, .diag-label,
-    .entregable, .gantt-legend-item {
+    .overline, .section-label, .phase-weeks, .team-weeks,
+    .total-label, .total-sub, .diag-label,
+    .entregable {
       font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
     }
 
@@ -280,93 +280,7 @@
       margin-bottom: 0;
     }
 
-    /* Gantt Extended */
-    .gantt-wrapper {
-      overflow-x: auto;
-      padding-bottom: 12px;
-    }
-    .gantt-extended {
-      min-width: 900px;
-    }
-    .gantt-header {
-      display: grid;
-      grid-template-columns: 220px repeat(8, 1fr);
-      gap: 4px;
-      margin-bottom: 8px;
-    }
-    .gantt-header span {
-      text-align: center;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      padding: 8px 4px;
-    }
-    .gantt-header span:first-child {
-      text-align: left;
-    }
-    .gantt-row-ext {
-      display: grid;
-      grid-template-columns: 220px repeat(8, 1fr);
-      gap: 4px;
-      margin-bottom: 6px;
-      align-items: center;
-    }
-    .gantt-row-ext .gantt-label-ext {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      padding-right: 8px;
-    }
-    .gantt-cell {
-      height: 36px;
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: white;
-      transition: var(--transition);
-    }
-    .gantt-cell:hover {
-      filter: brightness(1.15);
-      box-shadow: var(--shadow-md);
-    }
-    .gantt-cell.empty {
-      background: var(--bg-secondary);
-    }
-    .gantt-cell.design { background: linear-gradient(135deg, #1E40AF, #3B82F6); }
-    .gantt-cell.pilot { background: linear-gradient(135deg, #7C3AED, #A78BFA); }
-    .gantt-cell.deploy { background: linear-gradient(135deg, var(--lcg-green-dark), var(--lcg-green)); }
-    .gantt-cell.stabilize { background: linear-gradient(135deg, #0E7490, #22D3EE); }
-    .gantt-cell.transfer { background: linear-gradient(135deg, #B45309, #F59E0B); }
-    .gantt-cell.mgmt { background: linear-gradient(135deg, #1B3057, #2A4A7F); }
-    .gantt-cell.cm { background: linear-gradient(135deg, #9333EA, #C084FC); }
-    .gantt-cell.dirops { background: linear-gradient(135deg, #4338CA, #818CF8); }
-    .gantt-cell.audit { background: linear-gradient(135deg, #B91C1C, #F87171); }
-
-    /* Gantt legend */
-    .gantt-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 20px;
-      justify-content: center;
-    }
-    .gantt-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-    }
-    .gantt-legend-color {
-      width: 14px;
-      height: 14px;
-      border-radius: 4px;
-    }
+    /* (Gantt CSS removed - replaced by inline timeline) */
 
     /* Investment Section */
     .investment-total {
@@ -684,7 +598,7 @@
       </div>
 
       <h1 class="fade-in fade-in-delay-1">Playbook de <span>Transformaci&oacute;n Operativa</span></h1>
-      <p class="hero-subtitle fade-in fade-in-delay-2">34 Semanas para Profesionalizar la Cadena de Valor</p>
+      <p class="hero-subtitle fade-in fade-in-delay-2">40 Semanas para Profesionalizar la Cadena de Valor</p>
 
       <div class="hero-meta fade-in fade-in-delay-3">
         <div class="hero-meta-item">
@@ -693,7 +607,7 @@
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Enfoque</span>
-          <span class="hero-meta-value">4 pilares core</span>
+          <span class="hero-meta-value">3 workstreams</span>
         </div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Equipo</span>
@@ -854,24 +768,27 @@
           </div>
         </div>
 
-        <!-- P7 -->
+        <!-- P6+P7 -->
         <div class="pilar-card fade-in fade-in-delay-4">
           <div class="pilar-card-divider critical"></div>
           <div class="pilar-card-header">
-            <h3>P7 &mdash; Control de Obra</h3>
+            <h3>P6+P7 &mdash; Ejecuci&oacute;n de Obra y Control de Seguimiento</h3>
             <div class="cmm-arrow">
-              <span class="cmm-val cmm-1">1.0</span>
+              <span class="cmm-val cmm-1">1.1</span>
               <span class="arrow-icon">&#10140;</span>
               <span class="cmm-val cmm-3">3.0</span>
             </div>
           </div>
           <div class="pilar-card-body">
             <div class="section-label">Problema</div>
-            <p>Sin visibilidad de avance, &uacute;ltimo reporte formal enero 9, presupuesto vs real imposible de comparar.</p>
+            <p>Sin visibilidad de avance, &uacute;ltimo reporte formal enero 9, presupuesto vs real imposible de comparar. Secuencia constructiva improvisada, sin Last Planner, gesti&oacute;n de contratistas informal.</p>
             <div class="section-label">Meta a 34 semanas</div>
-            <p>Sistema de control con reporte semanal, curva S, bit&aacute;cora, dashboards en tiempo real.</p>
+            <p>Sistema de control con reporte semanal, curva S, bit&aacute;cora, dashboards en tiempo real. Last Planner implementado, gesti&oacute;n formal de contratistas y estimaciones.</p>
             <div class="section-label">Entregables</div>
             <ul>
+              <li>Last Planner System&reg; (look-ahead, plan semanal, PPC)</li>
+              <li>Gesti&oacute;n formal de contratistas y estimaciones</li>
+              <li>Secuencia constructiva estandarizada</li>
               <li>Reporte semanal de avance (formato profesional)</li>
               <li>Curva S presupuesto vs real</li>
               <li>Bit&aacute;cora de obra digital</li>
@@ -884,7 +801,7 @@
 
       <!-- CMM Before/After Chart -->
       <div class="chart-container mt-xl fade-in" style="max-width: 700px; margin-left: auto; margin-right: auto;">
-        <h4 class="text-center mb-lg">Madurez Actual vs. Meta a 34 Semanas</h4>
+        <h4 class="text-center mb-lg">Madurez Actual vs. Meta a 40 Semanas</h4>
         <div class="chart-canvas-wrapper">
           <canvas id="cmmChart" height="300"></canvas>
         </div>
@@ -902,7 +819,7 @@
       <div class="section-header centered fade-in">
         <span class="overline">Metodolog&iacute;a</span>
         <h2>5 Fases de Implementaci&oacute;n</h2>
-        <p>Modelo probado de London Consulting Group: dise&ntilde;ar, probar, escalar, estabilizar y transferir. Metodolog&iacute;a validada en proyectos como Grupo Davisa (desarrollo inmobiliario industrial, Monterrey) con fases probadas: Discovery &rarr; An&aacute;lisis Exhaustivo &rarr; Dise&ntilde;o &rarr; Implementaci&oacute;n &rarr; Quick Wins &rarr; Capacitaci&oacute;n &rarr; Documentaci&oacute;n &rarr; Continuidad.</p>
+        <p>Modelo probado de London Consulting Group. Metodolog&iacute;a validada en proyectos como Grupo Davisa (desarrollo inmobiliario industrial, Monterrey): An&aacute;lisis &amp; Quick Wins &rarr; Dise&ntilde;o &rarr; Capacitaci&oacute;n &rarr; Implementaci&oacute;n &rarr; Documentaci&oacute;n &amp; Auditor&iacute;a.</p>
       </div>
 
       <!-- Phase Connector Line -->
@@ -922,66 +839,72 @@
         <!-- Fase 1 -->
         <div class="phase-card fade-in fade-in-delay-1">
           <div class="phase-number">1</div>
-          <h4>Dise&ntilde;o</h4>
-          <div class="phase-weeks">Semanas 1&ndash;6</div>
+          <h4>An&aacute;lisis &amp; Quick Wins</h4>
+          <div class="phase-weeks">Semanas 1&ndash;4</div>
           <ul>
-            <li>Dise&ntilde;ar procesos AS-IS y TO-BE</li>
-            <li>Definir KPIs y metas</li>
-            <li>Configurar herramientas (Odoo, Looker, formatos)</li>
+            <li>An&aacute;lisis exhaustivo de procesos actuales (VSM)</li>
+            <li>Gemba Walks en obra</li>
+            <li>Identificaci&oacute;n e implementaci&oacute;n de Quick Wins (alto impacto, bajo esfuerzo)</li>
+            <li>Backlog de historias de mejora</li>
           </ul>
-          <div class="entregable"><strong>Entregable:</strong> Manual de procesos, KPIs definidos</div>
+          <div class="entregable"><strong>Entregable:</strong> VSMs actuales, Quick Wins implementados, Backlog priorizado</div>
         </div>
 
         <!-- Fase 2 -->
         <div class="phase-card fade-in fade-in-delay-2">
           <div class="phase-number">2</div>
-          <h4>Piloto</h4>
-          <div class="phase-weeks">Semanas 7&ndash;12</div>
+          <h4>Dise&ntilde;o</h4>
+          <div class="phase-weeks">Semanas 5&ndash;15</div>
           <ul>
-            <li>Implementar en 1 proyecto piloto (3B Xalapa o siguiente BTS)</li>
-            <li>Capacitar al equipo en nuevos procesos</li>
-            <li>Ajustar seg&uacute;n feedback</li>
+            <li>Dise&ntilde;o de procesos TO-BE con Design Sprints</li>
+            <li>Modelo de gobierno y gesti&oacute;n</li>
+            <li>Definici&oacute;n de KPIs y tableros de control</li>
+            <li>Dise&ntilde;o de herramientas digitales (dashboards, flujos)</li>
+            <li>Pre-manuales de procesos</li>
           </ul>
-          <div class="entregable"><strong>Entregable:</strong> Procesos validados en piloto</div>
+          <div class="entregable"><strong>Entregable:</strong> Modelos operativos, KPIs, herramientas digitales dise&ntilde;adas, pol&iacute;ticas</div>
         </div>
 
         <!-- Fase 3 -->
         <div class="phase-card fade-in fade-in-delay-3">
           <div class="phase-number">3</div>
-          <h4>Despliegue</h4>
-          <div class="phase-weeks">Semanas 13&ndash;22</div>
+          <h4>Capacitaci&oacute;n</h4>
+          <div class="phase-weeks">Semanas 10&ndash;20 (traslape)</div>
           <ul>
-            <li>Extender a todos los proyectos activos</li>
-            <li>Institucionalizar rutinas de gesti&oacute;n</li>
-            <li>Entrenar a todos los involucrados</li>
+            <li>Plan de capacitaci&oacute;n por rol</li>
+            <li>Certificaci&oacute;n te&oacute;rica y pr&aacute;ctica</li>
+            <li>Coaching a l&iacute;deres</li>
+            <li>Acompa&ntilde;amiento en el cambio (Change Management)</li>
           </ul>
-          <div class="entregable"><strong>Entregable:</strong> Operaci&oacute;n con nuevos procesos</div>
+          <div class="entregable"><strong>Entregable:</strong> Personal certificado, plan de capacitaci&oacute;n</div>
         </div>
 
         <!-- Fase 4 -->
         <div class="phase-card fade-in fade-in-delay-4">
           <div class="phase-number">4</div>
-          <h4>Estabilizaci&oacute;n</h4>
-          <div class="phase-weeks">Semanas 23&ndash;30</div>
+          <h4>Implementaci&oacute;n</h4>
+          <div class="phase-weeks">Semanas 15&ndash;34</div>
           <ul>
-            <li>Monitorear adopci&oacute;n y KPIs</li>
-            <li>Ajustar procesos seg&uacute;n resultados</li>
-            <li>Documentar lecciones aprendidas</li>
+            <li>Acompa&ntilde;amiento hombro a hombro</li>
+            <li>Implementaci&oacute;n de procesos y herramientas digitales</li>
+            <li>Nivel de coaching operativo</li>
+            <li>Rutinas de gesti&oacute;n semanales</li>
           </ul>
-          <div class="entregable"><strong>Entregable:</strong> Procesos estabilizados, KPIs en meta</div>
+          <div class="entregable"><strong>Entregable:</strong> Procesos operando, dashboards live, rutinas instaladas</div>
         </div>
 
         <!-- Fase 5 -->
         <div class="phase-card fade-in">
           <div class="phase-number">5</div>
-          <h4>Transferencia</h4>
-          <div class="phase-weeks">Semanas 31&ndash;34</div>
+          <h4>Documentaci&oacute;n &amp; Auditor&iacute;a</h4>
+          <div class="phase-weeks">Semanas 35&ndash;40</div>
           <ul>
-            <li>Transferir operaci&oacute;n 100% al equipo Aura</li>
-            <li>Auditor&iacute;a de cumplimiento</li>
+            <li>Matriz de auditor&iacute;a de procesos implementados</li>
+            <li>Manuales definitivos</li>
+            <li>Evaluaci&oacute;n de madurez al cierre del proyecto</li>
             <li>Plan de sustentabilidad</li>
           </ul>
-          <div class="entregable"><strong>Entregable:</strong> Operaci&oacute;n aut&oacute;noma, plan de mejora continua</div>
+          <div class="entregable"><strong>Entregable:</strong> Documentaci&oacute;n completa, auditor&iacute;a, plan de sustentabilidad</div>
         </div>
       </div>
 
@@ -997,118 +920,54 @@
       <div class="section-header centered fade-in">
         <span class="overline">Roadmap</span>
         <h2>Cronograma del Proyecto</h2>
-        <p>34 semanas de trabajo core + recursos especializados en ventanas espec&iacute;ficas.</p>
+        <p>34 semanas de trabajo: 5 fases con traslapes estrat&eacute;gicos entre Capacitaci&oacute;n, Dise&ntilde;o e Implementaci&oacute;n.</p>
       </div>
 
       <div class="card fade-in" style="padding: 32px; overflow: hidden;">
-        <div class="gantt-wrapper">
-          <div class="gantt-extended">
+        <h3 style="font-family:'Playfair Display',serif; margin-bottom:8px;">Cronograma del Proyecto</h3>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:24px;">34 semanas de proyecto activo + 3 auditor&iacute;as de sustentabilidad post-proyecto</p>
 
-            <!-- Header -->
-            <div class="gantt-header">
-              <span>Rol</span>
-              <span>S 1&ndash;6<br><small style="font-weight:400;opacity:0.6">Dise&ntilde;o</small></span>
-              <span>S 7&ndash;12<br><small style="font-weight:400;opacity:0.6">Piloto</small></span>
-              <span>S 13&ndash;22<br><small style="font-weight:400;opacity:0.6">Despliegue</small></span>
-              <span>S 23&ndash;30<br><small style="font-weight:400;opacity:0.6">Estabilizaci&oacute;n</small></span>
-              <span>S 31&ndash;34<br><small style="font-weight:400;opacity:0.6">Transferencia</small></span>
-              <span>S 35&ndash;49<br><small style="font-weight:400;opacity:0.6">Post</small></span>
-              <span>S 50&ndash;59<br><small style="font-weight:400;opacity:0.6">Post</small></span>
-              <span>S 60&ndash;65<br><small style="font-weight:400;opacity:0.6">Post</small></span>
-            </div>
-
-            <!-- Consultor 1 -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Consultor 1<br><small style="font-weight:400;color:var(--text-muted);">Presup / Ing / Compras</small></div>
-              <div class="gantt-cell design">Dise&ntilde;o</div>
-              <div class="gantt-cell pilot">Piloto</div>
-              <div class="gantt-cell deploy">Despliegue</div>
-              <div class="gantt-cell stabilize">Estab.</div>
-              <div class="gantt-cell transfer">Transfer.</div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-            </div>
-
-            <!-- Consultor 2 -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Consultor 2<br><small style="font-weight:400;color:var(--text-muted);">Control de Obra</small></div>
-              <div class="gantt-cell design">Dise&ntilde;o</div>
-              <div class="gantt-cell pilot">Piloto</div>
-              <div class="gantt-cell deploy">Despliegue</div>
-              <div class="gantt-cell stabilize">Estab.</div>
-              <div class="gantt-cell transfer">Transfer.</div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-            </div>
-
-            <!-- Gerente de Proyecto -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Gerente de Proyecto<br><small style="font-weight:400;color:var(--text-muted);">LCG</small></div>
-              <div class="gantt-cell mgmt">Gesti&oacute;n</div>
-              <div class="gantt-cell mgmt">Gesti&oacute;n</div>
-              <div class="gantt-cell mgmt">Gesti&oacute;n</div>
-              <div class="gantt-cell mgmt">Gesti&oacute;n</div>
-              <div class="gantt-cell mgmt">Gesti&oacute;n</div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-            </div>
-
-            <!-- Change Management -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Change Management<br><small style="font-weight:400;color:var(--text-muted);">15 semanas</small></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell cm">Change Mgmt</div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-            </div>
-
-            <!-- Dir Operaciones -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Dir. Operaciones<br><small style="font-weight:400;color:var(--text-muted);">LCG &mdash; 10 semanas</small></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell dirops">Dir. Ops</div>
-              <div class="gantt-cell empty"></div>
-            </div>
-
-            <!-- Auditoria -->
-            <div class="gantt-row-ext">
-              <div class="gantt-label-ext">Auditor&iacute;a<br><small style="font-weight:400;color:var(--text-muted);">6 semanas</small></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell empty"></div>
-              <div class="gantt-cell audit">Auditor&iacute;a</div>
-            </div>
-
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#166534; margin-bottom:8px;">Proyecto Activo &mdash; 34 Semanas</div>
+        <div style="display:flex; gap:4px; margin-bottom:24px;">
+          <div style="flex:4; background:linear-gradient(135deg,#7C3AED,#9333EA); color:white; padding:20px 16px; border-radius:12px 0 0 12px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:0.8; text-transform:uppercase;">Sem 1-4</div>
+            <div style="font-size:14px; font-weight:700; margin:8px 0;">An&aacute;lisis &amp;<br>Quick Wins</div>
+            <div style="font-size:11px; opacity:0.7;">4 semanas</div>
+          </div>
+          <div style="flex:11; background:linear-gradient(135deg,#2563EB,#3B82F6); color:white; padding:20px 16px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:0.8; text-transform:uppercase;">Sem 5-15</div>
+            <div style="font-size:14px; font-weight:700; margin:8px 0;">Dise&ntilde;o</div>
+            <div style="font-size:11px; opacity:0.7;">11 semanas</div>
+          </div>
+          <div style="flex:11; background:linear-gradient(135deg,#059669,#10B981); color:white; padding:20px 16px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:0.8; text-transform:uppercase;">Sem 10-20</div>
+            <div style="font-size:14px; font-weight:700; margin:8px 0;">Capacitaci&oacute;n</div>
+            <div style="font-size:11px; opacity:0.7;">traslape con Dise&ntilde;o e Impl.</div>
+          </div>
+          <div style="flex:20; background:linear-gradient(135deg,#D97706,#F59E0B); color:white; padding:20px 16px; border-radius:0 12px 12px 0; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; opacity:0.8; text-transform:uppercase;">Sem 15-34</div>
+            <div style="font-size:14px; font-weight:700; margin:8px 0;">Implementaci&oacute;n</div>
+            <div style="font-size:11px; opacity:0.7;">20 semanas</div>
           </div>
         </div>
 
-        <!-- Legend -->
-        <div class="gantt-legend">
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#1E40AF,#3B82F6);"></div>Dise&ntilde;o</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#7C3AED,#A78BFA);"></div>Piloto</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,var(--lcg-green-dark),var(--lcg-green));"></div>Despliegue</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#0E7490,#22D3EE);"></div>Estabilizaci&oacute;n</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#B45309,#F59E0B);"></div>Transferencia</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#1B3057,#2A4A7F);"></div>Gesti&oacute;n</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#9333EA,#C084FC);"></div>Change Mgmt</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#4338CA,#818CF8);"></div>Dir. Ops</div>
-          <div class="gantt-legend-item"><div class="gantt-legend-color" style="background:linear-gradient(135deg,#B91C1C,#F87171);"></div>Auditor&iacute;a</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#1E40AF; margin-bottom:8px;">Auditor&iacute;as de Sustentabilidad &mdash; Post-Proyecto</div>
+        <div style="display:flex; gap:16px;">
+          <div style="flex:1; background:#EFF6FF; border:2px solid #93C5FD; padding:16px; border-radius:10px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#1E40AF; text-transform:uppercase;">3 meses post</div>
+            <div style="font-size:14px; font-weight:700; margin:6px 0; color:#1E40AF;">Auditor&iacute;a 1</div>
+            <div style="font-size:12px; color:var(--text-muted);">2 semanas</div>
+          </div>
+          <div style="flex:1; background:#EFF6FF; border:2px solid #93C5FD; padding:16px; border-radius:10px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#1E40AF; text-transform:uppercase;">6 meses post</div>
+            <div style="font-size:14px; font-weight:700; margin:6px 0; color:#1E40AF;">Auditor&iacute;a 2</div>
+            <div style="font-size:12px; color:var(--text-muted);">2 semanas</div>
+          </div>
+          <div style="flex:1; background:#EFF6FF; border:2px solid #93C5FD; padding:16px; border-radius:10px; text-align:center;">
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:#1E40AF; text-transform:uppercase;">1 a&ntilde;o post</div>
+            <div style="font-size:14px; font-weight:700; margin:6px 0; color:#1E40AF;">Auditor&iacute;a 3</div>
+            <div style="font-size:12px; color:var(--text-muted);">2 semanas</div>
+          </div>
         </div>
       </div>
 
@@ -1147,7 +1006,7 @@
           <div class="team-avatar">&#9783;</div>
           <h4>Consultor 2</h4>
           <div class="team-weeks">34 semanas</div>
-          <p>Control de Obra. Especialista en control de proyectos de construcci&oacute;n, earned value management y sistemas de monitoreo.</p>
+          <p>Ejecuci&oacute;n de Obra y Control. Especialista en Last Planner, gesti&oacute;n de contratistas, earned value management y sistemas de monitoreo.</p>
         </div>
 
         <div class="team-card fade-in fade-in-delay-1">
@@ -1203,41 +1062,59 @@
                 </tr>
               </thead>
               <tbody>
+                <tr style="background:#F0FDF4;">
+                  <td colspan="4" style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#166534;padding:10px 16px;">Proyecto Activo &mdash; 34 Semanas</td>
+                </tr>
                 <tr>
-                  <td><strong>Director de Operaciones</strong><br><small style="color:var(--text-muted);">LCG</small></td>
+                  <td><strong>Director de Operaciones</strong><br><small style="color:var(--text-muted);">LCG &mdash; 10 semanas esparcidas a lo largo del proyecto</small></td>
                   <td style="text-align:center;">10</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$60,000</td>
                 </tr>
                 <tr>
-                  <td><strong>Gerente de Proyecto</strong><br><small style="color:var(--text-muted);">LCG</small></td>
+                  <td><strong>Gerente de Proyecto</strong><br><small style="color:var(--text-muted);">LCG &mdash; Full time</small></td>
                   <td style="text-align:center;">34</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$204,000</td>
                 </tr>
                 <tr>
-                  <td><strong>Consultor 1</strong><br><small style="color:var(--text-muted);">Presupuesto, Ingenier&iacute;a y Compras</small></td>
+                  <td><strong>Consultor 1</strong><br><small style="color:var(--text-muted);">Presupuesto, Ingenier&iacute;a y Compras &mdash; Full time</small></td>
                   <td style="text-align:center;">34</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$204,000</td>
                 </tr>
                 <tr>
-                  <td><strong>Consultor 2</strong><br><small style="color:var(--text-muted);">Control de Obra</small></td>
+                  <td><strong>Consultor 2</strong><br><small style="color:var(--text-muted);">Ejecuci&oacute;n de Obra y Control &mdash; Full time</small></td>
                   <td style="text-align:center;">34</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$204,000</td>
                 </tr>
                 <tr>
-                  <td><strong>Change Management</strong></td>
+                  <td><strong>Change Management</strong><br><small style="color:var(--text-muted);">15 semanas esparcidas a lo largo del proyecto</small></td>
                   <td style="text-align:center;">15</td>
                   <td style="text-align:right;">$6,000</td>
                   <td style="text-align:right;font-weight:700;">$90,000</td>
                 </tr>
+                <tr style="background:#EFF6FF;">
+                  <td colspan="4" style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1E40AF;padding:10px 16px;">Auditor&iacute;as Post-Proyecto</td>
+                </tr>
                 <tr>
-                  <td><strong>Auditor&iacute;a</strong></td>
-                  <td style="text-align:center;">6</td>
+                  <td><strong>Auditor&iacute;a 1</strong><br><small style="color:var(--text-muted);">3 meses despu&eacute;s de cierre</small></td>
+                  <td style="text-align:center;">2</td>
                   <td style="text-align:right;">$6,000</td>
-                  <td style="text-align:right;font-weight:700;">$36,000</td>
+                  <td style="text-align:right;font-weight:700;">$12,000</td>
+                </tr>
+                <tr>
+                  <td><strong>Auditor&iacute;a 2</strong><br><small style="color:var(--text-muted);">6 meses despu&eacute;s de cierre</small></td>
+                  <td style="text-align:center;">2</td>
+                  <td style="text-align:right;">$6,000</td>
+                  <td style="text-align:right;font-weight:700;">$12,000</td>
+                </tr>
+                <tr>
+                  <td><strong>Auditor&iacute;a 3</strong><br><small style="color:var(--text-muted);">1 a&ntilde;o despu&eacute;s de cierre</small></td>
+                  <td style="text-align:center;">2</td>
+                  <td style="text-align:right;">$6,000</td>
+                  <td style="text-align:right;font-weight:700;">$12,000</td>
                 </tr>
                 <tr style="background:var(--bg-dark);color:white;">
                   <td style="color:white;"><strong>TOTAL</strong></td>
@@ -1253,7 +1130,7 @@
           <div class="investment-total mt-xl">
             <div class="total-label">Inversi&oacute;n Total del Proyecto</div>
             <div class="total-amount">$798,000 USD</div>
-            <div class="total-sub">133 semanas-consultor &bull; Tarifa: $6,000 USD/semana</div>
+            <div class="total-sub">34 semanas proyecto + 6 semanas auditor&iacute;a &bull; Tarifa: $6,000 USD/semana</div>
           </div>
         </div>
 
@@ -1295,7 +1172,7 @@
       <div class="container-narrow fade-in">
         <div class="card" style="padding: 32px 40px;">
           <ol class="entregable-list">
-            <li>Manual de procesos para 4 pilares (Presupuesto, Ingenier&iacute;a, Compras, Control)</li>
+            <li>Manual de procesos para 3 workstreams (Presupuesto + Ingenier&iacute;a + Compras, Ejecuci&oacute;n + Control)</li>
             <li>KPIs definidos y dashboards configurados (Looker Studio)</li>
             <li>Integraci&oacute;n Opus&ndash;Odoo eliminando doble captura</li>
             <li>Formato de reporte semanal institucionalizado</li>
@@ -1336,14 +1213,14 @@
           <div class="next-step-number">2</div>
           <div class="next-step-content">
             <h4>Definici&oacute;n de Proyecto Piloto</h4>
-            <p>Seleccionar el proyecto sobre el cual se implementar&aacute;n los nuevos procesos en Fase 2 (3B Xalapa o siguiente BTS).</p>
+            <p>Seleccionar el proyecto sobre el cual se implementar&aacute;n los nuevos procesos (3B Xalapa o siguiente BTS).</p>
           </div>
         </div>
         <div class="next-step fade-in fade-in-delay-3">
           <div class="next-step-number">3</div>
           <div class="next-step-content">
             <h4>Arranque Semana 1: Mayo 2026</h4>
-            <p>Kick-off formal con equipo Aura y consultores LCG. Inicio de Fase 1: Dise&ntilde;o.</p>
+            <p>Kick-off formal con equipo Aura y consultores LCG. Inicio de Fase 1: An&aacute;lisis &amp; Quick Wins.</p>
           </div>
         </div>
       </div>
@@ -1454,11 +1331,11 @@
       new Chart(cmmCtx.getContext('2d'), {
         type: 'bar',
         data: {
-          labels: ['P3\nPresupuesto', 'P4\nIngenieria', 'P5\nCompras', 'P7\nControl'],
+          labels: ['P3\nPresupuesto', 'P4\nIngenieria', 'P5\nCompras', 'P6+P7\nEjec. y Control'],
           datasets: [
             {
               label: 'CMM Actual',
-              data: [1.2, 2.5, 1.0, 1.0],
+              data: [1.2, 2.5, 1.0, 1.1],
               backgroundColor: 'rgba(220,38,38,0.75)',
               borderColor: '#DC2626',
               borderWidth: 2,
@@ -1467,7 +1344,7 @@
               categoryPercentage: 0.7
             },
             {
-              label: 'Meta 34 Sem.',
+              label: 'Meta 40 Sem.',
               data: [3.0, 3.5, 2.5, 3.0],
               backgroundColor: 'rgba(0,179,136,0.75)',
               borderColor: '#00B388',
