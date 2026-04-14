@@ -2218,7 +2218,7 @@ h4.sub-heading {
     <div class="callout-label">Brechas Criticas</div>
     <ul>
       <li><strong>92% urgencias:</strong> De 472 OCs en Pantaleon ($130.5M), el 92% se clasifican como urgentes o altas. Solo 8% (38 OCs) siguen el proceso normal.</li>
-      <li><strong>Operaciones bypasea:</strong> El proceso de Aura tiene 7 pasos vs 10 de Petroplus. Los 3 pasos que se eliminan son: cotizacion, comparativo, y seleccion.</li>
+      <li><strong>Operaciones bypasea procurement:</strong> Las etapas estrat&eacute;gicas (cotizaci&oacute;n competitiva, comparativo, selecci&oacute;n de proveedor) son omitidas. Los proveedores llegan pre-asignados desde Operaciones.</li>
       <li><strong>Sin segregacion de funciones:</strong> La misma persona que solicita puede negociar y autorizar. No hay cuatro ojos en el ciclo de compra.</li>
       <li><strong>Sin contratos:</strong> Proveedores recurrentes operan sin contrato marco. GCC recibio $1M de anticipo 2 meses antes de formalizar contrato.</li>
       <li><strong>Sin plan de materiales:</strong> Compras no recibe un programa de materiales vinculado al cronograma de obra. Todo llega como urgencia.</li>
@@ -2335,36 +2335,86 @@ h4.sub-heading {
     </tbody>
   </table>
 
-  <h4 style="margin-top:32px;">Proceso de Compras: Best Practice vs Aura</h4>
+  <h4 style="margin-top:32px;">Procurement Estrat&eacute;gico: Best Practice vs Aura Desarrollos</h4>
+  <p class="narrative">El procurement estrat&eacute;gico en construcci&oacute;n industrial sigue un ciclo de 10 etapas que va m&aacute;s all&aacute; del proceso transaccional. Comparado contra este est&aacute;ndar, Aura ejecuta solo las etapas transaccionales (en gris) y omite por completo las etapas estrat&eacute;gicas que generan valor y control (en rojo).</p>
+
   <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin:24px 0;">
-  <div>
-  <div style="font-size:12px; font-weight:700; color:#2E7D32; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">PETROPLUS (Best Practice Interna)</div>
-  <div style="display:flex; flex-direction:column; gap:4px;">
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">1. Deteccion de necesidad</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">2. Notificacion a Mantenimiento</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">3. Requisicion formal</div>
-  <div style="background:#C8E6C9; border-left:4px solid #1B5E20; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700;">4. Cotizacion competitiva</div>
-  <div style="background:#C8E6C9; border-left:4px solid #1B5E20; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700;">5. Comparativo de propuestas</div>
-  <div style="background:#C8E6C9; border-left:4px solid #1B5E20; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700;">6. Seleccion de proveedor</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">7. Generacion de OC</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">8. Recepcion de material</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">9. Facturacion</div>
-  <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">10. Pago</div>
+    <div>
+      <div style="font-size:12px; font-weight:700; color:#2E7D32; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Best Practice &mdash; Procurement Estrat&eacute;gico</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">1. Plan de materiales ligado a cronograma de obra</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">2. Categorizaci&oacute;n estrat&eacute;gica (Kraljic: cr&iacute;ticos, palanca, rutina, cuello de botella)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">3. Sourcing: prequalificaci&oacute;n y desarrollo de panel de proveedores</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">4. Cotizaci&oacute;n competitiva (m&iacute;n. 3 proveedores) + RFP estructurado</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">5. An&aacute;lisis CBA (Choosing By Advantages) + TCO total</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">6. Negociaci&oacute;n y contrato marco con SLAs</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">7. OC con segregaci&oacute;n de funciones (solicita &ne; aprueba &ne; paga)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">8. Recepci&oacute;n con 3-way match (OC + remisi&oacute;n + factura)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">9. Pago con autorizaci&oacute;n por matriz y validaci&oacute;n cruzada</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600;">10. Evaluaci&oacute;n de desempe&ntilde;o y desarrollo de proveedores</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Aura Desarrollos &mdash; Estado Actual</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">1. NO SE HACE &mdash; Sin plan de materiales ligado al cronograma</div>
+        <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light); opacity:0.7;">2. NO SE HACE &mdash; Sin categorizaci&oacute;n estrat&eacute;gica</div>
+        <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light); opacity:0.7;">3. NO SE HACE &mdash; Sin sourcing ni desarrollo de proveedores</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">4. NO SE HACE &mdash; Proveedor PRE-ASIGNADO por Operaciones</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">5. NO SE HACE &mdash; Sin an&aacute;lisis CBA ni TCO</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">6. NO SE HACE &mdash; Sin contratos marco (excepto XMA y Atile)</div>
+        <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">7. SE HACE PARCIAL &mdash; OC sin segregaci&oacute;n de funciones</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">8. NO SE HACE &mdash; Almacenista sin acceso a Odoo</div>
+        <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">9. SE HACE PARCIAL &mdash; Pagos sin validaci&oacute;n cruzada</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">10. NO SE HACE &mdash; Sin evaluaci&oacute;n de desempe&ntilde;o</div>
+      </div>
+    </div>
   </div>
+
+  <div style="display:flex; gap:16px; margin:16px 0; font-size:12px;">
+    <div style="display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; background:var(--red-light); border-left:4px solid var(--red);"></div><strong style="color:var(--red);">Rojo</strong> &mdash; No se hace o se hace mal</div>
+    <div style="display:flex; align-items:center; gap:8px;"><div style="width:14px; height:14px; background:#F5F5F5; border-left:4px solid #9E9E9E;"></div><strong style="color:var(--text-light);">Gris</strong> &mdash; Se hace parcialmente sin controles</div>
   </div>
-  <div>
-  <div style="font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">AURA DESARROLLOS (Estado Actual)</div>
-  <div style="display:flex; flex-direction:column; gap:4px;">
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">1. Deteccion de necesidad</div>
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">2. Requisicion (muchas veces verbal)</div>
-  <div style="background:var(--red-light); border-left:4px solid var(--red); padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:700; color:var(--red);">3. Proveedor PRE-ASIGNADO por Operaciones</div>
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">4. Compras gestiona la orden</div>
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">5. Recepcion (sin acceso a Odoo)</div>
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">6. Facturacion</div>
-  <div style="background:#F5F5F5; border-left:4px solid #9E9E9E; padding:8px 12px; border-radius:0 6px 6px 0; font-size:13px; font-weight:600; color:var(--text-light);">7. Pago</div>
-  <div style="background:var(--red-light); border-left:4px solid var(--red); padding:12px; border-radius:6px; font-size:12px; font-weight:700; color:var(--red); text-align:center; margin-top:8px;">ELIMINADOS: Cotizacion, Comparativo, Seleccion de proveedor<br>El 92% de las compras son urgentes</div>
+
+  <h4 style="margin-top:40px;">Niveles de Madurez de Procurement en Construcci&oacute;n</h4>
+  <p class="narrative">El procurement en construcci&oacute;n industrial evoluciona a trav&eacute;s de 5 niveles de madurez. La industria reconoce este modelo (basado en CIPS &mdash; Chartered Institute of Procurement & Supply) y ATKearney Procurement Maturity Model.</p>
+
+  <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:8px; margin:24px 0;">
+    <div style="background:#FEE2E2; border:2px solid #DC2626; padding:16px; border-radius:10px; position:relative;">
+      <div style="position:absolute; top:-12px; left:12px; background:#DC2626; color:white; padding:2px 10px; border-radius:6px; font-size:10px; font-weight:700; font-family:'IBM Plex Mono',monospace;">NIVEL 1</div>
+      <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#991B1B; margin:8px 0;">Reactivo</div>
+      <p style="font-size:11px; color:#7F1D1D; line-height:1.5; margin:0;">Compras como funci&oacute;n transaccional. Se compra cuando se necesita. Sin proceso, sin contratos, sin medici&oacute;n. Predomina urgencia. Operaciones decide qu&eacute; y a qui&eacute;n.</p>
+      <div style="margin-top:12px; padding-top:12px; border-top:1px solid #DC2626; font-size:11px; font-weight:700; color:#991B1B;">&larr; AURA DESARROLLOS</div>
+    </div>
+    <div style="background:#FEF3C7; border:2px solid #F59E0B; padding:16px; border-radius:10px; position:relative;">
+      <div style="position:absolute; top:-12px; left:12px; background:#F59E0B; color:white; padding:2px 10px; border-radius:6px; font-size:10px; font-weight:700; font-family:'IBM Plex Mono',monospace;">NIVEL 2</div>
+      <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#92400E; margin:8px 0;">Operativo</div>
+      <p style="font-size:11px; color:#78350F; line-height:1.5; margin:0;">Proceso de compras documentado con cotizaci&oacute;n competitiva b&aacute;sica (3 cotizaciones). Cat&aacute;logo de proveedores activo. OCs con flujo de aprobaci&oacute;n. Sin segmentaci&oacute;n estrat&eacute;gica.</p>
+    </div>
+    <div style="background:#FEF9C3; border:2px solid #CA8A04; padding:16px; border-radius:10px; position:relative;">
+      <div style="position:absolute; top:-12px; left:12px; background:#CA8A04; color:white; padding:2px 10px; border-radius:6px; font-size:10px; font-weight:700; font-family:'IBM Plex Mono',monospace;">NIVEL 3</div>
+      <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#854D0E; margin:8px 0;">Estructurado</div>
+      <p style="font-size:11px; color:#713F12; line-height:1.5; margin:0;">Categorizaci&oacute;n Kraljic. Plan de materiales ligado a cronograma de obra. Contratos marco con proveedores cr&iacute;ticos. KPIs de procurement (lead time, ahorro, calidad). Segregaci&oacute;n de funciones.</p>
+    </div>
+    <div style="background:#DCFCE7; border:2px solid #16A34A; padding:16px; border-radius:10px; position:relative;">
+      <div style="position:absolute; top:-12px; left:12px; background:#16A34A; color:white; padding:2px 10px; border-radius:6px; font-size:10px; font-weight:700; font-family:'IBM Plex Mono',monospace;">NIVEL 4</div>
+      <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#166534; margin:8px 0;">Estrat&eacute;gico</div>
+      <p style="font-size:11px; color:#14532D; line-height:1.5; margin:0;">Procurement integrado al dise&ntilde;o (Early Supplier Involvement). TCO y CBA en decisiones. Desarrollo de proveedores con SLAs. Should-cost models. Risk management de cadena de suministro. JIT alineado a Last Planner.</p>
+    </div>
+    <div style="background:#D1FAE5; border:2px solid #047857; padding:16px; border-radius:10px; position:relative;">
+      <div style="position:absolute; top:-12px; left:12px; background:#047857; color:white; padding:2px 10px; border-radius:6px; font-size:10px; font-weight:700; font-family:'IBM Plex Mono',monospace;">NIVEL 5</div>
+      <div style="font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:#065F46; margin:8px 0;">Optimizado</div>
+      <p style="font-size:11px; color:#064E3B; line-height:1.5; margin:0;">Alianzas estrat&eacute;gicas con proveedores clave. Innovaci&oacute;n colaborativa. Procurement digital (e-sourcing, AI, predictive analytics). Sustainability y ESG integrados. Benchmark global continuo.</p>
+    </div>
   </div>
-  </div>
+
+  <div class="callout callout-amber">
+    <div class="callout-label">D&oacute;nde est&aacute; Aura</div>
+    <ul>
+      <li>Aura Desarrollos opera en <strong>Nivel 1 &mdash; Reactivo</strong>. El 92% de las OCs son urgentes, no hay plan de materiales, los proveedores son pre-asignados por Operaciones, y no existe categorizaci&oacute;n estrat&eacute;gica.</li>
+      <li>El <strong>objetivo realista a 12-18 meses es Nivel 3 &mdash; Estructurado</strong>: implementar plan de materiales ligado a cronograma, categorizaci&oacute;n Kraljic, contratos marco con los 13 proveedores que concentran el 80% del gasto, y KPIs de procurement.</li>
+      <li>Empresas como <strong>Vesta, Prologis, FINSA, Fibra Macquarie</strong> operan en Nivel 4. El <strong>benchmark internacional</strong> (Bechtel, Skanska, Turner) llega a Nivel 5.</li>
+    </ul>
   </div>
 
   <h3 class="sub-heading">Oportunidades del Pilar</h3>
@@ -2373,10 +2423,10 @@ h4.sub-heading {
       <div><div class="opp-id">OPP-003</div><div class="opp-name">Estructurar area de compras con proceso formal</div></div>
       <div><span class="opp-badge proc">Procesos</span></div>
     </div>
-    <div class="opp-body">Implementar el proceso de 10 pasos (modelo Petroplus) para todas las compras de Aura Desarrollos. Incluir cotizacion competitiva obligatoria para compras >$50K.</div>
+    <div class="opp-body">Implementar el proceso de Procurement Estrat&eacute;gico de 10 etapas, llevando a Aura del Nivel 1 (Reactivo) al Nivel 3 (Estructurado) en 12-18 meses. Incluir cotizaci&oacute;n competitiva obligatoria para compras &gt;$50K, contratos marco con proveedores cr&iacute;ticos, y KPIs de procurement.</div>
     <dl class="opp-meta">
-      <dt>Estado actual</dt><dd>92% de compras sin cotizacion. Proceso de 7 pasos sin los 3 que crean valor.</dd>
-      <dt>Best practice</dt><dd>ISO 9001 + COSO: cotizacion 3+, comparativo, aprobacion, segregacion.</dd>
+      <dt>Estado actual</dt><dd>Nivel 1 &mdash; Reactivo. 92% de compras urgentes sin cotizaci&oacute;n.</dd>
+      <dt>Best practice</dt><dd>CIPS + ATKearney: Nivel 3-4. Categorizaci&oacute;n Kraljic, contratos marco, KPIs.</dd>
       <dt>Impacto</dt><dd>Ahorro estimado 10-15% sobre gasto anual de materiales.</dd>
     </dl>
   </div>
