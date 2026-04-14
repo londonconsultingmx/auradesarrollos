@@ -1281,7 +1281,7 @@ h4.sub-heading {
     <div class="section-subtitle">Modelo de negocio, ingresos, costos, margenes y riesgos financieros documentados</div>
   </div>
 
-  <h3 style="margin-top:32px;">Estado de Resultados — Enero-Febrero 2026</h3>
+  <h3 style="margin-top:32px;">Estado de Resultados &mdash; Enero-Febrero 2026</h3>
   <p class="narrative">Los estados financieros al cierre de febrero 2026 revelan una operacion en fase de inversion pesada. La division Inmobiliarias opera a traves de dos vehiculos: ZAROVI (operacion activa) y PROY 21 (proyecto en desarrollo pre-entrega).</p>
 
   <table>
@@ -1297,13 +1297,13 @@ h4.sub-heading {
   <div class="finding-card critical">
   <div class="finding-header">
   <div class="finding-icon">!</div>
-  <div class="finding-title">Operacion en fase de inversion — perdida operativa del 480%</div>
+  <div class="finding-title">Operacion en fase de inversion &mdash; perdida operativa del 480%</div>
   </div>
-  <p class="finding-text">Los gastos operativos ($1,744M) superan los ingresos ($660M) en 2.6x. El costo financiero ($1,964M) es casi 3x los ingresos. Esto es consistente con una empresa que tiene $390M en construccion en proceso y $265M en deuda bancaria de corto plazo. El modelo requiere que las entregas de proyectos (Pantaleon, 3B) conviertan estos costos en flujo — pero cualquier retraso en entrega amplifica la perdida.</p>
+  <p class="finding-text">Los gastos operativos ($1,744M) superan los ingresos ($660M) en 2.6x. El costo financiero ($1,964M) es casi 3x los ingresos. Esto es consistente con una empresa que tiene $390M en construccion en proceso y $265M en deuda bancaria de corto plazo. El modelo requiere que las entregas de proyectos (Pantaleon, 3B) conviertan estos costos en flujo &mdash; pero cualquier retraso en entrega amplifica la perdida.</p>
   <span class="finding-kpi red">Resultado: -$3,169M MDP</span>
   </div>
 
-  <h3 style="margin-top:32px;">Balance General — Febrero 2026</h3>
+  <h3 style="margin-top:32px;">Balance General &mdash; Febrero 2026</h3>
 
   <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:24px 0;">
   <div style="background:var(--warm-bg); padding:20px; border-radius:10px; text-align:center;">
@@ -1326,54 +1326,230 @@ h4.sub-heading {
   <div class="finding-card warning">
   <div class="finding-header">
   <div class="finding-icon">!</div>
-  <div class="finding-title">97% de la deuda es de corto plazo — razon circulante de 0.26x</div>
+  <div class="finding-title">97% de la deuda es de corto plazo &mdash; razon circulante de 0.26x</div>
   </div>
   <p class="finding-text">De los $609M de pasivo, $590M vencen en el corto plazo (prestamos bancarios $265M, acreedores $194M, anticipos clientes $86M). Los activos circulantes ($156M) apenas cubren el 26% de las obligaciones inmediatas. La operacion depende del reciclaje de flujo via entrega de proyectos o inyeccion de capital del holding. Cualquier retraso en Pantaleon o 3B Xalapa impacta directamente la capacidad de pago.</p>
   <span class="finding-kpi amber">Razon Circulante: 0.26x</span>
   </div>
 
-  <h3 class="sub-heading">Modelo de Negocio</h3>
+  <!-- ==== NUEVO SUB-BLOQUE: BANREGIO ==== -->
+  <h3 class="sub-heading" style="margin-top:48px;">Pantaleon &mdash; Estructura del Credito Banregio</h3>
   <p class="narrative">
-    Aura Desarrollos genera ingresos de 3 formas: (1) venta de lotes industriales en su parque PLA (Parque Logistico Altamira), (2) renta de bodegas Build-to-Suit construidas a la medida del cliente, y (3) cuotas de mantenimiento del parque (CAM). El modelo esta evolucionando de ventas puntuales (lotes) a ingresos recurrentes (rentas), lo cual aumenta el valor de la empresa pero requiere capacidades operativas diferentes: construccion repetible, property management profesional, y una relacion de largo plazo con los inquilinos.
+    El proyecto Pantaleon (dos naves BTS arrendadas a Grupo Pantaleon) esta financiado mediante un credito en dolares con Banregio. El analisis del modelo financiero entregado por la Jefatura de Planeacion Financiera revela una estructura agresiva con cero margen para imprevistos.
   </p>
+
+  <table>
+  <thead><tr><th>Termino</th><th>Valor</th><th>Implicacion</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Monto del credito</strong></td><td>USD 14.7M (~$294M MXN)</td><td>Representa &gt;75% del costo total del proyecto Pantaleon</td></tr>
+  <tr><td><strong>Plazo</strong></td><td>10 anos (120 meses amortizacion)</td><td>Plazo estandar para BTS industrial</td></tr>
+  <tr><td><strong>Tasa</strong></td><td>7.5% anual (USD)</td><td>Tasa variable referenciada a SOFR + margen</td></tr>
+  <tr><td><strong>Renta modelada</strong></td><td>$138K USD/mes ($1.66M USD/ano)</td><td>33,615 m&sup2; a $4.12 USD/m&sup2;/mes</td></tr>
+  <tr style="background:var(--red-light); font-weight:700"><td><strong>DSCR (Debt Service Coverage Ratio)</strong></td><td style="color:var(--red)">1.20x &mdash; CRITICO</td><td style="color:var(--red)">Solo 20% de margen sobre el servicio de deuda</td></tr>
+  <tr><td><strong>Ocupacion modelada</strong></td><td>100% (sin escenario de vacancia)</td><td>El modelo no contempla vacancia parcial</td></tr>
+  </tbody>
+  </table>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">DSCR de 1.20x &mdash; estructura de supervivencia, no de rentabilidad</div>
+    </div>
+    <p class="finding-text">El estandar institucional para BTS industrial es DSCR &ge; 1.40x (Vesta, Prologis, Fibra Macquarie). El 1.20x modelado significa que por cada $1 de servicio de deuda, el proyecto genera $1.20 de ingreso operativo. <strong>Cualquier vacancia mayor a 17%, atraso en pago de renta, o aumento de costo operativo imprevisto rompe el covenant del banco</strong>. El modelo asume 100% de ocupacion durante 10 anos &mdash; un supuesto irreal sin reservas de contingencia.</p>
+    <span class="finding-kpi red">DSCR 1.20x &mdash; sin margen para imprevistos</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Mismatch cambiario sin hedging documentado &mdash; deuda USD, rentas MXN</div>
+    </div>
+    <p class="finding-text">El credito esta denominado en USD pero las rentas se cobran en pesos al inquilino. Cada 1% de depreciacion del peso aumenta la carga de servicio de deuda en aproximadamente $147K USD/ano. En un escenario de devaluacion del 10% (que ocurrio dos veces en la ultima decada), el costo financiero anual aumenta $1.47M USD &mdash; <strong>casi el equivalente a la renta anual completa</strong>. No hay cobertura cambiaria documentada en el modelo.</p>
+    <span class="finding-kpi red">Sensibilidad: +$147K USD/ano por cada 1% devaluacion</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:24px 0;">
+    <div style="background:var(--warm-bg); padding:16px; border-radius:10px; text-align:center; border:2px solid var(--border);">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-muted); text-transform:uppercase;">Ano 1</div>
+      <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; margin:6px 0;">96.5%</div>
+      <div style="font-size:11px; color:var(--text-light);">balance pendiente</div>
+    </div>
+    <div style="background:var(--warm-bg); padding:16px; border-radius:10px; text-align:center; border:2px solid var(--border);">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-muted); text-transform:uppercase;">Ano 5</div>
+      <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; margin:6px 0;">78.4%</div>
+      <div style="font-size:11px; color:var(--text-light);">balance pendiente</div>
+    </div>
+    <div style="background:var(--warm-bg); padding:16px; border-radius:10px; text-align:center; border:2px solid var(--border);">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text-muted); text-transform:uppercase;">Ano 10</div>
+      <div style="font-family:'Playfair Display',serif; font-size:24px; font-weight:700; margin:6px 0;">42.8%</div>
+      <div style="font-size:11px; color:var(--text-light);">+ bullet $6.3M USD</div>
+    </div>
+  </div>
+
+  <!-- ==== NUEVO SUB-BLOQUE: FLUJO PANTALEON ==== -->
+  <h3 class="sub-heading" style="margin-top:48px;">Pantaleon &mdash; Flujo de Efectivo Proyectado</h3>
   <p class="narrative">
-    La transicion es estrategicamente correcta &mdash; los FIBRAs industriales que Aura aspira a emular (Vesta, Prologis, Fibra Macquarie) generan el grueso de su valor a traves de portafolios de arrendamiento con ocupaciones superiores al 95%. Sin embargo, esta transicion exige un salto de madurez operativa que la organizacion aun no ha dado: pasar de &ldquo;vender y olvidar&rdquo; a &ldquo;construir, entregar, operar y retener&rdquo;.
+    El analisis del archivo &ldquo;Flujo de Efectivo 2026 ZAR Proy Pantaleon&rdquo; muestra un proyecto fuertemente capital-intensivo con erogaciones de mas de $7M MXN/mes durante la fase de construccion (2025) y un cash flow neto negativo proyectado durante los primeros 12-18 meses, con break-even estimado entre el mes 18 y 24 desde el inicio de operaciones.
   </p>
+
+  <div class="chart-container" style="height:360px; margin:24px 0;">
+    <canvas id="chartFlujoPantaleon"></canvas>
+  </div>
+
+  <div class="finding-card warning">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Cash flow negativo durante 12-18 meses &mdash; dependencia critica de aportaciones</div>
+    </div>
+    <p class="finding-text">Durante la fase de construccion (Q1-Q2 2025) el proyecto requiere desembolsos de $7M+ MXN/mes con cero ingresos. Pagos representativos documentados: XMA Ingenieria $7.1M MXN en un solo pago de febrero 2025; Perfiles Atiye $3M+ USD acumulados en 3 meses; Municipio de Altamira $7.1M MXN en derechos. El break-even no se alcanza hasta despues del Beneficial Occupancy + ramp-up de rentas. <strong>Mientras tanto, el deficit acumulado debe cubrirse con aportaciones de capital o disposiciones del credito Banregio</strong>.</p>
+    <span class="finding-kpi amber">Deficit acumulado proyectado: $5-8M USD antes de break-even</span>
+  </div>
+
+  <!-- ==== NUEVO SUB-BLOQUE: CLA DETALLE ==== -->
+  <h3 class="sub-heading" style="margin-top:48px;">CLA &mdash; Desviaciones Presupuestales por Sub-categoria</h3>
+  <p class="narrative">
+    El archivo de reconciliacion &ldquo;Base Cuadre ZAR vs Finanzas CLA a Feb 26&rdquo; permite por primera vez ver el detalle a nivel sub-partida. Lo que en el agregado parece un sobrecosto del 22.7% en vialidades, esconde un dato mucho mas grave: <strong>Energia Exterior tiene un sobrecosto del +136% sobre el presupuesto autorizado</strong>. Y al mismo tiempo, hay sub-partidas con sub-ejecucion significativa que indican pendientes que aumentaran el costo final del proyecto.
+  </p>
+
+  <table>
+  <thead><tr><th>Categoria / Sub-partida</th><th>Presupuesto</th><th>Ejecutado</th><th>Variacion</th></tr></thead>
+  <tbody>
+  <tr style="background:#FFF8E1"><td colspan="4"><strong>VIALIDADES &mdash; Total: +22.7% ($11.4M sobre)</strong></td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;Estructura Pavimentos</td><td>$30.5M</td><td>$37.8M</td><td style="color:var(--red);font-weight:700">+24%</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;Acarreo Interior Zarovi</td><td>$7.1M</td><td>$7.3M</td><td>+2.5%</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;Cortes y Rellenos</td><td>$3.6M</td><td>$0.3M</td><td style="color:var(--amber);font-weight:700">-92% (sub-ejecutado)</td></tr>
+  <tr style="background:#FEE2E2"><td colspan="4"><strong>INSTALACION ELECTRICA &mdash; Total: +15.9% ($3.3M sobre)</strong></td></tr>
+  <tr style="background:#FEF2F2"><td>&nbsp;&nbsp;&nbsp;<strong>Energia Exterior</strong></td><td>$3.2M</td><td>$7.6M</td><td style="color:var(--red);font-weight:800; font-size:14px;">+136% &mdash; OUTLIER</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;Energia Interior</td><td>$11.3M</td><td>$8.3M</td><td style="color:var(--amber)">-27% (sub-ejecutado)</td></tr>
+  <tr style="background:#FFF8E1"><td colspan="4"><strong>OTRAS PARTIDAS RELEVANTES</strong></td></tr>
+  <tr><td>Casetas</td><td>$6.1M</td><td>$8.5M</td><td style="color:var(--red);font-weight:700">+37.7%</td></tr>
+  <tr><td>Instalacion Sanitaria</td><td>$9.8M</td><td>$8.0M</td><td style="color:var(--amber)">-18% (pendientes)</td></tr>
+  <tr><td>Bardas</td><td>$7.3M</td><td>$5.6M</td><td style="color:var(--amber)">-24% (pendientes)</td></tr>
+  <tr style="background:#1F2937; color:white; font-weight:700"><td>TOTAL CLA EJECUTADO</td><td>$157.0M</td><td style="color:#FCA5A5">$159.2M</td><td style="color:#FCA5A5">+1.4% (101% del presupuesto)</td></tr>
+  </tbody>
+  </table>
+
+  <div class="chart-container" style="height:360px; margin:24px 0;">
+    <canvas id="chartDesviaciones"></canvas>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Energia Exterior +136% &mdash; el outlier que nadie detecto</div>
+    </div>
+    <p class="finding-text">Una sub-partida pasa de $3.2M presupuestados a $7.6M ejecutados &mdash; un sobrecosto absoluto del +136% en una sola linea. Este nivel de desviacion no es atribuible a inflacion ni a ajustes de alcance menores: indica un cambio mayor en la solucion (mayor capacidad, infraestructura no presupuestada, o ambas) que <strong>no se documento como Change Order ni se escalo a control financiero</strong>. En cualquier organizacion con controles funcionales, una desviacion de esta magnitud genera una alerta inmediata. Aqui no genero ninguna.</p>
+    <span class="finding-kpi red">+$4.4M MXN en una sola sub-partida sin alerta</span>
+  </div>
+
+  <div class="finding-card warning">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">CLA esta al 101% del presupuesto, no al 95% completo</div>
+    </div>
+    <p class="finding-text">El reporte interno presenta CLA como &ldquo;95% de avance&rdquo; pero el ejecutado real ($159.2M) ya supera al presupuesto autorizado ($157M). Adicionalmente, las sub-partidas de Sanitaria (-18%), Bardas (-24%) y Cortes/Rellenos (-92%) muestran pendientes de ejecucion que cuando se completen, aumentaran aun mas el costo final. <strong>El proyecto NO esta cerrando dentro de presupuesto &mdash; esta cerrando arriba</strong>.</p>
+    <span class="finding-kpi amber">Pendientes de ejecucion en sub-partidas sub-ejercidas</span>
+  </div>
+
+  <!-- ==== NUEVO SUB-BLOQUE: RENT ROLL ==== -->
+  <h3 class="sub-heading" style="margin-top:48px;">Rent Roll y Cobranza</h3>
+  <p class="narrative">
+    El archivo &ldquo;Rent Roll Actualizado&rdquo; (corte diciembre 2024) permite ver el estado real del portafolio de comercializacion de PLA y la cobranza efectiva de las ventas realizadas.
+  </p>
+
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px; margin:24px 0;">
+    <div style="background:var(--warm-bg); padding:20px; border-radius:10px; text-align:center;">
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700;">$507M</div>
+      <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-top:4px;">VALOR TOTAL DEL PORTAFOLIO</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">60 lotes / 477,771 m&sup2;</div>
+    </div>
+    <div style="background:var(--green-light); padding:20px; border-radius:10px; text-align:center;">
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#2E7D32;">$204M</div>
+      <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-top:4px;">VALOR YA VENDIDO</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">27 lotes (40% del portafolio)</div>
+    </div>
+    <div style="background:var(--amber-light); padding:20px; border-radius:10px; text-align:center;">
+      <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--amber);">$25.8M</div>
+      <div style="font-size:12px; font-weight:700; color:var(--text-light); margin-top:4px;">CUENTAS POR COBRAR</div>
+      <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">19% de las ventas pendientes</div>
+    </div>
+  </div>
+
+  <table>
+  <thead><tr><th>Estatus</th><th>Lotes</th><th>m&sup2;</th><th>Valor (MXN)</th><th>Precio prom. /m&sup2;</th></tr></thead>
+  <tbody>
+  <tr><td><strong>Vendidos</strong></td><td>27</td><td>212,320</td><td>$203.7M</td><td>$950</td></tr>
+  <tr><td><strong>Libres</strong></td><td>23</td><td>175,034</td><td>$204.0M</td><td>$1,191</td></tr>
+  <tr><td><strong>Apartados (Pantaleon)</strong></td><td>10</td><td>90,417</td><td>$99.5M</td><td>$1,100</td></tr>
+  <tr style="font-weight:700;background:#F0F0F0"><td>TOTAL</td><td>60</td><td>477,771</td><td>$507.2M</td><td>$1,058</td></tr>
+  </tbody>
+  </table>
+
+  <div class="finding-card warning">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">19% del valor vendido sigue pendiente de cobro</div>
+    </div>
+    <p class="finding-text">De las ventas realizadas, $25.8M MXN siguen en cuentas por cobrar al corte de diciembre 2024. Este porcentaje (19%) es alto para un negocio de venta de lotes industriales donde el estandar es cobrar al momento de la escrituracion o con plazos cortos definidos contractualmente. La concentracion de la cobranza pendiente esta en pocos clientes, lo cual amplifica el riesgo: si uno o dos defaultean, el impacto es material sobre el flujo de caja del parque.</p>
+    <span class="finding-kpi amber">$25.8M MXN en A/R &mdash; concentracion en pocos clientes</span>
+  </div>
 
   <div class="finding-card positive">
     <div class="finding-header">
       <div class="finding-icon">$</div>
-      <div class="finding-title">Ingresos &mdash; Motor comercial robusto</div>
+      <div class="finding-title">Margen bruto realizado: 33% sobre lo cobrado</div>
     </div>
-    <p class="finding-text">
-      <strong>Venta de lotes PLA:</strong> 275,406 m&sup2; vendidos a $900-$1,450/m&sup2; (~$350-400M MXN acumulado). Precio por metro cuadrado en maximo historico.<br>
-      <strong>Rentas BTS activas:</strong> Pantaleon ($2.94M/mes) + 3B Xalapa ($2.46M/mes) = $5.4M/mes = $64.8M/ano.<br>
-      <strong>Cuotas CAM:</strong> Contractualmente $122,764/mes en 3B. En PLA: NO SE COBRAN (fuga de ingreso).<br>
-      <strong>Pipeline:</strong> 350,386 m&sup2; adicionales en negociacion = potencial de $180-250M MXN/ano en rentas.
-    </p>
-    <span class="finding-kpi green">$64.8M/ano ingreso recurrente activo</span>
+    <p class="finding-text">Sobre las ventas efectivamente cobradas (~$109M MXN registrados en Banorte), el margen bruto realizado es de aproximadamente 33% &mdash; consistente con el modelo de negocio del parque industrial. El costo base de tierra (~$831/m&sup2;) versus el precio de venta promedio ($1,058/m&sup2;) genera margen positivo en la operacion comercial. La oportunidad esta en acelerar la conversion de ventas a cobranza efectiva y en aumentar el precio de los lotes restantes (los Libres tienen precio promedio $1,191/m&sup2; vs $950 de los ya vendidos).</p>
+    <span class="finding-kpi green">~33% margen bruto realizado</span>
   </div>
 
-  <h3 class="sub-heading">Costos Directos de Proyecto</h3>
+  <!-- ==== ACTUALIZADO: MODELO DE NEGOCIO ==== -->
+  <h3 class="sub-heading" style="margin-top:48px;">Modelo de Negocio &mdash; Realidad vs Proyeccion</h3>
+  <p class="narrative">
+    Aura Desarrollos genera ingresos de 3 formas: (1) venta de lotes industriales en su parque PLA, (2) renta de bodegas Build-to-Suit construidas a la medida del cliente, y (3) cuotas de mantenimiento del parque (CAM). El modelo esta evolucionando de ventas puntuales (lotes) a ingresos recurrentes (rentas), lo cual aumenta el valor de la empresa pero requiere capacidades operativas diferentes.
+  </p>
+  <p class="narrative">
+    <strong>Distincion critica:</strong> los ingresos recurrentes proyectados son solidos en el papel, pero NO se estan realizando aun. Pantaleon esta en construccion (operacion proyectada Q3-Q4 2025); 3B Xalapa esta por iniciar construccion. <strong>Hoy, el ingreso recurrente activo de BTS es practicamente cero</strong>. Lo que sostiene a la empresa son las ventas de lotes y las aportaciones / disposiciones de credito.
+  </p>
+
+  <div class="finding-card warning">
+    <div class="finding-header">
+      <div class="finding-icon">$</div>
+      <div class="finding-title">Ingresos recurrentes: $62M MXN/ano PROYECTADOS, $0 actuales</div>
+    </div>
+    <p class="finding-text">
+      <strong>Pantaleon (proyectado):</strong> $138K USD/mes = $1.66M USD/ano = ~$33M MXN/ano una vez estabilizado.<br>
+      <strong>3B Xalapa (proyectado):</strong> $2.46M MXN/mes = $29.5M MXN/ano (contrato 15 anos firmado).<br>
+      <strong>Total proyectado:</strong> ~$62M MXN/ano una vez ambos proyectos esten estabilizados.<br>
+      <strong>Ingreso recurrente ACTUAL:</strong> $0 (proyectos en construccion / por iniciar).<br>
+      <strong>CAM en PLA:</strong> No se cobra (fuga). <strong>CAM en 3B:</strong> Contractual ($122K/mes) iniciara con la operacion.
+    </p>
+    <span class="finding-kpi amber">$62M/ano potencial, $0 realizado a la fecha</span>
+  </div>
+
+  <h3 class="sub-heading">Costos Directos por Proyecto</h3>
   <table>
     <thead>
-      <tr><th>Proyecto</th><th>Presupuesto</th><th>Ejecutado</th><th>% Avance</th><th>Desviacion</th></tr>
+      <tr><th>Proyecto</th><th>Presupuesto</th><th>Ejecutado</th><th>% Avance</th><th>Estado</th></tr>
     </thead>
     <tbody>
-      <tr><td>CLA (Parque)</td><td>$157.0M</td><td>$149.0M</td><td>95%</td><td style="color:var(--red);font-weight:700">Vialidades +22.7%</td></tr>
-      <tr><td>Pantaleon A</td><td>$154.2M</td><td>$66.5M</td><td>43%</td><td>En proceso</td></tr>
+      <tr><td>CLA (Parque)</td><td>$157.0M</td><td style="color:var(--red)">$159.2M</td><td style="color:var(--red)">101%</td><td style="color:var(--red);font-weight:700">Sobrepasado +1.4% con pendientes</td></tr>
+      <tr><td>Pantaleon A</td><td>$154.2M</td><td>$66.5M</td><td>43%</td><td>En construccion (rezagado)</td></tr>
       <tr><td>Pantaleon B</td><td>$95.2M</td><td>$50.0M</td><td>52%</td><td style="color:var(--red);font-weight:700">58% sobreplazo</td></tr>
       <tr><td>3B Xalapa (est.)</td><td>$150.4M</td><td>&mdash;</td><td>0%</td><td>Pre-construccion</td></tr>
-      <tr style="font-weight:700;background:#F0F0F0"><td>Total activo</td><td>$556.8M</td><td>$265.5M</td><td></td><td></td></tr>
+      <tr style="font-weight:700;background:#F0F0F0"><td>Total activo</td><td>$556.8M</td><td>$275.7M</td><td></td><td></td></tr>
     </tbody>
   </table>
 
   <h3 class="sub-heading">Margenes</h3>
   <p class="narrative">
-    <strong>Margen bruto sobre tierra:</strong> 44-75% (costo base $831/m&sup2; vs venta $1,200-$1,450/m&sup2;). La adquisicion de tierra es, por mucho, el eslabon mas rentable de la cadena de valor. <strong>Margen sobre construccion BTS:</strong> ~15-20% sobre costo directo (incluye utilidad + overhead). Este margen es comparable al de constructoras especializadas, pero inferior al de desarrolladoras puras que subcontratan la construccion.
+    <strong>Margen bruto sobre tierra:</strong> 44-75% (costo base $831/m&sup2; vs venta $1,200-$1,450/m&sup2;). La adquisicion de tierra es el eslabon mas rentable de la cadena. <strong>Margen objetivo sobre construccion BTS:</strong> 15-20% segun benchmarks de constructoras especializadas. <strong>Margen institucional</strong> (Vesta, Prologis, Fibra Macquarie): 18-22% sobre ingreso operativo neto.
   </p>
   <p class="narrative">
-    <strong>El problema:</strong> las desviaciones presupuestales erosionan el margen. Si vialidades sube 22.7%, la utilidad del proyecto se reduce proporcionalmente. En un proyecto donde la utilidad esperada es del 15%, una desviacion del 22% en una partida mayor puede eliminar toda la rentabilidad. Sin contabilidad por proyecto, no se puede medir la rentabilidad individual de cada desarrollo &mdash; lo cual significa que la empresa no sabe con certeza cuales proyectos le ganan dinero y cuales le pierden.
+    <strong>Margen real CLA (estimado):</strong> ~5% una vez se incorporen los pendientes y las desviaciones. La desviacion de Vialidades sola ($11.4M) representa <strong>76% de la utilidad esperada</strong> en un proyecto con margen objetivo de 15% sobre $100M.
+  </p>
+  <p class="narrative">
+    <strong>Margen real Pantaleon (estimado):</strong> marginal. Con DSCR 1.20x, el flujo operativo neto despues del servicio de deuda es minimo. Cualquier desviacion de costo de construccion (probable, dado el comportamiento de Pantaleon B con 58% de sobreplazo) erosiona el margen ya ajustado.
   </p>
 
   <h3 class="sub-heading">Gastos Operativos</h3>
@@ -1390,19 +1566,41 @@ h4.sub-heading {
     </tbody>
   </table>
 
-  <h3 class="sub-heading">Desviaciones Presupuestales CLA</h3>
-  <div class="chart-container" style="max-height:350px;">
-    <canvas id="chartDesviaciones"></canvas>
-  </div>
-
   <h3 class="sub-heading">Riesgos Financieros Documentados</h3>
 
   <div class="finding-card critical">
     <div class="finding-header">
       <div class="finding-icon">!</div>
-      <div class="finding-title">Caso $12M: Pago a constructor XMA sin resolucion</div>
+      <div class="finding-title">DSCR 1.20x en Banregio &mdash; sin margen para imprevistos</div>
     </div>
-    <p class="finding-text">Pago realizado a constructor XMA por $12M sin resolucion juridica ni documentacion soporte. Sin bitacora ni evidencia suficiente para reclamar. El monto puede escalar a $18M segun diferentes versiones. Expone la falta total de gestion contractual con contratistas.</p>
+    <p class="finding-text">La estructura de financiamiento de Pantaleon deja cero buffer para vacancia, atraso de renta o aumento de costos operativos. Cualquier evento moderado puede romper el covenant del banco.</p>
+    <span class="finding-kpi red">Ruptura de covenant ante vacancia &gt;17%</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Mismatch cambiario USD/MXN sin hedging</div>
+    </div>
+    <p class="finding-text">Deuda en USD, ingresos en MXN. Devaluacion del peso del 10% (escenario conservador en historia reciente) suma $1.47M USD/ano de costo financiero adicional &mdash; equivalente a la renta anual completa del proyecto.</p>
+    <span class="finding-kpi red">+$1.47M USD/ano por 10% de devaluacion</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Energia Exterior CLA: +136% sin alerta de control</div>
+    </div>
+    <p class="finding-text">Una sub-partida que duplica con creces su presupuesto y ningun mecanismo de control la detecto. Sintoma del agujero estructural en la funcion de control financiero.</p>
+    <span class="finding-kpi red">+$4.4M MXN sin Change Order documentado</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Caso $12-18M: Pago a constructor XMA sin resolucion</div>
+    </div>
+    <p class="finding-text">Pago realizado a constructor XMA por $12M sin resolucion juridica ni documentacion soporte. Sin bitacora ni evidencia suficiente para reclamar. El monto puede escalar a $18M segun diferentes versiones.</p>
     <span class="finding-kpi red">$12-18M MXN en riesgo</span>
   </div>
 
@@ -1413,6 +1611,15 @@ h4.sub-heading {
     </div>
     <p class="finding-text">$1M de anticipo pagado en octubre 3 a GCC; el contrato no se formalizo hasta diciembre 2. Exposicion financiera de 2 meses sin cobertura legal. Evidencia de que los compromisos financieros preceden a los controles contractuales.</p>
     <span class="finding-kpi red">$1M MXN expuesto</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">Concentracion de cobranza pendiente en pocos clientes</div>
+    </div>
+    <p class="finding-text">$25.8M MXN en cuentas por cobrar concentrados en pocos clientes. Default de uno o dos compradores tiene impacto material sobre el flujo de caja del parque.</p>
+    <span class="finding-kpi red">19% del valor vendido sin cobrar</span>
   </div>
 
   <div class="finding-card critical">
@@ -1436,6 +1643,15 @@ h4.sub-heading {
   <div class="finding-card warning">
     <div class="finding-header">
       <div class="finding-icon">!</div>
+      <div class="finding-title">Sub-ejecuciones CLA &mdash; el costo final sera mayor al ejecutado</div>
+    </div>
+    <p class="finding-text">Sanitaria (-18%), Bardas (-24%) y Cortes/Rellenos (-92%) tienen pendientes de ejecucion. Cuando se completen, aumentaran el costo final de CLA mas alla del 101% ya alcanzado.</p>
+    <span class="finding-kpi amber">Costo final probable: 105-110% del presupuesto</span>
+  </div>
+
+  <div class="finding-card warning">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
       <div class="finding-title">Asimilados: esquema generalizado con riesgo fiscal</div>
     </div>
     <p class="finding-text">El esquema de asimilados a salarios esta extendido en toda la organizacion. Genera riesgo de reclasificacion fiscal si la autoridad determina que existe relacion laboral subordinada &mdash; lo cual es claramente el caso.</p>
@@ -1446,13 +1662,15 @@ h4.sub-heading {
     <div class="verbatim-text">Si alguien pica y manda depositar, el dinero sale sin validacion cruzada.</div>
     <div class="verbatim-source">&mdash; Clara Medina, Subdirectora de Servicios Corporativos</div>
   </div>
-  <div class="callout callout-green">
+
+  <div class="callout callout-red">
     <div class="callout-label">Conclusion Financiera</div>
     <ul>
-      <li>Los ingresos son solidos y crecientes. El pipeline comercial es robusto con mas de $180M/ano en potencial de rentas.</li>
-      <li>PERO sin controles de costo, sin contabilidad por proyecto, y con desviaciones presupuestales no detectadas, cada proyecto filtra valor.</li>
-      <li>La desviacion de vialidades sola ($11.4M) puede representar la totalidad de la utilidad esperada del parque.</li>
-      <li>Los 6 riesgos de cumplimiento documentados representan contingencias que, de materializarse, superarian cualquier ahorro operativo.</li>
+      <li><strong>Los ingresos proyectados son solidos pero NO se estan realizando.</strong> Pantaleon esta en construccion y 3B Xalapa por iniciar. El ingreso recurrente activo es $0 hoy.</li>
+      <li><strong>La estructura de financiamiento es agresiva y deja cero margen.</strong> Banregio con DSCR 1.20x y currency mismatch sin hedging crea exposicion material a vacancia y devaluacion.</li>
+      <li><strong>CLA cerro al 101% del presupuesto, no al 95% que se reporta en juntas.</strong> Y aun le faltan pendientes que aumentaran el costo final. Energia Exterior duplico su presupuesto sin alerta de control.</li>
+      <li><strong>La diferencia entre el modelo proyectado y la realidad ejecutada es la metrica mas reveladora.</strong> No es &ldquo;fase de inversion&rdquo; &mdash; es ausencia de control financiero. Los proyectos no se estan midiendo contra su propio plan.</li>
+      <li><strong>El 19% de cuentas por cobrar concentradas en pocos clientes es un riesgo de liquidez no gestionado.</strong> Default de uno o dos compradores impacta directamente la operacion del parque.</li>
     </ul>
   </div>
 
@@ -3967,27 +4185,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- DESVIACIONES PRESUPUESTALES CHART ---
+  // --- DESVIACIONES PRESUPUESTALES CHART (sub-categorias) ---
   const ctxDev = document.getElementById('chartDesviaciones');
   if (ctxDev) {
     new Chart(ctxDev, {
       type: 'bar',
       data: {
-        labels: ['Vialidades', 'Electrica', 'Preliminares'],
+        labels: [
+          'Estructura Pavimentos',
+          'Acarreo Interior',
+          'Cortes y Rellenos',
+          'Energia Exterior',
+          'Energia Interior',
+          'Casetas',
+          'Sanitaria',
+          'Bardas'
+        ],
         datasets: [
           {
             label: 'Presupuesto',
-            data: [50.2, 20.7, 5.5],
-            backgroundColor: teal,
+            data: [30.5, 7.1, 3.6, 3.2, 11.3, 6.1, 9.8, 7.3],
+            backgroundColor: '#94A3B8',
             borderRadius: 4,
-            barThickness: 40
+            barThickness: 28
           },
           {
             label: 'Ejecutado',
-            data: [61.6, 24.0, 6.0],
-            backgroundColor: red,
+            data: [37.8, 7.3, 0.3, 7.6, 8.3, 8.5, 8.0, 5.6],
+            backgroundColor: function(ctx) {
+              // Highlight Energia Exterior outlier
+              return ctx.dataIndex === 3 ? '#B71C1C' : red;
+            },
             borderRadius: 4,
-            barThickness: 40
+            barThickness: 28
           }
         ]
       },
@@ -3997,15 +4227,103 @@ document.addEventListener('DOMContentLoaded', function() {
         plugins: {
           title: {
             display: true,
-            text: 'CLA — Presupuesto vs Ejecutado (millones MXN)',
+            text: 'CLA — Presupuesto vs Ejecutado por Sub-partida (millones MXN)',
             font: { size: 14, weight: '600' }
           },
-          legend: { position: 'bottom' }
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              afterLabel: function(ctx) {
+                const labels = ['+24%', '+2.5%', '-92%', '+136%', '-27%', '+37.7%', '-18%', '-24%'];
+                if (ctx.datasetIndex === 1) {
+                  return 'Variacion: ' + labels[ctx.dataIndex];
+                }
+                return null;
+              }
+            }
+          }
         },
         scales: {
+          x: { ticks: { font: { size: 10 }, maxRotation: 45 } },
           y: {
             beginAtZero: true,
             title: { display: true, text: 'Millones MXN' }
+          }
+        }
+      }
+    });
+  }
+
+  // --- FLUJO DE EFECTIVO PANTALEON ---
+  const ctxFP = document.getElementById('chartFlujoPantaleon');
+  if (ctxFP) {
+    new Chart(ctxFP, {
+      type: 'bar',
+      data: {
+        labels: ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12','M13','M14','M15','M16','M17','M18','M19','M20','M21','M22','M23','M24'],
+        datasets: [
+          {
+            label: 'Egresos (construccion)',
+            data: [-7.2,-7.5,-7.8,-7.5,-7.2,-7.0,-6.8,-6.5,-6.0,-5.0,-3.5,-2.0,-1.0,-0.8,-0.7,-0.6,-0.5,-0.4,-0.4,-0.4,-0.4,-0.4,-0.4,-0.4],
+            backgroundColor: 'rgba(220,38,38,0.7)',
+            borderColor: '#B71C1C',
+            borderWidth: 1,
+            borderRadius: 2,
+            stack: 'flujo'
+          },
+          {
+            label: 'Ingresos (rentas + anticipos)',
+            data: [0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,0.4,1.5,2.5,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8,2.8],
+            backgroundColor: 'rgba(46,125,50,0.7)',
+            borderColor: '#1B5E20',
+            borderWidth: 1,
+            borderRadius: 2,
+            stack: 'flujo'
+          },
+          {
+            label: 'Saldo Acumulado',
+            type: 'line',
+            data: [-6.8,-13.9,-21.3,-28.4,-35.2,-41.8,-48.2,-54.3,-59.9,-63.4,-64.4,-63.6,-61.8,-59.8,-57.7,-55.5,-53.2,-50.8,-48.4,-46.0,-43.6,-41.2,-38.8,-36.4],
+            borderColor: '#1F2937',
+            backgroundColor: 'transparent',
+            borderWidth: 2.5,
+            pointRadius: 3,
+            pointBackgroundColor: '#1F2937',
+            tension: 0.3,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Pantaleon — Flujo de Efectivo Mensual Proyectado (millones MXN)',
+            font: { size: 14, weight: '600' }
+          },
+          legend: { position: 'bottom' },
+          tooltip: {
+            callbacks: {
+              label: function(ctx) {
+                return ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(1) + 'M MXN';
+              }
+            }
+          }
+        },
+        scales: {
+          x: { ticks: { font: { size: 10 } }, title: { display: true, text: 'Mes desde inicio de construccion' } },
+          y: {
+            stacked: true,
+            title: { display: true, text: 'Flujo Mensual (M MXN)' },
+            ticks: { callback: function(v) { return '$' + v + 'M'; } }
+          },
+          y1: {
+            position: 'right',
+            title: { display: true, text: 'Saldo Acumulado (M MXN)' },
+            ticks: { callback: function(v) { return '$' + v + 'M'; } },
+            grid: { display: false }
           }
         }
       }
