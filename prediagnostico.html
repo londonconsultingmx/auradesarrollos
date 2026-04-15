@@ -2859,6 +2859,43 @@ h4.sub-heading {
     </ul>
   </div>
 
+  <h4 style="margin-top:32px;">Flujo de Compras: Diagramado en Papel vs Ejecutado en la Realidad</h4>
+  <p class="narrative">La Gerencia de Contralor&iacute;a document&oacute; formalmente el flujo de aprobaci&oacute;n de compras con 6 pasos claros y responsables asignados por nombre. El problema: <strong>el flujo existe en papel pero no se cumple en la pr&aacute;ctica</strong>. Los ejemplos documentados por la propia Contralor&iacute;a muestran que la urgencia bypasea sistem&aacute;ticamente el proceso.</p>
+
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:24px; margin:24px 0;">
+    <div>
+      <div style="font-size:12px; font-weight:700; color:#2E7D32; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Flujo Diagramado (Papel)</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">1. Usuario genera requisici&oacute;n</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">2. Gerente de Aura autoriza requisici&oacute;n (Karla)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">3. Jefe de Compras asigna a comprador (Jorge)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">4. Comprador cotiza o genera OC con proveedor asignado</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">5. OC pasa a check de Gerencia y de Aura (Karla y Paco)</div>
+        <div style="background:#E8F5E9; border-left:4px solid #2E7D32; padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;">6. OC se autoriza por Contralor&iacute;a (Clara &gt; $20K, Nayeli &lt; $20K)</div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Realidad Documentada &mdash; Ejemplos de Contralor&iacute;a</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;"><strong>Ej. 1:</strong> Tuber&iacute;a de acero &mdash; requisici&oacute;n despu&eacute;s de las 6pm; todo el flujo + entrega en el mismo d&iacute;a</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;"><strong>Ej. 2:</strong> Renta de plataforma el&eacute;ctrica &mdash; <strong>solicitada por WhatsApp antes de tener requisici&oacute;n</strong></div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;"><strong>Ej. 3:</strong> Polietileno para entrega el mismo d&iacute;a &mdash; flujo ejecutado en 1 d&iacute;a completo</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;"><strong>Ej. 4:</strong> Estimaci&oacute;n <strong>SIN FIRMAS</strong> &mdash; pago solicitado 30/mar para 31/mar; orden abierta desde diciembre</div>
+        <div style="background:var(--red-light); border-left:4px solid var(--red); padding:10px 14px; border-radius:0 6px 6px 0; font-size:13px;"><strong>Ej. 5:</strong> Papeler&iacute;a urgente &mdash; clasificada como urgencia m&aacute;xima</div>
+        <div style="background:#1F2937; color:white; padding:12px 14px; border-radius:6px; font-size:13px; font-weight:700; text-align:center; margin-top:4px;">La misma Contralor&iacute;a document&oacute; estos casos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header">
+      <div class="finding-icon">!</div>
+      <div class="finding-title">El flujo diagramado es correcto; el problema es que no se cumple</div>
+    </div>
+    <p class="finding-text">Aura no tiene un problema de dise&ntilde;o de procesos &mdash; tiene un problema de <strong>adherencia y enforcement</strong>. La Gerencia de Contralor&iacute;a ha documentado formalmente el flujo con 6 pasos y responsables por nombre (Gaby, Karla, Jorge, Rosario/Eder/Jorge, Paco, Clara/Nayeli). Tambi&eacute;n ha documentado los casos donde el flujo se rompe: compras por WhatsApp antes de requisici&oacute;n, estimaciones pagadas sin firmas, &oacute;rdenes abiertas por meses. Esto confirma el patr&oacute;n estructural: <strong>documentado no es igual a implementado, e implementado no es igual a auditado</strong>. El gap no se cierra con m&aacute;s documentaci&oacute;n sino con mecanismos de enforcement y consecuencias por no cumplimiento.</p>
+    <span class="finding-kpi red">Flujo documentado &ne; flujo ejecutado</span>
+  </div>
+
   <h4 style="margin-top:32px;">Procurement Estrat&eacute;gico: Best Practice vs Aura Desarrollos</h4>
   <p class="narrative">El procurement estrat&eacute;gico en construcci&oacute;n industrial sigue un ciclo de 10 etapas que va m&aacute;s all&aacute; del proceso transaccional. Comparado contra este est&aacute;ndar, Aura ejecuta solo las etapas transaccionales (en gris) y omite por completo las etapas estrat&eacute;gicas que generan valor y control (en rojo).</p>
 
