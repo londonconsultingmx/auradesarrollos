@@ -4576,13 +4576,76 @@ h4.sub-heading {
     <div class="verbatim-source">&mdash; Karla Le&oacute;n, Gerente de Operaciones &mdash; sobre el inicio de obra sin ingenier&iacute;as completas</div>
   </div>
 
+  <h3 class="sub-heading" style="margin-top:32px;">Distribuci&oacute;n del Tiempo de Supervisi&oacute;n en Campo</h3>
+  <p class="narrative">
+    An&aacute;lisis de 2 horas de actividad del Supervisor de Obras documentadas el 14 de abril 2026. Se clasificaron 7 actividades en tres categor&iacute;as: supervisi&oacute;n activa (proactiva), supervisi&oacute;n pasiva (reactiva, le informan), y operativa (funciones que no corresponden al rol).
+  </p>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin:20px 0;">
+
+    <!-- Tabla de actividades -->
+    <div>
+      <table style="font-size:13px; width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--lcg-dark); color:white;">
+            <th style="padding:8px; text-align:left;">Actividad</th>
+            <th style="padding:8px; text-align:center;">Tipo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#E8F5E9;"><td style="padding:6px 8px;">Inspecciona avance de bardas</td><td style="text-align:center; font-weight:700; color:#2E7D32;">Activa</td></tr>
+          <tr style="background:#FEF2F2;"><td style="padding:6px 8px;">Le piden agua para mezcla</td><td style="text-align:center; font-weight:700; color:var(--red);">Operativo</td></tr>
+          <tr style="background:#E8F5E9;"><td style="padding:6px 8px;">Detecta variaci&oacute;n de trazo</td><td style="text-align:center; font-weight:700; color:#2E7D32;">Activa</td></tr>
+          <tr style="background:#FFFBEB;"><td style="padding:6px 8px;">Verifica &aacute;rea de colado</td><td style="text-align:center; font-weight:700; color:var(--amber);">Pasiva</td></tr>
+          <tr style="background:#FFFBEB;"><td style="padding:6px 8px;">Le informan que necesitan concreto</td><td style="text-align:center; font-weight:700; color:var(--amber);">Pasiva</td></tr>
+          <tr style="background:#FEF2F2;"><td style="padding:6px 8px;">Llama a proveedor de concreto</td><td style="text-align:center; font-weight:700; color:var(--red);">Operativo</td></tr>
+          <tr style="background:#FEF2F2;"><td style="padding:6px 8px;">Revisa maquinaria da&ntilde;ada</td><td style="text-align:center; font-weight:700; color:var(--red);">Operativo</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Gráfico resumen -->
+    <div style="display:flex; flex-direction:column; gap:12px; justify-content:center;">
+      <div style="background:#E8F5E9; border-left:5px solid #2E7D32; border-radius:8px; padding:16px 20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-size:14px; font-weight:700; color:#2E7D32;">Supervisi&oacute;n Activa</div>
+          <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:#2E7D32;">29%</div>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">2 de 7 actividades &mdash; el supervisor va a inspeccionar</div>
+        <div style="height:8px; background:#C8E6C9; border-radius:4px; margin-top:8px;"><div style="height:100%; width:29%; background:#2E7D32; border-radius:4px;"></div></div>
+      </div>
+      <div style="background:#FFFBEB; border-left:5px solid var(--amber); border-radius:8px; padding:16px 20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-size:14px; font-weight:700; color:var(--amber);">Supervisi&oacute;n Pasiva</div>
+          <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--amber);">29%</div>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">2 de 7 actividades &mdash; le informan, le piden</div>
+        <div style="height:8px; background:#FFE0B2; border-radius:4px; margin-top:8px;"><div style="height:100%; width:29%; background:var(--amber); border-radius:4px;"></div></div>
+      </div>
+      <div style="background:#FEF2F2; border-left:5px solid var(--red); border-radius:8px; padding:16px 20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-size:14px; font-weight:700; color:var(--red);">Operativo (no es su funci&oacute;n)</div>
+          <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--red);">42%</div>
+        </div>
+        <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">3 de 7 actividades &mdash; log&iacute;stica, compras, maquinaria</div>
+        <div style="height:8px; background:#FFCDD2; border-radius:4px; margin-top:8px;"><div style="height:100%; width:42%; background:var(--red); border-radius:4px;"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">Lectura</div>
+    <p style="font-size:13px; margin:0;">El 42% del tiempo del supervisor se dedica a funciones operativas que no corresponden a su rol (coordinar proveedores de concreto, resolver log&iacute;stica de materiales, supervisar reparaci&oacute;n de maquinaria). Solo el 29% es supervisi&oacute;n activa proactiva. La oportunidad est&aacute; en liberar al supervisor de lo operativo para que pueda enfocarse en control de calidad, avance y seguridad.</p>
+  </div>
+
   <div class="callout callout-red">
     <div class="callout-label">Brechas Criticas &mdash; Ejecucion</div>
     <ul>
       <li><strong>3 ingenieros para 2 naves de $150M+:</strong> Capacidad instalada insuficiente para la magnitud de los proyectos. No hay margen para errores ni para supervisar adecuadamente.</li>
       <li><strong>L&iacute;neas de reporte por clarificar:</strong> Las instrucciones a los equipos de obra llegan desde m&uacute;ltiples fuentes sin un canal &uacute;nico definido, lo que genera confusi&oacute;n sobre prioridades y dificulta la coordinaci&oacute;n.</li>
       <li><strong>Sin secuencia constructiva:</strong> No hay un programa de obra maestro con secuencia logica. Las actividades se ejecutan segun disponibilidad de materiales y contratistas.</li>
-      <li><strong>Contratistas sin gestion:</strong> Los contratistas pelean entre si por espacio y secuencia. No hay coordinacion formal de subcontratistas.</li>
+      <li><strong>Sin gesti&oacute;n formal de contratistas:</strong> No hay proceso estandarizado de asignaci&oacute;n, evaluaci&oacute;n de desempe&ntilde;o ni coordinaci&oacute;n entre subcontratistas.</li>
       <li><strong>50% turnover + 55% en efectivo:</strong> La mitad de las nuevas contrataciones salen en 5 meses. Mas de la mitad de los trabajadores de campo operan en esquema informal.</li>
     </ul>
   </div>
