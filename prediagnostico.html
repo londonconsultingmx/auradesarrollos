@@ -775,6 +775,32 @@ h4.sub-heading {
 </head>
 <body>
 
+<!-- PASSWORD GATE -->
+<div id="auth-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#1B3A4B;z-index:99999;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center; max-width:400px; padding:40px;">
+    <img src="assets/logo-lcg-dark.png" alt="LCG" style="height:32px; filter:brightness(0) invert(1); margin-bottom:8px;"><br>
+    <img src="assets/logo-aura.png" alt="Aura" style="height:60px; filter:brightness(0) invert(1); margin-bottom:32px;">
+    <div style="font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:white; margin-bottom:8px;">Prediagn&oacute;stico Operativo</div>
+    <div style="font-size:14px; color:rgba(255,255,255,0.6); margin-bottom:32px;">Documento confidencial &mdash; ingrese la clave de acceso</div>
+    <input id="auth-input" type="password" placeholder="Clave de acceso" style="width:100%;padding:14px 18px;font-size:16px;border:2px solid rgba(255,255,255,0.3);border-radius:10px;background:rgba(255,255,255,0.1);color:white;outline:none;text-align:center;font-family:'Inter',sans-serif;margin-bottom:16px;" onkeydown="if(event.key==='Enter')checkAuth()">
+    <button onclick="checkAuth()" style="width:100%;padding:14px;font-size:15px;font-weight:700;background:#00B388;color:white;border:none;border-radius:10px;cursor:pointer;font-family:'Inter',sans-serif;">Acceder</button>
+    <div id="auth-error" style="color:#FCA5A5;font-size:13px;margin-top:12px;display:none;">Clave incorrecta</div>
+  </div>
+</div>
+<script>
+function checkAuth(){
+  var p=document.getElementById('auth-input').value;
+  if(p==='aura2026'){
+    document.getElementById('auth-gate').style.display='none';
+    sessionStorage.setItem('auth','ok');
+  } else {
+    document.getElementById('auth-error').style.display='block';
+    document.getElementById('auth-input').style.borderColor='#FCA5A5';
+  }
+}
+if(sessionStorage.getItem('auth')==='ok'){document.getElementById('auth-gate').style.display='none';}
+</script>
+
 <!-- ============================================================
      COVER
      ============================================================ -->
