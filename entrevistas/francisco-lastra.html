@@ -1,230 +1,290 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francisco Lastra — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Operaci&oacute;n desde el Campo: Capacidad, Urgencias y Control &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Francisco Lastra &mdash; - Subdirector de Operaciones</h1>
-    <div class="header-meta">2026-04-09 y 2026-04-13 · Presencial (Tampico)</div>
-  </div>
-  <div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 1 — 2026-04-09 (~4h) · Presencial (Tampico)</h2></div>
-<div class="pilar-section"><div class="pilar-title">P2 -- Desarrollo de Negocios <span class="pilar-tag tag-good">Fortaleza</span></div>
-<div class="finding"><strong>Velocidad de respuesta comercial:</strong> Antes de la llegada de Francisco, una propuesta BTS tardaba 2-3 meses. Hoy se entrega en <strong>una semana</strong> (planos, presupuesto de obra, especificaciones completas).</div>
-<div class="finding">Caso de exito: cliente de la India -- en una semana le entregaron planos, proyecto y presupuesto completo. Aunque no cerro, demostro la capacidad de velocidad y convencimiento.</div>
-<div class="finding">El area comercial pasa el presupuesto a finanzas, finanzas corre su modelo financiero y evalua rentabilidad por m2.</div>
-<div class="finding">Francisco reconoce la habilidad de Jorge Garcia (Planeacion y Costos) como &ldquo;asombrosa&rdquo; en la elaboracion rapida de presupuestos.</div>
-<div class="finding"><strong>Pipeline actual:</strong> 33,000 m2 en construccion + 120,000 m2 en proceso/propuesta (incluye naves de 18,000 m2 y 52,000 m2 que serian pura construccion).</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">La Operaci&oacute;n desde el Campo:<br>Capacidad, Urgencias y Control</h1>
+                <p class="cover-subtitle">Dos sesiones con el Subdirector de Operaciones revelan fortaleza t&eacute;cnica individual, ausencia de sistemas de control y una operaci&oacute;n que crece sin infraestructura de gesti&oacute;n</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Francisco Lastra, Subdirector de Operaciones</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">9 y 13 abril 2026 &mdash; Sesi&oacute;n 1 + Seguimiento</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>Dos sesiones con el Subdirector de Operaciones revelan fortaleza t&eacute;cnica individual, ausencia de sistemas de control y una operaci&oacute;n que crece sin infraestructura de gesti&oacute;n</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value green">$25M</div><div class="kpi-label">Ahorro detectado en acero</div></div>
+<div class="kpi-item"><div class="kpi-value green">1 semana</div><div class="kpi-label">Propuesta BTS (antes 2-3 meses)</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Sistemas de control de obra</div></div>
+<div class="kpi-item"><div class="kpi-value red">CR&Iacute;TICO</div><div class="kpi-label">Compras y abastecimiento</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 -- Planeacion y Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>No existe un sistema de presupuestacion integrado</strong>. El sistema actual (ERP) se limita a captura de requisiciones y ordenes de compra. Francisco lo critica abiertamente: &ldquo;no me sirve un programa que lo maximo es captura de requisiciones y ordenes de compra&rdquo;.</div>
-<div class="finding">Los presupuestos se elaboran en hojas de calculo (&ldquo;tablitas de Excel&rdquo;) que Francisco implemento como medida de emergencia.</div>
-<div class="finding">No hay parametros solidos para toma de decisiones de inversion. Cuando Francisco llego, la empresa compraba materiales sin proceso: ejemplo del cable electrico para el parque, comprado sin cotizacion competitiva. Al ordenar el proceso, se logro un ahorro de <strong>12 millones de pesos</strong> solo en ese rubro.</div>
-<div class="finding">Reconoce que sus controles son provisionales: &ldquo;mal que bien, tenemos nuestros parametros... son tablitas de Excel&rdquo;.</div>
-<div class="finding"><strong>Falta de manual de procesos:</strong> no existe un documento que diga paso 1, paso 2, que actividades se disparan por area. &ldquo;No hay un tipo manual que te digan uno, dos, estas son las actividades que se tiene que disparar por cada area&rdquo;.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Capacidad T&eacute;cnica y Ahorros Generados</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Optimizaci&oacute;n de acero en Pantale&oacute;n</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Proyecto original: 1,600 toneladas de acero estructural. Francisco lo optimiz&oacute; a 1,200 toneladas (ahorro ~400 ton). Adicionalmente, negociaciones directas con Ternium generaron ahorro de $16M. Velocidad de propuesta BTS: de 2-3 meses a 1 semana.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 -- Ingenieria y Diseno <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Francisco aporta experiencia tecnica personal en estructuras metalicas que ha generado ahorros significativos.</div>
-<div class="finding"><strong>Caso Pantaleon:</strong> el proyecto original traia 1,600 toneladas de acero estructural; Francisco lo optimizo a 1,200 toneladas (ahorro de 400 ton x ~$30,000/ton = ahorro sustancial). Ademas, negociaciones comerciales generaron otro ahorro de 16 millones de pesos por relaciones directas con proveedores (Julio Cesar Villarreal / Ternium).</div>
-<div class="finding">Cuestionamiento tecnico sobre la nave de Pantaleon: el cliente pidio 60 metros de claro libre (inusual en Mexico para naves industriales). Francisco advirtio del sobrecosto pero la decision fue del cliente.</div>
-<div class="finding">Se elaboran documentos de <strong>consideraciones</strong> por proyecto (columna adicional al presupuesto que aclara alcances: tipo de muros, alturas, especificaciones). Este documento lo elabora Francisco manualmente.</div>
-<div class="finding"><strong>Incidente de los muros:</strong> confusion entre multipanel y panel en fachadas. El lider del proyecto (Pantaleon) reclamo que los muros no coincidian con el contrato. Francisco pudo demostrar con el documento de consideraciones y los anexos del contrato que si estaba especificado correctamente. Revelo falta de acceso centralizado a documentos contractuales.</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Experiencia profunda en construcci&oacute;n industrial</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Background en estructuras met&aacute;licas, fabricaci&oacute;n industrial, talleres autorizados. Trabaj&oacute; con Pinfra en or&iacute;genes del parque industrial de Matamoros. Conoce la transformaci&oacute;n de Simsa asesorada por LCG.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 -- Compras y Abastecimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Solo 3 personas</strong> en el area de compras para toda la operacion (Aura Desarrollos + Patrol Plus + estaciones).</div>
-<div class="finding">Problemas graves documentados:</div>
-<div class="finding"><strong>Ordenes de compra duplicadas:</strong> se generan OC duplicadas sin control.</div>
-<div class="finding"><strong>Pagos no autorizados:</strong> &ldquo;se hacen pagos que nosotros no hemos autorizado&rdquo;.</div>
-<div class="finding"><strong>Falta de seguimiento a tiempos:</strong> caso de barrenas/materiales para concreto pedidos el dia anterior a cuando se necesitaban, con 3 semanas de anticipacion al punto de entrega. Compras no los solicito a tiempo.</div>
-<div class="finding"><strong>Perdida de ahorros negociados:</strong> Francisco negocia un precio, lo registra con firma de Vidal, pero la OC sale por un monto diferente (mayor). &ldquo;Me llega la orden de compra y que crees? Por 100 [mas]&rdquo;.</div>
-<div class="finding">Francisco tuvo un enfrentamiento en Consejo (3 semanas despues de entrar) donde Vidal le pidio exponer la situacion de compras frente a la responsable. Tomo 3 meses resolver la tension.</div>
-<div class="finding">No hay proceso de <strong>smart bid</strong> (cotizacion local / busqueda del mejor precio). Se intenta privilegiar proveedores locales pero sin proceso formal.</div>
-<div class="finding">Ejemplo de ineficiencia: estudio hidrologico cotizado a $172,000, Vidal queria aceptarlo rapido aunque tardaba 60 dias vs 30 de otra opcion. Francisco insistio en negociar un 5% de descuento por principio de disciplina de compras.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Ausencia de Sistemas y Controles</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin sistema de seguimiento de avance de obra</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">No existe un sistema implementado para seguimiento de avance. Francisco y Karla saben el estado porque van f&iacute;sicamente, pero no hay reporte sistematizado. Los reportes para el banco se generan ad hoc. Clara pide cronograma por tel&eacute;fono.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 -- Ejecucion de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Proyecto de pavimentacion del parque:</strong> 62 hectareas pavimentadas en 3 meses. Logro significativo pero ejecutado sin controles formales (&ldquo;no hay hilo, no hay nada&rdquo;).</div>
-<div class="finding"><strong>Proyectos actuales:</strong> 2 naves para Grupo Pantaleon (13,000 m2 y 23,000 m2). Ha sido &ldquo;una curva de aprendizaje costosa&rdquo;.</div>
-<div class="finding">Problemas con el contratista de Pantaleon: Francisco advirtio que no estaba de acuerdo con el constructor seleccionado. Identifico incumplimientos previos a la adjudicacion. Vidal decidio proceder por compromiso moral (8 meses de trabajo previo de planos y cotizaciones por parte del contratista).</div>
-<div class="finding"><strong>Problemas con fianzas:</strong> el contratista no pudo afianzar los millones completos. Se tuvo que dividir la fianza en dos de 6 millones. Un anticipo de 21 millones genero <strong>60 dias de retraso</strong>.</div>
-<div class="finding">La organizacion no esta preparada para el crecimiento: &ldquo;saltar de 2 a 6 [obras] simultaneas... no estamos preparados, esa es una realidad&rdquo;.</div>
-<div class="finding">Se reconoce a Karla (Gerente de Operaciones) como pieza clave: &ldquo;mujer con mucha capacidad y con muchas ganas, con la camiseta... mucho conocimiento de la construccion, pero no del conocimiento administrativo&rdquo;.</div>
-<div class="finding">Robos en obra: robaron cable ya instalado en el parque. Se descubrio quienes fueron. No habia camaras en obra en ese momento; ahora tienen timelapse.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin sistema de costos por obra</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">No existe un sistema corporativo que diga cu&aacute;nto se gast&oacute; en materiales, mano de obra, factor de salario real. Francisco: &ldquo;agarras lana, la metes en la bolsa, empiezas a pagar... al final de la semana te fue bien y si no ya te chicaste.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 -- Control y Seguimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>No existe un sistema de seguimiento de avance de obra</strong>. Textual: &ldquo;la realidad de las cosas es que no tenemos un sistema implementado para eso&rdquo;.</div>
-<div class="finding">No hay seguimiento semanal formal. Francisco y Karla saben el estado de la obra porque van fisicamente, pero no hay reporte sistematizado.</div>
-<div class="finding">&ldquo;Deberia de haber un seguimiento que tu te metes y dices asi va bien, aqui se atraso... no, no [lo hay]&rdquo;.</div>
-<div class="finding">Los reportes de avance para el banco se generan ad hoc. Caso: Clara (Subdireccion de Asuntos Corporativos) pidio el cronograma actualizado a Francisco por telefono para entregarlo al banco. El flujo deberia ser automatico.</div>
-<div class="finding">Francisco conoce herramientas como MS Project (lo usa para cronogramas) pero reconoce que &ldquo;no es amigable&rdquo;. Menciona interes en Procore (lo usa Gerardo Tamayo de Simsa) como herramienta mas ejecutiva.</div>
-<div class="finding">Los archivos de Project existen por obra pero no se comparten facilmente -- Francisco tiene que mandarlos en PDF.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Doble contabilidad presupuestal</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Operaciones lleva un seguimiento paralelo al de finanzas porque no conf&iacute;an en que los datos corporativos est&eacute;n correctos. Se genera un presupuesto &ldquo;interno&rdquo; y despu&eacute;s uno de ejecuci&oacute;n donde &ldquo;aprietan tuercas.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P8 -- Entrega y Calidad <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Existe un documento de &ldquo;entrega benefica&rdquo; que esta incluido en los contratos y en el Project de cada obra.</div>
-<div class="finding">Se manejan consideraciones tecnicas por proyecto (especificaciones de muros, alturas, materiales).</div>
-<div class="finding">El proceso de entrega existe pero no esta sistematizado ni es accesible para todos los involucrados.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Crisis en Compras y Abastecimiento</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">&Oacute;rdenes de compra duplicadas y pagos no autorizados</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">OC duplicadas sin control. Pagos que operaciones no ha autorizado. P&eacute;rdida de ahorros negociados: Francisco negocia un precio, la OC sale por un monto diferente (mayor). Caso del cable el&eacute;ctrico del parque: sin cotizaci&oacute;n competitiva, ahorro de $12M al ordenar el proceso.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P9 -- Property Management <span class="pilar-tag tag-functional">Sin evidencia directa</span></div>
-<div class="finding">No se toco directamente en la entrevista. Francisco menciona que el negocio genera ingresos de dos fuentes: venta de terrenos y construccion de naves. El post-venta/property management no fue discutido.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Operaciones como principal causante del desorden</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Francisco reconoce: &ldquo;nosotros somos los principales causantes de la desorganizaci&oacute;n en compras&rdquo;. No hay programaci&oacute;n de suministros; se compra conforme se necesita. Requisiciones tard&iacute;as obligan urgencias.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 -- Finanzas y Tesoreria <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Finanzas recibe el presupuesto de operaciones y corre su modelo financiero para evaluar rentabilidad por m2.</div>
-<div class="finding"><strong>Finanzas cruza informacion con operaciones para validar sus numeros</strong> (&ldquo;finanzas cruzan la informacion con nosotros para ver si ellos estan bien... es al reves&rdquo;). Esto indica que finanzas depende de operaciones como fuente de verdad, no al contrario.</div>
-<div class="finding">Hay desconexion en los flujos: finanzas pide informacion de avance de obra a Francisco por WhatsApp/telefono para reportar al banco.</div>
-<div class="finding">Joaquin (Planeacion Financiera) recibe copias de comunicaciones de obra, pero el flujo no esta estructurado.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Cultura de soporte no alineada a construcci&oacute;n</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">&Aacute;reas de soporte (compras, RH, TI) vienen de la cultura de gasolineras. No tienen la urgencia ni los reflejos que requiere construcci&oacute;n industrial. Compras se va a comer de 1 a 3 sin escalonar horarios.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 -- Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">El ERP actual no cubre las necesidades de operaciones. Francisco lo describe como limitado a requisiciones y OC.</div>
-<div class="finding"><strong>Los sistemas estan "quebrados":</strong> no se comunican entre si. Hay mucho acceso intermedio, correo y WhatsApp.</div>
-<div class="finding">No hay niveles de acceso a documentos. Francisco tiene acceso a todo &ldquo;gracias a Dios&rdquo;, pero reconoce que deberia haber niveles por rol y etapa del flujo de valor.</div>
-<div class="finding">Francisco tuvo un sistema propio que desarrollo en 1990 para su empresa anterior. El desarrollador de ese sistema hoy tiene &ldquo;un sistema muy comercial a nivel mundial&rdquo;.</div>
-<div class="finding">No hay repositorio centralizado de contratos con acceso segmentado. El incidente del contrato de Pantaleon revelo que nadie podia acceder rapido a los anexos contractuales.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Retraso Pantale&oacute;n y Riesgo de Escala</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Retraso en entrega: &ldquo;nos fue bastante mal&rdquo;</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Bodega de 5,000 m2 debi&oacute; entregarse el 31 de marzo, lleva al menos 2 semanas de retraso. Reuni&oacute;n con due&ntilde;os de Pantale&oacute;n: &ldquo;hay reuniones en las que nada m&aacute;s queda agachar la cabecita&rdquo;. Meta: no usar la gracia contractual y entregar el 30 de junio.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX -- Gobernanza, Estructura y Modelo de Gestion <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>No hay estructura organizacional clara para operaciones</strong>. Francisco llego y no existian: alcances y responsabilidades, organigrama de proyecto, ratio de personal por volumen de obra.</div>
-<div class="finding">Francisco propuso un esquema de organigrama base + desdoble por proyecto con rangos y ratios, pero no se ha implementado formalmente.</div>
-<div class="finding"><strong>Toma de decisiones:</strong> Francisco propuso un comite para inversiones fuertes y asignacion de obras. Existe informalmente entre el y Vidal, basado en confianza y respeto, pero no esta institucionalizado.</div>
-<div class="finding"><strong>Accountability difusa:</strong> en reuniones de crisis (caso Pantaleon), las areas se senalaban mutuamente. Francisco tuvo que tomar la responsabilidad personalmente: &ldquo;yo me deberia haber puesto en pelotas ahi en la entrada... el responsable soy yo&rdquo;.</div>
-<div class="finding"><strong>Comunicacion fragmentada:</strong> multiples grupos de WhatsApp sin estructura. La informacion se pierde. &ldquo;Se pierde la trazabilidad de las cosas&rdquo;. No se hace &ldquo;una vez y bien&rdquo; -- las mismas solicitudes se repiten en diferentes canales.</div>
-<div class="finding">Francisco reconoce que la intervencion de LCG fue algo que &ldquo;pidio a gritos&rdquo; porque internamente no tiene el mismo peso para solicitar estructura y personas: &ldquo;no es lo mismo que yo les diga necesito una persona a que venga un tercero&rdquo;.</div>
-<div class="finding"><strong>Relaciones con Simsa/Gerardo Tamayo:</strong> Francisco conoce bien la transformacion que Simsa ha tenido (tambien asesorada por LCG). Ha visto los sistemas que implementaron y le interesa replicar el concepto.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Organizaci&oacute;n no preparada para el crecimiento</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">&ldquo;Saltar de 2 a 6 obras simult&aacute;neas... no estamos preparados, esa es una realidad.&rdquo; Sin estructura organizacional clara, sin manual de procesos, sin ratio de personal por volumen de obra.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;No me sirve un programa que lo maximo es captura de requisiciones y ordenes de compra. Para que? Porque tengo que presentar otro presupuesto y para poder presentarlo tengo que estar seguro de lo que estoy haciendo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No estamos preparados, esa es una realidad." (sobre el crecimiento de 2 a 6 obras simultaneas)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;La realidad de las cosas es que no tenemos un sistema implementado para eso." (sobre el seguimiento de avance de obra)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se pierde la trazabilidad de las cosas." (sobre la comunicacion por WhatsApp)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No quiero tratar de resucitar al nino despues de que se ahogue. Hay que hacerlo antes de que se ahogue.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Como quieres si no tienes controles? Si no tienes alcances y responsabilidades? Y la gente, como lo exiges si no les das esas herramientas?&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se hacen pagos que nosotros no hemos autorizados. Son muchas situaciones." (sobre compras)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se duplico una orden de compra, se hacen pagos que nosotros no hemos autorizado.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No es lo mismo que yo les diga necesito una persona a que venga un tercero [LCG] a nivel de estructura." (sobre por que pidio la consultoria)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ha sido una curva de aprendizaje costosa." (sobre el proyecto Pantaleon)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Finanzas cruzan la informacion con nosotros para ver si ellos estan bien... es al reves." (operaciones es la fuente de verdad, no finanzas)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nosotros no somos constructores. Somos desarrolladores." (sobre la identidad del negocio)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Profesionalmente es bueno, pero administrativamente no es lo mismo que sean buenos para ti que sean buenos profesionistas. Son cosas completamente separadas." (sobre Karla y el equipo operativo)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo por eso pedi a gritos la intervencion de ustedes." (sobre la necesidad de la consultoria)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Screenshots de grupos de WhatsApp y comunicaciones tipicas&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Casos documentados de paros de obra (con causa raiz)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Casos de compras (OC duplicadas, pagos no autorizados)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Casos de finanzas&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Archivos de MS Project por obra (en PDF)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Presentacion corporativa con timelapse de obra&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Relacion de planos y permisos (formato que mostro en pantalla)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[ ] Documento de consideraciones de Pantaleon&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;<strong>Lunes 13-abr, 13:00-14:00</strong>: Segunda sesion con Francisco (detalle de avance de obra, controles, Project)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;<strong>Martes 14-abr</strong>: Visita a obra con Alan Sahagun (supervisor) y Karla (Gte. Operaciones). Francisco acompana.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Francisco enviara documentos y evidencias por correo.&rdquo;</div></div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 06</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">No me sirve un programa que lo m&aacute;ximo es captura de requisiciones y &oacute;rdenes de compra.</div>
+    <div class="verbatim-source">&mdash; Francisco Lastra, sobre el ERP actual</div>
 </div>
-<div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 2 — 2026-04-13 (~39 min) · Sesion de profundizacion -- Seguimiento a Obra (virtual)</h2></div>
-<div class="pilar-section"><div class="pilar-title">P3 -- Planeacion y Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Doble contabilidad presupuestal:</strong> Operaciones lleva un seguimiento paralelo al de finanzas porque no confian en que los datos corporativos esten correctos. Francisco: &ldquo;se lleva una doble contabilidad&rdquo; porque no se arriesga a que finanzas le diga que algo fallo sin haberlo detectado antes.</div>
-<div class="finding"><strong>Presupuesto interno vs presupuesto banco:</strong> Existe un presupuesto &ldquo;interno&rdquo; (operativo) y despues un presupuesto de ejecucion donde &ldquo;aprietan tuercas&rdquo; para lograr mejor costo directo. El 60-70% de los costos directos son materiales.</div>
-<div class="finding"><strong>Sin sistema de costos por obra:</strong> No existe un sistema corporativo que diga cuanto se gasto en materiales, mano de obra, factor de salario real. Francisco: &ldquo;aqui sinceramente seguimos con el sistema de que agarras lana, la metes en la bolsa, empiezas a pagar... al final de la semana te fue bien y si no ya te chicaste&rdquo;.</div>
-<div class="finding"><strong>Sin planeacion fiscal integrada:</strong> Francisco reconoce que aun no han entrado al tema de planeacion fiscal, que &ldquo;es otro boleto&rdquo;.</div>
+<div class="verbatim">
+    <div class="verbatim-text">No sabemos d&oacute;nde estamos parados... sabemos m&aacute;s o menos, pero as&iacute; puntualmente no.</div>
+    <div class="verbatim-source">&mdash; Francisco Lastra, sobre control de costos</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 -- Compras y Abastecimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Compras reactivas, no planeadas:</strong> Francisco reconoce que operaciones es el principal causante de la desorganizacion en compras: &ldquo;nosotros somos los principales causantes de la desorganizacion en compras, porque las requisiciones las hacemos nosotros&rdquo;. No hay una programacion de suministros/insumos; se compra conforme se necesita en vez de hacer una explosion de insumos alineada al programa de obra.</div>
-<div class="finding"><strong>Falta de sentido comun y seguimiento:</strong> Caso del fin de semana: mandaron una camioneta a Monterrey por 60 barrenas, pero compras no tramito el epoxico ni el taladro necesarios para usarlas. &ldquo;Nadie te tiene que decir nada, se llama sentido comun.&rdquo;</div>
-<div class="finding"><strong>Actitud petrolera:</strong> Francisco describe el ritmo de compras como &ldquo;pasito petrolero&rdquo; -- el equipo viene de la cultura de operacion de gasolineras y no tiene la urgencia ni la dinamica que requiere construccion industrial. Compras se va a comer de 1 a 3 sin escalonar horarios, dejando sin cobertura en emergencias.</div>
-<div class="finding"><strong>Problema con Rosario (compradora clave):</strong> Proveedor/socio comercial se quejo &ldquo;amargamente&rdquo; de ella. Vidal se molesto severamente el fin de semana por temas de compras. Francisco recomendo que se entrevistara a Rosario ademas de Jorge de la Rosa, con autorizacion de Vidal.</div>
-<div class="finding"><strong>Aprobaciones de OC interrumpen actividades criticas:</strong> Francisco tuvo que interrumpir la sesion para aprobar una OC urgente en el sistema. No hay dias fijos de firma de OC/requisiciones: &ldquo;aqui es de harina de harina... cuatro o cinco [al dia]&rdquo;. En su empresa anterior tenia martes y jueves fijos para firmas.</div>
-<div class="finding"><strong>Licencia AutoCAD vencida 3 semanas:</strong> La licencia de AutoCAD/Civil 3D llevaba 3 semanas vencida sin que compras la renovara (~$25,000 MXN). Esto bloqueo la generacion de coordenadas para la escritura del terreno de Xalapa, retrasando un tramite notarial de $2.5M MXN. &ldquo;Imaginate, con el corporativo que se supone que somos, teniendo que andar pidiendo para lo del Civil CAD.&rdquo;</div>
+<div class="verbatim">
+    <div class="verbatim-text">Nos gana la desesperaci&oacute;n de querer tener el resultado a la brevedad... no sabemos d&oacute;nde estamos parados.</div>
+    <div class="verbatim-source">&mdash; Francisco Lastra, sobre la urgencia sin datos</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 -- Ejecucion de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Retraso en entrega Pantaleon:</strong> La bodega de 5,000 m2 debio entregarse el 31 de marzo, lleva al menos 2 semanas de retraso. El sabado se reunieron con los duenos de Pantaleon y &ldquo;nos fue bastante mal&rdquo;. Francisco: &ldquo;hay reuniones en las que nada mas queda agachar la cabecita y aguantarlos&rdquo;.</div>
-<div class="finding"><strong>Cronograma Pantaleon:</strong> Nave B (5,000 m2) entrega el viernes (18 abril); resto de 12,600 m2 en 25 dias; nave A (22,000-23,000 m2) entrega contractual 30 junio, con 2 meses de gracia por lluvias del 2025 (segundo ano mas lluvioso en 75 anos en la zona). La meta es no usar la gracia y entregar el 30 de junio para subsanar la relacion con el cliente.</div>
-<div class="finding"><strong>Fuerza propia por falla de contratista:</strong> Toda la obra civil la estan ejecutando con equipo propio (desde terraceria), coordinada por Karla, porque el contratista original &ldquo;dejo tirada&rdquo; la terraceria.</div>
-<div class="finding"><strong>Estructura en obra:</strong> Supervisores: Juan Higinio (general), Alan (8 anos en la empresa, &ldquo;ha despuntado bien&rdquo;), Javier (obra civil, muros de block, chaflanes). Karla coordina todo.</div>
-<div class="finding"><strong>Proyecto Xalapa 3B:</strong> Terreno adquirido el 2 de marzo. Al 13 de abril la escritura aun no tiene coordenadas. Falta estudio de mecanica de suelos (Karla discrepa con algunos resultados). Permisos pendientes. Ese mes perdido &ldquo;te va a matar a la hora de entrega&rdquo;.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 -- Control y Seguimiento <span class="pilar-tag tag-functional">Funcional-bajo</span></div>
-<div class="finding"><strong>Proceso de estimaciones funciona:</strong> Existe un flujo definido para estimaciones de subcontratistas: subcontratista genera estimacion -&gt; supervision de obra firma -&gt; Alan/Javier y Juan Higinio firman -&gt; Mitzy (Control de Obra) filtra, revisa contra contrato, avances y amortizaciones. Mitzy lleva &ldquo;una hoja grandotota de Excel donde va poniendo cada una de las estimaciones... como ha ido el desarrollo economico y de pagos de la obra&rdquo;.</div>
-<div class="finding"><strong>Mitzy como filtro confiable:</strong> Francisco expresa alta confianza en Mitzy: &ldquo;despues de que lo revisa Mitzy, ya casi no le revisamos mucho... es un filtro muy duro. Cuando los contratistas se quejan de esa persona, quiere decir que estas haciendo bien las cosas.&rdquo;</div>
-<div class="finding"><strong>Sin sistema corporativo de costos:</strong> No hay forma de saber puntualmente cuanto costo una obra en sus componentes (materiales, MO, IMSS, indirectos). Francisco: &ldquo;no sabemos donde estamos parados... sabemos mas o menos donde estamos parados, pero asi puntualmente no&rdquo;.</div>
-</div>
-<div class="pilar-section"><div class="pilar-title">P8 -- Entrega y Calidad <span class="pilar-tag tag-functional">Sin evidencia nueva</span></div>
-<div class="finding">No se profundizo en esta sesion. El tema de entrega se toco solo en contexto de fechas comprometidas con Pantaleon.</div>
-</div>
-<div class="pilar-section"><div class="pilar-title">S1 -- Finanzas y Tesoreria <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Desconexion finanzas-operaciones:</strong> Se reitera que finanzas recibe el presupuesto de operaciones, lo mete a su modelo, y despues pide soporte para el presupuesto que se presenta al banco. Pero no hay un sistema integrado -- la informacion fluye manualmente.</div>
-<div class="finding"><strong>Riesgo de escala:</strong> Francisco subraya el riesgo con una metafora de escala: &ldquo;no es lo mismo perder el 5% de 100 mil pesos que de mil millones&rdquo;. Sin controles de costo, el crecimiento amplifica las perdidas potenciales.</div>
-</div>
-<div class="pilar-section"><div class="pilar-title">TX -- Gobernanza, Estructura y Modelo de Gestion <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Personal de soporte no alineado a construccion:</strong> Las areas de soporte (compras, RH, TI) vienen de la cultura de operacion de gasolineras. No tienen la urgencia, los reflejos ni el sentido de consecuencia que requiere la construccion industrial. Francisco: &ldquo;estan acostumbrados al manejo de las estaciones de las gasolineras... una gasolinera que puede urgir pues nomas que haya combustible&rdquo;.</div>
-<div class="finding"><strong>RH sin consecuencias:</strong> Caso del robo de cable: Karla detecto el robo, fue con RH (Isabel, Lluvia) a pedir baja y demanda. RH indemnizo a los trabajadores ($50,000 y $15,000) sin avisar a Francisco ni a operaciones. No hubo consecuencia legal. Resultado: precedente negativo ante toda la cuadrilla. Francisco: &ldquo;hicieron aparte que nos chingamos el cable, mire lo que nos entregaron... premio&rdquo;. El cable robado ademas impidio conectar a un cliente, con impacto reputacional.</div>
-<div class="finding"><strong>Miedo a hablar en entrevistas:</strong> Francisco detecto que Dani, Lupita (arquitectas) y otros tienen reservas para ser francos en las entrevistas. Francisco hablo con ellos para que &ldquo;no se guarden nada&rdquo; y ayuden a detectar problemas.</div>
-<div class="finding"><strong>Desesperacion por resultados sin saber donde estan parados:</strong> &ldquo;Nos gana la desesperacion de querer tener el resultado a la brevedad... no sabemos donde estamos parados&rdquo;.</div>
-<div class="finding"><strong>Disposicion al cambio:</strong> Francisco reitera su disposicion total al proyecto. Quiere ver la primera version de la propuesta el jueves para rebotarla antes de presentar a Vidal. Ofrece estar presente en la reunion con Vidal.</div>
-</div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Vamos muy atrasados, Alfredo, esa es la realidad de las cosas, ya deberiamos de haber acabado la bodega del 31 de marzo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nos vimos en la necesidad de atorarle a la cuestion de la obra civil nosotros, desde la terraceria que nos dejaron tirada.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se lleva una doble contabilidad, porque yo no me voy a arriesgar a que finanzas me diga 'se te ahogo el nino'.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No hay un orden, Alfredo, y lo tengo que reconocer porque nosotros somos los principales causantes de la desorganizacion en compras, porque las requisiciones las hacemos nosotros.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se va comprando como se va necesitando en vez de utilizar la famosa explosion de insumos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tenemos vencido desde hace 3 semanas la licencia del AutoCAD... una pinche licencia, Alfredo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Aqui sinceramente seguimos con el sistema de que agarras lana, la metes en la bolsa, empiezas a pagar... al final de la semana te fue bien y si no ya te chicaste.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No es lo mismo perder el 5% de 100 mil pesos que de mil millones.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Estan acostumbrados al manejo de las estaciones de las gasolineras... una gasolinera que puede urgir pues nomas que haya combustible.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nadie te tiene que decir nada, se llama sentido comun." (sobre compras que no tramito materiales complementarios)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Los indemnizaron... y no nos avisaron. O sea, premio." (sobre RH pagando a los trabajadores que robaron cable)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Lo que estamos tendiendo todos los dias que nos levantamos es a la excelencia, o sea, hacer las cosas una vez y bien.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ahi es de actitud, no es de reportes ni de formatos." (sobre el problema de compras)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;<strong>Jueves 15-abr, 12:00</strong>: Tercera sesion con Francisco -- revisar primera version de propuesta, rebotar ideas sobre beneficios y herramientas.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;<strong>Martes 14-abr, 7:00 AM</strong>: Visita a obra con Karla y Alan.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Karla enviara informacion de obras activas y estructura de equipo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Francisco propone que lo incluyan en la reunion de presentacion a Vidal.&rdquo;</div></div>
-</div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
-</div>
+    </div>
 </body>
 </html>

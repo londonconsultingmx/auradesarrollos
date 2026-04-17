@@ -1,166 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karla Mireya Leon Amaro — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesti&oacute;n de Obra: Coordinaci&oacute;n, Contratistas y Ejecuci&oacute;n &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Karla Mireya Leon Amaro &mdash; - Gerente de Operaciones</h1>
-    <div class="header-meta">2026-04-09 · ~1h 17 min · Presencial (Tampico)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P2 -- Desarrollo de Negocios <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">La comunicacion del inicio de un nuevo proyecto hacia Operaciones es informal: a veces por correo, a veces verbal. Ejemplo Xalapa: Ivan Rubio (Subdirector de Nuevos Negocios) aviso verbalmente un miercoles/jueves. Karla tuvo que pedir que lo formalizaran por correo.</div>
-<div class="finding">Operaciones no siempre se involucra a tiempo en el proceso de adquisicion. Ejemplo Xalapa: la escrituracion del terreno avanzo sin que Operaciones validara coordenadas, y Karla detecto que las coordenadas de la subdivision no se verificaron. Tuvo que escalar a Vidal.</div>
-<div class="finding">El procedimiento de Operaciones marca que antes de adquirir un terreno, Alejandra Enriquez (Jefe de Proyectos) debe ir a sitio para verificar condicion, pendiente, proximidad de instalaciones, afectaciones (canales, lagunas). No siempre se respeta la secuencia.</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Gesti&oacute;n de Obra:<br>Coordinaci&oacute;n, Contratistas y Ejecuci&oacute;n</h1>
+                <p class="cover-subtitle">La Gerente de Operaciones revela la complejidad de coordinar 10+ contratistas, gestionar urgencias de compras y operar sin programa formal de obra</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Karla Mireya Le&oacute;n Amaro, Gerente de Operaciones</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">9 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>La Gerente de Operaciones revela la complejidad de coordinar 10+ contratistas, gestionar urgencias de compras y operar sin programa formal de obra</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value amber">~220</div><div class="kpi-label">Personas en obras (30 propias + 190 contratistas)</div></div>
+<div class="kpi-item"><div class="kpi-value red">86%</div><div class="kpi-label">Requisiciones urgentes</div></div>
+<div class="kpi-item"><div class="kpi-value amber">10+</div><div class="kpi-label">Contratistas simult&aacute;neos sin coordinaci&oacute;n integrada</div></div>
+<div class="kpi-item"><div class="kpi-value red">3 meses</div><div class="kpi-label">&Uacute;ltimo reporte formal de avance</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 -- Planeacion y Presupuesto <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Presupuesto operativo lo elaboran Jorge Garcia o Rodolfo Morales (segun carga de trabajo) en Opus. Se genera explosion de insumos. Karla revisa y da visto bueno.</div>
-<div class="finding">Indirectos y utilidad se definen caso por caso -- no se cobran los mismos indirectos a todos los clientes. Karla lo ve con &ldquo;las escuelas&rdquo; (posiblemente Finanzas) y con la licenciada (legal/fiscal).</div>
-<div class="finding">El presupuesto operativo se envia a Finanzas (Clara/Nayeli/Joaquin) quienes agregan costos suaves y construyen el proyecto financiero completo. Operaciones no tiene visibilidad del presupuesto financiero completo.</div>
-<div class="finding">No hay un proceso formal de autorizacion de presupuesto antes de cargar al ERP. Ejemplo: Finanzas subio a Odoo un presupuesto adicional de Pantaleon a pesar de que Karla les comunico que el cliente aun no lo habia autorizado.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Portafolio y Escala de Operaci&oacute;n</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Portafolio diverso con proyectos de escala</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Parque Log&iacute;stico Altamira (85% avance), 2 naves Pantale&oacute;n (BTS ~36,000 m2), Parque Puerto Altamira (pre-desarrollo), Balderas, La Caves, Xalapa, 3B, Almacenes Ibarra. Escala creciente que demanda profundizaci&oacute;n de controles.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 -- Ingenieria y Diseno <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Las ingenierias no se desarrollan internamente en Tampico; se hacen en Monterrey. Operaciones hace los estudios basicos (topografia, mecanica de suelos, hidrologico) y envia la informacion.</div>
-<div class="finding">Existen antecedentes de estudios proporcionados por terceros que resultaron incorrectos (caso Veracruz: topografia con cortes irregulares que al verificar no correspondian). Karla no se fia de estudios externos y prefiere hacer los propios.</div>
-<div class="finding">En Xalapa, la mecanica de suelos del proveedor revelo condiciones no previstas que pueden impactar el presupuesto. Se requiere segunda mecanica con otros criterios. Esto no se anticipio en la cotizacion original.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Cambio de modelo no planeado: de desarrolladora a constructora</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Karla entr&oacute; entendiendo que Aura era desarrolladora (supervisa constructor externo). Hoy operan como constructora directa en bodegas, con personal propio y supervisi&oacute;n de cuadrillas. El cambio fue reactivo ante el fracaso del contratista.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 -- Compras y Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">El proceso de requisicion se lleva en paralelo en Excel y en Odoo. Karla reconoce que Odoo se acaba de implementar y no tiene toda la informacion cargada. La matriz Excel sigue siendo el control principal.</div>
-<div class="finding">Problema de visibilidad de ordenes de compra: Karla no puede confirmar por sistema si un material ya fue surtido o no. Esto causa retrasos, no duplicaciones (por ahora), pero el riesgo de duplicacion existe.</div>
-<div class="finding">Caso concreto de retraso: listas de material electrico que Karla envio hace 3 semanas a Jorge, quien las paso a Compras. Compras (Gerardo Salgado) nunca proceso la cotizacion. El material no se pidio. Paro de obra potencial.</div>
-<div class="finding">El proceso anterior era: Operaciones genera requisicion -&gt; Compras cotiza y compra. Se cambio sin aviso a: Operaciones manda lista a Compras -&gt; Compras cotiza primero -&gt; luego se genera requisicion. Karla no se entero del cambio hasta que detecto el retraso.</div>
-<div class="finding">Discrepancias de nomenclatura entre equipos tecnicos y Compras (ej: &ldquo;hules&rdquo; vs &ldquo;neoprenos&rdquo;) generan friccion y excusas para no procesar requisiciones directamente.</div>
-<div class="finding">Un proveedor duplico una lista de material electrico y llego mas material del necesario. No habia mecanismo de validacion de entrega contra orden de compra.</div>
-<div class="finding">Karla solicito a Compras que enviaran las ordenes de compra al almacenista para que validara entregas. No se implemento consistentemente.</div>
-<div class="finding">El almacenista no alimenta el sistema Odoo con las entradas de material a obra. Se propuso hacerlo pero se argumento que &ldquo;no podria manejarlo el de obra&rdquo; y que &ldquo;se iba a contratar otro almacenista&rdquo;. Sigue sin resolverse.</div>
-<div class="finding">Materiales de entrega especial (ej: voltaje 4,330V para Parque Logistico) no tienen seguimiento diferenciado. Karla tuvo que llamar por telefono para rastrear una orden que Compras decia ya entregada pero que nunca llego a obra.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Compras y Abastecimiento: Urgencias Permanentes</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Compras no procesa requisiciones a tiempo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Caso: listas de material el&eacute;ctrico enviadas hace 3 semanas a Jorge, pasadas a Compras. Compras nunca proces&oacute; la cotizaci&oacute;n. El material no se pidi&oacute;. Paro de obra potencial.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 -- Ejecucion de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Fracaso del contratista de bodegas Pantaleon:</strong> Un socio comercial recibio el proyecto, anticipos y el proceso completo para construir las 2 bodegas. No ejecuto: no metio gente, no respeto solicitudes de incrementar fuerza de trabajo, no reviso actividades. Duro de mayo a enero (~8 meses). El contratista se justifico porque su contrato tenia fechas distintas (entrega feb siguiente ano) vs las fechas comprometidas al cliente Pantaleon (entrega 15-nov). <strong>Las fechas del contrato al contratista no coincidian con las fechas al cliente</strong>. El contrato lo elaboro Nayeli (Gerente de Contraloria). El resultado: Aura tuvo que asumir la construccion directamente, contratar personal adicional, duplicar la plantilla de teracerias de 12 a ~24 personas.</div>
-<div class="finding">Cambio de modelo no planeado: Karla entro a Aura entendiendo que era una <strong>desarrolladora</strong> (supervisa ingenierias, supervisa constructor externo). Hoy operan como <strong>constructora</strong> directa en las bodegas (personal propio, equipo propio, supervision de cuadrillas). El cambio de rol no fue una decision deliberada sino reactiva ante el fracaso del contratista.</div>
-<div class="finding">Las ventas de lotes no siguen la secuencia de desarrollo planificada. Ejemplo Parque Logistico: las etapas electricas se disenaron para desarrollar de adelante hacia atras, pero se vendieron lotes de atras, obligando a construir casi todo al mismo tiempo. Direccion detiene y libera fases de manera ad-hoc.</div>
-<div class="finding">El plan semanal de obra se comunica por mensaje de WhatsApp al grupo de cada proyecto. Karla manda instrucciones el dia anterior. No hay un programa semanal formal tipo Last Planner.</div>
-<div class="finding">Programa general de obra existe (mostrado en pantalla durante entrevista) pero no se tiene un programa semanal detallado con restricciones.</div>
-<div class="finding">Personal de obra se contrata via sindicato a solicitud de supervisores de campo. Tambien llegan personas referidas por trabajadores existentes sin proceso formal. Capital Humano no participa en la contratacion de personal de obra.</div>
-<div class="finding">Contratos de personal eventual se manejan como &ldquo;contrato por obra&rdquo; (ej: &ldquo;teracerias&rdquo;) para facilitar la baja al terminar el rubro. Fue una decision reciente de Karla.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Cambio de proceso sin comunicaci&oacute;n</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">El proceso cambi&oacute; de &ldquo;Operaciones genera requisici&oacute;n&rdquo; a &ldquo;Operaciones manda lista, Compras cotiza primero&rdquo;. Karla no se enter&oacute; hasta que detect&oacute; un retraso cr&iacute;tico.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 -- Control y Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">El ultimo reporte formal de avance de obra que Karla tiene por correo es del <strong>9 de enero</strong> (3 meses de antiguedad al momento de la entrevista). El seguimiento dia a dia se hace por WhatsApp con reportes fotograficos.</div>
-<div class="finding">Reportes fotograficos semanales al cliente Pantaleon (por requerimiento del cliente).</div>
-<div class="finding">Finanzas pide fotos para disposiciones bancarias (ad-hoc, no sistematizado).</div>
-<div class="finding">Reporte mensual a Direccion (junta de consejo): incluye fotos, fuerza de trabajo, innovaciones, graficos de pendiente por ejercer. Duracion asignada: 15 min (frecuentemente se extiende).</div>
-<div class="finding">El grafico de control de presupuesto (presupuesto base -&gt; ahorros con proveedores -&gt; cambios en diseno -&gt; ordenes de cambio -&gt; pendiente de ejercer) solo existe para Parque Logistico. Las demas obras no lo tienen.</div>
-<div class="finding">No hay un tablero integrado de avance fisico vs financiero vs programa en tiempo real. Cada pieza de informacion vive en un lugar distinto (Excel, Odoo parcial, WhatsApp, correo).</div>
-<div class="finding">Estimaciones a contratistas: proceso quincenal (con excepcion semanal para cierre de proyecto). Flujo: contratista genera estimacion -&gt; supervisor de campo valida volumen en sitio -&gt; Mitzi Sanchez revisa economico (precio vs contrato, volumenes, no excedentes) -&gt; firma Karla. Tres tipos: normal, adicional (excedente de volumen), extraordinaria (fuera de contrato). Este proceso si esta razonablemente estructurado.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Proveedor duplic&oacute; lista de material el&eacute;ctrico</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Un proveedor duplic&oacute; una lista y lleg&oacute; m&aacute;s material del necesario. No hab&iacute;a mecanismo de validaci&oacute;n de entrega contra orden de compra.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P8 -- Entrega y Calidad <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Hay fechas de entrega claras por proyecto (Pantaleon B: 30-abr, Pantaleon A: 30-abr parcial + 15-jun total).</div>
-<div class="finding">El secuenciamiento constructivo esta definido (teracerias -&gt; cimentacion -&gt; muro contencion -&gt; block/cadenas -&gt; bardas -&gt; estructura metalica -&gt; laminacion -&gt; instalaciones -&gt; concretos). Karla lo supervisa personalmente.</div>
-<div class="finding">Karla detecto que el contratista anterior queria hacer bardas antes de muro de contencion (secuencia incorrecta). Su intervencion corrigio el proceso.</div>
-<div class="finding">Reportes fotograficos al cliente: semanales en Pantaleon, en otros proyectos solo estimaciones con fotos o via WhatsApp.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Fracaso del Contratista Pantale&oacute;n</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Contratista de CDMX incumpli&oacute; 8 meses</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Socio comercial recibi&oacute; proyecto, anticipos y proceso completo para construir 2 bodegas. No ejecut&oacute;: no meti&oacute; gente, no respet&oacute; solicitudes. Las fechas del contrato al contratista no coincid&iacute;an con las fechas al cliente Pantale&oacute;n. Aura tuvo que asumir construcci&oacute;n directa.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P9 -- Property Management <span class="pilar-tag tag-functional">Sin evidencia</span></div>
-<div class="finding">No abordado en esta entrevista.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Sin programa semanal tipo Last Planner</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">El plan semanal se comunica por WhatsApp. Karla manda instrucciones el d&iacute;a anterior. Programa general existe pero no hay programa semanal detallado con restricciones.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 -- Finanzas y Tesoreria <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">El presupuesto financiero completo (con costos suaves) lo construye Finanzas (Joaquin Valdez / Clara Medina) a partir del presupuesto operativo de Karla. Operaciones no tiene acceso al presupuesto financiero completo.</div>
-<div class="finding">Finanzas subio un presupuesto adicional a Odoo sin autorizacion del cliente. Karla tuvo que reclamar y pedir que generaran un documento formal de propuesta de pagos antes de enviarlo al cliente.</div>
-<div class="finding">Control de combustible de maquinaria propia: se registra en Excel por obra, con tickets del despacho de gasolina. Se asigna por proyecto (Parque Logistico, Bodega A, Bodega B, etc.).</div>
-<div class="finding">Nominas de personal de obra: Mitzi Sanchez las prepara, Karla las revisaba y autorizaba antes, ahora las autoriza Ivan Rubio. Karla sigue revisandolas informalmente con Mitzi. Incluye delegaciones al sindicato y pagos en efectivo a personal no dado de alta.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Control y Seguimiento Limitado</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">&Uacute;ltimo reporte formal: 9 de enero</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El &uacute;ltimo reporte formal de avance de obra que Karla tiene por correo es de 3 meses de antig&uuml;edad. El seguimiento d&iacute;a a d&iacute;a se hace por WhatsApp con reportes fotogr&aacute;ficos.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 -- Capital Humano <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Capital Humano no participa en la contratacion ni gestion de personal de obra. Todo lo maneja Operaciones directamente con el sindicato.</div>
-<div class="finding">Existen personas trabajando que no estan dadas de alta en el seguro. La practica era darlos de alta despues de 2 semanas de prueba. Riesgo laboral significativo.</div>
-<div class="finding">Personal llega referido por otros trabajadores directamente al sindicato, sin entrevista ni filtro de Capital Humano.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Ventas fuera de secuencia de desarrollo</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Las etapas el&eacute;ctricas se dise&ntilde;aron de adelante hacia atr&aacute;s, pero se vendieron lotes de atr&aacute;s, obligando a construir casi todo al mismo tiempo. Direcci&oacute;n detiene y libera fases de manera ad-hoc.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 -- Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Odoo se implemento recientemente pero no esta siendo alimentado por el equipo de obra. Las requisiciones se siguen controlando en Excel en paralelo.</div>
-<div class="finding">El modulo de inventario/almacen de Odoo no se usa para registrar entradas de material a obra. El almacenista no captura en sistema.</div>
-<div class="finding">Karla puede ver ordenes de compra en Odoo pero no puede ver si el material ya fue recibido en obra.</div>
-<div class="finding">Opus se usa para presupuestos y explosion de insumos. Los datos no se integran automaticamente con Odoo.</div>
-<div class="finding">No hay un sistema de seguimiento de avance de obra integrado. El programa general existe pero no hay un programa semanal vivo.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 06</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Yo ya no me esper&eacute; a que me dijeran algo, segu&iacute; colando completamente.</div>
+    <div class="verbatim-source">&mdash; Karla Le&oacute;n, sobre pragmatismo operativo ante falta de programa</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX -- Gobernanza <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding">La comunicacion de nuevos proyectos de Comercial a Operaciones es informal y a veces verbal. No hay un proceso de handoff definido.</div>
-<div class="finding">Los contratos a contratistas se elaboraron con fechas distintas a las comprometidas con el cliente, y Operaciones no participo ni reviso. Esto causo 8 meses de retraso con el contratista de Pantaleon.</div>
-<div class="finding">No hay claridad sobre el modelo de negocio: Karla entro como gerente de una desarrolladora, hoy opera como constructora directa. El cambio no fue una decision estrategica sino una reaccion al fracaso del contratista.</div>
-<div class="finding">La autorizacion de nominas cambio de Karla a Ivan Rubio sin un proceso formal de transicion.</div>
-<div class="finding">Los presupuestos se cargan a Odoo sin validar si el cliente los autorizo.</div>
+<div class="verbatim">
+    <div class="verbatim-text">&iquest;Por qu&eacute; se paran si pueden seguir adelante con la siguiente zona?</div>
+    <div class="verbatim-source">&mdash; Karla Le&oacute;n, sobre contratista de laminaci&oacute;n</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Cuando yo entre a la empresa se suponia que eramos una desarrolladora, o sea, nosotros no nos encargabamos de construir, supervisar las ingenierias y de supervisar a un constructor externo, no a ejecutarlas [...] Ahorita, por ejemplo, el rol que estamos haciendo en las bodegas es de constructores.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nosotros tenemos que entregar la bodega B en noviembre 15 y el contrato [al contratista] traia que le iba a terminar en febrero del siguiente ano [...] el siempre se justifico con su contrato, pues el traia otras fechas.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo en determinado momento no se si ya me surtieron todo una requisicion de lo que yo pedi [...] lo que me esta causando no es que pida doble, lo que me esta causando es que tenga retrasos [...] me pare la obra.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Unas listas que yo le mande, resulto que Compras nunca le mando la cotizacion, y eso hace 3 semanas y no me habia llegado porque no se mando esa lista.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo les decia a ellos, como validamos la entrega del material [...] Si tuvieramos en el sistema la alimentacion de esos materiales que llegan a la obra, pues estaria mejor.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Un proveedor duplico una lista de material y llego mas material del que deberia ser [...] no habiamos duplicado nada, pero si me esta afectando en que a lo mejor estoy esperando un material, no llega y eso me puede pasar atras.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;El ultimo reporte [de avance de obra por correo] es de 9 de enero." (3 meses sin reporte formal al momento de la entrevista)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Capital Humano no participa nada en esto [contratacion de personal de obra].&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Los contratos, quien hizo los contratos... estuvo Nayeli... manejaron otras fechas." (sobre el desalineamiento contractual con el contratista de Pantaleon)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Me lo subieron [a Odoo] a pesar de que les dije que el cliente aun no me lo ha autorizado." (sobre Finanzas cargando presupuesto no autorizado)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Matriz de control de requisiciones en Excel&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ejemplo de alta de proyecto en Odoo (capturas de pantalla)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Reporte de avance de obra (ultimo disponible por correo)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Correo de comunicacion de inicio de proyecto (ejemplo Xalapa)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Presupuesto de adicionales Pantaleon (correo a Finanzas)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Propuesta de pagos formal que Finanzas le envio&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Explosion de insumos de proyecto (ejemplo de Opus)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ejemplo de retraso por material no pedido a tiempo (correo o WhatsApp)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Screenshots de grupos de WhatsApp de cada obra (ultimo mensaje)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Reporte mensual a junta de consejo (ultimo disponible)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Plantilla de personal con detalle propio/contratista&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Control de combustible (Excel)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Excel de avance por rubro y contratista (formato que Alfredo le envio)&rdquo;</div></div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
-</div>
+    </div>
 </body>
 </html>

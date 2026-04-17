@@ -1,149 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vidal Rodríguez Hernández — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Visi&oacute;n del Director: Retos y Ambici&oacute;n de Escala &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Vidal Rodríguez Hernández &mdash; Director General</h1>
-    <div class="header-meta">2026-04-08 · ~90 min · Presencial (Tampico)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P2 — Comercial <span class="pilar-tag tag-good">Fortaleza general</span></div>
-<div class="finding">Iván Rubio lidera. Background Vesta, experiencia como broker. Clientes captados: 3B, Pantaleón, Iguázú/Fraiche, Almacenes Ibarra, La Corona.</div>
-<div class="finding">Red de brokers en CDMX, MTY, GDL gestionada por Iván.</div>
-<div class="finding">Aura = prácticamente el único desarrollador relevante en Altamira.</div>
-<div class="finding">Pipeline visible entre Iván y Vidal. No hay CRM formal pero funciona por tamaño del equipo.</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">La Visi&oacute;n del Director:<br>Retos y Ambici&oacute;n de Escala</h1>
+                <p class="cover-subtitle">Diagn&oacute;stico estrat&eacute;gico desde la Direcci&oacute;n General: fortalezas comerciales, dolores operativos cr&iacute;ticos y la urgencia de profesionalizar para crecer</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Vidal Rodr&iacute;guez Hern&aacute;ndez, Director General</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">8 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>Diagn&oacute;stico estrat&eacute;gico desde la Direcci&oacute;n General: fortalezas comerciales, dolores operativos cr&iacute;ticos y la urgencia de profesionalizar para crecer</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">CR&Iacute;TICO</div><div class="kpi-label">Control de Obra</div></div>
+<div class="kpi-item"><div class="kpi-value amber">En pa&ntilde;ales</div><div class="kpi-label">Planeaci&oacute;n y Presupuesto</div></div>
+<div class="kpi-item"><div class="kpi-value red">Inexistente</div><div class="kpi-label">Property Management</div></div>
+<div class="kpi-item"><div class="kpi-value green">Fortaleza</div><div class="kpi-label">Comercial &amp; Escrituraci&oacute;n</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>No hay dueño del presupuesto</strong>. A veces Jorge (costos), a veces Paco, a veces Vidal.</div>
-<div class="finding">Vidal literal: proceso <strong>&ldquo;en pañales&rdquo;</strong>.</div>
-<div class="finding">Opus se usa para estructurar el presupuesto pero no está integrado con nada.</div>
-<div class="finding">Jorge cotiza por teléfono sin apoyo del área de compras.</div>
-<div class="finding">Sin ejercicio formal de asertividad presupuestal al cierre.</div>
-<div class="finding">Fortaleza: diseño paramétrico inicial funciona bien — Aura puede asesorar al cliente.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Fortalezas Comerciales y de Mercado</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Posicionamiento comercial s&oacute;lido</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Iv&aacute;n Rubio lidera con background Vesta. Red de brokers en CDMX, MTY, GDL. Aura es pr&aacute;cticamente el &uacute;nico desarrollador relevante en Altamira. Pipeline visible entre Iv&aacute;n y Vidal. Clientes captados: 3B, Pantale&oacute;n, Igua&aacute;z&uacute;/Fraiche, Almacenes Ibarra, La Corona.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 — Ingeniería &amp; Diseño <span class="pilar-tag tag-good">Fortaleza técnica, riesgo de personas</span></div>
-<div class="finding">Equipo técnicamente fuerte (Paco, Alejandra, Karla, Alan) pero <strong>roles intercambiables</strong> (&ldquo;se cambian la gorra&rdquo;).</div>
-<div class="finding">Capacidad alta en mecánica de suelos, vialidades, optimización de materiales — <strong>nada documentado</strong>.</div>
-<div class="finding"><strong>Caso ahorro Pantaleón:</strong> Paco detectó sobredimensionamiento del consultor externo en acero → ahorro de $25M.</div>
-<div class="finding">Riesgo: si el equipo se va, el know-how se pierde.</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Capacidad t&eacute;cnica en ingenier&iacute;a</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Equipo t&eacute;cnicamente fuerte (Paco, Alejandra, Karla, Alan). Capacidad alta en mec&aacute;nica de suelos, vialidades, optimizaci&oacute;n de materiales. Caso ahorro Pantale&oacute;n: $25M por detecci&oacute;n de sobredimensionamiento en acero.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Nayeli (Contraloría) encabeza formalmente pero su perfil es financiero, no procurement.</div>
-<div class="finding"><strong>"Un desorden"</strong> (Vidal). Sin catálogo de proveedores, sin criterios formales.</div>
-<div class="finding">Materiales van directo a obra sin esquema logístico definido.</div>
-<div class="finding"><strong>"No creo que sean eficientes"</strong> — saben que el acero vale $20, lo compran a $19, ¿podrían a $17?</div>
-<div class="finding">Sin trazabilidad de OC.</div>
-<div class="finding">Calidad de materiales técnicamente correcta pero sin QA formal.</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Escrituraci&oacute;n &aacute;gil</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Alma e Iris operan bien. Proceso &aacute;gil por relaciones locales. Notarios controlados, catastro accesible, registro r&aacute;pido.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-functional">Funcional pero sin estándar</span></div>
-<div class="finding">Paco tiene +800 bodegas de experiencia. Equipo capaz pero <strong>&ldquo;todólogos&rdquo;</strong> sin roles fijos.</div>
-<div class="finding">Aura tiene inmersión total en obra (no delegan al constructor), diferenciador.</div>
-<div class="finding">Asignación de contratistas por rubro, supervisión directa, pero ad-hoc.</div>
-<div class="finding">Sin control de estimaciones a contratistas.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Dolores Operativos Cr&iacute;ticos</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Planeaci&oacute;n y presupuesto: &ldquo;en pa&ntilde;ales&rdquo;</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">No hay due&ntilde;o del presupuesto. Opus se usa para estructurar pero no est&aacute; integrado con nada. Jorge cotiza por tel&eacute;fono sin apoyo del &aacute;rea de compras. Sin ejercicio formal de asertividad presupuestal al cierre.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>"El coco más grande del negocio"</strong> (Vidal).</div>
-<div class="finding">No existe función de control formal. Mitzi genera reportes esporádicos.</div>
-<div class="finding"><strong>Sin calendario de obra, sin curva S</strong>.</div>
-<div class="finding"><strong>Caso Pantaleón: obra de $300M sin presupuesto ni calendario formal</strong>, con retraso no anticipado.</div>
-<div class="finding">Datos en junta de dirección: <strong>&ldquo;yo sé que no son reales&rdquo;</strong> (Vidal).</div>
-<div class="finding">Sin comparación ppto vs real durante ejecución.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Compras: &ldquo;un desorden&rdquo;</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Sin cat&aacute;logo de proveedores, sin criterios formales. Materiales van directo a obra sin esquema log&iacute;stico definido. Sin trazabilidad de OC. Vidal: &ldquo;No creo que sean eficientes &mdash; saben que el acero vale $20, lo compran a $19, &iquest;podr&iacute;an a $17?&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P8 — Entrega &amp; Calidad <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>"En pañales"</strong> (Vidal). Parque casi terminado pero faltan detalles (pintura, limpieza, señalización).</div>
-<div class="finding">Rocío lleva el proceso sola. Falta alguien con más capacidad.</div>
-<div class="finding">Folder con renders pero cierre operativo no profesional.</div>
-<div class="finding">Sin checklist de calidad ni protocolo documentado.</div>
-<div class="finding">Sin métricas de satisfacción.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Control de obra: &ldquo;el coco m&aacute;s grande&rdquo;</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">No existe funci&oacute;n de control formal. Sin calendario de obra, sin curva S. Caso Pantale&oacute;n: obra de $300M sin presupuesto ni calendario formal, con retraso no anticipado. Datos en junta de direcci&oacute;n: &ldquo;yo s&eacute; que no son reales.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P9 — Property Management &amp; Postventa <span class="pilar-tag tag-critical">CRÍTICO — inexistente</span></div>
-<div class="finding"><strong>"Inexistente"</strong> (Vidal). Sin proceso, sin persona, sin contacto post-entrega.</div>
-<div class="finding">Sin NPS, sin reclamaciones registradas, sin garantías formales.</div>
-<div class="finding">Oportunidad perdida de capturar aprendizajes.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Brechas Estructurales</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Gobernanza centralizada e insostenible</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Vidal interviene en todo: compras de acero, llamadas al director de desarrollo urbano, presupuestos, escrituras. Decisiones ad-hoc sin mecanismo formal. Sin visibilidad consolidada multi-proyecto. Con 5-6 naves + parque: &ldquo;no hay forma de ver todo en un solo lugar.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Brenda Lucía maneja tesorería sin controles suficientes. <strong>&ldquo;Si alguien pica y manda depositar, el dinero sale.&rdquo;</strong></div>
-<div class="finding"><strong>Caso: $12M depositados a un constructor con el que rompieron relación</strong> (afianzado pero sin resolución).</div>
-<div class="finding">Riesgo de pagos duplicados.</div>
-<div class="finding">Datos de junta no confiables según el propio Vidal.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Finanzas y tesorer&iacute;a con riesgo de control</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Brenda Luc&iacute;a maneja tesorer&iacute;a sin controles suficientes. Caso: $12M depositados a un constructor con el que rompieron relaci&oacute;n. Riesgo de pagos duplicados. Datos de junta no confiables seg&uacute;n el propio Vidal.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">TI enfocada en soporte de infraestructura (&ldquo;que prenda la computadora&rdquo;), no en digitalización.</div>
-<div class="finding">Vidal sugirió que probablemente habrá que cambiar al responsable.</div>
-<div class="finding"><strong>Caso: equipo de videoconferencia de $120K que no funciona.</strong></div>
-<div class="finding">Vidal sabe que Power BI podría resolver visibilidad (referencia de Desarrollos Delta) pero TI no da soporte.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Property management inexistente</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Sin proceso, sin persona, sin contacto post-entrega. Sin NPS, sin reclamaciones registradas, sin garant&iacute;as formales. Oportunidad perdida de capturar aprendizajes.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Vidal interviene en todo:</strong> compras de acero, llamadas al director de desarrollo urbano, presupuestos, escrituras.</div>
-<div class="finding">Decisiones ad-hoc sin mecanismo formal.</div>
-<div class="finding">Sin visibilidad consolidada multi-proyecto.</div>
-<div class="finding">Con 5-6 naves + parque: <strong>&ldquo;no hay forma de ver todo en un solo lugar&rdquo;</strong>.</div>
-<div class="finding">Funciona por su conocimiento del mercado, pero no es escalable.</div>
-<div class="finding">Alma e Iris operan bien. Proceso ágil por relaciones locales.</div>
-<div class="finding">Notarios controlados, catastro accesible, registro rápido.</div>
-<div class="finding">Permisos gestionados directamente. Funciona, solo falta definir dependencia organizacional.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">TI enfocada en soporte, no en digitalizaci&oacute;n</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">TI enfocada en &ldquo;que prenda la computadora&rdquo;, no en digitalizaci&oacute;n. Caso: equipo de videoconferencia de $120K que no funciona. Vidal sabe que Power BI podr&iacute;a resolver visibilidad pero TI no da soporte.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Logramos vender muy bien los proyectos, conceptualizarlos, venderlos ante el banco... pero la parte operativa es la que arrastramos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Planeación y presupuesto: "En pañales.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Compras: &ldquo;Un desorden.&rdquo; / "No creo que sean eficientes.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Control: &ldquo;Nunca sabemos el avance físico ni financiero.&rdquo; / "Si te pidieran sacar cómo van tus obras, no podrías sacarlo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Datos de junta: "Lo veo en la junta de dirección, pero yo sé que no es real.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Postventa: "Inexistente.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Entrega: "En pañales.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Control de costos: "El coco más grande del negocio.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tesorería: "Si alguien pica y manda depositar, el dinero sale sin validación cruzada.&rdquo;</div></div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Logramos vender muy bien los proyectos, conceptualizarlos, venderlos ante el banco... pero la parte operativa es la que arrastramos.</div>
+    <div class="verbatim-source">&mdash; Vidal Rodr&iacute;guez, Director General</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
+<div class="verbatim">
+    <div class="verbatim-text">Nunca sabemos el avance f&iacute;sico ni financiero. Si te pidieran sacar c&oacute;mo van tus obras, no podr&iacute;as sacarlo.</div>
+    <div class="verbatim-source">&mdash; Vidal Rodr&iacute;guez, Director General</div>
 </div>
+<div class="verbatim">
+    <div class="verbatim-text">Lo veo en la junta de direcci&oacute;n, pero yo s&eacute; que no es real.</div>
+    <div class="verbatim-source">&mdash; Vidal Rodr&iacute;guez, sobre los datos de reporteo</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
 </body>
 </html>

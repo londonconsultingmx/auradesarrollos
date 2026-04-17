@@ -1,129 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nayeli Pérez García — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contralor&iacute;a: Visibilidad, Control y Riesgos Financieros &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Nayeli Pérez García &mdash; Gerente de Contraloría</h1>
-    <div class="header-meta">2026-04-14 · ~38 min · Presencial (Tampico)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Estados financieros estructurados y al día:</strong> Nayeli presenta estados de resultados mensuales, acumulados y balance general por empresa (Sarobi = constructora bodegas, Proyección 21 = parque/lotes). Incluye comparativos vs. año anterior y análisis de variaciones. Formato en Excel, expresado en miles de pesos. [Fortaleza]</div>
-<div class="finding"><strong>Construcción en proceso en balance, no en resultados:</strong> Los costos de construcción de bodegas (Pantaleón) se registran en cuenta de balance como &ldquo;construcción en proceso&rdquo; hasta que se capitalicen. Los ingresos se reconocerán cuando se complete y entregue. Esto genera que el estado de resultados de Sarobi muestre solo gastos operativos y pérdida, sin reflejar la actividad real de construcción. [Funcional]</div>
-<div class="finding"><strong>Anticipos de clientes en Proyección 21:</strong> $86M en anticipos de clientes registrados como pasivo. Se manejan con CFDI por anticipos hasta firma de escritura, momento en que se registra baja de terreno y utilidad. Tratamiento contable correcto pero requiere seguimiento. [Funcional]</div>
-<div class="finding"><strong>Préstamos bancarios para financiamiento de bodegas:</strong> Pasivo incluye préstamos bancarios dedicados a financiar construcción en Sarobi, más acreedores diversos (intercompañías/filiales). [Funcional]</div>
-<div class="finding"><strong>Jefatura de contraloría recién incorporada:</strong> Se incorporó un jefe de contraloría que ahora elabora estados financieros y da seguimiento a cierres contables. Nayeli pasó de operativa a supervisora/revisora. Apenas segundo mes en nuevo esquema. [Funcional]</div>
-<div class="finding"><strong>Devolución de IVA en trámite:</strong> Tienen IVA a favor en proceso de devolución. [Funcional]</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Contralor&iacute;a:<br>Visibilidad, Control y Riesgos Financieros</h1>
+                <p class="cover-subtitle">La Gerente de Contralor&iacute;a confirma que el 99% de las OC de Aura son urgentes, no recibe presupuesto desglosado y enfrenta riesgos fiscales por proveedores sin cumplimiento</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Nayeli P&eacute;rez Garc&iacute;a, Gerente de Contralor&iacute;a</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">14 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>La Gerente de Contralor&iacute;a confirma que el 99% de las OC de Aura son urgentes, no recibe presupuesto desglosado y enfrenta riesgos fiscales por proveedores sin cumplimiento</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">99%</div><div class="kpi-label">OC urgentes en Aura</div></div>
+<div class="kpi-item"><div class="kpi-value amber">$4M</div><div class="kpi-label">Error de cable detectado a tiempo</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Presupuesto desglosado recibido</div></div>
+<div class="kpi-item"><div class="kpi-value green">Funcional</div><div class="kpi-label">Estados financieros estructurados</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>99% de OC de Aura Desarrollos son urgentes:</strong> Nayeli confirma y eleva el dato de Jorge: prácticamente todas las compras de Sarobi son urgentes. &ldquo;Las compras de Sarovi, o sea, el 99% todas urgen.&rdquo; Se autoriza incluso en sábados. [CRITICO]</div>
-<div class="finding"><strong>Pagos sin factura por urgencia:</strong> Por la premura, en ocasiones se paga a proveedores sin tener la factura, solo para no detener la obra. [CRITICO]</div>
-<div class="finding"><strong>Contraloría no puede cotejar compras contra presupuesto:</strong> Nayeli no recibe presupuesto de obra ni avance. Cuando lo solicitó, le dijeron &ldquo;que ella no tenía por qué tener esa información&rdquo;. No existe un control presupuestal desde contraloría sobre las compras. [CRITICO]</div>
-<div class="finding"><strong>Obra negocia directamente con proveedores:</strong> Clara negoció el concreto de contado &ldquo;porque le habían mejorado el precio&rdquo;, sin involucrar a compras ni a contraloría en la negociación. El equipo de compras solo tramita. [CRITICO]</div>
-<div class="finding"><strong>Proveedores sin cumplimiento fiscal:</strong> Obra prefiere proveedores más baratos aunque no cumplan requisitos fiscales. Pidieron a Nayeli un formato para dar de alta proveedores sin cumplimiento, lo cual genera riesgo de auditoría fiscal. Nayeli se opuso pero la presión operativa persiste. [CRITICO]</div>
-<div class="finding"><strong>Error de requisición de $4M (cable eléctrico):</strong> Caso documentado: se solicitó cable eléctrico por ~$4M cuando el monto real era ~$500K. El error fue detectado por contraloría antes de autorizar pago (requería firma de Vidal por monto). Sin el control de autorización escalonado, se habría pagado. [Dolor alto]</div>
-<div class="finding"><strong>Requisiciones sin especificaciones:</strong> Obra coloca requisiciones sin especificaciones técnicas suficientes. &ldquo;No soy adivina&rdquo;. Lo que es &ldquo;obvio&rdquo; para obra no lo es para compras, generando retrabajos y retrasos. [Dolor alto]</div>
-<div class="finding"><strong>Contratos inexistentes que acumulan montos relevantes:</strong> Se asignan trabajos de $100K sin contrato, pero en el mes se acumulan 4-5 trabajos al mismo proveedor, llegando a $1M+ sin contrato formal. No hay umbral definido para requerir contrato. [CRITICO]</div>
-<div class="finding"><strong>Falta de fianzas y garantías:</strong> No hay criterios claros sobre cuándo exigir fianzas a proveedores. Las garantías de productos/piezas se pierden cuando por urgencia las instala un tercero en lugar del proveedor original. [Dolor alto]</div>
-<div class="finding"><strong>Material urgente que no se instala:</strong> Contraloría tiene conocimiento de material solicitado como urgente que luego no se ha instalado en el proyecto. Confirma que la urgencia es artificial en muchos casos. [Dolor alto]</div>
-<div class="finding"><strong>Petro Plus como referencia madura:</strong> Nayeli señala que en Petro Plus (estaciones de servicio) los procesos de compras ya están encaminados. La oportunidad es replicar ese nivel de madurez en Aura Desarrollos. [Funcional]</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Compras Sin Control Presupuestal</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">99% de &oacute;rdenes de compra son urgentes</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Nayeli confirma y eleva el dato de Jorge: pr&aacute;cticamente todas las compras de Aura son urgentes. Se autoriza incluso en s&aacute;bados. Pagos sin factura por urgencia. Contralor&iacute;a no puede cotejar compras contra presupuesto.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Sin presupuesto desglosado por proyecto:</strong> Clara envía a contraloría solo valor de contrato y utilidad esperada de cada proyecto, sin desglose de costos por concepto. Contraloría calcula costo como &ldquo;valor del contrato menos utilidad&rdquo; pero no sabe en qué se va a gastar ni cómo se distribuye. [CRITICO]</div>
-<div class="finding"><strong>Joaquín (Planeación Financiera) tampoco recibe información:</strong> Cuando Nayeli pregunta a Joaquín si tiene presupuesto de proyectos menores que gestiona Clara, la respuesta es &ldquo;no tengo nada&rdquo;. El presupuesto no se comparte con las áreas de control. [CRITICO]</div>
-<div class="finding"><strong>No se comparte programa de obra:</strong> Confirma hallazgo previo: contraloría y compras no reciben programa de obra. Sin programa, no pueden anticipar necesidades de compra ni planear flujo de caja. [CRITICO]</div>
-<div class="finding"><strong>Sin criterio para definir utilidad de proyectos:</strong> No queda claro en qué se basa Clara para establecer la utilidad esperada de los proyectos que cotiza. No hay un modelo de costeo o estimación visible para contraloría. [Dolor alto]</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin presupuesto desglosado por proyecto</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Clara env&iacute;a solo valor de contrato y utilidad esperada, sin desglose de costos. Contralor&iacute;a calcula costo como &ldquo;valor del contrato menos utilidad&rdquo; pero no sabe en qu&eacute; se va a gastar. Joaqu&iacute;n tampoco recibe informaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Facturación cruzada entre proyectos:</strong> Caso de combustible facturado a Proyección 21 cuando debía ir a Pantaleón. Obra lo tiene clasificado internamente pero no comunicó el cambio de código a contraloría. Contablemente se carga al proyecto equivocado. [Dolor alto]</div>
-<div class="finding"><strong>Sin control de avance financiero vs. avance físico:</strong> Contraloría no tiene visibilidad del avance de obra para compararlo con el gasto ejecutado. No existe un reporte de avance financiero vinculado a avance físico. [CRITICO]</div>
-<div class="finding"><strong>Autorización escalonada funciona como control mínimo:</strong> El sistema de autorización por montos (Nayeli hasta $20K, Clara &gt;$20K, Vidal montos mayores) es el único control que ha evitado errores graves (como el caso del cable de $4M). [Funcional]</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Error de $4M detectado por control escalonado</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Cable el&eacute;ctrico requisitado por ~$4M cuando el monto real era ~$500K. Detectado por contralor&iacute;a antes de autorizar. Sin el control de montos, se habr&iacute;a pagado.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P2 — Desarrollo de Negocios <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Expediente de cliente incompleto para contraloría:</strong> Cuando se cierra un negocio (promesa de compraventa), contraloría no recibe expediente del cliente a tiempo para cumplimiento fiscal y ley antilavado. No está definido si Iván (prospección) o Clara (escrituras) debe entregar la documentación. [Dolor alto]</div>
-<div class="finding"><strong>Checklist de expedientes en desarrollo:</strong> Nayeli está trabajando en un checklist propio para recepción de expedientes de clientes, pero falta definir el proceso y responsable. [Dolor alto]</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Riesgos Fiscales y Contractuales</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Proveedores sin cumplimiento fiscal/REPSE</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Obra prefiere proveedores m&aacute;s baratos aunque no cumplan requisitos fiscales. Pidieron formato para alta sin cumplimiento. Riesgo de auditor&iacute;a fiscal. Muchos proveedores activos sin REPSE vigente.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Obra rechaza compartir información con contraloría:</strong> Cuando Nayeli solicitó presupuesto y avance de obra, le respondieron &ldquo;que ellos no tenían por qué compartirle las cosas&rdquo;. Hay una cultura de silos donde obra opera de forma autónoma sin rendir cuentas a las áreas de control. [CRITICO]</div>
-<div class="finding"><strong>Comunicación deficiente obra-contraloría:</strong> &ldquo;Está bien difícil el tema de comunicación entre Aura Desarrollos con el área de compras.&rdquo; Múltiples ejemplos de desconexión: requisiciones sin especificaciones, facturación cruzada, proveedores contactados directamente sin pasar por compras. [CRITICO]</div>
-<div class="finding"><strong>Obra contacta proveedores directamente saltando compras:</strong> Los equipos de obra hablan directamente con proveedores, acuerdan servicios y luego piden a compras que tramite el pago. Se pierde toda capacidad de control y segregación de funciones. [CRITICO]</div>
-<div class="finding"><strong>Ausencia de políticas formales de contratación:</strong> No hay política que defina umbrales para requerir contrato, fianza o garantía. Las decisiones se toman caso por caso según la urgencia. [Dolor alto]</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Contratos inexistentes con montos relevantes</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Se asignan trabajos de $100K sin contrato, pero en el mes se acumulan 4-5 trabajos al mismo proveedor, llegando a $1M+ sin contrato formal. Sin umbral definido para requerir contrato.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding"><strong>Vacantes en área fiscal:</strong> Nayeli tiene vacantes pendientes en el área fiscal de contabilidad. [Dolor alto]</div>
-<div class="finding"><strong>Expedientes de personal:</strong> Confirma el tema de expedientes de personal en tiempo y forma (ya mencionado por Adriana Bojorquez). [Funcional]</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Material urgente que no se instala</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Contralor&iacute;a tiene conocimiento de material solicitado como urgente que luego no se ha instalado en el proyecto. Confirma que la urgencia es artificial en muchos casos.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Las compras de Sarovi, o sea, el 99% todas urgen. Todas urgen y siempre es de oye, me las autorizas ya, a veces tenemos que pagar, a veces hasta sin factura por las urgencias que traen.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;De mi parte te puedo decir que no tengo contra qué cotejar [...] difícilmente se puede.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nosotros la verdad es que casi no nos dejan, digamos, que negociar con los proveedores. Todo viene de allá arriba.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;En alguna ocasión les pedí el presupuesto de obra o que me pasaran cómo iban en su avance y me dijeron que ellos no tenían por qué compartirme las cosas.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;De la compra de 4,000,000 se equivocaron y no era eso, que eran 500,000 pesos. O sea, imagínate si hubiéramos autorizado y pagado.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Mis muchachos me dicen, oye, es que ya quieren pasar, que ya hablaron directamente con el proveedor y que pues ya lo tienen. [...] Nosotros nada más estamos dándole trámite a algunas cosas.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ella solamente me manda un correo así y me dice cómo se va a llamar el proyecto, cuál es el valor del contrato y cuál es la utilidad que voy a tener. Pero yo no entiendo ella en qué se basa. No tengo un presupuesto.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Me dicen, no, el trabajo que ahorita se le asignó es de 100,000. No requiere contrato. [...] Pero resulta que en el mes ya le asignaron cuatro o cinco trabajos más y pues en el mes ya se le hizo 1,000,000 de pesos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Difícilmente hay muchos [proveedores] que no los cumplen [requisitos fiscales], más sin embargo, ellos me dicen que porque están más económicos, pues con ellos quieren trabajar.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tenemos conocimiento de que hay material que nos han solicitado de manera urgente y que ni siquiera se ha instalado en el proyecto.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Colocan requisiciones sin especificaciones. [...] Nos dicen que es muy obvio, pero pues a lo mejor es obvio para ellos, para nosotros pues no.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Las garantías [...] siempre y cuando los instalen ellos, pero por la urgencia requieren que los instale otra persona y ahí ya me pierde la garantía.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Estados financieros acumulados diciembre 2025 (Sarobi + Proyección 21 + Auticenter)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Estados financieros marzo 2026 (ya mostrados en pantalla)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Evidencia del caso cable eléctrico ($4M vs $500K) — correo/OC&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Evidencia de facturación cruzada (combustible Pantaleón facturado a Proyección 21)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Evidencia del caso concreto (negociación directa de Clara, pago de contado)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ejemplos de material urgente no instalado&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Correo de Clara con valor de contrato sin presupuesto desglosado&rdquo;</div></div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Fortalezas de Contralor&iacute;a</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Estados financieros estructurados y al d&iacute;a</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Estados de resultados mensuales, acumulados y balance general por empresa. Incluye comparativos vs. a&ntilde;o anterior y an&aacute;lisis de variaciones. Tratamiento contable correcto para construcci&oacute;n en proceso. Jefatura reci&eacute;n incorporada que permite a Nayeli ser supervisora/revisora.</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Petro Plus como referencia madura</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">En Petro Plus los procesos de compras ya est&aacute;n encaminados. La oportunidad es replicar ese nivel de madurez en Aura Desarrollos.</div>
 </div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Las compras de Sarovi, o sea, el 99% todas urgen.</div>
+    <div class="verbatim-source">&mdash; Nayeli P&eacute;rez, sobre urgencias de compras</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">No soy adivina. Lo que es obvio para obra no lo es para compras.</div>
+    <div class="verbatim-source">&mdash; Nayeli P&eacute;rez, sobre requisiciones sin especificaciones</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
 </body>
 </html>

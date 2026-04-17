@@ -1,158 +1,216 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luis Alberto Arteaga Rocha — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas y TI: Infraestructura, Odoo y Digitalizaci&oacute;n &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Luis Alberto Arteaga Rocha &mdash; Gerente de TI</h1>
-    <div class="header-meta">2026-04-06 · ~1h 1 min · Virtual (Teams)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Aura Desarrollos opera con <strong>Google Workspace</strong> (27 cuentas) como suite principal de productividad y colaboracion en linea</div>
-<div class="finding">Tambien cuentan con licencias de <strong>Microsoft 365</strong>, pero se usan de manera separada, no integrada con Google</div>
-<div class="finding">Se ha migrado de Excel a Google Sheets como herramienta principal de hojas de calculo, aunque usuarios aun resisten el cambio por la visibilidad de formulas en Excel</div>
-<div class="finding">Implementacion de <strong>Odoo</strong> como ERP, iniciada el ano pasado con el distribuidor <strong>XDU Mexico</strong> (basado en Guadalajara)</div>
-<div class="finding">Odoo es codigo abierto; se complementa con un desarrollador externo para personalizaciones</div>
-<div class="finding">Modulos implementados incluyen ordenes de compra con flujos de autorizacion (gerente de area + subdireccion de Aura Desarrollos)</div>
-<div class="finding">La base de datos del ERP esta dividida en: (1) base de Petro Plus (gasolineras), (2) base de comercializadora, (3) base de Aura Desarrollos</div>
-<div class="finding">Dentro de Aura Desarrollos existen <strong>dos empresas</strong>: una para <strong>parques industriales</strong> y otra para <strong>naves industriales</strong>; cada una con su propio presupuesto y centros de costo</div>
-<div class="finding">Nivel de adopcion aun en fase temprana para Aura Desarrollos; el ERP tiene mas madurez en Petro Plus</div>
-<div class="finding">Utilizan <strong>Opus</strong> (lider en Mexico para costos de construccion) con version actualizada</div>
-<div class="finding">Recientemente migraron Opus a un <strong>servidor nuevo</strong> para soportar trabajo concurrente de multiples usuarios</div>
-<div class="finding">Actualmente hay <strong>2 personas trabajando simultaneamente</strong> en Opus con licencias y servidor dedicado</div>
-<div class="finding">Partner de soporte: empresa de Monterrey especializada en Opus</div>
-<div class="finding">Existe un desarrollo que conecta Opus con el CRM de Odoo</div>
-<div class="finding"><strong>AutoCAD</strong>, <strong>SketchUp</strong>, <strong>Civil CAD</strong> — licencias gestionadas por TI</div>
-<div class="finding">Partner de Autodesk: <strong>Garza Cadisa</strong> (empresa de Tijuana)</div>
-<div class="finding">Antes se compraban licencias con un distribuidor local sin soporte adecuado; ahora TI gestiona directamente la consola de usuarios</div>
-<div class="finding">Se han adquirido equipos especializados para diseno: procesadores i7, 32 GB RAM para la disenadora de proyectos y el equipo de renderizacion</div>
-<div class="finding">Herramienta de formularios adquirida en 2023, ~5,000 pesos anuales, capacidad de 100 formularios</div>
-<div class="finding">Se usa para: solicitud de efectivo para obra, solicitudes de activos, autorizaciones con validaciones y notificaciones automaticas</div>
-<div class="finding">Genera base de datos consultable con graficas e informacion consolidada</div>
-<div class="finding">Flujo ejemplo: usuario solicita efectivo para obra, indica proyecto, monto, forma de pago, fecha requerida, adjunta factura; pasa por autorizacion de Finanzas (contadora Clara) con notificacion automatica al solicitante</div>
-<div class="finding">Ha eliminado procesos manuales en Excel y correos para solicitudes de recursos</div>
-<div class="finding">Utilizan <strong>Looker Studio</strong> (Google) como herramienta de BI</div>
-<div class="finding">No existe un set de indicadores digitales especificos para Aura Desarrollos; los indicadores son generales del grupo</div>
-<div class="finding">En Petro Plus si hay indicadores maduros (ventas, despachos, precios competencia)</div>
-<div class="finding">Luis ha desarrollado integraciones tipo PHP con extraccion de base de datos para dashboards operativos del grupo gasolinero</div>
-<div class="finding">Enlace principal: <strong>fibra de 100 Mbps</strong>, en proceso de migracion a <strong>500 Mbps</strong></div>
-<div class="finding">Enlace secundario: <strong>Telmex</strong></div>
-<div class="finding">Enlace terciario: <strong>Starlink</strong> (satelital) como respaldo</div>
-<div class="finding">Triple redundancia implementada por la criticidad del servidor central que comunica estaciones de despacho de gasolineras</div>
-<div class="finding">Infraestructura robusta y bien planificada para soportar operaciones</div>
-<div class="finding">TI gestiona camaras de seguridad y control de acceso para parques industriales y estaciones</div>
-<div class="finding">Se hace analisis de requerimientos (identificacion de placas, rostros, tipos de camara) antes de proponer soluciones</div>
-<div class="finding">Presupuestos de seguridad se presentan como proyectos de inversion</div>
-<div class="finding">Se reconoce una <strong>brecha de seguridad</strong>: el esquema de ciberseguridad no esta actualizado</div>
-<div class="finding">Frameworks usados son obsoletos; la auditoria externa (CNBV o similar de sector financiero) se percibe como burocracia administrativa sin valor real</div>
-<div class="finding">Luis identifica que la amenaza real esta en seguridad de internet y bloqueos, no en controles documentales anticuados</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Sistemas y TI:<br>Infraestructura, Odoo y Digitalizaci&oacute;n</h1>
+                <p class="cover-subtitle">El Gerente de TI presenta un ecosistema t&eacute;cnico funcional (Odoo, Opus, Google Workspace, triple redundancia de red) pero con adopci&oacute;n temprana para Aura y sin indicadores digitales</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Luis Alberto Arteaga Rocha, Gerente de TI</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">6 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>El Gerente de TI presenta un ecosistema t&eacute;cnico funcional (Odoo, Opus, Google Workspace, triple redundancia de red) pero con adopci&oacute;n temprana para Aura y sin indicadores digitales</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value amber">Odoo + Opus</div><div class="kpi-label">ERP + Presupuestos sin integraci&oacute;n</div></div>
+<div class="kpi-item"><div class="kpi-value green">Triple</div><div class="kpi-label">Redundancia de red</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Indicadores digitales para Aura</div></div>
+<div class="kpi-item"><div class="kpi-value green">Funcional</div><div class="kpi-label">Formularios digitales (Jotform)</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeacion y Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">En Aura Desarrollos <strong>no existe un sistema de gestion de proyectos</strong> conectado al ERP para seguimiento de avance de obra</div>
-<div class="finding">El control de avance fisico vs. economico (curva S de construccion) <strong>se lleva en archivos Excel</strong> por el equipo de obra</div>
-<div class="finding">No hay trazabilidad digital entre presupuesto, proveeduria y avance de obra</div>
-<div class="finding">Los centros de costo del ERP no estan conectados al seguimiento de avance de proyecto</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Ecosistema T&eacute;cnico Instalado</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Infraestructura de red robusta</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Fibra 100 Mbps (migrando a 500), Telmex como respaldo, Starlink como terciario. Triple redundancia implementada. Infraestructura bien planificada para soportar operaciones.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras y Abastecimiento <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Ordenes de compra en Odoo con flujo de autorizacion (gerente + subdireccion)</div>
-<div class="finding">Se implementaron validaciones y controles de cambio en el ERP para mayor control</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">ERP Odoo implementado con flujos de autorizaci&oacute;n</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Odoo como ERP con m&oacute;dulos de OC, flujos de autorizaci&oacute;n, bases de datos separadas por negocio. Dentro de Aura: dos empresas (parques y naves) con su propio presupuesto y centros de costo.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecucion de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">El seguimiento de obra se realiza en <strong>archivos Excel</strong> sin integracion al ERP ni a sistemas de diseno</div>
-<div class="finding">No existe digitalizacion del avance fisico de la obra; no hay visualizacion en tiempo real</div>
-<div class="finding">Luis tiene la vision y capacidad tecnica para implementar un panel de avance de obra similar al que tiene en Petro Plus (monitoreo de tanques en tiempo real), pero no se ha desarrollado para construccion</div>
-<div class="finding">Existe la idea de conectar SketchUp + ERP + un sistema tipo project para seguimiento digital de obra</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Formularios digitales eliminan procesos manuales</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Herramienta de formularios (Jotform) adquirida en 2023. Se usa para solicitud de efectivo, activos, autorizaciones. Genera base de datos consultable con gr&aacute;ficas. Ha eliminado procesos manuales.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control y Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">No hay tablero de control digital para Aura Desarrollos</div>
-<div class="finding">Finanzas se queja de que los gastos no se asocian correctamente a proyectos (gasolina, materiales, etc.)</div>
-<div class="finding">Se hizo una extraccion puntual de base de datos con PHP para control de gastos en Petro Plus, pero no se ha replicado para Desarrollos</div>
-<div class="finding">La analitica de negocio en Aura Desarrollos es practicamente inexistente; en contraste, Petro Plus tiene dashboards de ventas, despachos, volumenes de tanques y precios de competencia</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Brechas para Aura Desarrollos</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Odoo en adopci&oacute;n temprana para Aura</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">El ERP tiene m&aacute;s madurez en Petro Plus. Para Aura est&aacute; en fase temprana. No todos los datos est&aacute;n migrados. La curva de aprendizaje limita la explotaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 — Finanzas y Tesoreria <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Formulario digital de solicitud de efectivo para obra genera trazabilidad automatica</div>
-<div class="finding">Finanzas puede consultar cuanto se pidio por proyecto, por mes, con autorizaciones documentadas</div>
-<div class="finding">Elimina el proceso anterior de solicitar por correo y rendir en Excel</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Opus sin integraci&oacute;n con Odoo</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Opus es l&iacute;der en costos de construcci&oacute;n pero no est&aacute; integrado con el ERP. Existe un desarrollo que conecta Opus con CRM de Odoo, pero la presupuestaci&oacute;n sigue requiriendo doble captura.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">TI gestiona arrendamiento de equipos a traves de financiera <strong>ADP</strong>; llevan 5 lotes de arrendamiento (~10 equipos)</div>
-<div class="finding">Se buscan equipos especializados para construccion y diseno (i7, RAM robusta)</div>
-<div class="finding">La nueva contratacion en TI (una persona ingreso hace un mes) esta enfocada en redes</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin indicadores digitales para Aura</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Se usa Looker Studio para BI pero no existe un set de indicadores espec&iacute;ficos para Aura. Los indicadores maduros son del grupo gasolinero.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza, Estructura y Modelo de Gestion <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Estructura de TI:</strong> Luis coordina 5 personas (incluida la nueva contratacion); solo <strong>1 persona</strong> esta dedicada a Aura Desarrollos</div>
-<div class="finding">Aproximadamente <strong>80% del tiempo de TI se dedica a Petro Plus</strong>, 15% a Aura Desarrollos, 5% a gasolineras independientes (GNL)</div>
-<div class="finding">TI reporta a <strong>Clara Medina</strong> (Subdirectora de SC) y para temas especificos de inversion directamente a Direccion General</div>
-<div class="finding">Luis envia reporte semanal por correo a direccion con avances y proyectos en curso</div>
-<div class="finding">Luis identifica que seria <strong>ideal tener una persona fija dedicada a Aura Desarrollos</strong>, especialmente para la vida de un proyecto de digitalizacion</div>
-<div class="finding">TI es percibido como soporte reactivo (&ldquo;cuando pasa algo, ven a sistemas&rdquo;) en lugar de habilitador estrategico</div>
-<div class="finding">Luis ha sido <strong>propositivo</strong>: muchos desarrollos se han hecho por iniciativa propia, no por peticion del usuario — identifica oportunidades y las propone</div>
-<div class="finding">Usuarios prefieren Excel sobre herramientas en linea porque &ldquo;la formula es mas visible&rdquo;</div>
-<div class="finding">Existe duplicacion de reportes: en Petro Plus, area comercial, operaciones y gerencia sacaban el mismo reporte de ventas del mismo sistema, cada quien con su formato</div>
-<div class="finding">TI ha tenido que intervenir para estandarizar y eliminar redundancias</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Nosotros lo que habiamos visto o hemos llevado a cabo con el inventario de implementacion del sistema, es en la parte de orden de compra [...] Ellos tienen unos archivos donde van dandole seguimiento [...] en Excel.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Lo que no se registra, no se mide [...] y vemos que es que lo que haces mucho, mucho trabajo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Hoy en dia lo que ellos solicitan a nosotros mas que nada es que el equipo este al ciento [...] que la computadora, que soporte.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo creo que un 80% es para Petro Plus [...] un 15% es para desarrollos y un 5% para la GNL.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Es deseable tener una persona fija [...] pues si seria ideal.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nos escucharon las finanzas que tenia ellos, que dice no le ponen a que impacta, que proyecto impacta, gasolina, si usaron.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Lo que hemos hecho es en base a lo que hemos visto, no peticion del usuario." (sobre desarrollo de dashboards y herramientas por iniciativa propia de TI)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tienes la infraestructura, tienes el talento, tienes las herramientas [...] para poder digitalizar Aura Desarrollos con lo que tienes." (afirmacion del entrevistador validada por Luis)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo siento que no esta actualizado [...] son frameworks que ya no, en muchos casos, no aplican." (sobre ciberseguridad/auditoria)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tenemos una herramienta que se llama Odoo [...] es una herramienta que les venimos investigando, que es de las 10 mejores principales a nivel mundial. La direccion nos hizo un esfuerzo.&rdquo;</div></div>
-</div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
-</div>
+    </div>
 </body>
 </html>

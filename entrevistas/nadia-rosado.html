@@ -1,102 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadia Carolina Rosado González — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calidad y ESR: Sistemas de Gesti&oacute;n y Cumplimiento &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Nadia Carolina Rosado González &mdash; Jefe de Calidad y ESR</h1>
-    <div class="header-meta">2026-04-14 · ~17 min · Virtual (grabación de reunión)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P8 — Entrega &amp; Calidad <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Sistema de gestión de calidad detenido para Aura Desarrollos:</strong> En 2024 se inició un proyecto para desarrollar el SGC completo, liderado por un arquitecto externo. Se logró un mapeo general de procesos (gestión de proyectos inmobiliarios como core), pero el proyecto se pausó porque el personal de Aura no tenía tiempo para las sesiones de mapeo detallado. [CRITICO]</div>
-<div class="finding"><strong>Mapeo general de procesos existe pero no está validado:</strong> Existe un mapeo que identificó procesos core (gestión de proyectos inmobiliarios: planeación inmobiliaria, planeación financiera, organización para proyectos de edificación, ventas) y procesos de soporte (back office corporativo). Fue revisado con directivos en su momento, pero no se sabe si refleja la operación actual. [Dolor alto]</div>
-<div class="finding"><strong>Procedimientos básicos documentados pero no vivos:</strong> Se documentaron procedimientos básicos dentro del SGC, pero Nadia reconoce que &ldquo;habría que validar si siguen haciendo las actividades como se documentaron en su momento&rdquo;. No hay auditorías ni seguimiento de estos procedimientos. [CRITICO]</div>
-<div class="finding"><strong>Petroplus sí tiene ISO 9001:2015 certificado y recertificado:</strong> El contraste es revelador: Petroplus (sector hidrocarburos, altamente regulado) logró certificación, recertificación y tiene estructura de cumplimiento avanzada. Aura Desarrollos no tiene nada equivalente. [Referencia]</div>
-<div class="finding"><strong>Calidad no tiene acceso ni involucramiento en Aura Desarrollos:</strong> Nadia explica que &ldquo;no me han involucrado mucho en lo que es este negocio, ha habido intentos, pero bueno&rdquo;. Las áreas de soporte corporativo (calidad, seguridad, capacitación, parte de RH) no están integradas a Aura Desarrollos. [CRITICO]</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Calidad y ESR:<br>Sistemas de Gesti&oacute;n y Cumplimiento</h1>
+                <p class="cover-subtitle">La Jefe de Calidad y ESR describe un intento detenido de implementar SGC en Aura, procedimientos documentados pero no vivos, y un &aacute;rea corporativa sin acceso al negocio de construcci&oacute;n</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Nadia Carolina Rosado Gonz&aacute;lez, Jefe de Calidad y ESR</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">14 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>La Jefe de Calidad y ESR describe un intento detenido de implementar SGC en Aura, procedimientos documentados pero no vivos, y un &aacute;rea corporativa sin acceso al negocio de construcci&oacute;n</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value green">ISO 9001</div><div class="kpi-label">Certificaci&oacute;n Petroplus</div></div>
+<div class="kpi-item"><div class="kpi-value red">Detenido</div><div class="kpi-label">SGC para Aura Desarrollos</div></div>
+<div class="kpi-item"><div class="kpi-value green">5 a&ntilde;os</div><div class="kpi-label">Distintivo RSE consecutivo</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Auditor&iacute;as en Aura</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Sin estructura de seguridad y medio ambiente para obra:</strong> El área de seguridad y medio ambiente es reciente (apenas se logró el año pasado para Petroplus). No se menciona ninguna aplicación de estas funciones en las obras de Aura Desarrollos. [Dolor alto]</div>
-<div class="finding"><strong>Sin auditorías de procesos en Aura Desarrollos:</strong> Las auditorías de procesos que realiza Nadia están limitadas a procesos relacionados con el SGC de Petroplus. No hay auditorías de proceso en las obras o actividades de Aura Desarrollos. [Dolor alto]</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Sistema de Gesti&oacute;n Detenido</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">SGC de Aura detenido en 2024</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Se inici&oacute; un proyecto con un arquitecto externo. Se logr&oacute; mapeo general de procesos pero se paus&oacute; porque el personal no ten&iacute;a tiempo para sesiones de mapeo detallado.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Falta de planeación reconocida como causa raíz:</strong> Nadia identifica que el equipo &ldquo;ha tenido mucho éxito pero le falta orden, estructurar, sobre todo por ejemplo lo que todo proceso te pide: la planeación, la organización y control, mucho control&rdquo;. Señala que los problemas de entrega a tiempo y temas financieros derivan de esta carencia. [Dolor alto]</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Procedimientos documentados pero no vivos</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Nadia reconoce que &ldquo;habr&iacute;a que validar si siguen haciendo las actividades como se documentaron&rdquo;. No hay auditor&iacute;as ni seguimiento de estos procedimientos.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding"><strong>Equipo de Calidad/ESR/Seguridad pequeño pero definido:</strong> Nadia (Jefe de Calidad y ESR), 1 coordinador de seguridad (~45 años), 1 especialista de seguridad (~24-25 años), 1 especialista de responsabilidad social (~25 años). Equipo joven en los roles operativos. [Funcional]</div>
-<div class="finding"><strong>RH corporativo solo da soporte en contrataciones a Aura:</strong> Nadia confirma que de recursos humanos &ldquo;el único soporte que les están dando ahorita es para las contrataciones&rdquo;. Capacitación, desarrollo organizacional y otros servicios de RH no se extienden a Aura Desarrollos. [Dolor alto]</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Calidad no tiene acceso a Aura Desarrollos</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">&ldquo;No me han involucrado mucho en lo que es este negocio, ha habido intentos, pero bueno.&rdquo; &Aacute;reas de soporte corporativo no est&aacute;n integradas a Aura.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Aura Desarrollos opera herméticamente vs. funciones corporativas:</strong> Nadia señala que las áreas de soporte (calidad, seguridad, RH, capacitación) no han sido integradas ni les han permitido involucrarse. Describe al equipo de Aura como &ldquo;muy herméticos en esa parte&rdquo;. [CRITICO]</div>
-<div class="finding"><strong>Falta interacción entre back office y operación:</strong> Nadia plantea como necesidad central &ldquo;cómo organizarnos entre todas las áreas o de los procesos para darles realmente ese soporte y que se ponga en control todo lo que es el negocio y pueda seguir creciendo de manera ordenada&rdquo;. [Dolor alto]</div>
-<div class="finding"><strong>Modelo de soporte corporativo no está claro para Aura:</strong> Se hizo una propuesta de cómo se tendrían que acomodar las funciones y los soportes, pero Nadia desconoce si se implementó: &ldquo;fue la propuesta, no sé si hoy en día lo estén haciendo así&rdquo;. [Dolor alto]</div>
-<div class="finding"><strong>ESG/RSE como ejercicio documental, no operativo:</strong> Los indicadores de CEMEFI (ambiental, social, gobernanza) se llenan para obtener el distintivo, pero Nadia reconoce que &ldquo;las políticas y procedimientos que ellos tienen realmente no están vivos, son documentos, son registros para contestar estas preguntas&rdquo;. [Dolor alto]</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Contraste con Petroplus</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Petroplus con ISO 9001 certificado y recertificado</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">El contraste es revelador: Petroplus logr&oacute; certificaci&oacute;n, recertificaci&oacute;n y estructura de cumplimiento avanzada. Aura no tiene nada equivalente.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Hubo un intento por ahí del 2024 de desarrollar ya en forma todo el sistema de gestión de calidad para ellos pero lo pararon por cuestiones de que traían muchos proyectos. El personal de Aura pues no tenía el tiempo para atendernos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Realmente habría que validar si siguen haciendo las actividades como se documentaron en su momento.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Es un grupo que ha ido creciendo, fue un equipo pequeño que ha tenido mucho éxito pero le falta orden, estructurar, sobre todo lo que todo proceso te pide: la planeación, la organización y control, mucho control.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Por eso pues yo creo que ahí han tenido pues goles en la cuestión de que el compromiso de entregar a tiempo, temas financieros.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Hoy en día han sido muy herméticos en esa parte [...] cómo organizarnos entre todas las áreas para darles realmente ese soporte y que se ponga en control todo lo que es el negocio y pueda seguir creciendo de manera ordenada.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Las políticas y procedimientos que ellos tienen, pero realmente no están vivos, o sea, son documentos, son registros para contestar estas preguntas que CEMEFI les evalúa.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Algunas áreas que ahorita no nos han permitido meternos o no se han solicitado, como por ejemplo seguridad, calidad, incluso algunas cosas de recursos humanos, capacitaciones tampoco.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;De recursos humanos el único soporte que les están dando ahorita es para las contrataciones.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Insisto mucho en que tengan la cultura de planeación y de la interacción con todas las áreas que somos el back office.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Mapeo general de procesos de Aura Desarrollos (archivo del proyecto 2024 de SGC)&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Presentación del proyecto de SGC que se mostró a Vidal&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Propuesta de estructura de funciones y soportes para Aura Desarrollos&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Procedimientos documentados existentes de Aura Desarrollos&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Mapeo de líderes de principales procesos e interrelaciones&rdquo;</div></div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Distintivo RSE por 5 a&ntilde;os consecutivos</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Los indicadores de CEMEFI se llenan, aunque Nadia reconoce que las pol&iacute;ticas &ldquo;no est&aacute;n vivos, son documentos para contestar preguntas&rdquo;.</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Visi&oacute;n de Futuro</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Falta interacci&oacute;n back office &mdash; operaci&oacute;n</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Nadia plantea la necesidad de &ldquo;c&oacute;mo organizarnos entre todas las &aacute;reas para darles realmente ese soporte y que se ponga en control todo el negocio&rdquo;.</div>
 </div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Es un grupo que ha tenido mucho &eacute;xito pero le falta orden, estructurar, sobre todo lo que todo proceso te pide: la planeaci&oacute;n, la organizaci&oacute;n y control, mucho control.</div>
+    <div class="verbatim-source">&mdash; Nadia Rosado, Jefe de Calidad y ESR</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Hoy en d&iacute;a han sido muy herm&eacute;ticos en esa parte... c&oacute;mo organizarnos entre todas las &aacute;reas para darles realmente ese soporte.</div>
+    <div class="verbatim-source">&mdash; Nadia Rosado, sobre la desconexi&oacute;n con Aura</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
 </body>
 </html>

@@ -1,134 +1,261 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clara Angélica Medina Elizondo — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Corporativos: Finanzas, Gobernanza y Control &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Clara Angélica Medina Elizondo &mdash; Subdirectora de SC</h1>
-    <div class="header-meta">2026-04-08 · ~1h 18 min · Virtual (Teams)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Presupuestos de obra se originan en operaciones (Francisco Lastra / Paco) y llegan a finanzas vía Excel por correo. Jorge Sánchez (Jefe de Costos) los detalla y sube al ERP (Rodo).</div>
-<div class="finding">Joaquín Valdez (Jefe de Planeación Financiera) gestiona presupuestos en el ERP por empresa y por concepto de gasto. Las áreas reciben un tope presupuestal basado en objetivos; antes era al revés (las áreas pedían).</div>
-<div class="finding"><strong>No hay visibilidad consolidada presupuesto vs real</strong>. Clara reconoce abiertamente que hoy no pueden saber &ldquo;cómo vamos&rdquo; en presupuesto de manera inmediata ni por proyecto ni consolidado.</div>
-<div class="finding">Archivos presupuestales dispersos: operaciones manda Excels firmados por correo, a veces impresos. Clara guarda copias organizadas por proyecto en carpetas locales con seguros, contratos, etc.</div>
-<div class="finding">Seguimiento presupuestal se revisa con Joaquín periódicamente, pero sin herramienta digital que permita consulta en tiempo real. La última revisión fue justo antes de las vacaciones de Joaquín.</div>
-<div class="finding"><strong>Flujo de erogaciones semanal poco confiable:</strong> operaciones (Carla León) envía un estimado semanal de cuánto se va a gastar por proyecto, pero frecuentemente el gasto real es menor. Clara ha tenido que pedir que sea más preciso porque el dinero se pide al banco y genera intereses.</div>
-<div class="finding">Brenda Campillo (Jefa de Finanzas) consolida erogaciones a 3 semanas vista, pero hay desconexión: operaciones no entiende que el banco no siempre autoriza el 100% de lo solicitado, ni que requiere evidencia de avance (fotos) para disponer fondos. Clara tiene que perseguir las fotos de avance para justificar disposiciones.</div>
-<div class="finding">Para cada proyecto nuevo, Joaquín y Clara construyen modelos de rentabilidad en Excel (sensibilidad, 3 escenarios: base, banco, alternativo).</div>
-<div class="finding">Incluyen: superficie, costo de construcción, costo de terreno, renta estimada, financiamiento, amortizaciones, flujo de efectivo y utilidad proyectada.</div>
-<div class="finding">El input comercial (renta por m2 o precio de venta) viene de Vidal o Iván Rubio, basado en estudio de mercado o conocimiento del lugar. Finanzas valida si &ldquo;el modelo da&rdquo; y retroalimenta para ajustar.</div>
-<div class="finding">Modelos almacenados en Drive de proyectos (ejemplo: Xalapa). Cada proyecto tiene su modelo, pero no hay plantilla estandarizada; cada uno es diferente según el tipo de operación (construcción para renta vs venta de lote).</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Servicios Corporativos:<br>Finanzas, Gobernanza y Control</h1>
+                <p class="cover-subtitle">La Subdirectora de SC describe c&oacute;mo finanzas, compras y gobernanza operan sin visibilidad consolidada, con urgencias permanentes y saturaci&oacute;n de funciones</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Clara Ang&eacute;lica Medina Elizondo, Subdirectora de SC</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">8 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>La Subdirectora de SC describe c&oacute;mo finanzas, compras y gobernanza operan sin visibilidad consolidada, con urgencias permanentes y saturaci&oacute;n de funciones</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Visibilidad presupuesto vs real</div></div>
+<div class="kpi-item"><div class="kpi-value red">CR&Iacute;TICO</div><div class="kpi-label">Urgencias de compras</div></div>
+<div class="kpi-item"><div class="kpi-value red">$12-18M</div><div class="kpi-label">Anticipo sin amortizar (XMA)</div></div>
+<div class="kpi-item"><div class="kpi-value amber">Saturaci&oacute;n</div><div class="kpi-label">Funciones en Clara</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding">Compras reporta a Nayeli (Gerente de Contraloría), no directamente a Clara. Equipo: Jorge de la Rosa (jefe) + 4 especialistas (Rosario, Garyme, Eder, Dana).</div>
-<div class="finding">Órdenes de compra autorizadas por Clara (&gt;$20K) o por Nayeli (&lt;$20K), validadas en el ERP (Rodo). Implementación del ERP para compras tiene ~1 año; antes era en papel.</div>
-<div class="finding"><strong>Problema grave de urgencias y saltos de proceso:</strong> operaciones contacta proveedores directamente, negocia condiciones, acuerda entregas y precios sin pasar por compras. Compras se entera después del hecho. Clara recibe solicitudes de autorización de OC el mismo día o al día siguiente de que ya se hizo la compra, a veces incluso pagos el mismo día.</div>
-<div class="finding">Ejemplo concreto: operaciones negoció un 5% de descuento en concreto a cambio de pago de contado, pero la empresa tiene crédito a 30-60 días. Nadie evaluó el impacto financiero (costo del dinero) antes de aceptar.</div>
-<div class="finding">Material enviado directamente a talleres de contratistas (no a obra), sin orden de compra y sin conocimiento del área de compras.</div>
-<div class="finding">Canal de WhatsApp de urgencias donde Clara recibe solicitudes tipo &ldquo;autorízame la OC&rdquo; de material que debió haberse planeado con semanas de anticipación. Estimaciones de contratistas que deberían tener 15 días de proceso llegan como urgencia de un día para otro.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Sin Visibilidad Presupuestal</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">No pueden saber &ldquo;c&oacute;mo vamos&rdquo; en presupuesto</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Clara reconoce abiertamente que hoy no pueden saber c&oacute;mo van en presupuesto de manera inmediata ni por proyecto ni consolidado. Archivos dispersos: Excels por correo, a veces impresos. Sin herramienta digital de consulta en tiempo real.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Caso constructor XMA (Pantaleón):</strong> contratista de CDMX seleccionado por decisión directa de Vidal a pesar de objeciones. Tuvo problemas de capacidad instalada, no cumplió plazos, hubo penalidades. Aura tuvo que retirarle trabajo y asignar a otro constructor.</div>
-<div class="finding">Al intentar reclamar la fianza, descubrieron que no se notificó por escrito al constructor de los incumplimientos, no hay bitácoras de supervisión que documenten la falta de avance. Sin evidencia documental para soporte legal. Anticipo entregado (~$12-18M) sin amortizar, en proceso de reclamación.</div>
-<div class="finding">Clara señala la necesidad de un <strong>comité de autorización de proyectos/contratistas</strong> porque hoy la decisión está centralizada en Vidal sin proceso de validación formal.</div>
-<div class="finding">Contratistas empiezan a trabajar sin contrato firmado, sin fianzas vigentes. Las estimaciones y fianzas se gestionan reactivamente.</div>
-<div class="finding">No existía un contrato estándar con constructores. Recientemente se desarrolló un machote para el proyecto de Xalapa (La Morena) que se planea replicar, pero Clara no lo considera aún suficientemente robusto.</div>
-<div class="finding">El contrato pasa por múltiples revisiones (legal, contabilidad para temas fiscales, operaciones) sin un flujo definido, lo que genera idas y vueltas con demoras.</div>
-<div class="finding">Sin machote estándar para diferentes tipos de contratos. Cada proyecto arranca el proceso desde cero.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Flujo de erogaciones semanal poco confiable</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Operaciones env&iacute;a un estimado semanal que frecuentemente no se cumple. El dinero se pide al banco y genera intereses. Brenda consolida a 3 semanas pero hay desconexi&oacute;n: operaciones no entiende que el banco no siempre autoriza el 100%.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Clara supervisa directamente a Joaquín (planeación financiera) y a Brenda Campillo (finanzas/tesorería). Brenda tiene 6 especialistas; se creó recientemente un puesto de coordinador de finanzas para no depender de una sola persona.</div>
-<div class="finding">Cuentas por cobrar y por pagar son equipos multidisciplinarios (rotación cruzada para que sepan ambas funciones).</div>
-<div class="finding"><strong>Problema de flujo de caja entre empresas:</strong> los proyectos de Aura Desarrollos se fondean con recursos de otras empresas del grupo (ej. Petrocruz/Metrocruz), generando confusión sobre qué dinero es de quién. Vidal pide reportes pero la mezcla de fondos hace difícil la claridad.</div>
-<div class="finding"><strong>Proyectos inician sin aportación real:</strong> el banco pide 20% de aportación y a veces no se tiene. Clara reconoce abiertamente que en ocasiones se &ldquo;infla&rdquo; la información al banco para poder disponer del crédito.</div>
-<div class="finding">Disposiciones bancarias requieren evidencia de avance de obra (fotos), pero operaciones no las entrega a tiempo. Clara tiene que perseguir activamente las fotos para poder disponer fondos, generando riesgo de quedarse sin liquidez.</div>
-<div class="finding">Ejemplo reciente: para la semana del 6-11 de abril, se solicitaron $12M al banco pero solo autorizaron $9M. Operaciones no entendía por qué debía ajustar su plan de erogaciones.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Compras Fuera de Control</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Operaciones negocia directamente sin compras</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Operaciones contacta proveedores, negocia condiciones, acuerda entregas y precios sin pasar por compras. Compras se entera despu&eacute;s del hecho. Ejemplo: descuento de 5% en concreto a cambio de pago de contado sin evaluar costo del dinero.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">RH tiene equipo nuevo (Fermín lidera). En nóminas quedan solo 2 personas (antes 3).</div>
-<div class="finding"><strong>Operaciones contrata personal sin darlo de alta:</strong> ha habido casos de personas trabajando hasta un año sin estar registradas. Se está regularizando con apoyo de una persona dedicada, pero el problema persiste.</div>
-<div class="finding">Operaciones contrata contratistas sin verificar que tengan a sus trabajadores registrados ante el IMSS. Riesgos: accidentes laborales sin cobertura, no deducibilidad fiscal, posibles multas de la Secretaría del Trabajo.</div>
-<div class="finding">Operaciones privilegia el menor costo inmediato sin evaluar riesgos legales y fiscales.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Material enviado a talleres sin OC</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Material enviado directamente a talleres de contratistas, sin orden de compra y sin conocimiento del &aacute;rea de compras. Estimaciones de contratistas llegan como urgencia de un d&iacute;a para otro.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Equipo: Luis Alberto Arteaga (gerente) + Miguel (hardware), Linda (desarrollo), Jorge (gobierno/sistemas), Luis Sánchez (recién incorporado, infraestructura).</div>
-<div class="finding">Clara percibe que TI en Petrocruz/Metrocruz está bien, pero <strong>en Aura falta seguimiento e innovación</strong>. Luis tiene ideas pero no les da continuidad. Ejemplo: formularios digitales propuestos pero nunca implementados.</div>
-<div class="finding">Problemas recurrentes de infraestructura de red: si se cae el servidor principal, no hay redundancia para áreas críticas (nóminas, cuentas por pagar). Clara pidió priorizar la redundancia para estas áreas, pero no se ha completado.</div>
-<div class="finding">Caso en la entrevista: problemas de conectividad Bluetooth/audio durante la videollamada, algo que Clara ha reportado múltiples veces sin solución.</div>
-<div class="finding">Starlink ya adquirido pero no integrado como redundancia efectiva.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Caso constructor XMA: sin evidencia documental</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Contratista de CDMX seleccionado por Vidal a pesar de objeciones. Al reclamar fianza: sin notificaci&oacute;n por escrito, sin bit&aacute;coras de supervisi&oacute;n. Anticipo de $12-18M sin amortizar, en proceso de reclamaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Clara es el filtro de todo hacia Vidal:</strong> RH, operaciones, escrituraciones, subdivisiones de lotes, trámites bancarios, brokers, notarios. Cualquier tema que otros no resuelven termina en su escritorio.</div>
-<div class="finding">Clara lleva personalmente la comercialización de lotes (formalización, escrituras, trámites con banco para liberar garantías, subdivisiones, contacto con notarios y brokers, control de pagos), aunque Vidal le ha dicho que ya no se haga cargo de eso. No hay quién más lo haga.</div>
-<div class="finding">Estructura plana: no hay director entre Vidal y los subdirectores. Clara y Francisco (operaciones) son los dos subdirectores. Gerentes debajo: Nayeli (contraloría), Karla (operaciones).</div>
-<div class="finding"><strong>Saturación extrema:</strong> Clara reconoce que el día a día la consume y no le da tiempo de revisar reportes ni dar seguimiento a mejoras. Contabilidad, finanzas, compras, TI, family office, escrituraciones, lotes, trámites bancarios — todo converge en ella.</div>
-<div class="finding">Operaciones funciona de manera autónoma: se auto-contratan proveedores, personal, negocian condiciones sin involucrar a las áreas de soporte. La comunicación con finanzas y compras es reactiva.</div>
-<div class="finding">Vivienda de interés social (5 proyectos Infonavit): nadie tiene asignado el liderazgo. Clara termina dándole seguimiento por default, incluyendo trámites con Viviana (contacto de Infonavit) que no responde.</div>
-<div class="finding">Family office: 3 personas dedicadas a asuntos personales de los socios (citas, pagos, rancho, temas de la familia). Clara las supervisa.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Gobernanza Saturada</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Clara es el filtro de todo hacia Vidal</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">RH, operaciones, escrituraciones, subdivisiones de lotes, tr&aacute;mites bancarios, brokers, notarios. Cualquier tema que otros no resuelven termina en su escritorio. Reconoce que el d&iacute;a a d&iacute;a la consume y no da tiempo de dar seguimiento a mejoras.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Todos los días a todas horas me piden: licenciada, autoríceme la orden de compra [...] son urgencias, son estimaciones que se supone que ya te las debió haber dado hace 15 días." — Sobre el bypass de compras por operaciones.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Habían conseguido un 5% de descuento, pero tenemos que pagar el concreto de contado, pero nosotros tenemos crédito a 30 y 60 [días]. Entonces saber ese 5% cuánto representa de impacto financiero." — Sobre decisiones de operaciones sin análisis financiero.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Resulta que nunca se le avisó por escrito al constructor [...] no se levantaron bitácoras de que no estaban avanzando. O sea, qué pruebas tenemos." — Sobre el caso del constructor XMA y la falta de documentación.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Licenciado quiso [...] yo ya lo conozco y le tengo confianza [...] fue decisión de Vidal. Ahí creo que después tendríamos que tener como un comité de autorización de proyectos." — Sobre la centralización de decisiones en Vidal.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Empezamos sin una aportación. El banco me pide una aportación de un 20% y a veces no la tenemos [...] inflamos un poquito con el banco." — Sobre el fondeo de proyectos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Agarramos dinero de un lado, dinero de otro [...] el licenciado quiere que yo le dé reportes, pero para él ha sido muy difícil de entender." — Sobre la mezcla de flujos entre empresas del grupo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Contratan personal, no ha estado dado de alta [...] ha tenido hasta un año sin darse de alta." — Sobre la irregularidad en contratación de personal por operaciones.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Estamos tan saturados del día a día [...] estamos operando, estamos llegando al día a día, pero falta como sistematizarlo." — Sobre la falta de procesos formales.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo soy como que el filtro con el licenciado Vidal [...] todo viene primero conmigo [...] no me alcanza el tiempo." — Sobre la concentración de funciones en Clara.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;[TI] tiene las ideas pero después no le da seguimiento [...] ya necesitamos avanzar." — Sobre la falta de ejecución en TI.&rdquo;</div></div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Flujo de fondos entre empresas del grupo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Los proyectos de Aura se fondean con recursos de otras empresas del grupo (Petrocruz/Metrocruz), generando confusi&oacute;n. Vidal pide reportes pero la mezcla de fondos dificulta la claridad.</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Operaciones contrata sin dar de alta</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Casos de personas trabajando hasta un a&ntilde;o sin estar registradas. Contratistas sin verificar IMSS de sus trabajadores. Riesgos: accidentes sin cobertura, no deducibilidad, multas.</div>
 </div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Hoy no podemos saber c&oacute;mo vamos en presupuesto de manera inmediata, ni por proyecto ni consolidado.</div>
+    <div class="verbatim-source">&mdash; Clara Medina, Subdirectora de SC</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Necesitamos un comit&eacute; de autorizaci&oacute;n de proyectos y contratistas, porque hoy la decisi&oacute;n est&aacute; centralizada en Vidal sin proceso de validaci&oacute;n formal.</div>
+    <div class="verbatim-source">&mdash; Clara Medina, sobre gobernanza</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
 </body>
 </html>

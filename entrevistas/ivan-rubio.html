@@ -1,186 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iván Rubio Rivas — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Motor Comercial: Pipeline, Clientes y Modelo de Negocio &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Iván Rubio Rivas &mdash; Subdirector de Nuevos Negocios</h1>
-    <div class="header-meta">2026-04-10 · ~1h 7 min · Presencial (Tampico)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P2 — Desarrollo de Negocios / Comercial <span class="pilar-tag tag-good">Fortaleza</span></div>
-<div class="finding">La empresa evolucionó de venta de lotes industriales (PLA originalmente llamado Centro de los 5000) a soluciones BTS (Build to Suit / naves a la medida). El cambio vino con el proyecto Pantalón (dos naves BTS) hace ~1-1.5 años.</div>
-<div class="finding">PLA (Parque Logístico de Altamira): 76 hectáreas (subió de 62-64 originales), ~95% comercializado. Se posiciona como el parque más moderno del sur de Tamaulipas.</div>
-<div class="finding">Empezaron a recibir RFPs de brokers nacionales (CBRE, Colliers, JLL, Cushman &amp; Wakefield, Coldwell Banker). Algunos requerimientos demasiado grandes para la escala de Aura. Limitante principal: disponibilidad de energía eléctrica a nivel nacional.</div>
-<div class="finding">Proyectos que se perdieron se fueron a Coahuila, San Luis Potosí, Monterrey por falta de escala y servicios.</div>
-<div class="finding">Iván tiene red de brokers nacionales sólida por sus años en Vesta y Colliers. Esto es un activo crítico para Aura.</div>
-<div class="finding">Brokers locales (Remax, Inturión, Julier) no hablan el idioma industrial: están acostumbrados a vender casas y departamentos, no entienden RFPs, tenant improvements, alturas de naves, sistemas contra incendios, especificaciones técnicas.</div>
-<div class="finding">Roadshow con Alejandra (Jefe de Proyectos) a San Luis Potosí y Querétaro fue exitoso porque los brokers conocían a Iván.</div>
-<div class="finding">~50% del PLA se comercializó gracias a las relaciones personales de Vidal. El modelo es altamente relacional y referencial.</div>
-<div class="finding">Iván lleva pipeline en Excel con campos: prospecto, broker, origen, requerimiento, ubicación, propuesta, lote, superficie, venta estimada, última fecha de contacto y porcentaje de avance.</div>
-<div class="finding">Separado en dos tracks: venta de lotes y renta de naves/bodegas.</div>
-<div class="finding">Reporte mensual al consejo de administración con ~10 slides: datos relevantes, indicadores comerciales clave (metros vendidos, metros rentados, metros por cerrar), pipeline vivo, mapa del parque con estatus por lote (vendido/apartado/libre), siguientes pasos.</div>
-<div class="finding">Demanda actual fuerte: hay prospectos de 5,000 m2 en adelante. Prospectos incluyen empresas chinas, de Nuevo León, requerimientos de 60,000-100,000 m2 (fuera de escala).</div>
-<div class="finding">Canvas de modelo de negocio desarrollado por Iván (primero como Sarobi, luego actualizado a Aura Desarrollos).</div>
-<div class="finding">Cotizador financiero propio en Excel: superficie, precio de lista, precio de contado, condiciones a 4/5/6/8 meses, con fórmulas tipo Goal Seek para negociación de descuentos. Ya no depende de Joaquín para cotizaciones básicas de terrenos.</div>
-<div class="finding">Propuestas económicas estandarizadas: carta en formato Aura Desarrollos con referencia (mes/año/PLA/lote), master plan señalizado, condiciones. Se envía en PDF.</div>
-<div class="finding">Checklist de due diligence para clientes BTS que Iván propuso con base en su experiencia como broker: oficinas, almacén, racks, altura libre, claros entre columnas, pavimentos, sistema contra incendios, andenes, rampas, energía. Esto se pasa a operaciones para cotización.</div>
-<div class="finding">FODA elaborado por Iván (fortalezas, oportunidades, debilidades, amenazas).</div>
-<div class="finding">Análisis de ciclo de bienes raíces (expansión/sobreoferta/recesión/recuperación) y benchmark de competidores (Fibra Monterrey, FINSA, Fibra Uno).</div>
-<div class="finding">Iván mantiene reportes de mercado de JLL, CBRE y análisis de FIBRAs (Prologis, Vesta, Dan, Macquarie, CIBanco, Fibra Inn, etc.) desde 2022 hasta 2025.</div>
-<div class="finding">Altamira/Tampico/Madero es un submercado que no es principal para ninguna firma de brokerage. Toman como referencia: Matamoros, Reynosa, La Laguna.</div>
-<div class="finding">Rentas de referencia: La Laguna $5.60 USD/m2, Monterrey $7.71 USD/m2. Aura se posiciona competitivamente entre $4-$7 USD/m2 dependiendo de tenant improvements.</div>
-<div class="finding">Pantalón: renta un poco castigada pero con beneficio de tener un inquilino ancla (contrato en dólares, largo plazo).</div>
-<div class="finding">3B: renta de ~$141 pesos/m2 (~$7 USD en Veracruz), considerada buen nivel para un submercado.</div>
-<div class="finding">Precios de venta de lotes han evolucionado: desde $836/m2 al inicio hasta $1,285/m2 el más caro (sin broker).</div>
-<div class="finding">Al llegar (2023) no había página web, video, brochure ni materiales comerciales. Los primeros 5-6 meses fueron difíciles.</div>
-<div class="finding">Actualmente: presentación comercial nueva (abril 2026) con branding Aura Desarrollos, brochure del PLA con infraestructura/conectividad/master plan/clientes, videos. Manuel (marketing) produce los templates.</div>
-<div class="finding">Empezaron a salir en reportes de mercado de JLL y CBRE (exposición mediática).</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">El Motor Comercial:<br>Pipeline, Clientes y Modelo de Negocio</h1>
+                <p class="cover-subtitle">El Subdirector de Nuevos Negocios aporta visi&oacute;n institucional, herramientas comerciales propias y un benchmark claro del mercado industrial</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Iv&aacute;n Rubio Rivas, Subdirector de Nuevos Negocios</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">10 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>El Subdirector de Nuevos Negocios aporta visi&oacute;n institucional, herramientas comerciales propias y un benchmark claro del mercado industrial</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value green">95%</div><div class="kpi-label">PLA comercializado</div></div>
+<div class="kpi-item"><div class="kpi-value green">76 ha</div><div class="kpi-label">Superficie del parque</div></div>
+<div class="kpi-item"><div class="kpi-value green">$4-7 USD/m2</div><div class="kpi-label">Renta competitiva</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Project Managers dedicados</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P1 — Adquisición de Tierra <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">No es función directa de Iván, pero menciona reservas territoriales con vocación industrial para manufactura ligera y logística.</div>
-<div class="finding">PLA creció de 62 a 76 hectáreas, 95% comercializado. Hay terrenos fuera del PLA donde también se desarrollan naves BTS.</div>
-<div class="finding">La gestión de servicios (energía eléctrica CFE, agua COMAPA) es una amenaza externa que no depende de Aura. Alma hace gestión ante gobierno.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Modelo de Negocio y Posicionamiento</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Evoluci&oacute;n de venta de lotes a soluciones BTS</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">La empresa evolucion&oacute; de venta de lotes industriales a naves Build to Suit. PLA: 76 hect&aacute;reas, ~95% comercializado. Posicionamiento como el parque m&aacute;s moderno del sur de Tamaulipas. Brokers nacionales (CBRE, Colliers, JLL) ya env&iacute;an RFPs.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación y Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Iván identifica explícitamente desviaciones en presupuesto: el proyecto Pantalón ya tiene desviaciones tanto en tiempos de entrega como en presupuesto.</div>
-<div class="finding">No existe un project manager dedicado. Iván recomienda fuertemente esta figura con base en su experiencia en desarrolladoras institucionales.</div>
-<div class="finding">No hay software de gestión de proyectos. Menciona Procore, Scala, Monday como opciones. Actualmente todo se lleva en Excel y Project.</div>
-<div class="finding">Necesidad de un cronograma que mida avance, tiempo y costo, con ruta crítica y cuellos de botella.</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Herramientas comerciales profesionales</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Canvas de modelo de negocio, cotizador financiero en Excel, propuestas estandarizadas, checklist de due diligence BTS, FODA, an&aacute;lisis de ciclo de bienes ra&iacute;ces, benchmark de competidores. Todo desarrollado por Iv&aacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 — Ingeniería y Diseño <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Iván solicita layouts y master plans a operaciones (Alejandra, Daniela o Lupita del área de dibujo). El flujo funciona pero depende de solicitudes puntuales.</div>
-<div class="finding">También solicita programas de obra a Paco. Tiene copias en PDF e imagen.</div>
-<div class="finding">Dos tipos de entrega en industrial: entrega benéfica (~70-80% avance para que cliente instale racks, cuartos fríos) y entrega sustancial (nave terminada con punch list).</div>
-<div class="finding">Las especificaciones técnicas BTS las maneja Iván con su checklist: altura (9-14m), sistema contra incendios (gabinetes/mangueras vs sprinklers), tipo de construcción (block y lámina vs tilt-up/precolado).</div>
-<div class="finding">Aura actualmente desarrolla solo en block y lámina. Naves triple A (tilt-up) serían un paso evolutivo.</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Red de brokers nacional como activo cr&iacute;tico</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Red de brokers nacionales s&oacute;lida por experiencia en Vesta y Colliers. Roadshow exitoso a San Luis Potos&iacute; y Quer&eacute;taro. ~50% del PLA se comercializ&oacute; por relaciones personales de Vidal.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras y Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Iván detectó como debilidad (en su FODA): Aura tenía un solo proveedor de construcción. Hubo un problema con ese proveedor (&ldquo;quedó mal&rdquo;) y tuvieron que abrir a otros.</div>
-<div class="finding">Padrón de contratistas aún muy básico para concursar, aunque va creciendo.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Brechas en la Cadena de Valor</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin project manager dedicado</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Iv&aacute;n identifica expl&iacute;citamente la necesidad de un PM con base en su experiencia en Vesta. No hay software de gesti&oacute;n de proyectos. Menciona Procore, Scala, Monday como opciones. Necesidad de cronograma que mida avance, tiempo y costo.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Reportes de avance de obra (semanal/quincenal/mensual) llegan de operaciones, pero Iván los tiene que solicitar activamente.</div>
-<div class="finding">No se están cumpliendo tiempos de entrega (debilidad identificada en FODA).</div>
-<div class="finding">Desviaciones en presupuesto sobre lo presupuestado ya ocurriendo en Pantalón.</div>
-<div class="finding">Naves BTS actuales: Pantalón dos naves (13,260 m2 + 20,664 m2 = ~33,731 m2 totales). 3B en Xalapa.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Desviaciones en presupuesto y tiempos Pantale&oacute;n</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Iv&aacute;n identifica expl&iacute;citamente desviaciones. El proyecto ya tiene desviaciones tanto en tiempos de entrega como en presupuesto. Sin project manager ni herramienta de gesti&oacute;n que mida ruta cr&iacute;tica.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control y Seguimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding">No hay KPIs formales de gestión de proyectos (ruta crítica, EVM, PPC).</div>
-<div class="finding">Iván propone un project manager y software especializado para medir toda la cadena desde proveedor hasta entrega, con KPIs de desempeño.</div>
-<div class="finding">Los indicadores que existen son comerciales (metros vendidos/rentados/por cerrar) que Iván mismo genera, no de ejecución.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Compras no permite conseguir mejores precios</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Iv&aacute;n reconoce que las compras en Aura &ldquo;no permiten conseguir mejores precios&rdquo; por falta de competitividad en el proceso.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P8 — Entrega y Calidad <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">No se ha hecho aún una entrega formal de nave BTS (Pantalón será la primera). No hay checklist de entrega estandarizado. Carla lo tendría que desarrollar.</div>
-<div class="finding">Iván tiene formatos de entrega de su época como broker que puede aportar.</div>
-<div class="finding">Entrega debería incluir: memoria fotográfica, punch list, entrega benéfica y sustancial diferenciadas.</div>
-<div class="finding">Debilidad FODA: no cumplir con tiempos de entrega.</div>
-<div class="finding">Menciona certificaciones BOMA y Edge como aspiracionales para posicionamiento institucional; requeriría capacitación del equipo de arquitectas.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Tres L&iacute;neas de Negocio</div>
+    </div>
+    <div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">Compra-urbanizaci&oacute;n-venta de lotes</div>
+        <div class="finding-dimension oportunidad">Oportunidad</div>
+    </div>
+    <div class="finding-body">Primera l&iacute;nea de negocio original. PLA como caso de &eacute;xito: costo de $170-180 MDP, venta estimada $507 MDP. Margen bruto atractivo que financia crecimiento.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P9 — Property Management / Post-venta <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Para terrenos vendidos, Iván lleva un control paralelo de pagos (algunos clientes pagan a plazos semanales de $1M pesos).</div>
-<div class="finding">Notifica a finanzas (Clara y Brenda) sobre depósitos entrantes para que identifiquen en cuentas de subsidiarias.</div>
-<div class="finding">Un cliente existente tiene tema de renovación de contrato (no quiere renovar) y problema de agua (se &ldquo;colgaba&rdquo; el agua antes).</div>
-<div class="finding">No hay un proceso formal de property management post-entrega aún.</div>
-<div class="finding">Cobro de áreas comunes (CAM charges) del parque no se está haciendo: la energía eléctrica de áreas comunes no se cobra a los inquilinos/propietarios.</div>
+<div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">Construcci&oacute;n BTS con renta</div>
+        <div class="finding-dimension oportunidad">Oportunidad</div>
+    </div>
+    <div class="finding-body">Segunda l&iacute;nea: naves a la medida con contrato de arrendamiento. Pantale&oacute;n como primer caso BTS significativo. Genera flujo recurrente en d&oacute;lares.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 — Finanzas y Tesorería <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding">Relación de Iván con Clara Medina y Joaquín Valdez es estrecha y diaria. Ha mejorado significativamente.</div>
-<div class="finding">Al inicio eran &ldquo;cerrados con la información&rdquo;. Ahora Iván se sienta con Joaquín a construir modelos financieros juntos.</div>
-<div class="finding">Iván ha impulsado la sofisticación del modelo financiero: propuso incorporar payback, cap rates, NOI, ROI, TIR y otros indicadores estándar del sector inmobiliario industrial.</div>
-<div class="finding">Modelo financiero de Joaquín ahora calcula rentabilidad por m2 y viabilidad de venta de proyecto (exit/trade).</div>
+<div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">Venta de proyecto completo a inversionistas</div>
+        <div class="finding-dimension oportunidad">Oportunidad</div>
+    </div>
+    <div class="finding-body">Tercera l&iacute;nea: nave + contrato de arrendamiento vendida a inversionistas institucionales (FIBRAs, fondos). La complejidad del modelo requiere planeaci&oacute;n financiera sofisticada que hoy depende de una sola persona.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Iván es la única persona en el área comercial. Vidal también vende, pero no hay equipo comercial.</div>
-<div class="finding">Hubo un intento de contratar un broker manager que le reportara a Iván pero duró mes y medio (no funcionó, estaba &ldquo;viendo cuál es&rdquo;).</div>
-<div class="finding">Idiomas: solo Iván, Paco y Vidal pueden atender prospectos en inglés. Karla no habla inglés. Es limitante para prospectos asiáticos o internacionales.</div>
-<div class="finding">Diagnóstico de Iván al llegar (2023): empresa enfocada en corto plazo, concentración de actividades en Carla (una sola persona), poca iniciativa del equipo (&ldquo;si no les dices qué más hacer, se quedan esperando&rdquo;), roles no delimitados, objetivos organizacionales no claros, sin plan a largo plazo.</div>
-<div class="finding">Ha mejorado: Carla ha delegado más a Mitzi y a Jorge.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">Cuando yo llegu&eacute; no hab&iacute;a p&aacute;gina web, no hab&iacute;a video, no hab&iacute;a brochure, no hab&iacute;a nada.</div>
+    <div class="verbatim-source">&mdash; Iv&aacute;n Rubio, sobre el estado comercial inicial</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">No hay CRM. Pipeline se lleva en Excel.</div>
-<div class="finding">No hay software de gestión de proyectos. Todo en Excel y Project.</div>
-<div class="finding">Iván organiza sus propios archivos con nomenclatura de fecha y versiones (disciplinado a nivel individual pero no hay sistema institucional).</div>
-<div class="finding">Propone implementar Procore, Scala o Monday.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza, Estructura y Modelo de Gestión <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding">Al llegar Iván (2023), el organigrama era: Vidal arriba, luego Iván y Karla, y debajo de Karla todo el equipo operativo. Concentración excesiva en Karla.</div>
-<div class="finding">Vidal reenfocó a Iván: &ldquo;tú ya no vas a hacer nada de operaciones, tú vas a ver puras ventas&rdquo;. Un año después llegó Paco como Subdirector de Operaciones.</div>
-<div class="finding">La separación comercial/operaciones es relativamente reciente (~1-1.5 años).</div>
-<div class="finding">Iván identifica la comunicación entre áreas (finanzas, operaciones, comercial) como un issue importante.</div>
-<div class="finding">Documenta que pasa información a Clara, Paco y Karla, y 3 semanas o un mes después tiene que volver a preguntar. Pasan 2 semanas más y entre ellos no se comunican.</div>
-<div class="finding">Tiene que reenviar correos de diciembre, enero, marzo: &ldquo;ahí te va el correo que te mandé&rdquo;.</div>
-<div class="finding">Cada área debería tener control de sus documentos pero no lo tienen de manera sistemática.</div>
-<div class="finding">Existe un consejo de administración al que Iván presenta reportes mensuales con pipeline, indicadores y avances.</div>
-<div class="finding">Aura tiene respaldo de corporativo (Aura Inversiones).</div>
-<div class="finding">Transición de Sarobi a Aura Desarrollos implicó reingeniería de marca, colores, posicionamiento. La presentación actual es mucho más institucional y profesional.</div>
-<div class="finding">Son parte de la membresía / distintivo de empresa socialmente responsable (CEMEFI). Necesitan demostrar actividades de apoyo a la sociedad.</div>
-<div class="finding">El PLA recibió reconocimiento de AMPI/Consejo Económico Regional por ser parte de los parques iniciales dentro del Plan México (iniciativa de nearshoring del gobierno).</div>
-</div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Los primeros 5 o 6 meses fue algo difícil porque no teníamos página de internet, no teníamos video, no teníamos nada... yo necesito material de marketing, yo necesito material comercial... tú vas a un terreno y ves piedras.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo creo que sí es un issue que tenemos que trabajar, la comunicación entre el área de finanzas, el área de operaciones y el área comercial.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Les paso la información a Clara, a Paco, a Karla, y a las 3 semanas, un mes, vuelvo a preguntar. Pasan 2 semanas, un mes, y entre ellos mismos... cada quien debería de tener control de sus documentos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Para mi gusto y con base a la experiencia que tengo en bienes raíces industriales de otras desarrolladoras, tendría que haber un project manager... hay software especializado, está Procore, está Scala, está Monday... que te mida toda la cadena desde el proveedor hasta lo que está haciendo el constructor.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Cuando yo entré... concentración de actividades en una sola persona [Karla]... poca iniciativa, si no les dices qué más hacer, se quedan esperando.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Los brokers locales no hablan el idioma industrial... están acostumbrados a vender casas, departamentos... cuando les hablas de un RFP, dame un formato, cuántas alturas, sistema contra incendios, piso, carga... no.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Hemos tenido desviaciones en el presupuesto... no crecen el presupuesto pero sí en los tiempos de entrega... eso ya está pasando con Pantalón.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tenemos un padrón muy básico de contratistas para concursar... había un solo proveedor para construcción y hubo un problema, quedó mal y tuvieron que abrir a otros.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;El 50% del parque se movió gracias a las relaciones de Vidal... fue por relaciones y esa relación te iba abriendo otros, referencial, te van referenciando.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nosotros en la zona estamos desarrollando solamente naves de block y lámina. Pero hay una tecnología que hacen los desarrolladores institucionales que se llaman tilt-up... son naves triple A.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;La energía eléctrica... no hay energía eléctrica en el país para soportar un requerimiento del sector automotriz o del sector aeroespacial... algunos proyectos se nos empezaron a tomar en cuenta pero se terminaban yendo a Coahuila, San Luis Potosí, Monterrey.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Ahorita con los 33,000 metros cuadrados de Pantalón nos estamos jalando de los pelos... gracias a lo que el proyecto que están llevando a cabo con nosotros vamos a poder estructurar más todo esto.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Las áreas comunes del parque, la energía eléctrica, tendríamos que cobrar a los inquilinos y no los estamos cobrando.&rdquo;</div></div>
-</div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
-</div>
+    </div>
 </body>
 </html>

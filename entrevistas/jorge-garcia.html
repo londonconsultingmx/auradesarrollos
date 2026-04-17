@@ -1,172 +1,265 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jorge Eduardo García Sánchez — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuestos y Costos: Del Opus al PIC &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Jorge Eduardo García Sánchez &mdash; Jefe de Planeación y Costos</h1>
-    <div class="header-meta">2026-04-09 y 2026-04-13 (estimada) · Presencial (Tampico)</div>
-  </div>
-  <div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 1 — 2026-04-09 (~47 min) · Presencial (Tampico)</h2></div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>Requerimientos llegan informales:</strong> por plática en persona, a veces un plano adjunto por correo, a veces solo verbal. No existe formato de requerimiento ni brief escrito.</div>
-<div class="finding"><strong>Presupuesto paramétrico inicial</strong> con poca información: a veces solo metros cuadrados y sin especificaciones (altura, instalaciones). Se estima a un 80% de certeza.</div>
-<div class="finding"><strong>Presupuesto en Opus:</strong> Jorge arma el presupuesto operativo con Opus 2023. Desglosa por concepto (terracería, obra civil, acero, instalaciones).</div>
-<div class="finding"><strong>Doble captura obligatoria:</strong> el presupuesto que arma en Opus tiene que volver a armarse para subirlo a Odoo porque las estructuras no son compatibles. Trabaja un Excel intermedio, luego lo sube partida por partida a Odoo.</div>
-<div class="finding"><strong>Costos unitarios:</strong> usa 3 fuentes: (1) últimas compras en Odoo, (2) páginas web (Home Depot, proveedores), (3) cotizaciones directas por WhatsApp/correo. Si hay urgencia, no alcanza a cotizar todo y usa &ldquo;parecidos de mercado&rdquo;.</div>
-<div class="finding"><strong>Sin validación cruzada de ingeniería:</strong> el presupuesto no pasa por un proceso formal de revisión técnica con ingeniería. Correcciones se hacen ad-hoc.</div>
-<div class="finding"><strong>Márgenes estándar:</strong> 7% costo indirecto + 1.1% cuotas sindicales + utilidad variable 16-26%.</div>
-<div class="finding"><strong>Equipo:</strong> Jorge + Ing. Rodolfo (experiencia en instalaciones eléctricas). Jorge lleva parte mecánica y civil.</div>
-<div class="finding"><strong>Cálculos a mano:</strong> los volúmenes los calcula manualmente del plano en libreta, luego los pasa a Opus.</div>
-<div class="finding"><strong>Sin fechas en el presupuesto:</strong> el PIC no tiene programa de erogaciones ligado al cronograma.</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Presupuestos y Costos:<br>Del Opus al PIC</h1>
+                <p class="cover-subtitle">Dos sesiones con el Jefe de Planeaci&oacute;n y Costos revelan doble captura obligatoria, c&aacute;lculos manuales en libreta, y un proceso de presupuestaci&oacute;n sin due&ntilde;o formal ni retroalimentaci&oacute;n de cierre</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Jorge Eduardo Garc&iacute;a S&aacute;nchez, Jefe de Planeaci&oacute;n y Costos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">9 y 13 abril 2026 &mdash; Sesi&oacute;n 1 + Profundizaci&oacute;n</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>Dos sesiones con el Jefe de Planeaci&oacute;n y Costos revelan doble captura obligatoria, c&aacute;lculos manuales en libreta, y un proceso de presupuestaci&oacute;n sin due&ntilde;o formal ni retroalimentaci&oacute;n de cierre</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">2x</div><div class="kpi-label">Captura obligatoria (Opus + Odoo)</div></div>
+<div class="kpi-item"><div class="kpi-value green">$25M</div><div class="kpi-label">Ahorro detectado en acero</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Comparaci&oacute;n presupuesto vs real</div></div>
+<div class="kpi-item"><div class="kpi-value amber">Sin due&ntilde;o</div><div class="kpi-label">Proceso de presupuestaci&oacute;n</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Jorge es el contacto operativo con proveedores y contratistas</strong>, no el área de compras. Él cotiza, negocia, y a veces contacta directamente al proveedor para urgirlos sin esperar la orden de compra.</div>
-<div class="finding"><strong>Proceso de requisición:</strong> Jorge sube insumos a Odoo en Excel → pasa a Gabriela (auxiliar administrativo) → ella genera la requisición en el sistema → pasa por autorizaciones → compras emite la OC.</div>
-<div class="finding"><strong>Bypass frecuente:</strong> cuando hay urgencia, Jorge contacta directamente al proveedor y le dice que vaya agendando la entrega antes de que salga la OC formal.</div>
-<div class="finding"><strong>Contratistas:</strong> Jorge tiene un rango de contratistas. Les cede la obra, les compara precios, verifica que entren dentro del presupuesto de mano de obra. Asignación directa sin concurso formal.</div>
-<div class="finding"><strong>Cotizaciones por WhatsApp:</strong> proveedores como Cercamex le mandan cotizaciones por WhatsApp directamente.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">El Proceso de Presupuestaci&oacute;n</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Requerimientos informales: plano, pl&aacute;tica o verbal</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">No existe formato de requerimiento ni brief escrito. A veces solo metros cuadrados sin especificaciones (altura, instalaciones). Se estima a un 80% de certeza. Los vol&uacute;menes se calculan manualmente del plano en libreta.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Cambios no anticipados en obra:</strong> contratistas y proveedores le mandan ajustes sobre la marcha. &ldquo;Ya cuando me mandan el ajuste ya es como lo que sobre el tiempo de que hoy lo ocupa mañana.&rdquo;</div>
-<div class="finding"><strong>Sin visibilidad de avance de contratistas:</strong> Jorge no tiene conocimiento del avance de proveedores en obra hasta que le piden algo urgente.</div>
-<div class="finding"><strong>Control de inicio:</strong> un contratista no puede iniciar sin autorización de Jorge, porque si inician sin alinearse, generan problemas de coordinación.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Doble captura Opus &rarr; Excel &rarr; Odoo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El presupuesto en Opus tiene que rearmarse para Odoo porque las estructuras no son compatibles. Excel como puente obligatorio. La mayor frustraci&oacute;n de Jorge: &ldquo;tenemos que volver a armar el presupuesto espec&iacute;ficamente para la plataforma.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>No hay comparación presupuesto vs real:</strong> cuando se le preguntó cómo va el avance económico contra el presupuesto, respondió: &ldquo;no sabemos&rdquo;.</div>
-<div class="finding"><strong>Odoo no cuadra:</strong> el reporte de Odoo de costos no coincide con el presupuesto original. Los montos no concuerdan. Jorge ha intentado buscar reportes pero no logra conciliar.</div>
-<div class="finding"><strong>Presupuesto muta en Odoo:</strong> conforme avanza la obra, se suben nuevos insumos y conceptos al ERP, por lo que el presupuesto en Odoo solo refleja lo que se ha ido comprando, no el total original.</div>
-<div class="finding"><strong>Sin módulo de control de presupuesto funcional:</strong> el módulo de &ldquo;contabilidad analítica&rdquo; en Odoo muestra un importe previsto vs derogado, pero Jorge dice que los números no cuadran.</div>
-<div class="finding"><strong>Ejemplo Pantaleón:</strong> el reporte muestra $29M de presupuesto y $154M de costo, que claramente no concuerda.</div>
-<div class="finding"><strong>Finanzas tiene "mejor vista" pero tampoco tienen comparación formal:</strong> Jorge refiere que quien lleva el seguimiento financiero &ldquo;más&rdquo; es finanzas, pero no hay un solo lugar donde se compare PIC vs real.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Sin due&ntilde;o formal del presupuesto</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Jorge no interpreta que haya un &ldquo;due&ntilde;o&rdquo; como rol. &Eacute;l y Rodolfo elaboran, Karla revisa, finanzas recibe. Sin ownership definido del proceso end-to-end.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Odoo como ERP:</strong> se usa para requisiciones, OC, proyectos. Pero hay limitaciones graves:</div>
-<div class="finding">Presupuesto tiene que subirse en formato específico diferente al de Opus</div>
-<div class="finding">No todos los usuarios tienen los mismos permisos (Jorge no puede generar requisiciones, necesita a Gabriela)</div>
-<div class="finding">Reportes de presupuesto no concuerdan con la realidad</div>
-<div class="finding"><strong>Opus 2023:</strong> herramienta de presupuestación de construcción. No integrada con Odoo.</div>
-<div class="finding"><strong>Excel como puente:</strong> es el intermediario obligatorio entre Opus y Odoo.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Herramientas y Limitaciones</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin cat&aacute;logo maestro de insumos ni hist&oacute;rico de costos</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Cada presupuesto parte de cero. No hay base de datos hist&oacute;rica. Para consultar precios pasados, Jorge busca insumo por insumo en Odoo o facturas. La herramienta ideal ser&iacute;a un cat&aacute;logo vivo de insumos recurrentes con costos actualizados.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Responsabilidades difusas:</strong> Jorge cotiza, negocia con proveedores/contratistas, sube presupuestos al ERP, y da seguimiento a entregas — funciones que deberían estar distribuidas entre Planeación, Compras y Control.</div>
-<div class="finding"><strong>Sin proceso formal de órdenes de cambio:</strong> los cambios llegan verbales o por correo y se van ajustando sobre la marcha.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Costos unitarios de 3 fuentes informales</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Fuentes: &uacute;ltimas compras en Odoo, p&aacute;ginas web (Home Depot), cotizaciones por WhatsApp. Si hay urgencia, usa &ldquo;parecidos de mercado&rdquo;. Sin validaci&oacute;n cruzada formal con ingenier&iacute;a.</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Muchas veces el requerimiento es en físico, hojas, o nos hacen el comentario porque lo contamos en tu libreta.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;A veces no tenemos un proyecto ejecutivo definido y nada más es como que hay una idea general.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;No tengo el conocimiento de cómo van los proveedores en la obra o su avance y ya cuando me mandan el ajuste ya es como lo que sobre el tiempo.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre Odoo vs presupuesto: "Tampoco mis compuestos [...] aquí está algo más negativo [...] no concuerda.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Tenemos que volver a armar el presupuesto específicamente para la plataforma [Odoo] debido a que no funciona un presupuesto comercial.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Si no le digo que puedan iniciar a un contratista porque nos llegó a pasar de que si ellos iniciaban [...] yo tengo esto con esto y con otro y ellos iniciaron y no puedes iniciar.&rdquo;</div></div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin programa de erogaciones ligado al cronograma</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El PIC no tiene programa de erogaciones. Sin fechas en el presupuesto. El seguimiento financiero mensual lo reporta finanzas, no Jorge.</div>
 </div>
-<div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 2 — 2026-04-13 (estimada) (~60 min) · Sesión de profundización — Presupuestos de Obra</h2></div>
-<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>Sin dueño formal del presupuesto:</strong> Jorge no interpreta que haya un &ldquo;dueño&rdquo; del presupuesto como rol. Él y el Ing. Rodolfo los elaboran, Arq. Karla revisa, y finanzas recibe para solicitar recursos. No hay ownership definido del proceso end-to-end.</div>
-<div class="finding"><strong>Opus sin catálogo maestro de insumos:</strong> usan Opus para presupuesto y precios unitarios, pero no existe un catálogo general de precios actualizado. Cada presupuesto parte de cero o de trabajos básicos previos. Si el presupuesto tiene 3-6 meses de antigüedad, se actualizan insumos manualmente antes de ejecutar.</div>
-<div class="finding"><strong>Sin base de datos histórica de costos:</strong> no hay histórico consolidado. Para consultar precios pasados, Jorge debe buscar insumo por insumo en Odoo o en facturas. No hay un data lake de costos de proyectos cerrados.</div>
-<div class="finding"><strong>Herramienta ideal = catálogo vivo de insumos recurrentes</strong> con costos actualizados automáticamente. Esto confirma la carencia detectada en la primera entrevista.</div>
-<div class="finding"><strong>Iteraciones limitadas:</strong> cada presupuesto pasa por 2-3 revisiones de la Arq. Karla antes de aprobarse. No hay revisión técnica formal de ingeniería ni de compras.</div>
-<div class="finding"><strong>Cost breakdown llega a nivel de insumos básicos:</strong> cemento, arena, grava, acero, y mano de obra desglosada en cuadrillas o contratistas. Nivel de detalle adecuado en granularidad, pero sin liga a programa de erogaciones ni cronograma.</div>
-<div class="finding"><strong>Diseño primero, costo después:</strong> el presupuesto parte de un diseño base (sin ingenierías completas). Luego se revisa el costo y se busca ajustar hasta llegar al monto solicitado por el cliente. No hay Target Value Delivery ni presupuesto desde target cost.</div>
-<div class="finding"><strong>Sin evaluación sistemática de alternativas:</strong> no se evalúan alternativas de materiales o sistemas constructivos de forma rutinaria. Si se prueba un nuevo sistema, es por solicitud de la Arq. Karla, no por un proceso de ingeniería de valor.</div>
-<div class="finding"><strong>Jorge ha retado diseños de ingeniería:</strong> cuando propone alternativas económicas, las revisan con ingeniería y si pasan se implementan. Pero es reactivo e individual, no un proceso institucionalizado.</div>
-<div class="finding"><strong>Doble captura confirmada:</strong> la mayor frustración sigue siendo armar presupuestos 2 veces (Opus + Odoo). Consistente con hallazgo de primera entrevista.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Hallazgos de Valor y Oportunidades</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Detecci&oacute;n de $25M en sobredimensionamiento de acero</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Caso Pantale&oacute;n: Jorge detect&oacute; que los kg de ingenier&iacute;a no concordaban con el cat&aacute;logo. Al despiezar cada elemento, encontr&oacute; ~60 toneladas de exceso = $25M de ahorro. Se repiti&oacute; en Nave A con 23 toneladas adicionales.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 — Ingeniería &amp; Diseño <span class="pilar-tag tag-warning">Dolor medio</span></div>
-<div class="finding"><strong>Ingeniería no valida presupuesto:</strong> ingeniería envía planos generales o detalles cuando los tiene, Jorge calcula volumetría, pero ingeniería no valida las cotizaciones ni los catálogos resultantes.</div>
-<div class="finding"><strong>Información incompleta frecuente:</strong> muchas veces faltan detalles estructurales, rutas de instalaciones o ingenierías completas, lo que obliga a Jorge a asumir supuestos que pueden generar desviaciones.</div>
-<div class="finding"><strong>No hay mesa de trabajo conjunta:</strong> no existe un momento formal donde presupuesto, ingeniería y compras se sienten juntos a revisar. Confirma silos operativos detectados en primera entrevista.</div>
+<div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">Potencial de cat&aacute;logo est&aacute;ndar para naves repetibles</div>
+        <div class="finding-dimension oportunidad">Oportunidad</div>
+    </div>
+    <div class="finding-body">Las naves BTS son repetibles y se podr&iacute;a crear un cat&aacute;logo est&aacute;ndar de conceptos, materiales y proveedores pre-negociados para replicar en proyectos futuros.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>Compras no participa en validación de precios del presupuesto:</strong> cero participación de compras en la etapa de presupuestación. Jorge cotiza directamente con proveedores por necesidad de velocidad.</div>
-<div class="finding"><strong>Sistema de compras como cuello de botella:</strong> el proceso de compras es &ldquo;demasiado tardado&rdquo;, requiere demasiadas autorizaciones. Se pueden perder solicitudes si no se les da seguimiento activo con compras.</div>
-<div class="finding"><strong>Sin visibilidad de seguimiento:</strong> Jorge no tiene acceso a un seguimiento claro de cada solicitud de compra en el sistema. No sabe en qué paso está su requisición.</div>
-<div class="finding"><strong>Contacto directo con proveedores por urgencia:</strong> cuando los tiempos apremian, Jorge contacta proveedores directamente, se toman precios de compras recientes en Odoo o facturas. Solo si hay tiempo suficiente, se canaliza a compras. Confirma bypass reportado en primera entrevista.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">A veces no tenemos un proyecto ejecutivo definido y nada m&aacute;s es como que hay una idea general.</div>
+    <div class="verbatim-source">&mdash; Jorge Garc&iacute;a, sobre requerimientos de presupuesto</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor medio</span></div>
-<div class="finding"><strong>Desviaciones principales en tiempos de ejecución:</strong> las mayores desviaciones presupuesto vs real se dan por extensión de tiempos de obra, lo que incrementa renta de equipos y compra de insumos adicionales. No es tanto error de precio unitario, sino de duración.</div>
-<div class="finding"><strong>Órdenes de cambio formalizándose:</strong> Jorge creó un formato de orden de cambio para modificaciones durante ejecución. Los trabajos adicionales generan un presupuesto separado. Es un avance, pero aún incipiente.</div>
+<div class="verbatim">
+    <div class="verbatim-text">No sabemos.</div>
+    <div class="verbatim-source">&mdash; Jorge Garc&iacute;a, cuando se le pregunt&oacute; sobre avance econ&oacute;mico vs. presupuesto</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
-<div class="finding"><strong>Sin comparación presupuesto vs real en proyectos grandes:</strong> en presupuestos grandes no se ha hecho comparación de presupuesto original contra costo real al cierre. En proyectos chicos o catálogos derivados, sí se revisa y logran reducir 5-7% por negociación.</div>
-<div class="finding"><strong>Seguimiento financiero delegado a finanzas:</strong> el seguimiento financiero mensual se reporta a la Arq. Karla por parte de finanzas. Jorge no tiene visibilidad directa del avance económico de sus presupuestos.</div>
-<div class="finding"><strong>Detección de sobredimensionamiento en Pantaleón ($25M):</strong> caso emblemático. El presupuesto fue elaborado por el contratista externo (no por Jorge). Jorge detectó que los kg de ingeniería no concordaban con los kg en catálogo ni con la solicitud de material. Al despiezar cada elemento y comparar cálculo vs solicitud, encontró una diferencia de ~60 toneladas de acero = $25M de ahorro. Escaló a Paco y Karla. Se repitió en Nave A con 23 toneladas adicionales.</div>
-<div class="finding"><strong>Sin lecciones aprendidas documentadas:</strong> no se documentan formalmente, aunque sí se toman en cuenta experiencias anteriores al presupuestar. Conocimiento tácito, no sistematizado.</div>
-<div class="finding"><strong>Cada proyecto arranca desde cero:</strong> no hay retroalimentación formal de costos reales de cierre hacia el siguiente presupuesto, salvo que sea un presupuesto bancario donde deben ajustarse a lo solicitado.</div>
+<div class="verbatim">
+    <div class="verbatim-text">Tenemos que volver a armar el presupuesto espec&iacute;ficamente para la plataforma, debido a que no funciona un presupuesto comercial.</div>
+    <div class="verbatim-source">&mdash; Jorge Garc&iacute;a, sobre la doble captura</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-functional">Referencia</span></div>
-<div class="finding"><strong>Finanzas como receptor pasivo del presupuesto:</strong> recibe el presupuesto aprobado para solicitar recursos. El seguimiento mensual lo hace finanzas y lo reporta a la Arq. Karla, pero no hay un ciclo de retroalimentación hacia planeación.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Opus sin integración con Odoo:</strong> confirmada la doble captura. Opus para presupuesto operativo, luego rearmado manual para Odoo.</div>
-<div class="finding"><strong>Odoo + Excel + Opus:</strong> el stack de herramientas no está integrado. Excel sigue siendo el puente obligatorio.</div>
-<div class="finding"><strong>Odoo sin actualización automatizada de precios:</strong> la matriz de insumos se actualiza manualmente en cada presupuesto. No hay feed automático de precios de mercado.</div>
-</div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre dueño del presupuesto: "No entiendo bien a qué refiere la pregunta, quién los realiza soy yo o el Ing. Rodolfo, son revisados por la Arq. Karla y pasados a finanzas para solicitar recursos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre catálogo de precios: "No contamos con un catálogo general, los precios se realizan conforme a los requerimientos.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre participación de compras en presupuesto: "No, no tienen participación.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre mesa conjunta presupuesto-ingeniería-compras: "No, no hay ningún momento.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre comparación presupuesto vs real en proyectos grandes: "En presupuestos grandes no.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre lecciones aprendidas: "No se documentan, pero sí se toman en cuenta las situaciones de anteriores obras al momento de presupuestar.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre detección Pantaleón: "Detecté que los kilogramos de ingeniería no concordaban con los kilogramos en catálogo ni con la solicitud de material [...] encontré una diferencia de casi 60 toneladas de acero lo que nos llevó a los 25 millones de peso de ahorro.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre frustración principal: "El realizar los presupuestos 2 veces, una en Opus y luego arreglarlo para Odoo, además del sistema de compras que puede ser tardado.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre sistema de compras: "Es demasiado tardado y requiere demasiadas autorizaciones, además de que se pueden perder solicitudes si no se le da seguimiento con compras, y no tengo acceso al seguimiento claro de cada solicitud.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre herramienta ideal: "Sería una lista de insumos básicos/recurrentes que se mantenga con costos actualizados.&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Sobre proceso diseño-costo: "Normalmente desde un diseño base (sin ingenierías), de ahí depende el proyecto se revisa el costo y se busca ajustar hasta llegar a un monto solicitado.&rdquo;</div></div>
-</div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
-</div>
+    </div>
 </body>
 </html>

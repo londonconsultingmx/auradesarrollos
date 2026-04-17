@@ -1,119 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juan Higinio Contreras Navarro — Entrevista | Aura Desarrollos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
-    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
-    @media(max-width:768px) { .page { padding:24px 16px; } }
-    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
-    .logos img:first-child { height:24px; }
-    .logos img:last-child { height:56px; }
-    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
-    .back-link:hover { color:var(--lcg-dark); }
-    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
-    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
-    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
-    .header-meta { font-size:14px; color:var(--text-light); }
-    .pilar-section { margin-bottom:32px; }
-    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
-    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
-    .tag-critical { background:#FFEBEE; color:var(--red); }
-    .tag-warning { background:#FFF3E0; color:var(--amber); }
-    .tag-good { background:#E8F5E9; color:#2E7D32; }
-    .tag-functional { background:#F5F5F5; color:#616161; }
-    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
-    .finding strong { color:var(--text); }
-    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
-    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
-    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
-    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
-    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
-    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
-    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejecuci&oacute;n en Campo: Supervisi&oacute;n, Materiales y Reporte &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
 <script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
-<div class="page">
-  <div class="logos">
-    <img src="../assets/logo-lcg-dark.png" alt="LCG">
-    <img src="../assets/logo-aura.png" alt="Aura">
-  </div>
-  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
-  <div class="header">
-    <div class="header-label">Entrevista del Prediagnóstico</div>
-    <h1>Juan Higinio Contreras Navarro &mdash; - Jefe de Obra</h1>
-    <div class="header-meta">2026-04-09 · ~1h · Presencial (Tampico)</div>
-  </div>
-  <div class="pilar-section"><div class="pilar-title">P3 -- Planeacion &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Sin programa maestro formal:</strong> Juan no tiene un programa de obra definido. Planifica sobre la marcha basandose en su experiencia constructiva: &ldquo;no tenemos un programa asi bien bien bien definido. Debe de haber pero yo no tengo asi para llevarlo a como debe ser.&rdquo;</div>
-<div class="finding"><strong>Planeacion semanal informal:</strong> Las prioridades semanales se definen en juntas matutinas (lunes o sabado previo) donde Juan comunica verbalmente a sus ingenieros que actividades priorizar segun compromisos. No queda registro escrito.</div>
-<div class="finding"><strong>Presupuesto desconectado de campo:</strong> Juan no participa en la elaboracion ni seguimiento del presupuesto. Lo manejan Carla (Subdirectora SC), Paco (Subdirector Operaciones) y Jorge Garcia (Jefe de Planeacion y Costos). Juan no tiene visibilidad sobre el avance en costos.</div>
-<div class="finding"><strong>Error en presupuestacion evidenciado:</strong> Se presupuestaron partidas por debajo del costo real de mercado (barda nave B, rampas niveladoras). Cuando llegaron cotizaciones reales, no cuadraban con el presupuesto, lo que genero 2 meses de retraso por indecision sobre contratista. Juan: &ldquo;dile a lo que en verdad cueste y lo que en verdad tenemos que pagar... no me esten gastando todo ese tiempo diciendo que todo esta muy caro.&rdquo;</div>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Ejecuci&oacute;n en Campo:<br>Supervisi&oacute;n, Materiales y Reporte</h1>
+                <p class="cover-subtitle">El Jefe de Obra revela cadena de mando rota, ingenier&iacute;a incompleta al arrancar, conflictos entre contratistas y experiencia profesional desaprovechada</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Juan Higinio Contreras Navarro, Jefe de Obra</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">9 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>El Jefe de Obra revela cadena de mando rota, ingenier&iacute;a incompleta al arrancar, conflictos entre contratistas y experiencia profesional desaprovechada</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Bit&aacute;cora de obra</div></div>
+<div class="kpi-item"><div class="kpi-value red">0</div><div class="kpi-label">Medici&oacute;n de rendimientos</div></div>
+<div class="kpi-item"><div class="kpi-value amber">3</div><div class="kpi-label">Supervisores para 2 naves grandes</div></div>
+<div class="kpi-item"><div class="kpi-value red">CR&Iacute;TICO</div><div class="kpi-label">Ingenier&iacute;a incompleta al arrancar</div></div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P4 -- Ingenieria &amp; Diseno <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Ingenieria incompleta al arrancar obra:</strong> Juan recibe planos solo de cimentacion y estructura (de la ingenieria conceptual de &ldquo;los de Mexico&rdquo;). No tiene planos arquitectonicos, electricos ni de instalaciones especiales. Esto genera que contratistas (ej. Serapio para electrica) esten trabajando sin planos aprobados.</div>
-<div class="finding"><strong>Imposibilidad de estimar trabajos sin ingenieria:</strong> &ldquo;Como le voy a pagar [al contratista electrico], no se quiere bajar [de precio]... y los planos? Ni idea.&rdquo; No puede comparar avance real contra lo que deberia llevar porque no existe la referencia de ingenieria.</div>
-<div class="finding"><strong>Desconexion entre ingenieria conceptual y de detalle:</strong> Existen dos paquetes de ingenieria que no coinciden entre si. Juan tuvo que adoptar la version &ldquo;revision cero&rdquo; (la de Mexico) como base para construccion, pero le faltan disciplinas completas.</div>
-<div class="finding"><strong>Sin planos As-Built:</strong> No se estan generando planos As-Built durante la construccion. Juan advierte el riesgo a futuro: si el dueno vende la nave en 10-15 anos, no tendran documentacion de lo instalado (drenaje, electrico, tierras).</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Ingenier&iacute;a Incompleta al Arrancar</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Solo planos de cimentaci&oacute;n y estructura</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Juan recibe planos solo de cimentaci&oacute;n y estructura. No tiene planos arquitect&oacute;nicos, el&eacute;ctricos ni de instalaciones especiales. Contratistas trabajando sin planos aprobados. Imposible estimar trabajos sin referencia de ingenier&iacute;a.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P5 -- Compras &amp; Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Retraso por indecision en contratacion:</strong> El caso mas critico: 2 meses de retraso en nave B (barda y rampas niveladoras) porque no se definia el contratista. Se cotizaba repetidamente sin cerrar. &ldquo;Estamos cotizando y estamos cotizando otro mes que estamos cotizando.&rdquo;</div>
-<div class="finding"><strong>Suministro de materiales con friccion:</strong> Aunque Juan reporta que el suministro de estructura y obra civil tiene bajo porcentaje de paro (~10% estructura, ~3% obra civil), la gestion de materiales pasa por Jorge Garcia, y la comunicacion es por telefono/WhatsApp informal.</div>
-<div class="finding"><strong>Contratistas sin control documental:</strong> Juan tiene ~8-9 contratistas entre las dos naves. A varios los conoce solo por nombre de pila, no por razon social. Un contratista de techado llego a pedir estimacion y Juan no sabia ni quien era ni que orden de compra tenia.</div>
-<div class="finding"><strong>Modelo hibrido mano de obra/materiales sin claridad:</strong> Algunos contratistas son solo mano de obra (Aura compra materiales), otros traen todo. No hay un estandar definido; se decide caso por caso para &ldquo;economizar&rdquo;.</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Dos paquetes de ingenier&iacute;a que no coinciden</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Existen dos versiones que no coinciden entre s&iacute;. Juan adopt&oacute; la &ldquo;revisi&oacute;n cero&rdquo; como base para construcci&oacute;n, pero le faltan disciplinas completas. Sin planos As-Built.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P6 -- Ejecucion de Obra <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Estructura de supervision insuficiente:</strong> Juan tiene 3 ingenieros (Jorge, Javier, Alan) para 2 naves grandes (nave A: ~180x80m, nave B: ~216x80m + anexo 80x80m). Javier &ldquo;no se da abasto&rdquo; por el tamano de las obras. A Alan lo &ldquo;entretienen mucho&rdquo; con compras y &ldquo;misiones imposibles&rdquo; (instrucciones directas de superiores que desvian su foco).</div>
-<div class="finding"><strong>Cadena de mando rota -- instrucciones directas a ingenieros:</strong> Carla (Subdirectora SC) y Paco dan instrucciones directas a los ingenieros de Juan sin pasar por el. Alan recibe tareas que Juan desconoce, generando conflictos de prioridad y confusion: &ldquo;empiezan a dar ordenes que yo no tengo ni idea.&rdquo;</div>
-<div class="finding"><strong>Conflictos entre contratistas en sitio:</strong> Sin una secuencia constructiva formal ni programa, los contratistas se estorban entre si. Un contratista necesita un area pero otro esta ahi. &ldquo;Se me entorpece el proceso... y se me pelean entre contratistas.&rdquo;</div>
-<div class="finding"><strong>Avance real por debajo de compromisos:</strong> Nave B (la de mayor compromiso) anda en ~60% de avance. Nave A en ~75% fisicamente.</div>
-<div class="finding"><strong>Sin medicion de rendimientos:</strong> No se miden metros cuadrados por dia, kilos montados por jornada ni ningun indicador de productividad por cuadrilla.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Cadena de Mando Rota</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Instrucciones directas a ingenieros sin pasar por Juan</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Karla y Paco dan instrucciones directas a los ingenieros de Juan. Alan recibe tareas que Juan desconoce, generando conflictos de prioridad. Juan lo ha escalado 2-3 veces, la pr&aacute;ctica se repite.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P7 -- Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Reporteria exclusivamente por WhatsApp:</strong> Toda la comunicacion de avance de obra se maneja en 4 grupos de WhatsApp: 1. <strong>Grupo con Paco (Subdirector)</strong>: Reporte diario de Juan con fotos y texto de actividades relevantes. Se envia todos los dias, incluso sabado/domingo, entre 9-10pm. 2. <strong>Saarobi Fotos</strong>: Grupo donde se suben 30-40 fotos diarias de todas las actividades y contratistas. Sin descripcion, porcentaje ni contexto -- solo fotos. 3. <strong>Saarobi Obras</strong>: Grupo de instrucciones. Carla da directrices operativas. Participan Juan, supervisores, Itzi, Jorge, Carla. 4. <strong>Grupo por obra con contratista</strong>: Coordinacion directa con contratista estructural principal.</div>
-<div class="finding"><strong>Sin bitacora de obra:</strong> No existe bitacora de obra formal.</div>
-<div class="finding"><strong>Sin tablero de control:</strong> No hay seguimiento de avance fisico vs programado en ningun sistema. Juan no tiene visibilidad del avance en costos.</div>
-<div class="finding"><strong>Reporte fotografico abandonado:</strong> Juan intento implementar un reporte semanal formal (tipo reporte de proyecto con avance, riesgos, fuerza de trabajo, fotos por actividad) que traia de su experiencia previa (Constructora Aguila). Lo empezo a hacer con sus ingenieros pero &ldquo;vi que no les interesa, no quieren llevar esto, pues no lo llevo.&rdquo;</div>
-<div class="finding"><strong>Juan tiene experiencia en control profesional:</strong> Trajo formatos de reportes semanales con: hitos con % programado vs ejecutado, avance financiero (programado vs gastado), actividades completas/en progreso/retrasadas, situacion contractual, eventos importantes, riesgos potenciales, fuerza de trabajo. Todo esto lo dejo de hacer porque la empresa no lo pidio ni lo valoro. Compartio el formato con Alfredo para referencia.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Conflictos entre contratistas en sitio</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Sin secuencia constructiva formal ni programa, los contratistas se estorban: un contratista necesita un &aacute;rea pero otro est&aacute; ah&iacute;. &ldquo;Se me entorpece el proceso... y se me pelean entre contratistas.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">P8 -- Entrega &amp; Calidad <span class="pilar-tag tag-warning">Dolor alto</span></div>
-<div class="finding"><strong>Sin proceso de entrega formal:</strong> No hay formato de aceptacion de trabajos de contratistas. Juan revisa visualmente (ej. rampas niveladoras) y hace observaciones verbales, pero no hay punch list ni acta de aceptacion parcial.</div>
-<div class="finding"><strong>Juan tiene experiencia en calidad:</strong> Fue jefe de calidad en proyectos anteriores. Tiene punch lists y formatos de su experiencia pasada pero no los ha implementado en Aura porque &ldquo;no me lo pidieron.&rdquo;</div>
-<div class="finding"><strong>Sin validacion de alcance contractual:</strong> No se compara lo entregado por el contratista contra la requisicion, la orden de compra y el alcance original. Juan describe el proceso ideal (requisicion vs OC vs entregable vs aceptacion) pero reconoce que &ldquo;aqui no lo hacemos.&rdquo;</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Reporteo Abandonado por Falta de Demanda</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Todo por WhatsApp: 4 grupos sin estructura</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Reporte diario con fotos y texto a Paco. 30-40 fotos diarias sin descripci&oacute;n, porcentaje ni contexto. Sin bit&aacute;cora de obra formal. Sin tablero de control. Sin seguimiento de avance f&iacute;sico vs. programado.</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">S2 -- Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
-<div class="finding"><strong>Equipo de campo reducido para el volumen:</strong> 3 ingenieros para 2 naves industriales de gran escala. Javier saturado; Alan desviado con tareas fuera de su rol.</div>
-<div class="finding"><strong>Sin retroalimentacion formal:</strong> No existe un espacio donde el equipo de campo proponga mejoras al proceso constructivo o de a la empresa retroalimentacion estructurada.</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Experiencia profesional desaprovechada</div>
+        <div class="finding-dimension oportunidad">Oportunidad</div>
+    </div>
+    <div class="finding-body">Juan ten&iacute;a formatos de reportes semanales con hitos, avance financiero, actividades, riesgos y fuerza de trabajo. Los dej&oacute; de usar porque la empresa no lo pidi&oacute; ni lo valor&oacute;: &ldquo;vi que no les interesa, pues no lo llevo.&rdquo;</div>
 </div>
-<div class="pilar-section"><div class="pilar-title">TX -- Gobernanza <span class="pilar-tag tag-critical">CRITICO</span></div>
-<div class="finding"><strong>Lineas de autoridad cruzadas:</strong> Carla y Paco dan instrucciones directas a los ingenieros de Juan, saltandose la cadena de mando. Juan lo ha escalado 2-3 veces, Carla reconoce el problema momentaneamente pero la practica se repite.</div>
-<div class="finding"><strong>Roles difusos entre campo y oficina:</strong> No queda claro quien decide la secuencia constructiva, quien asigna contratistas a frentes, ni quien gestiona la ingenieria faltante. Las decisiones se toman de forma reactiva.</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">No tenemos un programa as&iacute; bien bien bien definido. Debe de haber pero yo no tengo as&iacute; para llevarlo a como debe ser.</div>
+    <div class="verbatim-source">&mdash; Juan Contreras, sobre planeaci&oacute;n de obra</div>
 </div>
-<div class="quotes-section">
-<div class="quotes-title">Citas Textuales Relevantes</div>
-<div class="quote"><div class="quote-text">&ldquo;No tenemos un programa asi bien bien bien definido. Debe de haber pero yo no tengo asi para llevarlo a como debe ser." -- Sobre planeacion de obra&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Nunca yo obtuve la informacion de tipo ingenieria del taller... principal... necesitamos para tratar y construir." -- Sobre ingenieria incompleta al arrancar&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Como le voy a pagar [al contratista electrico]... y los planos? Ni idea, ahi esta ahorita." -- Sobre contratistas trabajando sin planos&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Se me entorpece el proceso... y se me pelean entre contratistas." -- Sobre conflictos por falta de secuencia constructiva&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Empiezan a dar ordenes que yo no tengo ni idea." -- Sobre la cadena de mando rota&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Estamos cotizando y estamos cotizando otro mes que estamos cotizando... pongan la cabeza para que le de [a Vidal] el pollo lazo, pero no me esten gastando todo ese tiempo." -- Sobre el retraso de 2 meses por indecision en compras&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo lo empece a hacer aqui con los muchachos pero despues vi que no les interesa, no quieren llevar esto, pues no lo llevo, mejor me dedico a supervisar." -- Sobre el reporte semanal profesional que abandono&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Yo deberia tener un formato que entrega [aceptacion de] estos equipos. No lo hice. Por que? Pues porque tu no me [lo pidieron]." -- Sobre la falta de proceso de entrega/calidad&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;He sido jefe de calidad, tengo presentaciones..." -- Sobre su experiencia previa que no se aprovecha&rdquo;</div></div>
-<div class="quote"><div class="quote-text">&ldquo;Para que lo haces venir [al contratista]? No le tengo informacion, no le tengo materiales." -- Sobre la descoordinacion entre ingenieria, compras y campo&rdquo;</div></div>
+<div class="verbatim">
+    <div class="verbatim-text">C&oacute;mo le voy a pagar al contratista el&eacute;ctrico... y los planos? Ni idea.</div>
+    <div class="verbatim-source">&mdash; Juan Contreras, sobre ingenier&iacute;a incompleta</div>
 </div>
-
-  <div class="footer">
-    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
-    <span>Abril 2026</span>
-  </div>
+<div class="verbatim">
+    <div class="verbatim-text">Vi que no les interesa, no quieren llevar esto, pues no lo llevo.</div>
+    <div class="verbatim-source">&mdash; Juan Contreras, sobre reportes formales abandonados</div>
 </div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
 </body>
 </html>
