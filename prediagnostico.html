@@ -659,6 +659,118 @@ h4.sub-heading {
 }
 .page-logos img.logo-lcg { height: 28px; }
 .page-logos img.logo-aura { height: 68px; }
+
+/* ============================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   No cambia nada en desktop, solo adapta para pantallas chicas
+   ============================================================ */
+@media (max-width: 768px) {
+  .content-page { padding: 24px 16px; }
+  .section-title { font-size: 24px; }
+  .section-subtitle { font-size: 13px; }
+  .section-number { font-size: 11px; }
+
+  /* Grids de 2 columnas → 1 columna */
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Grids de 3 columnas → 1 columna */
+  [style*="grid-template-columns:repeat(3"],
+  [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Grids de 4 columnas → 2 columnas */
+  [style*="grid-template-columns:repeat(4"],
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Grids de 5 columnas → 2 columnas */
+  [style*="grid-template-columns:repeat(5"],
+  [style*="grid-template-columns: repeat(5"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* KPI banner → 2 columnas */
+  .kpi-banner { grid-template-columns: repeat(2, 1fr) !important; padding: 24px 16px; }
+  .kpi-value { font-size: 32px; }
+
+  /* Score grid → 3+2 o wrap */
+  .score-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Cadena de valor → vertical */
+  [style*="display:flex"][style*="align-items:stretch"][style*="justify-content:center"] {
+    flex-direction: column !important;
+  }
+  [style*="display:flex"][style*="align-items:stretch"] > div {
+    border-radius: 8px !important;
+    margin-left: 0 !important;
+    margin-bottom: 4px;
+  }
+  /* Ocultar flechas de la cadena en mobile */
+  [style*="border-left:12px solid"] {
+    display: none !important;
+  }
+
+  /* Tablas → scroll horizontal con indicador */
+  table { font-size: 12px !important; }
+  [style*="overflow-x:auto"] { -webkit-overflow-scrolling: touch; }
+
+  /* Matrices side-by-side → stack vertical */
+  [style*="grid-template-columns:1fr 1fr"][style*="gap:20px"],
+  [style*="grid-template-columns: 1fr 1fr"][style*="gap:20px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Finding cards */
+  .finding-card { margin: 12px 0; }
+  .finding-title { font-size: 15px; }
+  .finding-text { font-size: 13px; }
+
+  /* Verbatim quotes */
+  .verbatim { padding: 16px 20px; }
+  .verbatim-text { font-size: 16px; }
+
+  /* Cover */
+  .cover-stats { grid-template-columns: repeat(3, 1fr) !important; }
+  .cover-stat-value { font-size: 36px; }
+
+  /* Macro map navigation → hide on mobile */
+  .macro-map { display: none; }
+
+  /* Logos smaller on mobile */
+  .page-logos img.logo-lcg { height: 22px; }
+  .page-logos img.logo-aura { height: 48px; }
+
+  /* Brechas grid → 1 columna */
+  [style*="grid-template-columns:1fr 1fr"][style*="gap:8px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contractor matrix and portfolio table → smaller font */
+  [style*="font-size:12px"][style*="border-collapse"] { font-size: 11px !important; }
+  [style*="font-size:13px"][style*="border-collapse"] { font-size: 11px !important; }
+
+  /* Dark page conclusions → stack cards */
+  .content-page.dark [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Heatmap table → scroll */
+  [style*="min-width:900px"] { min-width: auto !important; }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .content-page { padding: 40px 40px; }
+
+  [style*="grid-template-columns:repeat(5"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
   </style>
 </head>
 <body>
