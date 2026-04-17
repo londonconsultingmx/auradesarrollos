@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge Eduardo García Sánchez — Entrevista | Aura Desarrollos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
+    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    @media(max-width:768px) { .page { padding:24px 16px; } }
+    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
+    .logos img:first-child { height:24px; }
+    .logos img:last-child { height:56px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
+    .back-link:hover { color:var(--lcg-dark); }
+    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
+    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
+    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .header-meta { font-size:14px; color:var(--text-light); }
+    .pilar-section { margin-bottom:32px; }
+    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
+    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+    .tag-critical { background:#FFEBEE; color:var(--red); }
+    .tag-warning { background:#FFF3E0; color:var(--amber); }
+    .tag-good { background:#E8F5E9; color:#2E7D32; }
+    .tag-functional { background:#F5F5F5; color:#616161; }
+    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
+    .finding strong { color:var(--text); }
+    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
+    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
+    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
+    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
+    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
+    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
+    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos">
+    <img src="../assets/logo-lcg-dark.png" alt="LCG">
+    <img src="../assets/logo-aura.png" alt="Aura">
+  </div>
+  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
+  <div class="header">
+    <div class="header-label">Entrevista del Prediagnóstico</div>
+    <h1>Jorge Eduardo García Sánchez &mdash; Jefe de Planeación y Costos</h1>
+    <div class="header-meta">2026-04-09 y 2026-04-13 (estimada) · Presencial (Tampico)</div>
+  </div>
+  <div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 1 — 2026-04-09 (~47 min) · Presencial (Tampico)</h2></div>
+<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-critical">CRÍTICO</span></div>
+<div class="finding"><strong>Requerimientos llegan informales:</strong> por plática en persona, a veces un plano adjunto por correo, a veces solo verbal. No existe formato de requerimiento ni brief escrito.</div>
+<div class="finding"><strong>Presupuesto paramétrico inicial</strong> con poca información: a veces solo metros cuadrados y sin especificaciones (altura, instalaciones). Se estima a un 80% de certeza.</div>
+<div class="finding"><strong>Presupuesto en Opus:</strong> Jorge arma el presupuesto operativo con Opus 2023. Desglosa por concepto (terracería, obra civil, acero, instalaciones).</div>
+<div class="finding"><strong>Doble captura obligatoria:</strong> el presupuesto que arma en Opus tiene que volver a armarse para subirlo a Odoo porque las estructuras no son compatibles. Trabaja un Excel intermedio, luego lo sube partida por partida a Odoo.</div>
+<div class="finding"><strong>Costos unitarios:</strong> usa 3 fuentes: (1) últimas compras en Odoo, (2) páginas web (Home Depot, proveedores), (3) cotizaciones directas por WhatsApp/correo. Si hay urgencia, no alcanza a cotizar todo y usa &ldquo;parecidos de mercado&rdquo;.</div>
+<div class="finding"><strong>Sin validación cruzada de ingeniería:</strong> el presupuesto no pasa por un proceso formal de revisión técnica con ingeniería. Correcciones se hacen ad-hoc.</div>
+<div class="finding"><strong>Márgenes estándar:</strong> 7% costo indirecto + 1.1% cuotas sindicales + utilidad variable 16-26%.</div>
+<div class="finding"><strong>Equipo:</strong> Jorge + Ing. Rodolfo (experiencia en instalaciones eléctricas). Jorge lleva parte mecánica y civil.</div>
+<div class="finding"><strong>Cálculos a mano:</strong> los volúmenes los calcula manualmente del plano en libreta, luego los pasa a Opus.</div>
+<div class="finding"><strong>Sin fechas en el presupuesto:</strong> el PIC no tiene programa de erogaciones ligado al cronograma.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Jorge es el contacto operativo con proveedores y contratistas</strong>, no el área de compras. Él cotiza, negocia, y a veces contacta directamente al proveedor para urgirlos sin esperar la orden de compra.</div>
+<div class="finding"><strong>Proceso de requisición:</strong> Jorge sube insumos a Odoo en Excel → pasa a Gabriela (auxiliar administrativo) → ella genera la requisición en el sistema → pasa por autorizaciones → compras emite la OC.</div>
+<div class="finding"><strong>Bypass frecuente:</strong> cuando hay urgencia, Jorge contacta directamente al proveedor y le dice que vaya agendando la entrega antes de que salga la OC formal.</div>
+<div class="finding"><strong>Contratistas:</strong> Jorge tiene un rango de contratistas. Les cede la obra, les compara precios, verifica que entren dentro del presupuesto de mano de obra. Asignación directa sin concurso formal.</div>
+<div class="finding"><strong>Cotizaciones por WhatsApp:</strong> proveedores como Cercamex le mandan cotizaciones por WhatsApp directamente.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Cambios no anticipados en obra:</strong> contratistas y proveedores le mandan ajustes sobre la marcha. &ldquo;Ya cuando me mandan el ajuste ya es como lo que sobre el tiempo de que hoy lo ocupa mañana.&rdquo;</div>
+<div class="finding"><strong>Sin visibilidad de avance de contratistas:</strong> Jorge no tiene conocimiento del avance de proveedores en obra hasta que le piden algo urgente.</div>
+<div class="finding"><strong>Control de inicio:</strong> un contratista no puede iniciar sin autorización de Jorge, porque si inician sin alinearse, generan problemas de coordinación.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
+<div class="finding"><strong>No hay comparación presupuesto vs real:</strong> cuando se le preguntó cómo va el avance económico contra el presupuesto, respondió: &ldquo;no sabemos&rdquo;.</div>
+<div class="finding"><strong>Odoo no cuadra:</strong> el reporte de Odoo de costos no coincide con el presupuesto original. Los montos no concuerdan. Jorge ha intentado buscar reportes pero no logra conciliar.</div>
+<div class="finding"><strong>Presupuesto muta en Odoo:</strong> conforme avanza la obra, se suben nuevos insumos y conceptos al ERP, por lo que el presupuesto en Odoo solo refleja lo que se ha ido comprando, no el total original.</div>
+<div class="finding"><strong>Sin módulo de control de presupuesto funcional:</strong> el módulo de &ldquo;contabilidad analítica&rdquo; en Odoo muestra un importe previsto vs derogado, pero Jorge dice que los números no cuadran.</div>
+<div class="finding"><strong>Ejemplo Pantaleón:</strong> el reporte muestra $29M de presupuesto y $154M de costo, que claramente no concuerda.</div>
+<div class="finding"><strong>Finanzas tiene "mejor vista" pero tampoco tienen comparación formal:</strong> Jorge refiere que quien lleva el seguimiento financiero &ldquo;más&rdquo; es finanzas, pero no hay un solo lugar donde se compare PIC vs real.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Odoo como ERP:</strong> se usa para requisiciones, OC, proyectos. Pero hay limitaciones graves:</div>
+<div class="finding">Presupuesto tiene que subirse en formato específico diferente al de Opus</div>
+<div class="finding">No todos los usuarios tienen los mismos permisos (Jorge no puede generar requisiciones, necesita a Gabriela)</div>
+<div class="finding">Reportes de presupuesto no concuerdan con la realidad</div>
+<div class="finding"><strong>Opus 2023:</strong> herramienta de presupuestación de construcción. No integrada con Odoo.</div>
+<div class="finding"><strong>Excel como puente:</strong> es el intermediario obligatorio entre Opus y Odoo.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Responsabilidades difusas:</strong> Jorge cotiza, negocia con proveedores/contratistas, sube presupuestos al ERP, y da seguimiento a entregas — funciones que deberían estar distribuidas entre Planeación, Compras y Control.</div>
+<div class="finding"><strong>Sin proceso formal de órdenes de cambio:</strong> los cambios llegan verbales o por correo y se van ajustando sobre la marcha.</div>
+</div>
+<div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;Muchas veces el requerimiento es en físico, hojas, o nos hacen el comentario porque lo contamos en tu libreta.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;A veces no tenemos un proyecto ejecutivo definido y nada más es como que hay una idea general.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;No tengo el conocimiento de cómo van los proveedores en la obra o su avance y ya cuando me mandan el ajuste ya es como lo que sobre el tiempo.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre Odoo vs presupuesto: "Tampoco mis compuestos [...] aquí está algo más negativo [...] no concuerda.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Tenemos que volver a armar el presupuesto específicamente para la plataforma [Odoo] debido a que no funciona un presupuesto comercial.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Si no le digo que puedan iniciar a un contratista porque nos llegó a pasar de que si ellos iniciaban [...] yo tengo esto con esto y con otro y ellos iniciaron y no puedes iniciar.&rdquo;</div></div>
+</div>
+<div class="session-divider" style="margin:32px 0 24px;padding:12px 0;border-top:2px solid var(--lcg-teal);"><h2 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--lcg-dark);margin:0;">Sesión 2 — 2026-04-13 (estimada) (~60 min) · Sesión de profundización — Presupuestos de Obra</h2></div>
+<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-critical">CRÍTICO</span></div>
+<div class="finding"><strong>Sin dueño formal del presupuesto:</strong> Jorge no interpreta que haya un &ldquo;dueño&rdquo; del presupuesto como rol. Él y el Ing. Rodolfo los elaboran, Arq. Karla revisa, y finanzas recibe para solicitar recursos. No hay ownership definido del proceso end-to-end.</div>
+<div class="finding"><strong>Opus sin catálogo maestro de insumos:</strong> usan Opus para presupuesto y precios unitarios, pero no existe un catálogo general de precios actualizado. Cada presupuesto parte de cero o de trabajos básicos previos. Si el presupuesto tiene 3-6 meses de antigüedad, se actualizan insumos manualmente antes de ejecutar.</div>
+<div class="finding"><strong>Sin base de datos histórica de costos:</strong> no hay histórico consolidado. Para consultar precios pasados, Jorge debe buscar insumo por insumo en Odoo o en facturas. No hay un data lake de costos de proyectos cerrados.</div>
+<div class="finding"><strong>Herramienta ideal = catálogo vivo de insumos recurrentes</strong> con costos actualizados automáticamente. Esto confirma la carencia detectada en la primera entrevista.</div>
+<div class="finding"><strong>Iteraciones limitadas:</strong> cada presupuesto pasa por 2-3 revisiones de la Arq. Karla antes de aprobarse. No hay revisión técnica formal de ingeniería ni de compras.</div>
+<div class="finding"><strong>Cost breakdown llega a nivel de insumos básicos:</strong> cemento, arena, grava, acero, y mano de obra desglosada en cuadrillas o contratistas. Nivel de detalle adecuado en granularidad, pero sin liga a programa de erogaciones ni cronograma.</div>
+<div class="finding"><strong>Diseño primero, costo después:</strong> el presupuesto parte de un diseño base (sin ingenierías completas). Luego se revisa el costo y se busca ajustar hasta llegar al monto solicitado por el cliente. No hay Target Value Delivery ni presupuesto desde target cost.</div>
+<div class="finding"><strong>Sin evaluación sistemática de alternativas:</strong> no se evalúan alternativas de materiales o sistemas constructivos de forma rutinaria. Si se prueba un nuevo sistema, es por solicitud de la Arq. Karla, no por un proceso de ingeniería de valor.</div>
+<div class="finding"><strong>Jorge ha retado diseños de ingeniería:</strong> cuando propone alternativas económicas, las revisan con ingeniería y si pasan se implementan. Pero es reactivo e individual, no un proceso institucionalizado.</div>
+<div class="finding"><strong>Doble captura confirmada:</strong> la mayor frustración sigue siendo armar presupuestos 2 veces (Opus + Odoo). Consistente con hallazgo de primera entrevista.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P4 — Ingeniería &amp; Diseño <span class="pilar-tag tag-warning">Dolor medio</span></div>
+<div class="finding"><strong>Ingeniería no valida presupuesto:</strong> ingeniería envía planos generales o detalles cuando los tiene, Jorge calcula volumetría, pero ingeniería no valida las cotizaciones ni los catálogos resultantes.</div>
+<div class="finding"><strong>Información incompleta frecuente:</strong> muchas veces faltan detalles estructurales, rutas de instalaciones o ingenierías completas, lo que obliga a Jorge a asumir supuestos que pueden generar desviaciones.</div>
+<div class="finding"><strong>No hay mesa de trabajo conjunta:</strong> no existe un momento formal donde presupuesto, ingeniería y compras se sienten juntos a revisar. Confirma silos operativos detectados en primera entrevista.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
+<div class="finding"><strong>Compras no participa en validación de precios del presupuesto:</strong> cero participación de compras en la etapa de presupuestación. Jorge cotiza directamente con proveedores por necesidad de velocidad.</div>
+<div class="finding"><strong>Sistema de compras como cuello de botella:</strong> el proceso de compras es &ldquo;demasiado tardado&rdquo;, requiere demasiadas autorizaciones. Se pueden perder solicitudes si no se les da seguimiento activo con compras.</div>
+<div class="finding"><strong>Sin visibilidad de seguimiento:</strong> Jorge no tiene acceso a un seguimiento claro de cada solicitud de compra en el sistema. No sabe en qué paso está su requisición.</div>
+<div class="finding"><strong>Contacto directo con proveedores por urgencia:</strong> cuando los tiempos apremian, Jorge contacta proveedores directamente, se toman precios de compras recientes en Odoo o facturas. Solo si hay tiempo suficiente, se canaliza a compras. Confirma bypass reportado en primera entrevista.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor medio</span></div>
+<div class="finding"><strong>Desviaciones principales en tiempos de ejecución:</strong> las mayores desviaciones presupuesto vs real se dan por extensión de tiempos de obra, lo que incrementa renta de equipos y compra de insumos adicionales. No es tanto error de precio unitario, sino de duración.</div>
+<div class="finding"><strong>Órdenes de cambio formalizándose:</strong> Jorge creó un formato de orden de cambio para modificaciones durante ejecución. Los trabajos adicionales generan un presupuesto separado. Es un avance, pero aún incipiente.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRÍTICO</span></div>
+<div class="finding"><strong>Sin comparación presupuesto vs real en proyectos grandes:</strong> en presupuestos grandes no se ha hecho comparación de presupuesto original contra costo real al cierre. En proyectos chicos o catálogos derivados, sí se revisa y logran reducir 5-7% por negociación.</div>
+<div class="finding"><strong>Seguimiento financiero delegado a finanzas:</strong> el seguimiento financiero mensual se reporta a la Arq. Karla por parte de finanzas. Jorge no tiene visibilidad directa del avance económico de sus presupuestos.</div>
+<div class="finding"><strong>Detección de sobredimensionamiento en Pantaleón ($25M):</strong> caso emblemático. El presupuesto fue elaborado por el contratista externo (no por Jorge). Jorge detectó que los kg de ingeniería no concordaban con los kg en catálogo ni con la solicitud de material. Al despiezar cada elemento y comparar cálculo vs solicitud, encontró una diferencia de ~60 toneladas de acero = $25M de ahorro. Escaló a Paco y Karla. Se repitió en Nave A con 23 toneladas adicionales.</div>
+<div class="finding"><strong>Sin lecciones aprendidas documentadas:</strong> no se documentan formalmente, aunque sí se toman en cuenta experiencias anteriores al presupuestar. Conocimiento tácito, no sistematizado.</div>
+<div class="finding"><strong>Cada proyecto arranca desde cero:</strong> no hay retroalimentación formal de costos reales de cierre hacia el siguiente presupuesto, salvo que sea un presupuesto bancario donde deben ajustarse a lo solicitado.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-functional">Referencia</span></div>
+<div class="finding"><strong>Finanzas como receptor pasivo del presupuesto:</strong> recibe el presupuesto aprobado para solicitar recursos. El seguimiento mensual lo hace finanzas y lo reporta a la Arq. Karla, pero no hay un ciclo de retroalimentación hacia planeación.</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Opus sin integración con Odoo:</strong> confirmada la doble captura. Opus para presupuesto operativo, luego rearmado manual para Odoo.</div>
+<div class="finding"><strong>Odoo + Excel + Opus:</strong> el stack de herramientas no está integrado. Excel sigue siendo el puente obligatorio.</div>
+<div class="finding"><strong>Odoo sin actualización automatizada de precios:</strong> la matriz de insumos se actualiza manualmente en cada presupuesto. No hay feed automático de precios de mercado.</div>
+</div>
+<div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre dueño del presupuesto: "No entiendo bien a qué refiere la pregunta, quién los realiza soy yo o el Ing. Rodolfo, son revisados por la Arq. Karla y pasados a finanzas para solicitar recursos.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre catálogo de precios: "No contamos con un catálogo general, los precios se realizan conforme a los requerimientos.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre participación de compras en presupuesto: "No, no tienen participación.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre mesa conjunta presupuesto-ingeniería-compras: "No, no hay ningún momento.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre comparación presupuesto vs real en proyectos grandes: "En presupuestos grandes no.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre lecciones aprendidas: "No se documentan, pero sí se toman en cuenta las situaciones de anteriores obras al momento de presupuestar.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre detección Pantaleón: "Detecté que los kilogramos de ingeniería no concordaban con los kilogramos en catálogo ni con la solicitud de material [...] encontré una diferencia de casi 60 toneladas de acero lo que nos llevó a los 25 millones de peso de ahorro.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre frustración principal: "El realizar los presupuestos 2 veces, una en Opus y luego arreglarlo para Odoo, además del sistema de compras que puede ser tardado.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre sistema de compras: "Es demasiado tardado y requiere demasiadas autorizaciones, además de que se pueden perder solicitudes si no se le da seguimiento con compras, y no tengo acceso al seguimiento claro de cada solicitud.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre herramienta ideal: "Sería una lista de insumos básicos/recurrentes que se mantenga con costos actualizados.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Sobre proceso diseño-costo: "Normalmente desde un diseño base (sin ingenierías), de ahí depende el proyecto se revisa el costo y se busca ajustar hasta llegar a un monto solicitado.&rdquo;</div></div>
+</div>
+
+  <div class="footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026</span>
+  </div>
+</div>
+</body>
+</html>

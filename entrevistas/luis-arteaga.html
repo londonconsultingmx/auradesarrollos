@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luis Alberto Arteaga Rocha — Entrevista | Aura Desarrollos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
+    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    @media(max-width:768px) { .page { padding:24px 16px; } }
+    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
+    .logos img:first-child { height:24px; }
+    .logos img:last-child { height:56px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
+    .back-link:hover { color:var(--lcg-dark); }
+    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
+    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
+    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .header-meta { font-size:14px; color:var(--text-light); }
+    .pilar-section { margin-bottom:32px; }
+    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
+    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+    .tag-critical { background:#FFEBEE; color:var(--red); }
+    .tag-warning { background:#FFF3E0; color:var(--amber); }
+    .tag-good { background:#E8F5E9; color:#2E7D32; }
+    .tag-functional { background:#F5F5F5; color:#616161; }
+    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
+    .finding strong { color:var(--text); }
+    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
+    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
+    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
+    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
+    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
+    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
+    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos">
+    <img src="../assets/logo-lcg-dark.png" alt="LCG">
+    <img src="../assets/logo-aura.png" alt="Aura">
+  </div>
+  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
+  <div class="header">
+    <div class="header-label">Entrevista del Prediagnóstico</div>
+    <h1>Luis Alberto Arteaga Rocha &mdash; Gerente de TI</h1>
+    <div class="header-meta">2026-04-06 · ~1h 1 min · Virtual (Teams)</div>
+  </div>
+  <div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding">Aura Desarrollos opera con <strong>Google Workspace</strong> (27 cuentas) como suite principal de productividad y colaboracion en linea</div>
+<div class="finding">Tambien cuentan con licencias de <strong>Microsoft 365</strong>, pero se usan de manera separada, no integrada con Google</div>
+<div class="finding">Se ha migrado de Excel a Google Sheets como herramienta principal de hojas de calculo, aunque usuarios aun resisten el cambio por la visibilidad de formulas en Excel</div>
+<div class="finding">Implementacion de <strong>Odoo</strong> como ERP, iniciada el ano pasado con el distribuidor <strong>XDU Mexico</strong> (basado en Guadalajara)</div>
+<div class="finding">Odoo es codigo abierto; se complementa con un desarrollador externo para personalizaciones</div>
+<div class="finding">Modulos implementados incluyen ordenes de compra con flujos de autorizacion (gerente de area + subdireccion de Aura Desarrollos)</div>
+<div class="finding">La base de datos del ERP esta dividida en: (1) base de Petro Plus (gasolineras), (2) base de comercializadora, (3) base de Aura Desarrollos</div>
+<div class="finding">Dentro de Aura Desarrollos existen <strong>dos empresas</strong>: una para <strong>parques industriales</strong> y otra para <strong>naves industriales</strong>; cada una con su propio presupuesto y centros de costo</div>
+<div class="finding">Nivel de adopcion aun en fase temprana para Aura Desarrollos; el ERP tiene mas madurez en Petro Plus</div>
+<div class="finding">Utilizan <strong>Opus</strong> (lider en Mexico para costos de construccion) con version actualizada</div>
+<div class="finding">Recientemente migraron Opus a un <strong>servidor nuevo</strong> para soportar trabajo concurrente de multiples usuarios</div>
+<div class="finding">Actualmente hay <strong>2 personas trabajando simultaneamente</strong> en Opus con licencias y servidor dedicado</div>
+<div class="finding">Partner de soporte: empresa de Monterrey especializada en Opus</div>
+<div class="finding">Existe un desarrollo que conecta Opus con el CRM de Odoo</div>
+<div class="finding"><strong>AutoCAD</strong>, <strong>SketchUp</strong>, <strong>Civil CAD</strong> — licencias gestionadas por TI</div>
+<div class="finding">Partner de Autodesk: <strong>Garza Cadisa</strong> (empresa de Tijuana)</div>
+<div class="finding">Antes se compraban licencias con un distribuidor local sin soporte adecuado; ahora TI gestiona directamente la consola de usuarios</div>
+<div class="finding">Se han adquirido equipos especializados para diseno: procesadores i7, 32 GB RAM para la disenadora de proyectos y el equipo de renderizacion</div>
+<div class="finding">Herramienta de formularios adquirida en 2023, ~5,000 pesos anuales, capacidad de 100 formularios</div>
+<div class="finding">Se usa para: solicitud de efectivo para obra, solicitudes de activos, autorizaciones con validaciones y notificaciones automaticas</div>
+<div class="finding">Genera base de datos consultable con graficas e informacion consolidada</div>
+<div class="finding">Flujo ejemplo: usuario solicita efectivo para obra, indica proyecto, monto, forma de pago, fecha requerida, adjunta factura; pasa por autorizacion de Finanzas (contadora Clara) con notificacion automatica al solicitante</div>
+<div class="finding">Ha eliminado procesos manuales en Excel y correos para solicitudes de recursos</div>
+<div class="finding">Utilizan <strong>Looker Studio</strong> (Google) como herramienta de BI</div>
+<div class="finding">No existe un set de indicadores digitales especificos para Aura Desarrollos; los indicadores son generales del grupo</div>
+<div class="finding">En Petro Plus si hay indicadores maduros (ventas, despachos, precios competencia)</div>
+<div class="finding">Luis ha desarrollado integraciones tipo PHP con extraccion de base de datos para dashboards operativos del grupo gasolinero</div>
+<div class="finding">Enlace principal: <strong>fibra de 100 Mbps</strong>, en proceso de migracion a <strong>500 Mbps</strong></div>
+<div class="finding">Enlace secundario: <strong>Telmex</strong></div>
+<div class="finding">Enlace terciario: <strong>Starlink</strong> (satelital) como respaldo</div>
+<div class="finding">Triple redundancia implementada por la criticidad del servidor central que comunica estaciones de despacho de gasolineras</div>
+<div class="finding">Infraestructura robusta y bien planificada para soportar operaciones</div>
+<div class="finding">TI gestiona camaras de seguridad y control de acceso para parques industriales y estaciones</div>
+<div class="finding">Se hace analisis de requerimientos (identificacion de placas, rostros, tipos de camara) antes de proponer soluciones</div>
+<div class="finding">Presupuestos de seguridad se presentan como proyectos de inversion</div>
+<div class="finding">Se reconoce una <strong>brecha de seguridad</strong>: el esquema de ciberseguridad no esta actualizado</div>
+<div class="finding">Frameworks usados son obsoletos; la auditoria externa (CNBV o similar de sector financiero) se percibe como burocracia administrativa sin valor real</div>
+<div class="finding">Luis identifica que la amenaza real esta en seguridad de internet y bloqueos, no en controles documentales anticuados</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P3 — Planeacion y Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding">En Aura Desarrollos <strong>no existe un sistema de gestion de proyectos</strong> conectado al ERP para seguimiento de avance de obra</div>
+<div class="finding">El control de avance fisico vs. economico (curva S de construccion) <strong>se lleva en archivos Excel</strong> por el equipo de obra</div>
+<div class="finding">No hay trazabilidad digital entre presupuesto, proveeduria y avance de obra</div>
+<div class="finding">Los centros de costo del ERP no estan conectados al seguimiento de avance de proyecto</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P5 — Compras y Abastecimiento <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding">Ordenes de compra en Odoo con flujo de autorizacion (gerente + subdireccion)</div>
+<div class="finding">Se implementaron validaciones y controles de cambio en el ERP para mayor control</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P6 — Ejecucion de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding">El seguimiento de obra se realiza en <strong>archivos Excel</strong> sin integracion al ERP ni a sistemas de diseno</div>
+<div class="finding">No existe digitalizacion del avance fisico de la obra; no hay visualizacion en tiempo real</div>
+<div class="finding">Luis tiene la vision y capacidad tecnica para implementar un panel de avance de obra similar al que tiene en Petro Plus (monitoreo de tanques en tiempo real), pero no se ha desarrollado para construccion</div>
+<div class="finding">Existe la idea de conectar SketchUp + ERP + un sistema tipo project para seguimiento digital de obra</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P7 — Control y Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding">No hay tablero de control digital para Aura Desarrollos</div>
+<div class="finding">Finanzas se queja de que los gastos no se asocian correctamente a proyectos (gasolina, materiales, etc.)</div>
+<div class="finding">Se hizo una extraccion puntual de base de datos con PHP para control de gastos en Petro Plus, pero no se ha replicado para Desarrollos</div>
+<div class="finding">La analitica de negocio en Aura Desarrollos es practicamente inexistente; en contraste, Petro Plus tiene dashboards de ventas, despachos, volumenes de tanques y precios de competencia</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S1 — Finanzas y Tesoreria <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding">Formulario digital de solicitud de efectivo para obra genera trazabilidad automatica</div>
+<div class="finding">Finanzas puede consultar cuanto se pidio por proyecto, por mes, con autorizaciones documentadas</div>
+<div class="finding">Elimina el proceso anterior de solicitar por correo y rendir en Excel</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding">TI gestiona arrendamiento de equipos a traves de financiera <strong>ADP</strong>; llevan 5 lotes de arrendamiento (~10 equipos)</div>
+<div class="finding">Se buscan equipos especializados para construccion y diseno (i7, RAM robusta)</div>
+<div class="finding">La nueva contratacion en TI (una persona ingreso hace un mes) esta enfocada en redes</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">TX — Gobernanza, Estructura y Modelo de Gestion <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Estructura de TI:</strong> Luis coordina 5 personas (incluida la nueva contratacion); solo <strong>1 persona</strong> esta dedicada a Aura Desarrollos</div>
+<div class="finding">Aproximadamente <strong>80% del tiempo de TI se dedica a Petro Plus</strong>, 15% a Aura Desarrollos, 5% a gasolineras independientes (GNL)</div>
+<div class="finding">TI reporta a <strong>Clara Medina</strong> (Subdirectora de SC) y para temas especificos de inversion directamente a Direccion General</div>
+<div class="finding">Luis envia reporte semanal por correo a direccion con avances y proyectos en curso</div>
+<div class="finding">Luis identifica que seria <strong>ideal tener una persona fija dedicada a Aura Desarrollos</strong>, especialmente para la vida de un proyecto de digitalizacion</div>
+<div class="finding">TI es percibido como soporte reactivo (&ldquo;cuando pasa algo, ven a sistemas&rdquo;) en lugar de habilitador estrategico</div>
+<div class="finding">Luis ha sido <strong>propositivo</strong>: muchos desarrollos se han hecho por iniciativa propia, no por peticion del usuario — identifica oportunidades y las propone</div>
+<div class="finding">Usuarios prefieren Excel sobre herramientas en linea porque &ldquo;la formula es mas visible&rdquo;</div>
+<div class="finding">Existe duplicacion de reportes: en Petro Plus, area comercial, operaciones y gerencia sacaban el mismo reporte de ventas del mismo sistema, cada quien con su formato</div>
+<div class="finding">TI ha tenido que intervenir para estandarizar y eliminar redundancias</div>
+</div>
+<div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;Nosotros lo que habiamos visto o hemos llevado a cabo con el inventario de implementacion del sistema, es en la parte de orden de compra [...] Ellos tienen unos archivos donde van dandole seguimiento [...] en Excel.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Lo que no se registra, no se mide [...] y vemos que es que lo que haces mucho, mucho trabajo.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Hoy en dia lo que ellos solicitan a nosotros mas que nada es que el equipo este al ciento [...] que la computadora, que soporte.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Yo creo que un 80% es para Petro Plus [...] un 15% es para desarrollos y un 5% para la GNL.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Es deseable tener una persona fija [...] pues si seria ideal.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Nos escucharon las finanzas que tenia ellos, que dice no le ponen a que impacta, que proyecto impacta, gasolina, si usaron.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Lo que hemos hecho es en base a lo que hemos visto, no peticion del usuario." (sobre desarrollo de dashboards y herramientas por iniciativa propia de TI)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Tienes la infraestructura, tienes el talento, tienes las herramientas [...] para poder digitalizar Aura Desarrollos con lo que tienes." (afirmacion del entrevistador validada por Luis)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Yo siento que no esta actualizado [...] son frameworks que ya no, en muchos casos, no aplican." (sobre ciberseguridad/auditoria)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Tenemos una herramienta que se llama Odoo [...] es una herramienta que les venimos investigando, que es de las 10 mejores principales a nivel mundial. La direccion nos hizo un esfuerzo.&rdquo;</div></div>
+</div>
+
+  <div class="footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026</span>
+  </div>
+</div>
+</body>
+</html>

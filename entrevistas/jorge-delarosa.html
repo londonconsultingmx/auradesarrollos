@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge Luis de la Rosa Vázquez — Entrevista | Aura Desarrollos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
+    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    @media(max-width:768px) { .page { padding:24px 16px; } }
+    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
+    .logos img:first-child { height:24px; }
+    .logos img:last-child { height:56px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
+    .back-link:hover { color:var(--lcg-dark); }
+    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
+    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
+    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .header-meta { font-size:14px; color:var(--text-light); }
+    .pilar-section { margin-bottom:32px; }
+    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
+    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+    .tag-critical { background:#FFEBEE; color:var(--red); }
+    .tag-warning { background:#FFF3E0; color:var(--amber); }
+    .tag-good { background:#E8F5E9; color:#2E7D32; }
+    .tag-functional { background:#F5F5F5; color:#616161; }
+    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
+    .finding strong { color:var(--text); }
+    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
+    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
+    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
+    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
+    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
+    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
+    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos">
+    <img src="../assets/logo-lcg-dark.png" alt="LCG">
+    <img src="../assets/logo-aura.png" alt="Aura">
+  </div>
+  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
+  <div class="header">
+    <div class="header-label">Entrevista del Prediagnóstico</div>
+    <h1>Jorge Luis de la Rosa Vázquez &mdash; Jefe de Compras</h1>
+    <div class="header-meta">2026-04-10 · ~51 min · Presencial (Tampico)</div>
+  </div>
+  <div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
+<div class="finding"><strong>86% de requisiciones urgentes o altas:</strong> De 895 OC analizadas (oct 2025 - abr 2026), 480 son urgentes (1 día de trámite), 286 altas (3 días), solo 129 normales (7 días). El 14% es normal. Esto elimina toda capacidad de negociación y optimización de costos. [CRITICO]</div>
+<div class="finding"><strong>Compras no cotiza la mayoría de las OC:</strong> En Aura Desarrollos, un 90-95% de las requisiciones llegan con proveedor ya asignado por obra/operaciones. Compras solo cotiza un porcentaje mínimo. El área no participa en la selección de proveedores ni en la negociación de los contratos más grandes (acero, concreto, contratistas). [CRITICO]</div>
+<div class="finding"><strong>No se comparte programa de insumos a compras:</strong> Obra no entrega programa de obra ni programa de materiales. Compras entra al proceso hasta que llega la requisición en Odoo. No hay visibilidad anticipada de necesidades. [CRITICO]</div>
+<div class="finding"><strong>Requisiciones llegan fuera de tiempo:</strong> Ejemplo concreto: requisición capturada a las 1:45 pm pero que llega a compras a las 5:28 pm con fecha de pago para ese mismo día (9 de abril). Es operativamente imposible gestionar. [Dolor alto]</div>
+<div class="finding"><strong>Negociaciones verbales sin contrato:</strong> De los 436 proveedores registrados, muy pocos tienen contrato formal. Las negociaciones se hacen verbales. Solo se mencionó Atile (acero) como proveedor con contrato (aún en proceso de firma). [CRITICO]</div>
+<div class="finding"><strong>Alta de proveedores incompleta:</strong> Por la premura, se dan de alta proveedores sin documentación completa (faltan REPSE, constancias fiscales, opinión de cumplimiento). Compras señala las deficiencias pero la urgencia del servicio obliga a aceptar proveedores con expediente incompleto. [Dolor alto]</div>
+<div class="finding"><strong>Mayoría de proveedores sin REPSE:</strong> Tema recurrente y de riesgo legal/fiscal. Muchos proveedores activos no cuentan con REPSE vigente. [CRITICO]</div>
+<div class="finding"><strong>Padrón de proveedores:</strong> 436 proveedores y contactos en Odoo para Aura Desarrollos. Los más representativos son: Atile (acero para naves), GCC (concreto), triturados, contratistas varios, Cantille. [Funcional]</div>
+<div class="finding"><strong>Equipo de compras reducido:</strong> Jorge (Jefe), Rosario (Coordinadora, maneja la mayoría de compras operativas del parque/Pantaleón/Roble), Eder (apoya en Auticenter, edificios, servicios recurrentes). [Funcional]</div>
+<div class="finding"><strong>Criterio de cotización dominado por disponibilidad, no por precio:</strong> Cuando se permite cotizar, el criterio principal es disponibilidad inmediata y tiempo de entrega, no el mejor precio. Ejemplo: tornillería de grado específico, se busca quién la tiene, no quién la da más barata. [Dolor alto]</div>
+<div class="finding"><strong>Entregas directas a contratistas sin control:</strong> Por urgencia, a veces el material se entrega directamente a contratistas en obra, saltándose el proceso de recepción formal. Esto genera confusión en inventarios y recepción. [Dolor alto]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Distribución analítica definida en Odoo:</strong> Joaquín (Planeación Financiera) define las cuentas analíticas por proyecto/nave con líneas por concepto (vialidades, cimentación, acabados). Las OC se asignan a estas líneas. Sin embargo, compras no tiene visibilidad del presupuesto total ni de cuánto se ha consumido vs. lo aprobado. [Dolor alto]</div>
+<div class="finding"><strong>Sin capacidad de alertar sobre desviaciones:</strong> Jorge menciona que las herramientas existen en el sistema para comparar lo gastado vs. el presupuesto de la cuenta analítica, pero no se usa. No hay alerta cuando una cuenta se acerca a su tope. [Dolor alto]</div>
+<div class="finding"><strong>Catálogo de conceptos y proveedores no reutilizado:</strong> Se reconoce que las naves BTS son repetibles y que se podría crear un catálogo estándar de conceptos, materiales y proveedores pre-negociados para replicar en proyectos futuros. No existe actualmente. [Dolor alto]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Obra define proveedores y negocia directamente:</strong> El 90-95% de los proveedores y precios vienen definidos desde obra/operaciones. Compras solo tramita la OC y el pago. No hay segregación de funciones en el proceso de compra. [CRITICO]</div>
+<div class="finding"><strong>Presión por pagos anticipados sin avance:</strong> Se piden pagos del 100% o 70-80% a proveedores que aún no ejecutan el servicio o cuyo frente de obra no está listo para recibirlos (ejemplo: proveedor de ventanas de aluminio, estructura no estaba lista). Compras intenta moderar pidiendo 50% anticipo / 50% contra avance, pero recibe resistencia de obra. [Dolor alto]</div>
+<div class="finding"><strong>Obras activas simultáneas:</strong> Pantaleón (mayor volumen), PLA (parque), Roble, más proyectos preliminares (Balderas, conjunto habitacional). [Funcional]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Servicios recurrentes sin programación:</strong> Servicios como renta de generador, baños portátiles, agua, no tienen un calendario de renovación/pago. Se pierden facturas, se acumulan 3-4 facturas sin requisición, y el proveedor escala el cobro. Ejemplo: renta de planta cada 15 días o 100 horas, han batallado 2 meses consecutivos. [Dolor alto]</div>
+<div class="finding"><strong>Sin seguimiento de entregas pendientes:</strong> No se menciona un mecanismo de tracking de OC abiertas, tiempos de entrega comprometidos vs. reales, o backlog de compras. [Dolor alto]</div>
+<div class="finding"><strong>Historial de compras disponible en Odoo:</strong> Se puede consultar todo el historial por proveedor, por estado (OC, bloqueado), por empresa. Ejemplo: 42 OC con Atile, 17 MDP en acero (oct 2025 - abr 2026). La información existe pero no se explota para análisis. [Funcional]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding"><strong>Odoo como ERP central:</strong> Módulos activos para compras: requisiciones, OC, alta de proveedores, portal de proveedores (facturación), distribución analítica. El sistema está configurado y operativo. [Funcional]</div>
+<div class="finding"><strong>Flujo de autorizaciones en Odoo:</strong> Requisición -&gt; Autorización Karla -&gt; Asignación de comprador (Jorge) -&gt; OC -&gt; Autorización escalonada: Paco/Juan (obra) + Clara (&gt;$20,000) + Contraloría -&gt; Envío a proveedor -&gt; Recepción + factura en portal. Funciona digitalmente. [Fortaleza]</div>
+<div class="finding"><strong>Reportería disponible pero subutilizada:</strong> Odoo permite exportar a Excel, filtrar por proveedor/estado/empresa/fechas. Jorge pudo generar el análisis de urgencias sobre la marcha. La herramienta está, falta la práctica de análisis. [Funcional]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Reporte por evento, no estructurado:</strong> Jorge reporta a Nayeli (Gerente de Contraloría) de forma diaria pero informal, por evento. No hay un reporte periódico del área de compras (backlog, lead times, ahorros, incidencias). [Dolor alto]</div>
+<div class="finding"><strong>Sin segregación de funciones en compras:</strong> Obra selecciona proveedor, negocia precio, y luego pide a compras que tramite el pago. No hay un check and balance donde compras valide que la negociación sea competitiva. [CRITICO]</div>
+<div class="finding"><strong>Autorización rápida cuando se necesita:</strong> El caso de las varillas Hilti demuestra que el flujo de autorización puede ejecutarse en 20 minutos (buscar proveedor alternativo en Monterrey, cotizar, autorizar en contraloría, gestionar pago). La agilidad existe; el problema es que es la norma, no la excepción. [Funcional]</div>
+</div>
+<div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;De esas 895, son 480 urgentes, 286 altas y 129 [normales]. Quiere decir que solo el 14% de las requisiciones que recibimos son normales.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Una requisición normal son 7 días de trámite, una requisición alta son 3 días de trámite y una requisición urgente es un día de trámite.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;El porcentaje que se cotiza directamente por compras es mínimo. Normalmente son cotizadas allá arriba, son órdenes de proveedores asignados.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;No se nos comparte un programa de obra, un programa de materiales. Nosotros entramos hasta la requisición.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Se buscaron opciones, pero vamos a lo mismo: buscar opciones que tengan la existencia. Es muy raro que nos vayamos en tiempos de entrega [...] no la opción más barata, sino la más rápida.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Los comentarios en varias ocasiones han sido: con que el programa tenga, no importa que sea más caro.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;A veces nos llegan requisiciones que son solicitadas a pago y el proveedor por acá nos manda un mensaje diciendo que oye, usted no me ha pagado, pues la requisición la recibí hoy, pero el proveedor ya está ejecutando un servicio.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Nos llegaron ayer 5:30 de la tarde con fecha de pago para ayer. [...] La requisición es colocada a la 1:45 de la tarde [...] pero a nosotros nos llega a las 5:28 de la tarde.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;No hay contrato, a veces los proveedores no cumplen con algunos documentos [...] muchas veces por la premura de los servicios no nos dejan que el proveedor tenga un expediente completo.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;A veces hay negociaciones con proveedores donde se pretende dar un 100% de pago pero es un servicio que todavía no estamos listos para recibir.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;No se necesita, ya tenemos una base, si es una nave, ya sabemos qué se necesita, se puede replicar en adelante. Un catálogo de conceptos y proveedores establecidos nos puede ayudar a mejorar los flujos.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;No hay un seguimiento, no sé cuántos meses le debemos al proveedor de los baños. De repente se escala cuando el proveedor me dice 'me debes 3-4 facturas' y resulta que no existen esas requisiciones.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Base completa de compras de Aura Desarrollos (Excel exportado de Odoo - todas las OC, todos los estados)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Pantallas del proceso en Odoo (flujo de requisición -&gt; OC -&gt; autorización -&gt; recepción)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Ejemplo de orden de compra completa&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Comparativo de cotizaciones (formato Excel si existe)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Diagrama del flujo de aprobaciones de compras&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;5-10 ejemplos de requisiciones urgentes que no deberían serlo (casos críticos con detalle)&rdquo;</div></div>
+</div>
+
+  <div class="footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026</span>
+  </div>
+</div>
+</body>
+</html>

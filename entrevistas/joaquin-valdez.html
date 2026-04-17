@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joaquín Valdez Alvarado — Entrevista | Aura Desarrollos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
+    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    @media(max-width:768px) { .page { padding:24px 16px; } }
+    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
+    .logos img:first-child { height:24px; }
+    .logos img:last-child { height:56px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
+    .back-link:hover { color:var(--lcg-dark); }
+    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
+    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
+    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .header-meta { font-size:14px; color:var(--text-light); }
+    .pilar-section { margin-bottom:32px; }
+    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
+    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+    .tag-critical { background:#FFEBEE; color:var(--red); }
+    .tag-warning { background:#FFF3E0; color:var(--amber); }
+    .tag-good { background:#E8F5E9; color:#2E7D32; }
+    .tag-functional { background:#F5F5F5; color:#616161; }
+    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
+    .finding strong { color:var(--text); }
+    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
+    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
+    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
+    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
+    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
+    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
+    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos">
+    <img src="../assets/logo-lcg-dark.png" alt="LCG">
+    <img src="../assets/logo-aura.png" alt="Aura">
+  </div>
+  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
+  <div class="header">
+    <div class="header-label">Entrevista del Prediagnóstico</div>
+    <h1>Joaquín Valdez Alvarado &mdash; Jefe de Planeación Financiera</h1>
+    <div class="header-meta">2026-04-13 · ~57 min · Presencial (Tampico)</div>
+  </div>
+  <div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Modelos de inversión en Excel individuales:</strong> Joaquín construye modelos de inversión propios para cada proyecto con 3 escenarios (base, optimista, pesimista), incluyendo flujos de caja, análisis de sensibilidad de tasas (SOFR + spread), CPI/INPC para incrementos de renta, cap rates para valuación de venta, y origen/aplicación de recursos. Los modelos están automatizados al 80-90%, pero son archivos individuales, no un sistema estandarizado ni replicable sin Joaquín. [Dolor alto]</div>
+<div class="finding"><strong>Flujo de caja por proyecto en Excel fuera de Odoo:</strong> Para Pantaleón, Joaquín lleva un archivo de flujo de caja donde el área de cuentas por pagar registra cada erogación por concepto (acero, concreto, obra civil, etc.) y por nave (A y B). Este archivo se actualiza diariamente con cada pago, pero vive fuera del ERP. Actualmente llevan $182 MDP gastados a marzo contra un financiamiento de $300 MDP (15 MUSD). [Dolor alto]</div>
+<div class="finding"><strong>Proyecto PLA con múltiples razones sociales:</strong> El proyecto PLA se ejecutó con varias empresas (Proyección 21, Saarobi, Capital Arboledas), creando un seguimiento &ldquo;tipo Frankenstein&rdquo; según Joaquín. A pesar de esto, se llevó control del costo total, pero la complejidad multi-entidad dificulta la visión consolidada. [Dolor alto]</div>
+<div class="finding"><strong>Negociación bancaria activa con múltiples instituciones:</strong> Joaquín y Clara negocian con 2-3 instituciones financieras por proyecto (actualmente Banregio; próximos: Santander, Bajío). Se busca tener alternativas para apalancar negociación de tasas y tiempos. Cada banco tiene formatos distintos de reporte de avance, lo que obliga a adaptarse caso por caso. [Funcional]</div>
+<div class="finding"><strong>Anticipo del 20% es crítico para fijar precios:</strong> Joaquín negocia con los bancos un anticipo del 20% del financiamiento para pactar precios de insumos clave (especialmente acero) antes del inicio de obra, protegiendo contra variaciones cambiarias. Esta es una práctica financiera sólida pero no está formalizada como política. [Funcional]</div>
+<div class="finding"><strong>Conversión de divisas en proyectos en dólares:</strong> Para Pantaleón (financiado en USD), se manejan partidas en dólares y un flujo separado en pesos para pagos a proveedores locales. El área de cuentas por pagar ejecuta la compra de pesos/venta de dólares. Se lleva doble registro (USD y MXN). [Funcional]</div>
+<div class="finding"><strong>Análisis de rentabilidad post-proyecto no realizado aún:</strong> Para el proyecto PLA (95-98% avance), el cálculo de rentabilidad real vs. modelo aún no se ha hecho. Joaquín indica que &ldquo;esta semana&rdquo; lo van a realizar. No existe un proceso estándar de cierre financiero de proyecto con lecciones aprendidas. [Dolor alto]</div>
+<div class="finding"><strong>Rent roll del PLA:</strong> Se estima venta total de terrenos del parque PLA en $507 MDP, contra un costo de construcción de $170-180 MDP, dando un margen bruto estimado de $350-380 MDP. Sin embargo, quedan lotes no vendidos y lotes retenidos como patrimoniales (estrategia de valorización). [Funcional]</div>
+<div class="finding"><strong>Odoo no aprovechado al máximo:</strong> Joaquín reconoce que el ERP se usa al 80-90% y que falta subir información del año pasado. La curva de aprendizaje por la implementación reciente impide explotar la herramienta para monitoreo financiero integrado. [Dolor alto]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Presupuesto de proyecto existe pero no se compara sistemáticamente contra real:</strong> Para PLA, el presupuesto total era de $175 MDP y el ejercido a enero 2026 era $161 MDP. Sin embargo, la comparación presupuesto vs. real no es automática ni está en el sistema; se hace manualmente en Excel. [Dolor alto]</div>
+<div class="finding"><strong>Costos duros vs. costos suaves definidos:</strong> Joaquín maneja la distinción entre costos duros (construcción directa) y costos suaves (permisos, estudios de factibilidad, seguros, licencias). Los costos suaves se imputan al proyecto y se presentan al banco como aportación propia. Esta estructura es correcta pero no está sistematizada en Odoo. [Funcional]</div>
+<div class="finding"><strong>Órdenes de cambio fuera de presupuesto original:</strong> Se mencionan órdenes de cambio solicitadas por dirección que no estaban en el alcance original del proyecto. Se registran pero no hay un proceso formal de control de cambios con impacto presupuestal documentado. [Dolor alto]</div>
+<div class="finding"><strong>Matriz de desarrollo como herramienta de seguimiento:</strong> El área de desarrollo pasa a Joaquín una &ldquo;matriz&rdquo; con rubros de gasto, ejercido y por ejercer. Joaquín la cuadra contra su flujo. Este proceso es manual, depende de que desarrollo envíe la información, y tiene retrasos de hasta un mes. [Dolor alto]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Avance físico con retraso de 15 días a 1 mes:</strong> El monitoreo del avance depende de que el área de desarrollo comparta sus pagos/erogaciones, lo que sucede con retraso de &ldquo;un mes atrás o 15 días atrás&rdquo;. El flujo de caja sí se trae al día, pero el avance físico no. [Dolor alto]</div>
+<div class="finding"><strong>Avance físico al banco con margen de maniobra:</strong> Joaquín admite que al reportar avance al banco, a veces le suman un 2% al avance reportado por desarrollo para solicitar más recursos. Esto indica que no hay un sistema riguroso y auditado de medición de avance físico. [CRITICO]</div>
+<div class="finding"><strong>Reporte de avance semanal existe pero no llega directo a Finanzas:</strong> El avance semanal fotográfico lo envía desarrollo a Clara e Iván, y luego ellos lo comparten con Joaquín. No hay un flujo directo ni un dashboard integrado donde Finanzas vea el avance en tiempo real. [Dolor alto]</div>
+<div class="finding"><strong>Dos proyectos activos:</strong> PLA (95-98% avance, en cierre) y Pantaleón (dos naves BTS: 13,000 m2 y 22,000 m2 de área rentable, financiamiento activo con Banregio). [Funcional]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">P2 — Desarrollo de Negocios <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding"><strong>Modelo financiero alimenta negociación comercial:</strong> Iván Rubio (Nuevos Negocios) propone la renta por m2 con sensibilidad de mercado, y Joaquín la corre en el modelo para validar si alcanza la rentabilidad objetivo. Hay ida y vuelta entre área comercial y financiera. [Funcional]</div>
+<div class="finding"><strong>Estrategia de cap rate para venta de proyectos:</strong> Joaquín modela escenarios de venta del proyecto a inversionistas a distintos plazos (1, 2, 5, 10 años) con cap rates de 8-10%, calculando el valor de venta menos saldo insoluto del financiamiento. La lógica es sólida pero reside en la cabeza de Joaquín. [Funcional]</div>
+<div class="finding"><strong>Tres líneas de negocio:</strong> (1) Compra de tierra, urbanización y venta de lotes, (2) Construcción de naves BTS con renta, (3) Venta del proyecto completo (nave + contrato de arrendamiento) a inversionistas. La complejidad del modelo de negocio requiere una planeación financiera sofisticada que hoy depende de una sola persona. [Dolor alto]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Desconexión directivos vs. operativos:</strong> Joaquín identifica que a nivel directivo (Vidal, Clara, Nayeli, Iván, Paco, Joaquín) sí hay comunicación y alineación en decisiones. El problema es al bajar al nivel operativo: &ldquo;se empieza a distorsionar y pierde fuerza&rdquo;. Usa la metáfora de &ldquo;un motorcito que empieza a cascabelear&rdquo;. [Dolor alto]</div>
+<div class="finding"><strong>Cada área opera por su cuenta a nivel operativo:</strong> &ldquo;Cada quien está jalando por su propio lado&rdquo; en la parte operativa, aunque directivos estén alineados. Falta cascadeo de decisiones y mecanismos de coordinación entre equipos. [Dolor alto]</div>
+<div class="finding"><strong>Pagos en efectivo sin comprobación en sistema:</strong> Se menciona que hay erogaciones en efectivo que no se pueden mostrar en el ERP, lo que obliga a manejarlas en Excel aparte. Esto representa un riesgo de control y transparencia. [CRITICO]</div>
+<div class="finding"><strong>Persona clave sin respaldo:</strong> Joaquín es la única persona que construye y entiende los modelos de inversión. Tiene una persona de apoyo que hace &ldquo;análisis de presupuestos&rdquo;, pero no modelos. Si Joaquín se ausenta, la capacidad de modelación financiera de Aura se detiene. [CRITICO]</div>
+</div>
+<div class="pilar-section"><div class="pilar-title">S3 — Sistemas / TI <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Información histórica no migrada a Odoo:</strong> El proyecto PLA (desde 2017-2018) se manejó en Compaq y Excel. No toda la información ha sido subida a Odoo. Falta información del año pasado por migrar. [Dolor alto]</div>
+<div class="finding"><strong>Odoo en curva de aprendizaje:</strong> La implementación es reciente y el aprovechamiento del módulo financiero es parcial. El potencial existe pero no se ha explotado para reemplazar los Excels de Joaquín. [Dolor alto]</div>
+</div>
+<div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;Nos estamos haciendo de varios proyectos a la misma vez y va a llegar un punto donde ya un Excelito como que ya no va a ser suficiente.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;A mí me gustaría llevar un mejor control. No quiero decir que estoy mal, pero llevar un mejor control en el sentido del monitoreo de los flujos de caja.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Estamos en una curva de aprendizaje. No tenemos mucho con el nuevo ERP.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Todavía falta mucha información. Falta información del año pasado que se tiene que subir, que no se ha subido.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Cada quien está jalando por su propio lado [...] nosotros como parte de dirección, cuando lo bajamos a nuestros equipos es cuando se empieza a distorsionar y empieza a perder la fuerza.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Es como un motorcito que empieza a cascabelear.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Luego yo le ando [al avance], para pedirle un poquito más le vamos aumentando un 2% cientito aquí para solicitar más recursos.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Una cosa es el avance físico y otra el financiero [...] porque me des el dinero quiere decir que ya los voy a poner, las tengo en el taller, las están fabricando.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Se hizo con varias empresas [...] unos fueron por Proyección 21, otros por Saarobi y otros por Capital Arboledas. Entonces traemos aquí como tipo Frankenstein.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Se busca una eficiencia del terreno [...] damos entre un 60, 62, 65%, es lo más recomendable.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;El fee desarrollador es lo que nosotros pretendemos ganar por hacer el proyecto [...] normalmente considero un fee de entre el 4% y un 5%.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Hay cosas que por parte de desarrollo, pues no consideran [...] por ejemplo, nos piden avalúos, ellos no están considerando esos avalúos, pero nosotros sí los traemos considerados.&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Archivo de concentrado del proyecto PLA (Excel con presupuesto y ejercido)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Archivo de flujo de caja del proyecto Pantaleón (Excel con erogaciones diarias por concepto/nave)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Modelo de inversión de Pantaleón (Excel con escenarios, flujos, origen y aplicación)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Reportes de avance enviados a Banregio (disposiciones con avance físico y financiero)&rdquo;</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Rent roll del PLA (Excel con lotes, precios, estatus de venta)&rdquo;</div></div>
+</div>
+
+  <div class="footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026</span>
+  </div>
+</div>
+</body>
+</html>
