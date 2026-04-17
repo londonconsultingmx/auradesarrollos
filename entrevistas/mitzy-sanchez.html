@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mitzy Lucía Sánchez Reynaga — Entrevista | Aura Desarrollos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --lcg-dark:#005C4B; --lcg-teal:#00B388; --lcg-mint:#00D4A0; --red:#c62828; --amber:#E65100; --text:#1D1D1B; --text-light:#4a4a4a; --text-muted:#8896A6; --warm-bg:#F5F5F5; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Inter',sans-serif; background:#F0F0F0; color:var(--text); }
+    .page { max-width:1000px; margin:0 auto 3px; background:white; padding:48px 64px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+    @media(max-width:768px) { .page { padding:24px 16px; } }
+    .logos { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid #eee; }
+    .logos img:first-child { height:24px; }
+    .logos img:last-child { height:56px; }
+    .back-link { display:inline-flex; align-items:center; gap:6px; color:var(--lcg-teal); font-size:13px; font-weight:600; text-decoration:none; margin-bottom:24px; }
+    .back-link:hover { color:var(--lcg-dark); }
+    .header { border-bottom:3px solid var(--lcg-teal); padding-bottom:16px; margin-bottom:32px; }
+    .header-label { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--lcg-teal); margin-bottom:8px; }
+    .header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:var(--text); margin-bottom:4px; }
+    .header-meta { font-size:14px; color:var(--text-light); }
+    .pilar-section { margin-bottom:32px; }
+    .pilar-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--lcg-dark); margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid #E2E8F0; }
+    .pilar-tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-left:8px; }
+    .tag-critical { background:#FFEBEE; color:var(--red); }
+    .tag-warning { background:#FFF3E0; color:var(--amber); }
+    .tag-good { background:#E8F5E9; color:#2E7D32; }
+    .tag-functional { background:#F5F5F5; color:#616161; }
+    .finding { font-size:14px; line-height:1.7; color:var(--text); margin-bottom:8px; padding-left:16px; border-left:3px solid #E2E8F0; }
+    .finding strong { color:var(--text); }
+    .quotes-section { margin-top:32px; padding-top:24px; border-top:2px solid #E2E8F0; }
+    .quotes-title { font-size:14px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:16px; }
+    .quote { background:linear-gradient(135deg,#F8F9FA,#E6F9F4); border-left:4px solid var(--lcg-teal); padding:16px 20px; border-radius:0 8px 8px 0; margin-bottom:12px; }
+    .quote-text { font-style:italic; font-size:15px; line-height:1.6; color:var(--text); }
+    .context-section { margin-bottom:32px; padding:20px; background:var(--warm-bg); border-radius:8px; font-size:14px; line-height:1.7; color:var(--text-light); }
+    .context-section h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--lcg-dark); margin-bottom:12px; }
+    .footer { margin-top:40px; padding-top:16px; border-top:1px solid #eee; display:flex; justify-content:space-between; font-size:12px; color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+<div class="page">
+  <div class="logos">
+    <img src="../assets/logo-lcg-dark.png" alt="LCG">
+    <img src="../assets/logo-aura.png" alt="Aura">
+  </div>
+  <a href="index.html" class="back-link">&larr; Volver al índice de entrevistas</a>
+  <div class="header">
+    <div class="header-label">Entrevista del Prediagnóstico</div>
+    <h1>Mitzy Lucía Sánchez Reynaga &mdash; Jefe de Control de Obra</h1>
+    <div class="header-meta">2026-04-09 · ~1h · Presencial (Tampico)</div>
+  </div>
+
+  <div class="context-section">
+    <h3>Contexto</h3>
+    Mitzy opera como el nodo central de control administrativo de las obras de Aura Desarrollos. Su rol abarca mucho más que el control de obra: gestiona nómina de campo, caja chica, altas y bajas de personal, inventarios, seguimiento a pagos de contratistas y el reporte de avance presupuestal. Todo se maneja con archivos Excel independientes, cruce manual contra Odoo y comunicación por WhatsApp y correo electrónico.
+  </div>
+
+  <div class="pilar-section"><div class="pilar-title">P7 — Control &amp; Seguimiento <span class="pilar-tag tag-critical">CRITICO</span></div>
+<div class="finding"><strong>Todo el control de obra se lleva en Excel:</strong> Mitzy administra más de 20 sábanas de seguimiento por contratista y partida en hojas de cálculo independientes. Cada contratista, cada trabajo y cada partida tiene su propio archivo. No existe un sistema integrado.</div>
+<div class="finding"><strong>Intento fallido de sistematizar con TI:</strong> Hubo acercamientos con TI para automatizar los controles (Google Forms, ERPs especializados para control de obra), pero nunca se concretó. El resultado: todo sigue en Excel y WhatsApp.</div>
+<div class="finding"><strong>Odoo no resuelve la necesidad de reporteo:</strong> Aunque Odoo se usa para requisiciones y órdenes de compra, Mitzy no logró que le armaran la vista que necesita para sus reportes. Sigue manteniendo la matriz Excel en paralelo al ERP.</div>
+<div class="finding"><strong>Reporte de avance presupuestal manual:</strong> Mitzy genera un reporte de avance presupuestal consolidando múltiples fuentes: la matriz de gastos en Excel, el reporte de combustible, la caja chica y la nómina mensual. Todo se cruza manualmente y se envía a la Subdirectora de SC.</div>
+<div class="finding"><strong>Validación cruzada 1:1 entre Excel y Odoo:</strong> Para cada estimación de contratista, Mitzy debe entrar al módulo de compras de Odoo, buscar la orden de compra, comparar montos, amortizaciones y acumulados contra su sábana Excel. Este proceso lo hace manualmente para cada una de las más de 20 sábanas.</div>
+<div class="finding"><strong>Estimaciones de contratistas con errores frecuentes:</strong> Las amortizaciones, acumulados y datos contractuales vienen mal con regularidad. Mitzy los corrige antes de autorizar. No existe un mecanismo que estandarice el formato de entrega ni valide datos automáticamente.</div>
+<div class="finding"><strong>Checklists de maquinaria abandonados:</strong> Se implementaron checklists diarios para la maquinaria propia (2 camiones, 2 motos, cargador frontal, retroexcavadora, excavadora), pero se dejaron de usar por carga de trabajo. Ahora solo se revisa el horómetro para programar servicios.</div>
+<div class="finding"><strong>Inventario de materiales sin cruce:</strong> Se lleva un inventario de materiales que llegan a obra, pero no se hace el cruce entre lo solicitado y lo recibido.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">P5 — Compras &amp; Abastecimiento <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Compras lento en ejecución y sin seguimiento:</strong> Una vez que Mitzy autoriza una estimación, compras tarda en procesar la orden y el pago. Mitzy debe darle seguimiento manualmente. Un pedido de clavos estuvo pendiente más de una semana sin respuesta; al preguntar, le informaron de un bloqueo por &ldquo;exceso de pago&rdquo; sin haberle avisado previamente.</div>
+<div class="finding"><strong>Compras no da visibilidad del estatus:</strong> El área de compras atiende solo la última solicitud y pierde de vista las anteriores. Mitzy y su auxiliar deben verificar si cada proveedor ya fue pagado o no.</div>
+<div class="finding"><strong>Migración reciente de WhatsApp a correo:</strong> Las solicitudes de obra migraron de WhatsApp a correo electrónico recientemente, y ahora se genera la requisición en Odoo. Sin embargo, la alimentación de la matriz Excel sigue siendo manual y semanal.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">P6 — Ejecución de Obra <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding"><strong>Proceso de estimación estructurado:</strong> Mitzy implementó un proceso claro: contratista prepara estimación (carátula, generadores, planos, fotos) → supervisor de campo revisa y firma volúmenes → contratista escanea y envía los lunes → Mitzy revisa en 2-3 días → autoriza o regresa con correcciones → envía correo formal de autorización con monto.</div>
+<div class="finding"><strong>Fragmentación de contratistas por reasignación:</strong> Un contratista grande fue reemplazado y su alcance se repartió entre más de 10 contratistas locales. Esto multiplicó la carga administrativa de control.</div>
+<div class="finding"><strong>Concurso de contratistas como buena práctica:</strong> En noviembre 2025 se realizó un concurso formal para la obra de Pantaleón: se presentó el alcance, se mandaron bases, se recibieron propuestas y se asignó por cuadro comparativo. Una práctica rescatable.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">P3 — Planeación &amp; Presupuesto <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Reporte presupuestal como único instrumento de control financiero:</strong> El reporte que Mitzy genera es el instrumento principal para dar visibilidad del gasto vs presupuesto. Se genera mensualmente consolidando múltiples fuentes manuales, lo que limita la capacidad de reacción.</div>
+<div class="finding"><strong>Matriz de gastos histórica y sobrecargada:</strong> La &ldquo;matriz&rdquo; es un archivo Excel que precede al Odoo y registra todos los egresos. Nadie sabe quién lo creó. Se le han añadido columnas con el tiempo y sigue usándose en paralelo al ERP.</div>
+<div class="finding"><strong>Múltiples razones sociales facturando:</strong> Algunas compras se cargan a una empresa, otras a otra, y en ocasiones hasta 4 empresas distintas. Esto agrega complejidad al control presupuestal.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">S1 — Finanzas &amp; Tesorería <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding"><strong>Nómina semanal con proceso definido pero manual:</strong> Mitzy consolida asistencia de múltiples fuentes (checador biométrico, listas por WhatsApp), valida con supervisores, mete incidencias en Fortia y envía la nómina los jueves. El proceso es claro pero enteramente manual.</div>
+<div class="finding"><strong>Personal sin alta en seguro social:</strong> Existe personal que trabaja sin estar dado de alta en el IMSS y se les paga en efectivo. Ha ido disminuyendo pero persiste.</div>
+<div class="finding"><strong>Caja chica con reembolso lento:</strong> El proceso de comprobación de caja chica tarda 1-2 semanas entre firma de Subdirectora, entrega a contraloría y recepción del cheque de reposición.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">S2 — Capital Humano <span class="pilar-tag tag-functional">Funcional</span></div>
+<div class="finding"><strong>Contratación centralizada en Mitzy:</strong> Todo el ciclo de alta de personal de campo pasa por Mitzy y su auxiliar. El proceso migró recientemente de WhatsApp a correo electrónico.</div>
+<div class="finding"><strong>Checador biométrico solo en una obra:</strong> Solo Pantaleón tiene checador. Las demás obras reportan asistencia por listas manuales vía WhatsApp.</div>
+<div class="finding"><strong>Alta en checador la hace obra, no TI:</strong> Alan (supervisor) da de alta las huellas. Mitzy reconoce que debería ser responsabilidad de TI o RH.</div>
+</div>
+
+  <div class="pilar-section"><div class="pilar-title">TX — Gobernanza <span class="pilar-tag tag-warning">Dolor alto</span></div>
+<div class="finding"><strong>Concentración de funciones en una persona:</strong> Mitzy abarca control de obra, nómina de campo, caja chica, inventarios, altas/bajas de personal, seguimiento a pagos de contratistas y reporte presupuestal. Es un cuello de botella crítico para la operación.</div>
+<div class="finding"><strong>Archivos sin gobierno de datos:</strong> La matriz de gastos, el archivo de RH, los inventarios y las sábanas de contratistas son archivos que han crecido orgánicamente sin estándar, sin dueño de datos y sin política de respaldo o validación.</div>
+</div>
+
+  <div class="quotes-section">
+<div class="quotes-title">Citas Textuales Relevantes</div>
+<div class="quote"><div class="quote-text">&ldquo;Todos te llevan Excel, la verdad. Algunas veces ha habido algún acercamiento con TI para hacer esto un poco más automático, pero nunca se ha logrado, nunca lo han hecho.&rdquo; &mdash; Sobre la falta de sistematización</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Yo creo que mejor sí se puede... que yo no tengo que hacer este reporte de avance y que simplemente me lo dé, siempre y cuando yo lo esté alimentando.&rdquo; &mdash; Sobre la necesidad de que Odoo reemplace reportes manuales</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Casi siempre traen errores... las amortizaciones no las traen bien, los acumulados no las traen bien.&rdquo; &mdash; Sobre la calidad de las estimaciones de contratistas</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Siempre le dan seguimiento a la última y no a esto.&rdquo; &mdash; Sobre la falta de seguimiento por parte de compras</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Nadie sabe quién lo hizo así.&rdquo; &mdash; Sobre el origen de la matriz de gastos histórica</div></div>
+<div class="quote"><div class="quote-text">&ldquo;Lo dejamos de hacer por la carga de trabajo, la verdad.&rdquo; &mdash; Sobre los checklists de maquinaria abandonados</div></div>
+<div class="quote"><div class="quote-text">&ldquo;¿Dónde estás haciendo el match entre lo que yo te pido y lo que me está llegando?&rdquo; &mdash; Sobre la falta de cruce en inventario de materiales</div></div>
+</div>
+
+  <div class="footer">
+    <span>London Consulting Group | Aura Desarrollos | Confidencial</span>
+    <span>Abril 2026</span>
+  </div>
+</div>
+</body>
+</html>
