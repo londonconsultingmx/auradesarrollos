@@ -1891,8 +1891,7 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
       <thead>
         <tr style="background:var(--lcg-dark); color:white;">
           <th style="padding:10px 8px; text-align:left; min-width:140px;">Expectativa</th>
-          <th style="padding:10px 6px; text-align:center;">P1<br><span style="font-size:9px; font-weight:400;">Adquis.</span></th>
-          <th style="padding:10px 6px; text-align:center;">P2<br><span style="font-size:9px; font-weight:400;">Comercial</span></th>
+          <th style="padding:10px 6px; text-align:center;">P1+P2<br><span style="font-size:9px; font-weight:400;">Comercial</span></th>
           <th style="padding:10px 6px; text-align:center;">P3<br><span style="font-size:9px; font-weight:400;">Plan.</span></th>
           <th style="padding:10px 6px; text-align:center;">P4<br><span style="font-size:9px; font-weight:400;">Ing.</span></th>
           <th style="padding:10px 6px; text-align:center;">P5<br><span style="font-size:9px; font-weight:400;">Compras</span></th>
@@ -1910,7 +1909,6 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
         <tr>
           <td style="padding:8px; font-weight:700; font-size:11px;"><strong>E1.</strong> Estructura<br><span style="font-weight:400; font-size:11px; color:var(--text-light);">Roles, puestos, compensaci&oacute;n</span></td>
           <td style="text-align:center; background:#E8F5E9; font-weight:700; color:#2E7D32;">3</td>
-          <td style="text-align:center; background:#E8F5E9; font-weight:700; color:#2E7D32;">3</td>
           <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
           <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
@@ -1925,7 +1923,6 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
         </tr>
         <tr>
           <td style="padding:8px; font-weight:700; font-size:11px;"><strong>E2.</strong> Procesos<br><span style="font-weight:400; font-size:11px; color:var(--text-light);">Flujo end-to-end repetible</span></td>
-          <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
           <td style="text-align:center; background:#E8F5E9; font-weight:700; color:#2E7D32;">3</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
           <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
@@ -1942,7 +1939,6 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
         <tr>
           <td style="padding:8px; font-weight:700; font-size:11px;"><strong>E3.</strong> Costos<br><span style="font-weight:400; font-size:11px; color:var(--text-light);">Asertividad presupuestal</span></td>
           <td style="text-align:center; background:#FAFAFA; color:#BDBDBD;">&mdash;</td>
-          <td style="text-align:center; background:#FAFAFA; color:#BDBDBD;">&mdash;</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
           <td style="text-align:center; background:#E8F5E9; font-weight:700; color:#2E7D32;">3</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
@@ -1957,7 +1953,6 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
         </tr>
         <tr>
           <td style="padding:8px; font-weight:700; font-size:11px;"><strong>E4.</strong> Tablero<br><span style="font-weight:400; font-size:11px; color:var(--text-light);">Indicadores en tiempo real</span></td>
-          <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
           <td style="text-align:center; background:#E8F5E9; font-weight:700; color:#2E7D32;">3</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
           <td style="text-align:center; background:#E0E0E0; font-weight:700; color:#616161;">2</td>
@@ -1973,7 +1968,6 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
         </tr>
         <tr>
           <td style="padding:8px; font-weight:700; font-size:11px;"><strong>E5.</strong> Calidad<br><span style="font-weight:400; font-size:11px; color:var(--text-light);">Supervisi&oacute;n, entrega, satisfacci&oacute;n</span></td>
-          <td style="text-align:center; background:#FAFAFA; color:#BDBDBD;">&mdash;</td>
           <td style="text-align:center; background:#FAFAFA; color:#BDBDBD;">&mdash;</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
           <td style="text-align:center; background:#FFCDD2; font-weight:700; color:#C62828;">1</td>
@@ -4440,7 +4434,7 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
     <div class="finding-icon">!</div>
     <div class="finding-title">Instalaciones el&eacute;ctricas: retraso significativo sin planos completos</div>
   </div>
-  <p class="finding-text">17% de retraso en Bodega A y 10% en Bodega B. El contratista el&eacute;ctrico est&aacute; trabajando sin planos aprobados &mdash; como confirm&oacute; el Jefe de Obra: &ldquo;los planos? Ni idea, ah&iacute; est&aacute; ahorita.&rdquo; No se puede medir avance ni pagar con certeza sin referencia de ingenier&iacute;a.</p>
+  <p class="finding-text">17% de retraso en Bodega A y 10% en Bodega B. Se report&oacute; que el contratista el&eacute;ctrico est&aacute; trabajando sin planos aprobados completos. Sin referencia de ingenier&iacute;a validada, no se puede medir avance con precisi&oacute;n ni validar pagos contra alcance.</p>
   <span class="finding-kpi amber">Bodega A: 83% &bull; Bodega B: 80% &bull; Sin planos aprobados</span>
 </div>
 
@@ -5050,7 +5044,7 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
     Existe una dualidad reveladora en la reporteria de Aura Desarrollos. El Reporte Semanal #43, que se prepara para el cliente (presumiblemente Pantaleon), tiene una estructura profesional: avance fisico por partida, fotografias de avance, temas clave, y formato estandarizado. Este reporte demuestra que el equipo sabe como reportar &mdash; simplemente no lo hace para si mismo. Hay dos realidades paralelas: la que se presenta al cliente externo (pulida, estructurada) y la que vive la organizacion internamente (4 grupos de WhatsApp con fotos sin contexto).
   </p>
   <p class="narrative">
-    <strong>La ausencia de reporteo estandarizado</strong> es emblematica. La organizaci&oacute;n no cuenta con formatos profesionales de reporteo semanal estandarizados. Los intentos aislados de implementar reporteo &mdash; con avance, fotos, y temas cr&iacute;ticos &mdash; no prosperaron por falta de una cultura de gesti&oacute;n por indicadores. El Jefe de Obra lo resume: &ldquo;Yo lo empece pero vi que no les interesa.&rdquo; Este dato es quiza el mas revelador del diagnostico: la organizaci&oacute;n no ha construido una cultura que valore y sostenga los mecanismos b&aacute;sicos de control.
+    <strong>Reporteo interno por estandarizar.</strong> La organizaci&oacute;n no cuenta con formatos profesionales de reporteo semanal estandarizados para gesti&oacute;n interna. Los intentos de implementar reporteo con avance, fotos y temas cr&iacute;ticos no se han sostenido sistem&aacute;ticamente. La oportunidad est&aacute; en institucionalizar una rutina de gesti&oacute;n por indicadores que convierta los datos existentes en decisiones.
   </p>
   <p class="narrative">
     Existe un reporte semanal con cadencia regular (el Reporte #43 corresponde a la semana del 9 al 15 de marzo 2026 &mdash; muestra que el ritmo se mantiene). El problema no es la frecuencia ni la presentaci&oacute;n: el formato es profesional, las fotos son de alta calidad, hay datos de avance por partida. El problema es lo que NO contiene: indicadores de control, an&aacute;lisis de causas, look-ahead, an&aacute;lisis financiero, riesgos accionables. Es un reporte para informar, no para gestionar.
@@ -5735,7 +5729,7 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
         <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> $122K+/mes en CAM potencial no cobrado en PLA</div>
         <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Aura absorbe costos de mantenimiento sin recuperar &mdash; p&eacute;rdida operativa mensual</div>
-        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin persona ni funci&oacute;n asignada a PM &mdash; inexistente como &aacute;rea</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin persona ni funci&oacute;n asignada a PM &mdash; funci&oacute;n por implementar</div>
         <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> El modelo de ingreso recurrente (FIBRA) requiere PM profesional como prerrequisito</div>
       </div>
     </div>
