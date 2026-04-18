@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administraci&oacute;n y Mantenimiento: Disciplina Base y Brechas de Escala &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Administraci&oacute;n y Mantenimiento:<br>Disciplina Base y Brechas de Escala</h1>
+                <p class="cover-subtitle">La Jefe Administrativo muestra disciplina en lo b&aacute;sico &mdash; tickets de servicio, presupuesto preventivo para corporativo, archivo de contratos &mdash; pero la funci&oacute;n no est&aacute; dise&ntilde;ada para gestionar activos industriales a escala. Tres inmuebles con vicios ocultos que Aura absorbe, cero preventivo en BTS/parque, y un equipo de una persona revelan la brecha entre la operaci&oacute;n actual y los 477K m&sup2; de PLA.</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Roc&iacute;o Iveth Rosas Nieto, Jefe Administrativo</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">9 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>Roc&iacute;o Rosas gestiona el mantenimiento preventivo y correctivo del edificio corporativo, locales comerciales y guardias de Pedrera con un equipo de una sola persona. Su trabajo muestra disciplina b&aacute;sica: presupuesto anual para corporativo, sistema de tickets con TI, archivo de contratos con vigencias. Sin embargo, la funci&oacute;n tiene dos problemas estructurales: (1) no est&aacute; dise&ntilde;ada para property management industrial &mdash; su prioridad declarada es el edificio corporativo, no los BTS ni el parque &mdash; y (2) Aura absorbe costos de vicios ocultos sin mecanismo de recuperaci&oacute;n ni fee de PM. El preventivo 60/40 que reporta solo aplica a corporativo; en activos BTS y parque, el preventivo es cero.</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">3</div><div class="kpi-label">Inmuebles con vicios ocultos absorbidos por Aura</div></div>
+<div class="kpi-item"><div class="kpi-value red">0%</div><div class="kpi-label">Preventivo en BTS / parque industrial</div></div>
+<div class="kpi-item"><div class="kpi-value amber">1</div><div class="kpi-label">Persona para todo el alcance de PM</div></div>
+<div class="kpi-item"><div class="kpi-value red">$0</div><div class="kpi-label">Fee de property management cobrado</div></div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Property Management: Funci&oacute;n sin Escala</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Preventivo solo en corporativo &mdash; cero en activos industriales</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o reporta una proporci&oacute;n de 60% preventivo / 40% correctivo, pero esto aplica &uacute;nicamente al edificio corporativo (Auticenter): aire acondicionado, fumigaci&oacute;n, impermeabilizaci&oacute;n, extintores y limpieza. En los activos BTS entregados (GTL, Relyon) y en el parque industrial no existe programa de mantenimiento preventivo. Tampoco hay presupuesto asignado ni responsable definido. Cuando surge un problema, Aura lo atiende de forma reactiva y absorbe el costo.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">3 inmuebles con vicios ocultos &mdash; Aura absorbe el costo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">GTL, Relyon y locales comerciales presentan filtraciones de agua recurrentes. El contrato BTS contempla 1 a&ntilde;o de garant&iacute;a contra vicios ocultos; despu&eacute;s es responsabilidad del usuario. Sin embargo, Aura sigue pagando reparaciones m&aacute;s all&aacute; del periodo contractual. No existe fee de property management, no hay modelo de recuperaci&oacute;n de costos, y no hay mecanismo para distinguir entre defectos de construcci&oacute;n y desgaste normal. Este hallazgo se confirma con la visita de campo, donde se observ&oacute; que Aura paga renta de bodega no entregada.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin hand-off formal de Obras a Property Management</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o tiene planos de los &uacute;ltimos proyectos, pero no recibe manuales de operaci&oacute;n de equipos, garant&iacute;as de proveedores ni c&eacute;dulas de mantenimiento preventivo. Reconoce que &ldquo;la idea es que se tenga para PLA&rdquo;, pero no existe protocolo definido ni fecha de implementaci&oacute;n. Sin dossier de entrega, el PM opera a ciegas: no sabe qu&eacute; equipos tiene cada inmueble, cu&aacute;ndo vencen las garant&iacute;as ni qu&eacute; mantenimiento requieren.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Equipo de 1 persona para todo el portafolio</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Un solo recurso de servicios generales en corporativo, proveedores en locales, y 2 guardias + monitoreo en Pedrera. Roc&iacute;o usa su veh&iacute;culo personal para traslados y compras emergentes. La estructura actual puede funcionar para el alcance limitado de hoy, pero no es escalable para PLA (477K m&sup2;) ni para un portafolio creciente de activos BTS. Es importante no confundir &ldquo;equipo insuficiente&rdquo; con &ldquo;capacidad para PM industrial&rdquo; &mdash; son dos problemas distintos.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">Entrega y Calidad: Sin Dossier, Sin Garant&iacute;as</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin paquete formal de entrega al usuario</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">No existe un dossier de entrega que integre manuales de operaci&oacute;n, garant&iacute;as de equipo, c&eacute;dulas de mantenimiento preventivo y planos as-built completos. Cada proyecto se entrega de manera diferente, sin est&aacute;ndar. Esto explica parcialmente por qu&eacute; los vicios ocultos se descubren tarde y por qu&eacute; las garant&iacute;as de proveedores no se activan &mdash; nadie sabe que existen o d&oacute;nde est&aacute;n documentadas.</div>
+</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Vicios ocultos como s&iacute;ntoma de entrega incompleta</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Las filtraciones recurrentes en 3 inmuebles no son solo un problema de mantenimiento &mdash; son evidencia de que la calidad de entrega no fue validada adecuadamente. No hubo inspecci&oacute;n post-entrega sistem&aacute;tica ni punch list formal. Sin este proceso, los defectos de construcci&oacute;n pasan a convertirse en costos recurrentes de PM que Aura absorbe indefinidamente.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Compras y Control Financiero: Fricciones Confirmadas</div>
+    </div>
+    <div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Compras tarda +1 semana para mantenimiento presupuestado</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Solicitudes de mantenimiento que ya est&aacute;n en el presupuesto aprobado tardan m&aacute;s de una semana en procesarse porque Compras requiere comparativas. Roc&iacute;o es la fuente n&uacute;mero 5 en confirmar la lentitud de Compras, alineada con Nayeli (99% urgente), Jorge de la Rosa (proceso tardado), Karla Le&oacute;n (retrasos en suministro) y el equipo de dise&ntilde;o t&eacute;cnico (1.5 semanas de ciclo). El patr&oacute;n es consistente: el proceso de compras no distingue entre gastos recurrentes presupuestados y compras no planeadas.</div>
+</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Sin margen neto por activo administrado</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o no puede calcular la rentabilidad de cada activo que administra. Necesita una hoja de trabajo conjunta con Finanzas (Joaqu&iacute;n Valdez y Clara Medina). Esto confirma el hallazgo de Joaqu&iacute;n sobre la falta de cierre financiero por proyecto: nadie en la organizaci&oacute;n puede decir cu&aacute;nto cuesta realmente mantener cada inmueble ni cu&aacute;nto margen genera (o destruye) cada activo del portafolio.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Lo que Funciona: Disciplina B&aacute;sica</div>
+    </div>
+    <p>Es importante reconocer lo que Roc&iacute;o ha construido dentro de sus limitaciones. Sin embargo, estas pr&aacute;cticas aplican al alcance actual (corporativo + locales) y no deben extrapolarse a PM industrial.</p>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Sistema de tickets (JotForm) para solicitudes de mantenimiento</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o solicit&oacute; a TI un sistema de tickets basado en JotForm para gestionar solicitudes de mantenimiento. Los tickets incluyen adjuntos y permiten seguimiento. Esto es una pr&aacute;ctica de gesti&oacute;n ordenada que no se hab&iacute;a documentado en el diagn&oacute;stico. Demuestra iniciativa para formalizar procesos dentro de recursos limitados.</div>
+</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Presupuesto anual de mantenimiento para corporativo</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Existe un presupuesto anual aprobado para mantenimiento del edificio corporativo (Auticenter) y Pedrera. Esto permite planear el preventivo con cierta previsi&oacute;n. La limitaci&oacute;n es que solo cubre estos dos activos &mdash; los dem&aacute;s (BTS, locales, parque) no tienen presupuesto asignado.</div>
+</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Archivo de contratos con vigencia y montos</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o mantiene un archivo de contratos de servicios (guardias, limpieza, fumigaci&oacute;n) con fechas de vigencia y montos. Es un control b&aacute;sico pero &uacute;til para anticipar renovaciones y negociar condiciones.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 06</div>
+        <div class="section-title">Lectura Cr&iacute;tica: La Brecha de Escala</div>
+    </div>
+    <p>El an&aacute;lisis objetivo de esta entrevista revela una desconex&oacute;n entre el alcance actual de la funci&oacute;n y la ambici&oacute;n de Aura como desarrollador industrial. Los siguientes puntos merecen contexto adicional.</p>
+    <div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">La prioridad declarada es el corporativo, no los activos industriales</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Cuando se le pregunt&oacute; qu&eacute; har&iacute;a con presupuesto adicional, Roc&iacute;o prioriz&oacute; el cambio de imagen del edificio corporativo (pintura, se&ntilde;al&eacute;tica, acceso) y mejorar locales para renta directa. En ning&uacute;n momento mencion&oacute; el PM del parque industrial ni de los BTS entregados. Esto no es una cr&iacute;tica personal &mdash; es evidencia de que la funci&oacute;n no est&aacute; orientada hacia el negocio core de Aura Desarrollos.</div>
+</div>
+<div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">El 60/40 preventivo/correctivo necesita contexto</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">La proporci&oacute;n preventivo 60% / correctivo 40% suena razonablemente madura, pero el alcance la distorsiona. Solo aplica a las actividades de mantenimiento del edificio corporativo: AC, fumigaci&oacute;n, impermeabilizaci&oacute;n, extintores, limpieza. Si se incluyeran los activos BTS y el parque industrial (donde el preventivo es 0%), la proporci&oacute;n real del portafolio ser&iacute;a muy diferente. No se debe usar este dato sin la aclaraci&oacute;n de alcance.</div>
+</div>
+<div class="finding-card finding-blue">
+    <div class="finding-header">
+        <div class="finding-title">Gesti&oacute;n de locales de otras entidades del grupo</div>
+        <div class="finding-dimension estructura">Estructura</div>
+    </div>
+    <div class="finding-body">Roc&iacute;o dice gestionar &ldquo;solo Aura Desarrollos&rdquo;, pero en la pr&aacute;ctica administra locales (estaciones de servicio, comercios) que pertenecen a otras entidades del grupo. Esto refleja la complejidad de gobierno corporativo entre empresas y la ambig&uuml;edad en la delimitaci&oacute;n de responsabilidades entre entidades.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 07</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas textuales reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis sist&eacute;mico. Las citas son para uso interno exclusivo de LCG y no ser&aacute;n atribuidas en la presentaci&oacute;n al cliente.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">La idea es que se tenga para PLA.</div>
+    <div class="verbatim-source">&mdash; Roc&iacute;o Rosas, sobre el dossier de entrega formal que hoy no existe</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">1 sola persona para todo &mdash; uso mi veh&iacute;culo personal para traslados y compras emergentes.</div>
+    <div class="verbatim-source">&mdash; Roc&iacute;o Rosas, sobre recursos de la funci&oacute;n</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Las solicitudes de mantenimiento presupuestado tardan m&aacute;s de 1 semana porque Compras pide comparativas.</div>
+    <div class="verbatim-source">&mdash; Roc&iacute;o Rosas, sobre lentitud de Compras (5a fuente que confirma)</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
+</body>
+</html>
