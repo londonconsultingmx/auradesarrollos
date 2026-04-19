@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediagnóstico Operativo — Aura Desarrollos × London Consulting Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lcg-dark:#005C4B;
+    --lcg-teal:#00B388;
+    --lcg-mint:#00D4A0;
+    --aura-navy:#1B3057;
+    --navy-deep:#0B1626;
+    --navy-black:#06101C;
+    --blueprint:#5BD8C4;      /* cian blueprint */
+    --blueprint-dim:rgba(91,216,196,0.35);
+    --paper:#F6F4EE;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden;background:var(--navy-black)}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#fff;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:geometricPrecision;
+  }
+
+  /* =========================================================
+     STAGE
+     ========================================================= */
+  .stage{
+    position:fixed;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    background:
+      radial-gradient(ellipse at 50% 30%, #102238 0%, #06101C 60%, #030811 100%);
+    overflow:hidden;
+  }
+
+  /* Subtle grid (always present, very faint) */
+  .grid-bg{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(91,216,196,0.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(91,216,196,0.05) 1px,transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%);
+    -webkit-mask-image:radial-gradient(ellipse at center, black 40%, transparent 85%);
+    pointer-events:none;
+  }
+
+  /* Corner registration marks (architectural) */
+  .corner{position:absolute;width:40px;height:40px;border:1px solid var(--blueprint-dim)}
+  .corner.tl{top:28px;left:28px;border-right:none;border-bottom:none}
+  .corner.tr{top:28px;right:28px;border-left:none;border-bottom:none}
+  .corner.bl{bottom:28px;left:28px;border-right:none;border-top:none}
+  .corner.br{bottom:28px;right:28px;border-left:none;border-top:none}
+
+  /* Top chrome */
+  .chrome-top{
+    position:absolute;top:0;left:0;right:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 56px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--blueprint-dim);
+    z-index:10;
+    pointer-events:none;
+  }
+  .chrome-top .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lcg-teal);margin-right:10px;vertical-align:middle;box-shadow:0 0 8px var(--lcg-teal)}
+  .chrome-bottom{
+    position:absolute;bottom:0;left:0;right:0;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 56px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--blueprint-dim);
+    z-index:10;
+  }
+
+  /* Skip button */
+  .skip{
+    pointer-events:auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,0.55);
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.18);
+    padding:10px 18px;
+    cursor:pointer;
+    transition:all .3s;
+  }
+  .skip:hover{color:#fff;border-color:var(--blueprint);background:rgba(91,216,196,0.08)}
+  .skip .arr{margin-left:8px}
+
+  /* =========================================================
+     INTRO — blueprint scene
+     ========================================================= */
+  .intro{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    opacity:1;
+    transition:opacity .9s ease;
+  }
+  .intro.out{opacity:0;pointer-events:none}
+
+  .blueprint-wrap{
+    position:relative;
+    width:min(1280px, 92vw);
+    aspect-ratio: 16 / 9;
+    max-height:78vh;
+  }
+  .blueprint-wrap svg{width:100%;height:100%;display:block;overflow:visible}
+
+  /* Draw animations via stroke-dashoffset */
+  .draw{
+    stroke:var(--blueprint);
+    fill:none;
+    stroke-width:1.2;
+    vector-effect:non-scaling-stroke;
+    stroke-dasharray:var(--len,2000);
+    stroke-dashoffset:var(--len,2000);
+    animation: draw var(--dur,1.5s) cubic-bezier(.65,.05,.36,1) forwards;
+    animation-delay: var(--delay,0s);
+  }
+  .draw-thin{stroke-width:0.7;opacity:0.55}
+  .draw-thick{stroke-width:1.8}
+  .draw-dim{opacity:.4}
+  .fade-in{opacity:0;animation:fadeIn .8s ease forwards;animation-delay:var(--delay,0s)}
+  .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    fill:var(--blueprint);
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    opacity:0;
+    animation:fadeIn .6s ease forwards;
+    animation-delay:var(--delay,0s);
+  }
+  .label-dim{fill:var(--blueprint-dim);font-size:9px;letter-spacing:1px}
+
+  @keyframes draw{ to{stroke-dashoffset:0} }
+  @keyframes fadeIn{ to{opacity:1} }
+  @keyframes fadeInFull{ from{opacity:0} to{opacity:1} }
+
+  /* intro status text */
+  .intro-status{
+    position:absolute;
+    left:50%;transform:translateX(-50%);
+    bottom:-56px;
+    display:flex;align-items:center;gap:18px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--blueprint);
+    white-space:nowrap;
+  }
+  .intro-status .bar{
+    width:240px;height:1px;background:rgba(91,216,196,0.15);position:relative;overflow:hidden;
+  }
+  .intro-status .bar::after{
+    content:'';position:absolute;inset:0;width:0;background:var(--blueprint);
+    animation: progressBar 10s linear forwards;
+  }
+  @keyframes progressBar{ to{ width:100% } }
+
+  .intro-title{
+    position:absolute;
+    left:50%;top:-70px;transform:translateX(-50%);
+    text-align:center;
+    opacity:0;
+    animation:fadeIn 1s ease forwards;
+    animation-delay:.3s;
+  }
+  .intro-title .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;color:var(--blueprint);
+    letter-spacing:4px;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .intro-title .t{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    color:#fff;
+    font-size:clamp(20px,2.4vw,30px);
+    letter-spacing:-.5px;
+  }
+  .intro-title .t em{color:var(--blueprint);font-style:normal}
+
+  /* tick animations for labels appearing one by one */
+  .phase-label{
+    position:absolute;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:var(--blueprint);
+    opacity:0;
+    animation: phaseFlash 1s ease forwards;
+  }
+  @keyframes phaseFlash{
+    0%{opacity:0;transform:translateY(4px)}
+    20%{opacity:1;transform:translateY(0)}
+    80%{opacity:1}
+    100%{opacity:0}
+  }
+
+  /* Chrome hides when hero is active */
+  .stage.hero-active .chrome-top,
+  .stage.hero-active .chrome-bottom{opacity:0;pointer-events:none;transition:opacity .4s}
+
+  /* =========================================================
+     HERO — after intro
+     ========================================================= */
+  .hero{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;
+    transition:opacity 1s ease .1s;
+  }
+  .hero.in{opacity:1;pointer-events:auto}
+
+  .hero-inner{
+    position:relative;
+    width:min(1320px,92vw);
+    padding:56px 24px;
+    display:flex;flex-direction:column;
+    gap:clamp(12px,2.2vh,28px);
+    max-height:calc(100vh - 8px);
+  }
+
+  .hero-rule{
+    display:flex;align-items:center;gap:16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--blueprint);
+    margin:0;
+  }
+  .hero-rule .line{flex:0 0 72px;height:1px;background:var(--blueprint)}
+  .hero-rule span:last-child{color:rgba(255,255,255,0.45);letter-spacing:3px}
+
+  .hero h1{
+    font-family:'Playfair Display',serif;
+    font-weight:400;
+    font-size:clamp(34px,min(5vw,7.2vh),72px);
+    line-height:0.98;
+    letter-spacing:-1.5px;
+    color:#fff;
+    max-width:1100px;
+    margin:0;
+  }
+  .hero h1 em{font-style:italic;color:var(--blueprint);font-weight:400}
+  .hero h1 .light{color:rgba(255,255,255,0.55);font-weight:300}
+
+  .hero-sub{
+    margin:0;
+    max-width:640px;
+    font-size:14px;line-height:1.6;
+    color:rgba(255,255,255,0.62);
+    font-weight:300;
+  }
+
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;
+    margin:0;
+    border-top:1px solid rgba(255,255,255,0.12);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .hs{
+    padding:clamp(10px,1.6vh,18px) 20px clamp(10px,1.6vh,18px) 0;
+    border-right:1px solid rgba(255,255,255,0.08);
+  }
+  .hs:last-child{border-right:none}
+  .hs .v{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(28px,3.6vw,40px);font-weight:500;color:#fff;
+    line-height:1;letter-spacing:-1px;
+    display:flex;align-items:baseline;gap:4px;
+  }
+  .hs .v .unit{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--blueprint);letter-spacing:1px}
+  .hs .l{
+    margin-top:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,0.5);
+  }
+
+  .hero-actions{
+    margin:0;
+    display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .btn-enter{
+    display:inline-flex;align-items:center;gap:14px;
+    background:var(--lcg-teal);
+    color:#04221B;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;font-size:12px;
+    letter-spacing:3px;text-transform:uppercase;
+    padding:18px 28px;
+    border:none;cursor:pointer;
+    transition:all .3s;
+    position:relative;
+  }
+  .btn-enter:hover{background:var(--lcg-mint);transform:translateX(4px)}
+  .btn-enter .arr{
+    display:inline-block;width:28px;height:1px;background:currentColor;position:relative;
+  }
+  .btn-enter .arr::after{
+    content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;
+    border-top:1px solid currentColor;border-right:1px solid currentColor;
+    transform:rotate(45deg);
+  }
+
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:10px;
+    background:transparent;
+    color:rgba(255,255,255,0.7);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:2px;text-transform:uppercase;
+    padding:16px 0;
+    border:none;cursor:pointer;
+    transition:color .3s;
+  }
+  .btn-ghost:hover{color:#fff}
+
+  /* Logos + meta row in normal flow */
+  .hero-foot{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding-top:clamp(10px,1.8vh,20px);
+    border-top:1px solid rgba(255,255,255,0.08);
+    margin:0;
+  }
+  .hero-logos{display:flex;align-items:center;gap:24px}
+  .hero-logos img{
+    opacity:0.85;
+    filter:brightness(0) invert(1);
+  }
+  .hero-logos img.logo-lcg{height:calc(var(--lcg-logo-h, 28) * 1px)}
+  .hero-logos img.logo-aura{height:calc(var(--aura-logo-h, 68) * 1px)}
+  .hero-logos .sep{width:1px;height:20px;background:rgba(255,255,255,0.2)}
+  .hero-meta{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,0.4);
+    line-height:1.7;
+  }
+  .hero-meta strong{color:var(--blueprint);font-weight:600}
+
+  /* Small decorative column on the right of hero h1 */
+  .hero-side{
+    position:absolute;
+    top:50%;right:0;transform:translateY(-50%);
+    writing-mode:vertical-rl;
+    transform-origin:center;
+    transform:translateY(-50%) rotate(180deg);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;letter-spacing:6px;text-transform:uppercase;
+    color:rgba(91,216,196,0.4);
+  }
+
+  @media (max-width:900px){
+    .chrome-top,.chrome-bottom{padding:20px 24px;font-size:9px}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .hs{padding-right:16px}
+    .hero-foot{flex-direction:column;align-items:flex-start;gap:12px}
+    .hero-meta{text-align:left}
+    .corner{display:none}
+  }
+
+  /* Scan line (adds life to the blueprint) */
+  .scanline{
+    position:absolute;left:0;right:0;
+    height:2px;
+    background:linear-gradient(90deg,transparent,var(--blueprint),transparent);
+    opacity:.35;
+    top:0;
+    animation: scan 4s linear infinite;
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  @keyframes scan{
+    0%{top:0%}50%{top:100%}100%{top:0%}
+  }
+
+  /* =========================================================
+     TWEAKS PANEL
+     ========================================================= */
+  #tweaks-panel{
+    position:fixed;right:20px;bottom:20px;
+    width:300px;
+    background:rgba(11,22,38,0.96);
+    border:1px solid rgba(91,216,196,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    font-family:'IBM Plex Mono',monospace;
+    color:#fff;
+    z-index:1000;
+    transform:translateY(calc(100% + 40px));
+    transition:transform .35s cubic-bezier(.5,0,.3,1);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  }
+  #tweaks-panel.open{transform:translateY(0)}
+  #tweaks-panel .tw-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 16px;
+    border-bottom:1px solid rgba(91,216,196,0.15);
+  }
+  #tweaks-panel .tw-title{
+    font-size:10px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--blueprint);font-weight:700;
+  }
+  #tweaks-panel .tw-close{
+    background:none;border:none;color:rgba(255,255,255,0.5);
+    font-size:22px;line-height:1;cursor:pointer;padding:0 4px;
+  }
+  #tweaks-panel .tw-close:hover{color:#fff}
+  #tweaks-panel .tw-body{padding:14px 16px;display:flex;flex-direction:column;gap:14px}
+  #tweaks-panel .tw-row{
+    display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;
+    gap:4px 8px;align-items:center;
+    font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+    color:rgba(255,255,255,0.7);
+  }
+  #tweaks-panel .tw-row > span{grid-column:1 / -1}
+  #tweaks-panel .tw-row input[type=range]{
+    grid-column:1;width:100%;
+    accent-color:var(--blueprint);
+  }
+  #tweaks-panel .tw-row input[type=color]{
+    grid-column:1;width:100%;height:28px;
+    background:transparent;border:1px solid rgba(255,255,255,0.2);
+    padding:2px;cursor:pointer;
+  }
+  #tweaks-panel .tw-val{
+    grid-column:2;grid-row:2;
+    font-style:normal;color:var(--blueprint);
+    font-size:10px;min-width:40px;text-align:right;
+  }
+  #tweaks-panel .tw-replay{
+    margin-top:4px;
+    background:rgba(91,216,196,0.08);
+    border:1px solid rgba(91,216,196,0.3);
+    color:var(--blueprint);
+    font-family:inherit;font-size:10px;
+    letter-spacing:2px;text-transform:uppercase;
+    padding:10px;cursor:pointer;
+    transition:all .2s;
+  }
+  #tweaks-panel .tw-replay:hover{background:rgba(91,216,196,0.16)}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <div class="grid-bg"></div>
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+
+  <div class="chrome-top">
+    <span><span class="dot"></span>LCG × AURA · PREDIAGNÓSTICO OPERATIVO</span>
+    <span id="topRight">DWG 001 · ABR 2026</span>
+  </div>
+
+  <div class="chrome-bottom">
+    <span>CONFIDENCIAL · DIRECCIÓN GENERAL</span>
+    <button class="skip" id="skipBtn">Saltar intro <span class="arr">→</span></button>
+  </div>
+
+  <!-- =====================================================
+       INTRO
+       ===================================================== -->
+  <div class="intro" id="intro">
+
+    <div class="blueprint-wrap">
+
+      <!-- Title above blueprint -->
+      <div class="intro-title">
+        <div class="kicker">Blueprint · Nave Industrial Tipo</div>
+        <div class="t">Construyendo la <em>madurez operativa</em> de Aura Desarrollos</div>
+      </div>
+
+      <!-- Phase labels (flash on stage) -->
+      <div class="phase-label" id="phase1" style="top:8%;left:6%;animation-delay:.5s">Fase 01 · Terreno y cimentación</div>
+      <div class="phase-label" id="phase2" style="top:8%;left:6%;animation-delay:2.5s">Fase 02 · Estructura primaria</div>
+      <div class="phase-label" id="phase3" style="top:8%;left:6%;animation-delay:4.8s">Fase 03 · Envolvente y techo</div>
+      <div class="phase-label" id="phase4" style="top:8%;left:6%;animation-delay:7.2s">Fase 04 · Acabados y entrega</div>
+
+      <svg viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+
+        <defs>
+          <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="8" stroke="var(--blueprint)" stroke-width="0.6" opacity="0.35"/>
+          </pattern>
+        </defs>
+
+        <!-- ============ FASE 0: Guides & ground ============ -->
+        <!-- Horizon / ground line -->
+        <line class="draw" x1="40"  y1="560" x2="1240" y2="560"
+              style="--len:1200;--dur:1s;--delay:0.2s" />
+        <!-- Dimension line at ground level -->
+        <line class="draw draw-thin" x1="40" y1="590" x2="1240" y2="590"
+              style="--len:1200;--dur:.8s;--delay:1.6s" />
+        <!-- Dim ticks -->
+        <g class="fade-in" style="--delay:1.8s">
+          <line x1="40"  y1="585" x2="40"  y2="595" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <line x1="1240" y1="585" x2="1240" y2="595" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <text x="640" y="608" text-anchor="middle" class="label label-dim" style="--delay:1.9s;animation-duration:.5s">120.00 M</text>
+        </g>
+
+        <!-- Column grid markers (A-B-C-D-E-F) -->
+        <g class="fade-in" style="--delay:2s">
+          <g font-family="IBM Plex Mono" font-size="10" fill="var(--blueprint-dim)" text-anchor="middle" letter-spacing="1">
+            <text x="160" y="630">A</text>
+            <text x="320" y="630">B</text>
+            <text x="480" y="630">C</text>
+            <text x="640" y="630">D</text>
+            <text x="800" y="630">E</text>
+            <text x="960" y="630">F</text>
+            <text x="1120" y="630">G</text>
+          </g>
+        </g>
+
+        <!-- ============ FASE 1: Foundation ============ -->
+        <!-- Slab / foundation hatched -->
+        <rect class="draw" x="120" y="548" width="1000" height="14"
+              style="--len:2030;--dur:1.2s;--delay:0.6s" />
+        <rect class="fade-in" x="120" y="548" width="1000" height="14"
+              fill="url(#hatch)" style="--delay:1.3s;animation-duration:.8s"/>
+
+        <!-- Foundation footings (small pads) -->
+        <g>
+          <rect class="draw" x="152" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.0s"/>
+          <rect class="draw" x="312" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.1s"/>
+          <rect class="draw" x="472" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.2s"/>
+          <rect class="draw" x="632" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.3s"/>
+          <rect class="draw" x="792" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.4s"/>
+          <rect class="draw" x="952" y="540" width="16" height="22"   style="--len:80;--dur:.5s;--delay:1.5s"/>
+          <rect class="draw" x="1112" y="540" width="16" height="22"  style="--len:80;--dur:.5s;--delay:1.6s"/>
+        </g>
+
+        <!-- ============ FASE 2: Columns ============ -->
+        <!-- Columns drawn as vertical lines, 7 bays -->
+        <g>
+          <line class="draw draw-thick" x1="160" y1="540" x2="160" y2="240"  style="--len:300;--dur:.7s;--delay:2.6s"/>
+          <line class="draw draw-thick" x1="320" y1="540" x2="320" y2="220"  style="--len:320;--dur:.7s;--delay:2.75s"/>
+          <line class="draw draw-thick" x1="480" y1="540" x2="480" y2="200"  style="--len:340;--dur:.7s;--delay:2.9s"/>
+          <line class="draw draw-thick" x1="640" y1="540" x2="640" y2="190"  style="--len:350;--dur:.7s;--delay:3.05s"/>
+          <line class="draw draw-thick" x1="800" y1="540" x2="800" y2="200"  style="--len:340;--dur:.7s;--delay:3.2s"/>
+          <line class="draw draw-thick" x1="960" y1="540" x2="960" y2="220"  style="--len:320;--dur:.7s;--delay:3.35s"/>
+          <line class="draw draw-thick" x1="1120" y1="540" x2="1120" y2="240" style="--len:300;--dur:.7s;--delay:3.5s"/>
+        </g>
+
+        <!-- Column base caps -->
+        <g class="fade-in" style="--delay:3.2s">
+          <g stroke="var(--blueprint)" stroke-width="1.2" fill="none">
+            <rect x="154" y="534" width="12" height="8"/>
+            <rect x="314" y="534" width="12" height="8"/>
+            <rect x="474" y="534" width="12" height="8"/>
+            <rect x="634" y="534" width="12" height="8"/>
+            <rect x="794" y="534" width="12" height="8"/>
+            <rect x="954" y="534" width="12" height="8"/>
+            <rect x="1114" y="534" width="12" height="8"/>
+          </g>
+        </g>
+
+        <!-- ============ FASE 3: Roof (gabled trusses) ============ -->
+        <!-- Main roof outline: peak to eaves -->
+        <polyline class="draw draw-thick"
+          points="160,240 320,220 480,200 640,190 800,200 960,220 1120,240"
+          style="--len:1000;--dur:1.4s;--delay:4.5s" />
+
+        <!-- Roof overhang / gable wall left & right -->
+        <line class="draw" x1="160" y1="240" x2="140" y2="260" style="--len:30;--dur:.4s;--delay:5.2s"/>
+        <line class="draw" x1="1120" y1="240" x2="1140" y2="260" style="--len:30;--dur:.4s;--delay:5.2s"/>
+
+        <!-- Ridge line (depth) — a second parallel to suggest 3D -->
+        <polyline class="draw draw-thin"
+          points="180,250 340,230 500,210 660,200 820,210 980,230 1140,250"
+          style="--len:1000;--dur:1s;--delay:5.4s" />
+
+        <!-- Trusses: diagonal web members in each bay -->
+        <g>
+          <!-- bay 1 -->
+          <line class="draw draw-thin" x1="160" y1="240" x2="320" y2="220" style="--len:165;--dur:.4s;--delay:5.6s"/>
+          <line class="draw draw-thin" x1="160" y1="260" x2="320" y2="240" style="--len:165;--dur:.4s;--delay:5.7s"/>
+          <line class="draw draw-thin" x1="240" y1="230" x2="240" y2="260" style="--len:30;--dur:.3s;--delay:5.8s"/>
+          <!-- bay 2 -->
+          <line class="draw draw-thin" x1="320" y1="220" x2="480" y2="200" style="--len:165;--dur:.4s;--delay:5.85s"/>
+          <line class="draw draw-thin" x1="320" y1="240" x2="480" y2="220" style="--len:165;--dur:.4s;--delay:5.95s"/>
+          <line class="draw draw-thin" x1="400" y1="210" x2="400" y2="240" style="--len:30;--dur:.3s;--delay:6s"/>
+          <!-- bay 3 -->
+          <line class="draw draw-thin" x1="480" y1="200" x2="640" y2="190" style="--len:165;--dur:.4s;--delay:6.05s"/>
+          <line class="draw draw-thin" x1="480" y1="220" x2="640" y2="210" style="--len:165;--dur:.4s;--delay:6.15s"/>
+          <line class="draw draw-thin" x1="560" y1="195" x2="560" y2="215" style="--len:20;--dur:.3s;--delay:6.2s"/>
+          <!-- bay 4 -->
+          <line class="draw draw-thin" x1="640" y1="190" x2="800" y2="200" style="--len:165;--dur:.4s;--delay:6.05s"/>
+          <line class="draw draw-thin" x1="640" y1="210" x2="800" y2="220" style="--len:165;--dur:.4s;--delay:6.15s"/>
+          <line class="draw draw-thin" x1="720" y1="195" x2="720" y2="215" style="--len:20;--dur:.3s;--delay:6.2s"/>
+          <!-- bay 5 -->
+          <line class="draw draw-thin" x1="800" y1="200" x2="960" y2="220" style="--len:165;--dur:.4s;--delay:5.85s"/>
+          <line class="draw draw-thin" x1="800" y1="220" x2="960" y2="240" style="--len:165;--dur:.4s;--delay:5.95s"/>
+          <line class="draw draw-thin" x1="880" y1="210" x2="880" y2="240" style="--len:30;--dur:.3s;--delay:6s"/>
+          <!-- bay 6 -->
+          <line class="draw draw-thin" x1="960" y1="220" x2="1120" y2="240" style="--len:165;--dur:.4s;--delay:5.6s"/>
+          <line class="draw draw-thin" x1="960" y1="240" x2="1120" y2="260" style="--len:165;--dur:.4s;--delay:5.7s"/>
+          <line class="draw draw-thin" x1="1040" y1="230" x2="1040" y2="260" style="--len:30;--dur:.3s;--delay:5.8s"/>
+        </g>
+
+        <!-- Bottom chord (parallel to ground) -->
+        <polyline class="draw draw-thin"
+          points="160,260 320,240 480,220 640,210 800,220 960,240 1120,260"
+          style="--len:1000;--dur:1s;--delay:5.3s" />
+
+        <!-- ============ FASE 4: Envelope (cladding + doors + windows) ============ -->
+        <!-- Side walls (lightly suggested) -->
+        <line class="draw draw-thin" x1="140" y1="260" x2="140" y2="548" style="--len:290;--dur:.8s;--delay:6.4s"/>
+        <line class="draw draw-thin" x1="1140" y1="260" x2="1140" y2="548" style="--len:290;--dur:.8s;--delay:6.4s"/>
+
+        <!-- Vertical cladding ribs (every 80) -->
+        <g>
+          <line class="draw draw-thin draw-dim" x1="240" y1="540" x2="240" y2="340"  style="--len:200;--dur:.6s;--delay:6.6s"/>
+          <line class="draw draw-thin draw-dim" x1="400" y1="540" x2="400" y2="290"  style="--len:250;--dur:.6s;--delay:6.7s"/>
+          <line class="draw draw-thin draw-dim" x1="560" y1="540" x2="560" y2="270"  style="--len:270;--dur:.6s;--delay:6.8s"/>
+          <line class="draw draw-thin draw-dim" x1="720" y1="540" x2="720" y2="270"  style="--len:270;--dur:.6s;--delay:6.9s"/>
+          <line class="draw draw-thin draw-dim" x1="880" y1="540" x2="880" y2="290"  style="--len:250;--dur:.6s;--delay:7s"/>
+          <line class="draw draw-thin draw-dim" x1="1040" y1="540" x2="1040" y2="340" style="--len:200;--dur:.6s;--delay:7.1s"/>
+        </g>
+
+        <!-- Main loading dock door (center) -->
+        <rect class="draw" x="580" y="420" width="120" height="120"
+              style="--len:490;--dur:.8s;--delay:7.3s"/>
+        <!-- Door ribs -->
+        <g class="fade-in" style="--delay:7.9s">
+          <line x1="600" y1="420" x2="600" y2="540" stroke="var(--blueprint)" stroke-width="0.5" opacity="0.6"/>
+          <line x1="620" y1="420" x2="620" y2="540" stroke="var(--blueprint)" stroke-width="0.5" opacity="0.6"/>
+          <line x1="640" y1="420" x2="640" y2="540" stroke="var(--blueprint)" stroke-width="0.5" opacity="0.6"/>
+          <line x1="660" y1="420" x2="660" y2="540" stroke="var(--blueprint)" stroke-width="0.5" opacity="0.6"/>
+          <line x1="680" y1="420" x2="680" y2="540" stroke="var(--blueprint)" stroke-width="0.5" opacity="0.6"/>
+        </g>
+
+        <!-- Secondary doors / windows row -->
+        <g>
+          <rect class="draw draw-thin" x="200" y="460" width="40" height="80"  style="--len:240;--dur:.5s;--delay:7.4s"/>
+          <rect class="draw draw-thin" x="260" y="460" width="40" height="80"  style="--len:240;--dur:.5s;--delay:7.45s"/>
+          <rect class="draw draw-thin" x="420" y="460" width="40" height="80"  style="--len:240;--dur:.5s;--delay:7.5s"/>
+          <rect class="draw draw-thin" x="980" y="460" width="40" height="80"  style="--len:240;--dur:.5s;--delay:7.55s"/>
+          <rect class="draw draw-thin" x="1040" y="460" width="40" height="80" style="--len:240;--dur:.5s;--delay:7.6s"/>
+
+          <!-- Clerestory windows row -->
+          <rect class="draw draw-thin" x="220" y="380" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.3s"/>
+          <rect class="draw draw-thin" x="340" y="360" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.35s"/>
+          <rect class="draw draw-thin" x="460" y="340" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.4s"/>
+          <rect class="draw draw-thin" x="760" y="340" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.45s"/>
+          <rect class="draw draw-thin" x="880" y="360" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.5s"/>
+          <rect class="draw draw-thin" x="1000" y="380" width="60" height="20" style="--len:160;--dur:.4s;--delay:7.55s"/>
+        </g>
+
+        <!-- ============ Dimension / annotation overlays ============ -->
+        <!-- Height dim on the right -->
+        <g class="fade-in" style="--delay:8.1s">
+          <line x1="1200" y1="190" x2="1200" y2="548" stroke="var(--blueprint-dim)" stroke-width="0.6"/>
+          <line x1="1196" y1="190" x2="1204" y2="190" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <line x1="1196" y1="548" x2="1204" y2="548" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <text x="1212" y="373" class="label label-dim" style="--delay:8.2s;animation-duration:.5s" transform="rotate(90 1212 373)">H = 12.5 M</text>
+        </g>
+
+        <!-- Callout top ridge -->
+        <g class="fade-in" style="--delay:8.2s">
+          <line x1="640" y1="190" x2="640" y2="120" stroke="var(--blueprint)" stroke-width="0.6"/>
+          <circle cx="640" cy="190" r="3" fill="var(--blueprint)"/>
+          <line x1="640" y1="120" x2="760" y2="120" stroke="var(--blueprint)" stroke-width="0.6"/>
+          <text x="770" y="124" class="label" style="--delay:8.3s;animation-duration:.5s">Cumbrera · Luz libre 20 M</text>
+        </g>
+
+        <!-- Callout dock -->
+        <g class="fade-in" style="--delay:8.4s">
+          <line x1="520" y1="480" x2="440" y2="480" stroke="var(--blueprint)" stroke-width="0.6"/>
+          <circle cx="520" cy="480" r="3" fill="var(--blueprint)"/>
+          <text x="280" y="484" class="label" style="--delay:8.5s;animation-duration:.5s">Andén de carga</text>
+        </g>
+
+        <!-- Callout bay A -->
+        <g class="fade-in" style="--delay:8.6s">
+          <line x1="160" y1="240" x2="80" y2="180" stroke="var(--blueprint)" stroke-width="0.6"/>
+          <circle cx="160" cy="240" r="3" fill="var(--blueprint)"/>
+          <text x="40" y="170" class="label" style="--delay:8.7s;animation-duration:.5s">Eje A</text>
+        </g>
+
+        <!-- North arrow top-right -->
+        <g class="fade-in" style="--delay:1.5s" transform="translate(1180,80)">
+          <circle cx="0" cy="0" r="22" fill="none" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <path d="M 0,-18 L 6,8 L 0,3 L -6,8 Z" fill="var(--blueprint)"/>
+          <text x="0" y="-26" text-anchor="middle" class="label label-dim" style="--delay:1.6s;animation-duration:.5s">N</text>
+        </g>
+
+        <!-- Scale bar bottom-left -->
+        <g class="fade-in" style="--delay:8.8s" transform="translate(60,670)">
+          <line x1="0" y1="0" x2="120" y2="0" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <line x1="0" y1="-4" x2="0" y2="4" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <line x1="30" y1="-3" x2="30" y2="3" stroke="var(--blueprint-dim)" stroke-width="0.6"/>
+          <line x1="60" y1="-3" x2="60" y2="3" stroke="var(--blueprint-dim)" stroke-width="0.6"/>
+          <line x1="90" y1="-3" x2="90" y2="3" stroke="var(--blueprint-dim)" stroke-width="0.6"/>
+          <line x1="120" y1="-4" x2="120" y2="4" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <text x="0"  y="16" class="label label-dim" style="--delay:8.9s;animation-duration:.5s">0</text>
+          <text x="60" y="16" text-anchor="middle" class="label label-dim" style="--delay:8.9s;animation-duration:.5s">15M</text>
+          <text x="120" y="16" text-anchor="middle" class="label label-dim" style="--delay:8.9s;animation-duration:.5s">30M</text>
+          <text x="0" y="32" class="label label-dim" style="--delay:8.9s;animation-duration:.5s">Escala 1:300</text>
+        </g>
+
+        <!-- Title block bottom-right (drawing sheet info) -->
+        <g class="fade-in" style="--delay:9s" transform="translate(880,650)">
+          <rect x="0" y="0" width="320" height="54" fill="none" stroke="var(--blueprint-dim)" stroke-width="0.8"/>
+          <line x1="0" y1="18" x2="320" y2="18" stroke="var(--blueprint-dim)" stroke-width="0.5"/>
+          <line x1="160" y1="18" x2="160" y2="54" stroke="var(--blueprint-dim)" stroke-width="0.5"/>
+          <text x="8" y="13" class="label" style="--delay:9.1s;animation-duration:.4s">LCG · AURA — Nave industrial tipo</text>
+          <text x="8" y="33" class="label label-dim" style="--delay:9.1s;animation-duration:.4s">DWG-001</text>
+          <text x="8" y="47" class="label label-dim" style="--delay:9.1s;animation-duration:.4s">Rev. 00 · Abril 2026</text>
+          <text x="168" y="33" class="label label-dim" style="--delay:9.1s;animation-duration:.4s">CMM actual 1.5 / 5.0</text>
+          <text x="168" y="47" class="label label-dim" style="--delay:9.1s;animation-duration:.4s">Meta · 3.0 / 5.0</text>
+        </g>
+
+      </svg>
+
+      <!-- Status bar -->
+      <div class="intro-status">
+        <span id="statusText">Levantando planos</span>
+        <div class="bar"></div>
+        <span id="statusPct">00 %</span>
+      </div>
+
+      <!-- Scanline -->
+      <div class="scanline"></div>
+
+    </div>
+
+  </div>
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <div class="hero" id="hero">
+    <div class="hero-inner">
+
+      <div class="hero-rule">
+        <span class="line"></span>
+        <span>Documento confidencial · Abr 2026</span>
+        <span>· Dirección General</span>
+      </div>
+
+      <h1>
+        Prediagnóstico<br>
+        <em>operativo</em> <span class="light">de la cadena<br>de valor</span>
+      </h1>
+
+      <p class="hero-sub">
+        Evaluación de madurez CMM de 13 pilares operativos de Aura Desarrollos —
+        síntesis de 19+ entrevistas, análisis financiero, mapeo de procesos y
+        50 oportunidades identificadas para la transformación de su modelo.
+      </p>
+
+      <div class="hero-stats">
+        <div class="hs">
+          <div class="v">1.5<span class="unit">/5.0</span></div>
+          <div class="l">CMM Promedio</div>
+        </div>
+        <div class="hs">
+          <div class="v">13<span class="unit">pilares</span></div>
+          <div class="l">Modelo Macro</div>
+        </div>
+        <div class="hs">
+          <div class="v">19<span class="unit">+</span></div>
+          <div class="l">Entrevistas</div>
+        </div>
+        <div class="hs">
+          <div class="v">50<span class="unit">oport.</span></div>
+          <div class="l">Identificadas</div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-enter" id="enterBtn">
+          Abrir documento
+          <span class="arr"></span>
+        </button>
+        <button class="btn-ghost" id="replayBtn">↻ Reproducir intro</button>
+      </div>
+
+      <div class="hero-foot">
+        <div class="hero-logos">
+          <img src="assets/logo-lcg-dark.png" alt="London Consulting Group" class="logo-lcg">
+          <span class="sep"></span>
+          <img src="assets/logo-aura.png" alt="Aura Desarrollos" class="logo-aura">
+        </div>
+        <div class="hero-meta">
+          <div><strong>DWG 001</strong> · REV 00 · ABR 2026 · TAMPICO – ALTAMIRA</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  let INTRO_MS = 10000;
+  const intro = document.getElementById('intro');
+  const hero = document.getElementById('hero');
+  const skipBtn = document.getElementById('skipBtn');
+  const enterBtn = document.getElementById('enterBtn');
+  const replayBtn = document.getElementById('replayBtn');
+  const statusText = document.getElementById('statusText');
+  const statusPct  = document.getElementById('statusPct');
+
+  const phases = [
+    {at:  200, text:'Levantando terreno'},
+    {at: 2000, text:'Cimentación & footings'},
+    {at: 3500, text:'Estructura primaria'},
+    {at: 5200, text:'Cubierta & armaduras'},
+    {at: 7000, text:'Envolvente & aberturas'},
+    {at: 8500, text:'Cotas & entrega técnica'},
+  ];
+
+  let introTimer=null, pctTimer=null, endTimer=null;
+
+  const stage = document.getElementById('stage');
+  function showHero(){
+    intro.classList.add('out');
+    hero.classList.add('in');
+    stage.classList.add('hero-active');
+    if(pctTimer){clearInterval(pctTimer);pctTimer=null}
+  }
+
+  function startIntro(){
+    intro.classList.remove('out');
+    hero.classList.remove('in');
+    document.getElementById('stage').classList.remove('hero-active');
+    // Restart animations by cloning & re-inserting svg
+    const wrap = intro.querySelector('.blueprint-wrap');
+    const clone = wrap.cloneNode(true);
+    wrap.parentNode.replaceChild(clone, wrap);
+    // Progress
+    const start = Date.now();
+    if(pctTimer) clearInterval(pctTimer);
+    pctTimer = setInterval(()=>{
+      const t = Math.min(1,(Date.now()-start)/INTRO_MS);
+      statusPct.textContent = String(Math.floor(t*100)).padStart(2,'0') + ' %';
+      const phase = phases.slice().reverse().find(p=> (Date.now()-start) >= p.at);
+      if(phase) statusText.textContent = phase.text;
+      if(t>=1){clearInterval(pctTimer);pctTimer=null}
+    }, 80);
+    if(endTimer) clearTimeout(endTimer);
+    endTimer = setTimeout(showHero, INTRO_MS + 200);
+  }
+
+  skipBtn.addEventListener('click', ()=>{
+    if(endTimer) clearTimeout(endTimer);
+    showHero();
+  });
+  enterBtn.addEventListener('click', ()=>{
+    try{ sessionStorage.setItem('auth','ok'); }catch(e){}
+    window.location.href='prediagnostico.html';
+  });
+  replayBtn.addEventListener('click', startIntro);
+
+  // Keyboard: Escape / Enter to skip; Enter on hero to open
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape'){ if(!hero.classList.contains('in')) showHero(); }
+    if(e.key==='Enter' && hero.classList.contains('in')) enterBtn.click();
+  });
+
+  // Start
+  startIntro();
+
+  // =====================================================
+  // TWEAKS PANEL
+  // =====================================================
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "lcgLogoHeight": 40,
+    "auraLogoHeight": 14,
+    "accentColor": "#5BD8C4",
+    "introDuration": 15,
+    "showChrome": true
+  }/*EDITMODE-END*/;
+
+  let tweaks = { ...TWEAK_DEFAULTS };
+
+  function applyTweaks(){
+    document.documentElement.style.setProperty('--lcg-logo-h', tweaks.lcgLogoHeight);
+    document.documentElement.style.setProperty('--aura-logo-h', tweaks.auraLogoHeight);
+    document.documentElement.style.setProperty('--blueprint', tweaks.accentColor);
+    const b = tweaks.accentColor;
+    // derive a dim version
+    document.documentElement.style.setProperty('--blueprint-dim', hexToRgba(b, 0.35));
+    document.documentElement.style.setProperty('--intro-ms', (tweaks.introDuration*1000)+'ms');
+  }
+  function hexToRgba(hex, a){
+    const m = hex.replace('#','');
+    const n = m.length===3 ? m.split('').map(c=>c+c).join('') : m;
+    const r=parseInt(n.slice(0,2),16),g=parseInt(n.slice(2,4),16),bl=parseInt(n.slice(4,6),16);
+    return `rgba(${r},${g},${bl},${a})`;
+  }
+
+  // Build panel
+  const tweakEl = document.createElement('div');
+  tweakEl.id = 'tweaks-panel';
+  tweakEl.innerHTML = `
+    <div class="tw-head">
+      <span class="tw-title">Tweaks</span>
+      <button class="tw-close" aria-label="Close">×</button>
+    </div>
+    <div class="tw-body">
+      <label class="tw-row">
+        <span>Logo London — altura</span>
+        <input type="range" min="10" max="40" step="1" data-key="lcgLogoHeight">
+        <em class="tw-val" data-for="lcgLogoHeight"></em>
+      </label>
+      <label class="tw-row">
+        <span>Logo Aura — altura</span>
+        <input type="range" min="14" max="48" step="1" data-key="auraLogoHeight">
+        <em class="tw-val" data-for="auraLogoHeight"></em>
+      </label>
+      <label class="tw-row">
+        <span>Color acento</span>
+        <input type="color" data-key="accentColor">
+        <em class="tw-val" data-for="accentColor"></em>
+      </label>
+      <label class="tw-row">
+        <span>Duración intro (s)</span>
+        <input type="range" min="3" max="15" step="1" data-key="introDuration">
+        <em class="tw-val" data-for="introDuration"></em>
+      </label>
+      <button class="tw-replay">↻ Reproducir intro</button>
+    </div>
+  `;
+  document.body.appendChild(tweakEl);
+
+  function syncUI(){
+    tweakEl.querySelectorAll('[data-key]').forEach(inp=>{
+      inp.value = tweaks[inp.dataset.key];
+    });
+    tweakEl.querySelectorAll('[data-for]').forEach(el=>{
+      const k = el.dataset.for;
+      el.textContent = tweaks[k];
+    });
+  }
+  tweakEl.addEventListener('input', e=>{
+    const k = e.target.dataset.key;
+    if(!k) return;
+    let v = e.target.value;
+    if(e.target.type==='range') v = parseFloat(v);
+    tweaks[k] = v;
+    if(k==='introDuration') INTRO_MS = v*1000;
+    applyTweaks();
+    syncUI();
+    try{
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits:{[k]:v}}, '*');
+    }catch(err){}
+  });
+  tweakEl.querySelector('.tw-close').addEventListener('click', ()=>{
+    tweakEl.classList.remove('open');
+  });
+  tweakEl.querySelector('.tw-replay').addEventListener('click', ()=>{
+    INTRO_MS = tweaks.introDuration*1000;
+    startIntro();
+  });
+
+  window.addEventListener('message', (ev)=>{
+    const d = ev.data || {};
+    if(d.type==='__activate_edit_mode') tweakEl.classList.add('open');
+    if(d.type==='__deactivate_edit_mode') tweakEl.classList.remove('open');
+  });
+
+  applyTweaks();
+  syncUI();
+
+  // Announce availability AFTER listener is registered
+  try{ window.parent.postMessage({type:'__edit_mode_available'}, '*'); }catch(e){}
+</script>
+
+</body>
+</html>
