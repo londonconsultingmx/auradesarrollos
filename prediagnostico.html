@@ -2403,15 +2403,15 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
   <!-- FLUJO DE VALOR FINANCIERO: CÓMO DEBERÍA SER VS CÓMO SE ROMPE -->
   <h3 class="sub-heading" style="margin-top:40px;">El Ciclo de Valor Financiero &mdash; D&oacute;nde se Rompe</h3>
   <p class="narrative">
-    El ciclo integrado de valor financiero en un desarrollador profesional conecta la planeaci&oacute;n del proyecto con el control de ejecuci&oacute;n y el cierre. En Aura, el ciclo est&aacute; interrumpido en m&uacute;ltiples puntos &mdash; las funciones financieras operan en silos, reactivamente, sin acceso a la informaci&oacute;n necesaria para agregar valor.
+    El modelo financiero de cada proyecto se construye al arranque con rigor: 3 escenarios, an&aacute;lisis de sensibilidad, CPI, fee desarrollador, curva de disposici&oacute;n. Es la base s&oacute;lida del ciclo. El problema empieza despu&eacute;s: el modelo no se traduce en un <strong>Presupuesto Interno de Control (PIC)</strong> que viva en la operaci&oacute;n. Sin PIC como l&iacute;nea base compartida, las funciones financieras (Contralor&iacute;a, Costos, Tesorer&iacute;a) quedan dependientes de lo que Operaciones reporte, sin referencia propia contra la cual validar.
   </p>
 
   <div style="background:#F8FAFB; border:1px solid #E2E8F0; border-radius:12px; padding:28px; margin:24px 0;">
     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
       <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#1E293B;">&#9654; Ciclo de Valor Financiero &mdash; Best Practice vs Realidad Aura</div>
-      <div style="font-size:10px; color:#64748B; background:#E2E8F0; border-radius:4px; padding:4px 10px; font-weight:600;">PIC &bull; EVM &bull; Business Partner Financiero</div>
+      <div style="font-size:10px; color:#64748B; background:#E2E8F0; border-radius:4px; padding:4px 10px; font-weight:600;">Modelo Financiero &bull; PIC &bull; EVM &bull; Cierre</div>
     </div>
-    <div style="font-size:11px; color:#DC2626; font-weight:600; margin-bottom:20px; letter-spacing:0.5px;">COMPARATIVA: CICLO INTEGRADO vs SILOS REACTIVOS</div>
+    <div style="font-size:11px; color:#DC2626; font-weight:600; margin-bottom:20px; letter-spacing:0.5px;">COMPARATIVA: MODELO QUE SE EJECUTA vs MODELO QUE SE DESCONECTA</div>
 
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
 
@@ -2419,34 +2419,34 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
       <div style="border:2px solid #0D9488; border-radius:10px; overflow:hidden;">
         <div style="background:#0D9488; color:white; padding:10px 16px; font-size:12px; font-weight:700; text-align:center; letter-spacing:1px;">C&Oacute;MO DEBER&Iacute;A FUNCIONAR</div>
         <div style="display:grid; grid-template-columns:110px 1fr; gap:0;">
-          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Arranque</div>
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Modelo</div>
           <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">1. Kick-off financiero con PIC aprobado<br><span style="font-weight:400; font-size:12px; color:#64748B;">Finanzas, Contralor&iacute;a, Costos, Tesorer&iacute;a participan</span></div>
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">1. Modelo financiero del proyecto<br><span style="font-weight:400; font-size:12px; color:#64748B;">3 escenarios, sensibilidad, CPI, fee, curva de disposici&oacute;n</span></div>
           </div>
 
-          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Planeaci&oacute;n</div>
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">L&iacute;nea base</div>
           <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">2. Programa de erogaciones semanal<br><span style="font-weight:400; font-size:12px; color:#64748B;">Vinculado al cronograma de obra &mdash; curva S financiera</span></div>
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">2. PIC aprobado como l&iacute;nea base<br><span style="font-weight:400; font-size:12px; color:#64748B;">Traduce el modelo a presupuesto operativo por partida</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Programa</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">3. Programa de erogaciones<br><span style="font-weight:400; font-size:12px; color:#64748B;">Curva S financiera vinculada al cronograma de obra</span></div>
           </div>
 
           <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Control</div>
           <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">3. Validaci&oacute;n cruzada factura vs contrato/OC<br><span style="font-weight:400; font-size:12px; color:#64748B;">Segregaci&oacute;n de funciones &mdash; 4 ojos antes de pagar</span></div>
-          </div>
-
-          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Tesorer&iacute;a</div>
-          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">4. Pagos programados con anticipaci&oacute;n<br><span style="font-weight:400; font-size:12px; color:#64748B;">Calendario de pagos alineado a cronograma</span></div>
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">4. Validaci&oacute;n cruzada de pagos<br><span style="font-weight:400; font-size:12px; color:#64748B;">Factura vs contrato/OC/avance &mdash; segregaci&oacute;n de funciones</span></div>
           </div>
 
           <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Seguimiento</div>
           <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">5. EVM con corte semanal<br><span style="font-weight:400; font-size:12px; color:#64748B;">SPI + CPI por proyecto &mdash; alertas autom&aacute;ticas</span></div>
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">5. EVM contra el PIC<br><span style="font-weight:400; font-size:12px; color:#64748B;">SPI + CPI con corte semanal &mdash; alertas autom&aacute;ticas de desviaci&oacute;n</span></div>
           </div>
 
           <div style="background:#F0FDFA; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Cierre</div>
           <div style="padding:8px 12px; background:white;">
-            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">6. Cierre financiero con rentabilidad real<br><span style="font-weight:400; font-size:12px; color:#64748B;">Lecciones aprendidas al cat&aacute;logo de costos</span></div>
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">6. Cierre financiero: real vs modelo<br><span style="font-weight:400; font-size:12px; color:#64748B;">Rentabilidad real, lecciones al cat&aacute;logo, retroalimentaci&oacute;n al siguiente modelo</span></div>
           </div>
         </div>
       </div>
@@ -2455,34 +2455,34 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
       <div style="border:2px solid #DC2626; border-radius:10px; overflow:hidden;">
         <div style="background:#DC2626; color:white; padding:10px 16px; font-size:12px; font-weight:700; text-align:center; letter-spacing:1px;">D&Oacute;NDE SE ROMPE EN AURA</div>
         <div style="display:grid; grid-template-columns:110px 1fr; gap:0;">
-          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Arranque</div>
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Modelo</div>
           <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin kick-off financiero<br><span style="font-weight:400; font-size:12px;">Finanzas, Contralor&iacute;a y Costos excluidos del onboarding del proyecto</span></div>
+            <div style="background:#F0FDFA; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#0D9488; text-align:center;">&#10003; Modelo financiero robusto<br><span style="font-weight:400; font-size:12px; color:#64748B;">3 escenarios, sensibilidad, CPI &mdash; fortaleza reconocida</span></div>
           </div>
 
-          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Planeaci&oacute;n</div>
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">L&iacute;nea base</div>
           <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Pre-presupuesto quincenal sobreestimado 3x-4x<br><span style="font-weight:400; font-size:12px;">Proyecta $10M, ejecuta $3M</span></div>
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; No existe PIC operativo<br><span style="font-weight:400; font-size:12px;">El modelo financiero no se traduce a presupuesto operativo con due&ntilde;o</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Programa</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Pre-presupuesto quincenal sobreestimado 3x-4x<br><span style="font-weight:400; font-size:12px;">Proyecta $10M, ejecuta $3M &mdash; sin curva S vinculada al cronograma</span></div>
           </div>
 
           <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Control</div>
           <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin validaci&oacute;n cruzada factura vs contrato<br><span style="font-weight:400; font-size:12px;">Se paga 100% contra factura aunque contrato diga otra cosa</span></div>
-          </div>
-
-          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Tesorer&iacute;a</div>
-          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Urgencias reactivas + pr&eacute;stamos filiales<br><span style="font-weight:400; font-size:12px;">Pagos $1-3M a las 17:00 que no acreditan + rescates intercompa&ntilde;&iacute;a sin protocolo</span></div>
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Pago 100% contra factura<br><span style="font-weight:400; font-size:12px;">Sin validaci&oacute;n independiente factura vs contrato ni segregaci&oacute;n de funciones</span></div>
           </div>
 
           <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Seguimiento</div>
           <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin EVM ni KPIs financieros por proyecto<br><span style="font-weight:400; font-size:12px;">No hay comparaci&oacute;n presupuesto vs real durante ejecuci&oacute;n</span></div>
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin EVM &mdash; finanzas depende de lo que opera reporte<br><span style="font-weight:400; font-size:12px;">Sin referencia propia contra la cual validar avance</span></div>
           </div>
 
           <div style="background:#FEF2F2; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Cierre</div>
           <div style="padding:8px 12px; background:white;">
-            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin cierre financiero de proyectos<br><span style="font-weight:400; font-size:12px;">PLA casi terminado y rentabilidad real desconocida</span></div>
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin cierre financiero<br><span style="font-weight:400; font-size:12px;">PLA casi terminado y rentabilidad real vs modelo desconocida</span></div>
           </div>
         </div>
       </div>
@@ -2490,16 +2490,16 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
     </div>
 
     <div style="background:#FEF2F2; border:2px solid #DC2626; border-radius:8px; padding:14px 18px; margin-bottom:14px;">
-      <div style="font-size:13px; font-weight:700; color:#DC2626; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Brecha: Lo que falta</div>
+      <div style="font-size:13px; font-weight:700; color:#DC2626; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Brecha: D&oacute;nde se desconecta el ciclo</div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Las 4 funciones financieras operan en silos, reactivamente</div>
-        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin PIC como l&iacute;nea base compartida entre proyecto y finanzas</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> El modelo es s&oacute;lido al arranque, pero no baja al PIC operativo</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Contralor&iacute;a, Costos y Tesorer&iacute;a dependen de lo que Operaciones reporte</div>
         <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin segregaci&oacute;n de funciones en ciclo de pago</div>
-        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin cierre financiero &mdash; no hay aprendizaje ni retroalimentaci&oacute;n</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin cierre &mdash; el modelo inicial nunca se valida contra la realidad</div>
       </div>
     </div>
 
-    <div style="background:#F0FDF4; border-left:3px solid #16A34A; border-radius:6px; padding:12px 14px; color:#1E293B; font-size:13px;"><strong style="color:#16A34A;">&#10003; Oportunidad:</strong> Integrar las 4 funciones financieras en un ciclo &uacute;nico: kick-off financiero con PIC aprobado &rarr; programa de erogaciones &rarr; validaci&oacute;n cruzada de pagos &rarr; calendario de tesorer&iacute;a &rarr; EVM semanal &rarr; cierre con lecciones aprendidas. Incorporar business partner financiero que conecte con operaciones desde el inicio.</div>
+    <div style="background:#F0FDF4; border-left:3px solid #16A34A; border-radius:6px; padding:12px 14px; color:#1E293B; font-size:13px;"><strong style="color:#16A34A;">&#10003; Oportunidad:</strong> Construir el puente entre el modelo financiero (que ya funciona) y la ejecuci&oacute;n operativa. Traducir el modelo a un PIC con due&ntilde;o, vincularlo al cronograma de obra, implementar validaci&oacute;n cruzada de pagos con segregaci&oacute;n de funciones, EVM semanal, y cierre financiero que retroalimente el siguiente modelo.</div>
   </div>
 
   <!-- Sección de detalle financiero por proyecto removida — se preparará documento separado -->
