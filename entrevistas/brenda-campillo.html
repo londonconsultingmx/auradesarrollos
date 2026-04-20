@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finanzas y Tesorer&iacute;a: Flujo, Controles y Gobernanza &mdash; Aura Desarrollos | LCG</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
+        :root {
+            --lcg-dark: #005C4B;
+            --lcg-teal: #00B388;
+            --lcg-mint: #00D4A0;
+            --aura-navy: #1B3057;
+            --lcg-accent: #00B388;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a6a;
+            --text-muted: #7a7a9a;
+            --border: #e0e4ea;
+            --bg-light: #f7f8fb;
+            --bg-card: #ffffff;
+            --success: #00B388;
+            --warning: #F5A623;
+            --danger: #E74C5E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: A4; margin: 0; }
+        @media print {
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+            body { font-size: 9pt; background: white !important; }
+            .document { box-shadow: none; max-width: 100%; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; break-before: page; }
+            .cover-page { height: 100vh; min-height: 100vh; page-break-after: always; break-after: page; }
+            .content-page { padding: 40px 50px; }
+            .section-header { page-break-after: avoid; break-after: avoid; }
+            .kpi-banner, .finding-card, .verbatim { page-break-inside: avoid; break-inside: avoid; }
+        }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); line-height: 1.6; background: #eef1f5; }
+        .document { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 4px 40px rgba(0,0,0,0.08); }
+        .cover-page { background: linear-gradient(135deg, var(--lcg-dark) 0%, #1a1a2e 50%, var(--aura-navy) 100%); color: white; padding: 60px 60px 50px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .cover-page::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; border-radius: 50%; background: rgba(0, 179, 136, 0.08); }
+        .cover-page::after { content: ''; position: absolute; bottom: -150px; left: -150px; width: 400px; height: 400px; border-radius: 50%; background: rgba(27, 48, 87, 0.12); }
+        .cover-logos { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+        .cover-logo-lcg img { height: 45px; filter: brightness(0) invert(1); }
+        .cover-logo-client img { height: 65px; border-radius: 6px; }
+        .cover-content { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 0; }
+        .cover-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 20px; }
+        .cover-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .cover-subtitle { font-size: 18px; font-weight: 300; color: rgba(255,255,255,0.75); margin-bottom: 40px; line-height: 1.5; }
+        .cover-divider { width: 80px; height: 3px; background: var(--lcg-teal); margin-bottom: 40px; }
+        .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .cover-meta-item { font-size: 13px; }
+        .cover-meta-label { color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+        .cover-meta-value { color: rgba(255,255,255,0.9); font-weight: 500; }
+        .cover-footer { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 11px; color: rgba(255,255,255,0.4); }
+        .content-page { padding: 50px 60px; display: flex; flex-direction: column; }
+        .page-header-logos { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+        .logo-lcg-sm { height: 28px; }
+        .logo-client-sm { height: 48px; border-radius: 4px; }
+        .header-divider { font-size: 10px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .section-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 3px solid var(--aura-navy); }
+        .section-number { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--lcg-teal); margin-bottom: 8px; }
+        .section-title { font-size: 26px; font-weight: 700; color: var(--aura-navy); line-height: 1.3; }
+        p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; }
+        .kpi-banner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; background: var(--aura-navy); border-radius: 10px; overflow: hidden; margin: 24px 0; }
+        .kpi-item { padding: 16px 12px; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+        .kpi-item:last-child { border-right: none; }
+        .kpi-value { font-size: 22px; font-weight: 800; color: white; }
+        .kpi-value.green { color: var(--lcg-teal); }
+        .kpi-value.red { color: var(--danger); }
+        .kpi-value.amber { color: var(--warning); }
+        .kpi-label { font-size: 10px; color: rgba(255,255,255,0.55); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .finding-card { background: var(--bg-light); border-radius: 8px; border-left: 4px solid var(--danger); margin: 12px 0; overflow: hidden; }
+        .finding-card.finding-green { border-left-color: var(--success); }
+        .finding-card.finding-amber { border-left-color: var(--warning); }
+        .finding-card.finding-blue { border-left-color: #2E6DB4; }
+        .finding-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(0,0,0,0.02); border-bottom: 1px solid rgba(0,0,0,0.04); }
+        .finding-title { font-size: 13px; font-weight: 700; color: var(--aura-navy); flex: 1; }
+        .finding-dimension { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-left: 12px; }
+        .finding-dimension.riesgo { background: #fce4ec; color: #c62828; }
+        .finding-dimension.proceso { background: #fff3e0; color: #e65100; }
+        .finding-dimension.estructura { background: #ede7f6; color: #4527a0; }
+        .finding-dimension.oportunidad { background: #e8f5e9; color: #2e7d32; }
+        .finding-dimension.fortaleza { background: #e8f5e9; color: #2e7d32; }
+        .finding-body { padding: 14px 16px; font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+        .verbatim { background: linear-gradient(135deg, #fafbfc, #f5f6f8); border-left: 4px solid var(--lcg-teal); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 12px 0; }
+        .verbatim-text { font-size: 13px; font-style: italic; color: var(--text-primary); line-height: 1.7; }
+        .verbatim-text::before { content: '\201C'; font-size: 28px; color: var(--lcg-teal); line-height: 0; vertical-align: -8px; margin-right: 4px; }
+        .verbatim-source { font-size: 10px; color: var(--text-muted); margin-top: 8px; font-style: normal; font-weight: 600; }
+        .page-source { font-size: 9px; color: var(--text-muted); margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--border); }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--lcg-teal); font-size: 13px; font-weight: 600; text-decoration: none; margin-bottom: 16px; }
+        .back-link:hover { color: var(--lcg-dark); }
+        @media (max-width: 900px) {
+            .cover-page { padding: 40px 24px; }
+            .cover-title { font-size: 28px; }
+            .cover-meta { grid-template-columns: 1fr; gap: 12px; }
+            .document { max-width: 100%; box-shadow: none; }
+            .content-page { padding: 28px 20px !important; }
+            .section-title { font-size: 20px; }
+            p { font-size: 12px; }
+            .kpi-banner { grid-template-columns: repeat(2, 1fr); }
+            .kpi-value { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+<script>if(sessionStorage.getItem('auth')!=='ok'){window.location.href='../index.html';}</script>
+    <div class="document">
+        <div class="cover-page">
+            <div class="cover-logos">
+                <div class="cover-logo-lcg"><img src="../assets/logo-lcg-dark.png" alt="London Consulting Group"></div>
+                <div class="cover-logo-client"><img src="../assets/logo-aura.png" alt="Aura Desarrollos" style="filter:brightness(0) invert(1);"></div>
+            </div>
+            <div class="cover-content">
+                <div class="cover-label">Entrevista de Prediagn&oacute;stico</div>
+                <h1 class="cover-title">Finanzas y Tesorer&iacute;a:<br>Flujo, Controles y Gobernanza</h1>
+                <p class="cover-subtitle">La funci&oacute;n financiera opera &ldquo;a ciegas&rdquo;: sin presupuesto anticipado de proyectos, con urgencias de pago de millones despu&eacute;s de las 5 de la tarde, y con pr&eacute;stamos entre empresas filiales como mecanismo improvisado de rescate. La disciplina de tesorer&iacute;a existe, pero la gobernanza de obra&ndash;finanzas est&aacute; rota</p>
+                <div class="cover-divider"></div>
+                <div class="cover-meta">
+                    <div class="cover-meta-item"><div class="cover-meta-label">Cliente</div><div class="cover-meta-value">Aura Desarrollos</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fuente principal</div><div class="cover-meta-value">Brenda Luc&iacute;a Campillo Avalos, Jefe de Finanzas</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Fecha de entrevista</div><div class="cover-meta-value">20 abril 2026</div></div>
+                    <div class="cover-meta-item"><div class="cover-meta-label">Elabor&oacute;</div><div class="cover-meta-value">Alfredo Ch&aacute;vez &mdash; London Consulting Group</div></div>
+                </div>
+            </div>
+            <div class="cover-footer">
+                <span>London Consulting Group &copy; 2026</span>
+                <span>Confidencial &mdash; Uso interno LCG</span>
+            </div>
+        </div>
+        <div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 01</div>
+        <div class="section-title">Resumen Ejecutivo</div>
+    </div>
+    <p>La funci&oacute;n de Finanzas &mdash; conformada por dos personas para m&uacute;ltiples empresas del grupo &mdash; ejecuta cuentas por pagar y tesorer&iacute;a con disciplina t&eacute;cnica (manejo de FX, automatizaci&oacute;n Odoo&rarr;banca, precauci&oacute;n con intereses), pero opera sin presupuesto anticipado por proyecto, sin cronograma de desembolsos, y sin visibilidad del pipeline de requisiciones en Odoo. La tensi&oacute;n estructural entre la previsi&oacute;n financiera y la reactividad operativa se materializa en urgencias de pago de millones despu&eacute;s de las 5 de la tarde, con pr&eacute;stamos informales entre empresas filiales como mecanismo improvisado de rescate.</p>
+    <div class="kpi-banner">
+<div class="kpi-item"><div class="kpi-value red">$0</div><div class="kpi-label">Presupuesto anticipado recibido en Finanzas</div></div>
+<div class="kpi-item"><div class="kpi-value amber">2</div><div class="kpi-label">Personas para tesorer&iacute;a multi-empresa</div></div>
+<div class="kpi-item"><div class="kpi-value red">17:00</div><div class="kpi-label">Hora t&iacute;pica de urgencias de $1M+</div></div>
+<div class="kpi-item"><div class="kpi-value amber">$200-500K</div><div class="kpi-label">Reserva diaria defensiva (informal)</div></div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 02</div>
+        <div class="section-title">Finanzas sin Presupuesto Anticipado</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Sin presupuesto anticipado por proyecto</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El proceso descrito revela una brecha estructural de planeaci&oacute;n: Finanzas no recibe el presupuesto desglosado de los proyectos al inicio. &ldquo;A m&iacute; no me entregan un presupuesto anticipado de todo el proyecto. Nunca lo veo cuando se le da inicio a un proyecto.&rdquo; Hist&oacute;ricamente Finanzas no participaba en juntas de arranque; solo se enter&oacute; del alcance de un proyecto en la &uacute;ltima ocasi&oacute;n. Consistente con los hallazgos de Contralor&iacute;a (Nayeli), Planeaci&oacute;n Financiera (Joaqu&iacute;n) y Costos (Jorge Garc&iacute;a).</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Pre-presupuesto quincenal con sobreestimaci&oacute;n recurrente</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Karla (Gerente de Operaciones) env&iacute;a cada 15 d&iacute;as una proyecci&oacute;n de recursos necesarios. El proceso revela sobreestimaci&oacute;n sistem&aacute;tica. &ldquo;Ella luego sobre-sobre pone mucha cantidad. Pon&iacute;a 10 millones en la semana y solo ocupaba 3.&rdquo; Finanzas debe validar contra el ritmo real para no disponer cr&eacute;dito innecesario y pagar intereses en exceso, creando un ciclo reactivo en lugar de planeado.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Visibilidad solo hasta OC y factura, no a entregables</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Finanzas paga contra documento (OC + factura) sin verificaci&oacute;n independiente de entregables o avance f&iacute;sico. &ldquo;Solo vemos la orden de compra, la factura, y ya. Si para llegar a esa orden hay algo &mdash; que se entreg&oacute;, que se entregaron los metros cuadrados &mdash; se supone que toda esa revisi&oacute;n ya la hicieron antes.&rdquo; No hay segundo control financiero sobre cumplimiento contractual.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Paga 100% si obra olvida anotar porcentaje parcial</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El proceso descrito revela una debilidad en el control contra contrato: &ldquo;Si el proveedor sube la factura completa, nosotros la pagamos completa. Si ellos [obra] se les olvid&oacute; poner ese comentario [de porcentaje parcial] o no se fijaron, pagamos lo que est&eacute; ah&iacute;.&rdquo; No existe un segundo control automatizado que limite el pago al porcentaje contractual acordado.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 03</div>
+        <div class="section-title">La Urgencia Sist&eacute;mica de la Tarde</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Urgencias de $1M+ a las 17:00 sin aviso previo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">El flujo operativo concentra la presi&oacute;n financiera en la tarde. &ldquo;Me dicen a las 5 de la tarde que tengo que pagar esto. [...] Pagos urgentes de 2, 3 millones. Es muy precipitado.&rdquo; La urgencia amplifica el riesgo de error (no revisar bien, pasar cosas por alto) y genera dependencia de reservas defensivas discrecionales. Consistente con los hallazgos de Compras y Contralor&iacute;a.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Pagos despu&eacute;s de 17:30 no acreditan el mismo d&iacute;a</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Banorte cierra transferencias grandes a las 17:30; despu&eacute;s se genera comprobante pero el recurso llega al proveedor el d&iacute;a siguiente. &ldquo;Despu&eacute;s de 5:30 pagos muy grandes ya no caen. Te genera un comprobante, pero el dinero le cae al proveedor hasta el d&iacute;a siguiente.&rdquo; El pago urgente a las 17:00 frecuentemente falla en su objetivo operativo &mdash; se paga pero no se acredita.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Alta de cuentas bancarias toma 30&ndash;60 minutos</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Para proveedores nuevos se requieren 30 min (Banorte) a 60 min (Banregio) solo para dar de alta la cuenta antes de poder transferir. La urgencia operativa no contempla estos tiempos estructurales de la banca, generando fricci&oacute;n recurrente con proveedores de primera vez.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Finanzas ciega al pipeline de requisiciones</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Odoo muestra solo facturas &ldquo;listas para pagar&rdquo;, sin pipeline de requisiciones u &oacute;rdenes en proceso. &ldquo;Ellos pueden estar trabajando en otra orden de compra y yo todav&iacute;a no s&eacute; a qui&eacute;n le voy a pagar. El sistema solo me da las facturas ya listas, pero pueden avisarme a las 4&ndash;5 de la tarde que tengo que pagar esto.&rdquo; Brecha funcional del ERP para planeaci&oacute;n de tesorer&iacute;a.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 04</div>
+        <div class="section-title">Maniobras Informales de Rescate</div>
+    </div>
+    <div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Pr&eacute;stamos entre empresas filiales sin protocolo</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Cuando un proyecto no tiene recurso disponible y &ldquo;urge&rdquo; un pago, el proceso descrito recurre a pr&eacute;stamos intercompa&ntilde;&iacute;a como rescate informal. &ldquo;Trato de prestarle a otra empresa lo que se requiere. No es el deber ser, porque ellos debieron anticipar, pero yo s&iacute; hago ese tipo de maniobras porque tengo la posibilidad con las empresas que como manejo todas las empresas, pues tengo esa facilidad.&rdquo; Refleja gobernanza intercompa&ntilde;&iacute;a no formalizada y concentraci&oacute;n de criterio individual.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Reserva diaria defensiva de $200&ndash;500K sin pol&iacute;tica</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Finanzas mantiene un &ldquo;guardadito&rdquo; diario de $200&ndash;500K por encima de lo proyectado para absorber urgencias. &ldquo;Como siempre hemos trabajado as&iacute; malamente, yo pues como quiera me prevengo.&rdquo; Es un control compensatorio informal ante la falta de planeaci&oacute;n; cuando llega una urgencia de $1M a las 17:00, la reserva no alcanza y el flujo se rompe.</div>
+</div>
+<div class="finding-card finding-card">
+    <div class="finding-header">
+        <div class="finding-title">Priorizaci&oacute;n de pagos cambia a criterio de Operaciones en etapa final</div>
+        <div class="finding-dimension riesgo">Riesgo</div>
+    </div>
+    <div class="finding-body">Al inicio del proyecto se paga por vencimiento contractual; en etapa final, Finanzas cede la decisi&oacute;n a Karla. &ldquo;Ahorita ella me env&iacute;a una lista de lo que ella decide pagar, y ya se va pagando conforme a lo que ella en esta etapa [prioriza].&rdquo; La tesorer&iacute;a deja de operar bajo un criterio financiero estructurado y se alinea a necesidad operativa sin marco formal de priorizaci&oacute;n.</div>
+</div>
+<div class="finding-card finding-amber">
+    <div class="finding-header">
+        <div class="finding-title">Culpabilizaci&oacute;n a Finanzas por fallos aguas arriba</div>
+        <div class="finding-dimension proceso">Proceso</div>
+    </div>
+    <div class="finding-body">Cuando un proveedor suspende por falta de pago, se percibe como falla de Finanzas, pero el an&aacute;lisis revela que la causa est&aacute; en eslabones previos. &ldquo;Me dicen &lsquo;no suspendieron porque no pagaste&rsquo;. En realidad no es porque no hayan pagado; es porque nadie subi&oacute; la factura o no verific&oacute;.&rdquo; Finanzas absorbe reputacionalmente el costo de fallos de Compras/Obra.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 05</div>
+        <div class="section-title">Fortalezas de la Funci&oacute;n</div>
+    </div>
+    <div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Disciplina de disposici&oacute;n bancaria contra intereses</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Finanzas no dispone todo el cr&eacute;dito de entrada para minimizar intereses. &ldquo;Nosotros somos el &aacute;rea financiera, somos m&aacute;s precavidos para gastar menos intereses. Vamos pidiendo con lo que realmente se est&aacute; [ocupando].&rdquo; Evaluaci&oacute;n semanal del gasto real para dimensionar disposiciones. Criterio financiero s&oacute;lido aplicado individualmente.</div>
+</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Manejo operativo de FX para cr&eacute;ditos en d&oacute;lares</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">El cr&eacute;dito de Banregio para Pantale&oacute;n est&aacute; denominado en USD. Finanzas calcula a las 16:00 la necesidad del d&iacute;a, solicita conversi&oacute;n USD&rarr;MXN antes del cierre de venta de d&oacute;lares (~17:00), y evita disponer todo de entrada para aprovechar posibles subidas del tipo de cambio: &ldquo;A veces va subiendo el d&oacute;lar y se va compensando la p&eacute;rdida cambiaria.&rdquo;</div>
+</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Automatizaci&oacute;n Odoo&rarr;Banca v&iacute;a TXT</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Odoo genera un archivo TXT que se carga directamente en banca en l&iacute;nea (Banorte, Banregio) para ejecutar pagos. Elimina re-captura manual y reduce el riesgo de error transaccional. Mecanismo correcto de puente ERP&harr;banca.</div>
+</div>
+<div class="finding-card finding-green">
+    <div class="finding-header">
+        <div class="finding-title">Ciclo diario estructurado: requisici&oacute;n &rarr; autorizaci&oacute;n &rarr; pago</div>
+        <div class="finding-dimension fortaleza">Fortaleza</div>
+    </div>
+    <div class="finding-body">Flujo est&aacute;ndar: ma&ntilde;ana se preparan requisiciones de todas las empresas, al mediod&iacute;a se env&iacute;an a Nayeli (Contralor&iacute;a) para autorizaci&oacute;n, en la tarde se ejecutan pagos. Calendario base martes/jueves. La estructura existe; la urgencia la desarticula recurrentemente.</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026</div>
+</div><div class="content-page page-break">
+    <div class="page-header-logos">
+        <img class="logo-lcg-sm" src="../assets/logo-lcg-dark.png" alt="LCG">
+        <span class="header-divider">Confidencial</span>
+        <img class="logo-client-sm" src="../assets/logo-aura.png" alt="Aura">
+    </div>
+    <div class="section-header">
+        <div class="section-number">Secci&oacute;n 06</div>
+        <div class="section-title">Citas Seleccionadas</div>
+    </div>
+    <p>Las siguientes citas textuales reflejan perspectivas relevantes para el diagn&oacute;stico. Se presentan como evidencia constructiva para el an&aacute;lisis sist&eacute;mico. Las citas son para uso interno exclusivo de LCG y no ser&aacute;n atribuidas en la presentaci&oacute;n al cliente.</p>
+    <div class="verbatim">
+    <div class="verbatim-text">A m&iacute; no me entregan un presupuesto anticipado de todo el proyecto. Nunca lo veo cuando se le da inicio a un proyecto.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la ausencia de planeaci&oacute;n financiera anticipada</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Ella [Karla] luego sobre-sobre pone mucha cantidad. Pon&iacute;a 10 millones en la semana y solo ocupaba 3.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre el pre-presupuesto quincenal</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Nosotros somos el &aacute;rea financiera, somos m&aacute;s precavidos para gastar menos intereses. Vamos pidiendo con lo que realmente se est&aacute; [ocupando].</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la disciplina de disposici&oacute;n bancaria</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Trato de prestarle a otra empresa lo que se requiere. No es el deber ser, porque ellos debieron anticipar, pero yo s&iacute; hago ese tipo de maniobras.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre pr&eacute;stamos informales intercompa&ntilde;&iacute;a</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Pago urgentes de 2, 3 millones a las 5 de la tarde. Es muy precipitado.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la concentraci&oacute;n vespertina de urgencias</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Si el proveedor sube la factura completa, nosotros la pagamos completa. Si ellos [obra] se les olvid&oacute; poner ese comentario [de porcentaje parcial] o no se fijaron, pagamos lo que est&eacute; ah&iacute;.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la ausencia de segundo control</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Me dicen &lsquo;no suspendieron porque no pagaste&rsquo;. En realidad no es porque no hayan pagado; es porque nadie subi&oacute; la factura o no verific&oacute;.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la culpabilizaci&oacute;n aguas abajo</div>
+</div>
+<div class="verbatim">
+    <div class="verbatim-text">Yo no s&eacute; si en realidad es algo urgente o no. No estoy all&aacute; en la obra, no me sensibilizo con ese tema.</div>
+    <div class="verbatim-source">&mdash; Brenda Campillo, sobre la brecha de criterio operativo</div>
+</div>
+    <div class="page-source">Fuente: Entrevista de prediagn&oacute;stico &mdash; London Consulting Group &copy; 2026. Citas para uso interno, no atribuidas en presentaci&oacute;n.</div>
+</div>
+    </div>
+</body>
+</html>
