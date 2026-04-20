@@ -2364,6 +2364,144 @@ if(sessionStorage.getItem('auth')!=='ok'){window.location.href='index.html';}
     <div class="verbatim-source">&mdash; Joaqu&iacute;n Valdez, Jefe de Planeaci&oacute;n Financiera</div>
   </div>
 
+  <!-- FINDINGS ADICIONALES DE LA ENTREVISTA CON LA JEFE DE FINANZAS -->
+  <h3 class="sub-heading" style="margin-top:40px;">Hallazgos de Tesorer&iacute;a y Gesti&oacute;n del Flujo</h3>
+  <p class="narrative">
+    La entrevista con la Jefatura de Finanzas cierra el c&iacute;rculo de evidencia: las cuatro funciones financieras (Planeaci&oacute;n Financiera, Contralor&iacute;a, Costos y Tesorer&iacute;a) est&aacute;n excluidas del onboarding de proyectos. Ninguna recibe el presupuesto desglosado al inicio. Tesorer&iacute;a opera reactivamente contra un pre-presupuesto quincenal que sobreestima sistem&aacute;ticamente, generando fricciones operativas y riesgos de control.
+  </p>
+
+  <div class="finding-card warning">
+    <div class="finding-header"><div class="finding-icon">!</div><div class="finding-title">Pre-presupuesto quincenal con sobreestimaci&oacute;n sistem&aacute;tica (3x-4x)</div></div>
+    <p class="finding-text">Operaciones env&iacute;a proyecci&oacute;n quincenal de recursos, pero hay sobreestimaci&oacute;n recurrente: se proyectan $10M y se ejecutan $3M. Esto obliga a Tesorer&iacute;a a validar contra gasto real semana a semana para evitar disponer cr&eacute;dito innecesario y pagar intereses. Es un KPI de ineficiencia de planeaci&oacute;n con impacto financiero directo.</p>
+    <span class="finding-kpi amber">Ratio plan vs real: 3x-4x de sobreestimaci&oacute;n</span>
+  </div>
+
+  <div class="finding-card warning">
+    <div class="finding-header"><div class="finding-icon">!</div><div class="finding-title">Urgencias de pago despu&eacute;s de las 17:00 que no acreditan el mismo d&iacute;a</div></div>
+    <p class="finding-text">Patr&oacute;n operativo documentado: pagos urgentes de $1M-$3M se solicitan despu&eacute;s de las 17:00. Despu&eacute;s de las 17:30 la banca no acredita &mdash; se genera el comprobante pero el dinero llega al d&iacute;a siguiente. El esfuerzo de urgencia falla en su prop&oacute;sito operativo y amplifica riesgos de error por la prisa.</p>
+    <span class="finding-kpi amber">Urgencia ineficaz &mdash; efecto reputacional y operativo</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header"><div class="finding-icon">!</div><div class="finding-title">Pr&eacute;stamos informales entre empresas filiales como mecanismo de rescate</div></div>
+    <p class="finding-text">Cuando un proyecto no tiene recurso y hay urgencia, Tesorer&iacute;a presta desde otras empresas del grupo para cubrir. Estos movimientos transversales de caja operan sin protocolo formal, sin criterio documentado de tasas de inter&eacute;s entre partes relacionadas, y sin trazabilidad estructurada. Riesgo fiscal y de control interno relevante.</p>
+    <span class="finding-kpi red">Partes relacionadas sin protocolo formal</span>
+  </div>
+
+  <div class="finding-card critical">
+    <div class="finding-header"><div class="finding-icon">!</div><div class="finding-title">Pago por factura sin segundo control contra contrato/OC</div></div>
+    <p class="finding-text">Brecha de segregaci&oacute;n de funciones documentada: si Obra olvida anotar en Odoo que solo se paga un porcentaje parcial de la factura, Tesorer&iacute;a paga 100% contra lo facturado. No existe un control independiente que compare la factura contra el contrato o la OC aprobada antes de liberar el pago.</p>
+    <span class="finding-kpi red">Control de pago dependiente de anotaciones manuales en Odoo</span>
+  </div>
+
+  <div class="finding-card warning">
+    <div class="finding-header"><div class="finding-icon">+</div><div class="finding-title">Fortalezas reconocidas en la operaci&oacute;n de Tesorer&iacute;a</div></div>
+    <p class="finding-text">Hay base s&oacute;lida sobre la que construir: disciplina en gesti&oacute;n cambiaria (compra de divisas USD→MXN), automatizaci&oacute;n del flujo TXT Odoo→banca para pagos masivos, y prudencia en disposici&oacute;n de cr&eacute;dito para no generar intereses innecesarios. El equipo es reducido (2 personas) pero opera con disciplina transaccional.</p>
+    <span class="finding-kpi green">Base operativa con disciplina &mdash; falta el marco de gesti&oacute;n</span>
+  </div>
+
+  <!-- FLUJO DE VALOR FINANCIERO: CÓMO DEBERÍA SER VS CÓMO SE ROMPE -->
+  <h3 class="sub-heading" style="margin-top:40px;">El Ciclo de Valor Financiero &mdash; D&oacute;nde se Rompe</h3>
+  <p class="narrative">
+    El ciclo integrado de valor financiero en un desarrollador profesional conecta la planeaci&oacute;n del proyecto con el control de ejecuci&oacute;n y el cierre. En Aura, el ciclo est&aacute; interrumpido en m&uacute;ltiples puntos &mdash; las funciones financieras operan en silos, reactivamente, sin acceso a la informaci&oacute;n necesaria para agregar valor.
+  </p>
+
+  <div style="background:#F8FAFB; border:1px solid #E2E8F0; border-radius:12px; padding:28px; margin:24px 0;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+      <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#1E293B;">&#9654; Ciclo de Valor Financiero &mdash; Best Practice vs Realidad Aura</div>
+      <div style="font-size:10px; color:#64748B; background:#E2E8F0; border-radius:4px; padding:4px 10px; font-weight:600;">PIC &bull; EVM &bull; Business Partner Financiero</div>
+    </div>
+    <div style="font-size:11px; color:#DC2626; font-weight:600; margin-bottom:20px; letter-spacing:0.5px;">COMPARATIVA: CICLO INTEGRADO vs SILOS REACTIVOS</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
+
+      <!-- LEFT: Best Practice -->
+      <div style="border:2px solid #0D9488; border-radius:10px; overflow:hidden;">
+        <div style="background:#0D9488; color:white; padding:10px 16px; font-size:12px; font-weight:700; text-align:center; letter-spacing:1px;">C&Oacute;MO DEBER&Iacute;A FUNCIONAR</div>
+        <div style="display:grid; grid-template-columns:110px 1fr; gap:0;">
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Arranque</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">1. Kick-off financiero con PIC aprobado<br><span style="font-weight:400; font-size:12px; color:#64748B;">Finanzas, Contralor&iacute;a, Costos, Tesorer&iacute;a participan</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Planeaci&oacute;n</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">2. Programa de erogaciones semanal<br><span style="font-weight:400; font-size:12px; color:#64748B;">Vinculado al cronograma de obra &mdash; curva S financiera</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Control</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">3. Validaci&oacute;n cruzada factura vs contrato/OC<br><span style="font-weight:400; font-size:12px; color:#64748B;">Segregaci&oacute;n de funciones &mdash; 4 ojos antes de pagar</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Tesorer&iacute;a</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">4. Pagos programados con anticipaci&oacute;n<br><span style="font-weight:400; font-size:12px; color:#64748B;">Calendario de pagos alineado a cronograma</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-bottom:1px solid #99F6E4; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Seguimiento</div>
+          <div style="border-bottom:1px solid #99F6E4; padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">5. EVM con corte semanal<br><span style="font-weight:400; font-size:12px; color:#64748B;">SPI + CPI por proyecto &mdash; alertas autom&aacute;ticas</span></div>
+          </div>
+
+          <div style="background:#F0FDFA; border-right:1px solid #99F6E4; padding:8px 10px; font-size:12px; font-weight:700; color:#0D9488; display:flex; align-items:center;">Cierre</div>
+          <div style="padding:8px 12px; background:white;">
+            <div style="background:white; border:2px solid #0D9488; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#1E293B; text-align:center;">6. Cierre financiero con rentabilidad real<br><span style="font-weight:400; font-size:12px; color:#64748B;">Lecciones aprendidas al cat&aacute;logo de costos</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Aura hoy -->
+      <div style="border:2px solid #DC2626; border-radius:10px; overflow:hidden;">
+        <div style="background:#DC2626; color:white; padding:10px 16px; font-size:12px; font-weight:700; text-align:center; letter-spacing:1px;">D&Oacute;NDE SE ROMPE EN AURA</div>
+        <div style="display:grid; grid-template-columns:110px 1fr; gap:0;">
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Arranque</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin kick-off financiero<br><span style="font-weight:400; font-size:12px;">Finanzas, Contralor&iacute;a y Costos excluidos del onboarding del proyecto</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Planeaci&oacute;n</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Pre-presupuesto quincenal sobreestimado 3x-4x<br><span style="font-weight:400; font-size:12px;">Proyecta $10M, ejecuta $3M</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Control</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin validaci&oacute;n cruzada factura vs contrato<br><span style="font-weight:400; font-size:12px;">Se paga 100% contra factura aunque contrato diga otra cosa</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Tesorer&iacute;a</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Urgencias reactivas + pr&eacute;stamos filiales<br><span style="font-weight:400; font-size:12px;">Pagos $1-3M a las 17:00 que no acreditan + rescates intercompa&ntilde;&iacute;a sin protocolo</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-bottom:1px solid #FECACA; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Seguimiento</div>
+          <div style="border-bottom:1px solid #FECACA; padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin EVM ni KPIs financieros por proyecto<br><span style="font-weight:400; font-size:12px;">No hay comparaci&oacute;n presupuesto vs real durante ejecuci&oacute;n</span></div>
+          </div>
+
+          <div style="background:#FEF2F2; border-right:1px solid #FECACA; padding:8px 10px; font-size:12px; font-weight:700; color:#991B1B; display:flex; align-items:center;">Cierre</div>
+          <div style="padding:8px 12px; background:white;">
+            <div style="background:#FEF2F2; border:2px dashed #DC2626; border-radius:5px; padding:8px 10px; font-size:14px; font-weight:600; color:#991B1B; text-align:center;">&#10060; Sin cierre financiero de proyectos<br><span style="font-weight:400; font-size:12px;">PLA casi terminado y rentabilidad real desconocida</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="background:#FEF2F2; border:2px solid #DC2626; border-radius:8px; padding:14px 18px; margin-bottom:14px;">
+      <div style="font-size:13px; font-weight:700; color:#DC2626; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px;">Brecha: Lo que falta</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Las 4 funciones financieras operan en silos, reactivamente</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin PIC como l&iacute;nea base compartida entre proyecto y finanzas</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin segregaci&oacute;n de funciones en ciclo de pago</div>
+        <div style="font-size:13px; color:#1E293B;"><strong style="color:#DC2626;">&#9888;</strong> Sin cierre financiero &mdash; no hay aprendizaje ni retroalimentaci&oacute;n</div>
+      </div>
+    </div>
+
+    <div style="background:#F0FDF4; border-left:3px solid #16A34A; border-radius:6px; padding:12px 14px; color:#1E293B; font-size:13px;"><strong style="color:#16A34A;">&#10003; Oportunidad:</strong> Integrar las 4 funciones financieras en un ciclo &uacute;nico: kick-off financiero con PIC aprobado &rarr; programa de erogaciones &rarr; validaci&oacute;n cruzada de pagos &rarr; calendario de tesorer&iacute;a &rarr; EVM semanal &rarr; cierre con lecciones aprendidas. Incorporar business partner financiero que conecte con operaciones desde el inicio.</div>
+  </div>
+
   <!-- Sección de detalle financiero por proyecto removida — se preparará documento separado -->
 
   <!-- PLACEHOLDER para enlace a documento financiero detallado -->
